@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Syllabus - Vietnamese for Adult Beginners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .syllabus-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+        }
+        
+        .syllabus-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .syllabus-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .syllabus-header h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        .course-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .meta-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .meta-item strong {
+            color: #333;
+        }
+        
+        .section {
+            margin: 40px 0;
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin: 25px 0 10px 0;
+        }
+        
+        .section h4 {
+            color: #495057;
+            font-size: 1.1rem;
+            margin: 20px 0 10px 0;
+        }
+        
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .objectives-list > li {
+            margin: 20px 0;
+            padding-left: 0;
+        }
+        
+        .objectives-list > li strong {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .objectives-list ul {
+            margin-top: 10px;
+            padding-left: 25px;
+        }
+        
+        .objectives-list ul li {
+            margin: 5px 0;
+            color: #555;
+        }
+        
+        .phase-box {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .phase-box h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .weekly-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .weekly-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .weekly-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .weekly-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .weekly-table tr:hover {
+            background: #e8f4f8;
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .methodology-item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .methodology-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .lesson-structure {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .lesson-structure ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .lesson-structure li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0e4c1;
+        }
+        
+        .lesson-structure li:last-child {
+            border-bottom: none;
+        }
+        
+        .lesson-structure li strong {
+            color: #e67e22;
+            font-weight: 600;
+        }
+        
+        .assessment-box {
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #3498db;
+        }
+        
+        .assessment-box h4 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .grading-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .grading-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .grading-item span:first-child {
+            color: #495057;
+        }
+        
+        .grading-item span:last-child {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: tip-counter;
+        }
+        
+        .tips-list li {
+            counter-increment: tip-counter;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .tips-list li::before {
+            content: counter(tip-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--primary-color);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .tips-list li strong {
+            color: var(--primary-color);
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #6c757d;
+        }
+        
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .print-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            .syllabus-container {
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .syllabus-header h1 {
+                font-size: 2rem;
+            }
+            
+            .syllabus-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .course-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .print-button {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../lectures.html">Lectures</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+                <li><a href="../visual.html">Visual Learning</a></li>
+                <li><a href="../course.html" class="active">12-Week Course</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="../index.html">Home</a> / 
+            <a href="../course.html">12-Week Course</a> / 
+            <span>Course Syllabus</span>
+        </div>
+    </div>
+
+    <div class="syllabus-container">
+        <div class="syllabus-header">
+            <h1>Vietnamese for Adult Beginners</h1>
+            <h2>12-Week Comprehensive Course</h2>
+        </div>
+
+        <section class="section">
+            <h2><i class="fas fa-info-circle"></i> Course Overview</h2>
+            
+            <div class="course-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div><strong>Duration:</strong> 12 weeks</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <div><strong>Target:</strong> Adult beginners (18+)</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <div><strong>Schedule:</strong> 2 hrs/week + homework</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-hourglass-half"></i>
+                    <div><strong>Total Hours:</strong> 24 classroom + 24-36 study</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-signal"></i>
+                    <div><strong>Level:</strong> Complete Beginner (A1)</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-user-friends"></i>
+                    <div><strong>Class Size:</strong> 8-15 students (optimal)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-book"></i> Course Description</h2>
+            <p>This comprehensive beginner-level Vietnamese course is designed specifically for adult learners with no prior knowledge of the language. The course emphasizes practical communication skills, cultural understanding, and a solid foundation in Vietnamese pronunciation, grammar, and vocabulary. By the end of 12 weeks, students will be able to handle basic social interactions, introduce themselves, navigate daily situations, and hold simple conversations in Vietnamese.</p>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
+            <p>By the end of this course, students will be able to:</p>
+            
+            <ul class="objectives-list">
+                <li>
+                    <strong>1. Speaking & Pronunciation</strong>
+                    <ul>
+                        <li>Produce all six Vietnamese tones accurately</li>
+                        <li>Pronounce Vietnamese consonants and vowels correctly</li>
+                        <li>Engage in basic conversations on familiar topics</li>
+                        <li>Ask and answer simple questions</li>
+                        <li>Express basic needs and preferences</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>2. Listening Comprehension</strong>
+                    <ul>
+                        <li>Understand simple greetings and introductions</li>
+                        <li>Comprehend basic directions and instructions</li>
+                        <li>Follow simple conversations at slow, clear pace</li>
+                        <li>Recognize numbers, times, and dates when spoken</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>3. Reading</strong>
+                    <ul>
+                        <li>Read and understand simple texts with familiar vocabulary</li>
+                        <li>Recognize common signs and notices</li>
+                        <li>Read menus and basic transportation information</li>
+                        <li>Understand simple messages and notes</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>4. Writing</strong>
+                    <ul>
+                        <li>Write simple sentences about themselves and daily activities</li>
+                        <li>Fill out basic forms with personal information</li>
+                        <li>Write short messages and notes</li>
+                        <li>Use Vietnamese keyboard/typing system</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>5. Cultural Competence</strong>
+                    <ul>
+                        <li>Understand basic Vietnamese cultural norms and etiquette</li>
+                        <li>Use appropriate forms of address and politeness levels</li>
+                        <li>Recognize important Vietnamese holidays and customs</li>
+                        <li>Navigate basic social situations appropriately</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-sitemap"></i> Course Structure</h2>
+            
+            <div class="phase-box">
+                <h4>Phase 1: Foundation (Weeks 1-4)</h4>
+                <p>Focus on pronunciation, basic greetings, and essential survival Vietnamese</p>
+            </div>
+            
+            <div class="phase-box">
+                <h4>Phase 2: Building Blocks (Weeks 5-8)</h4>
+                <p>Develop core vocabulary and grammar for daily situations</p>
+            </div>
+            
+            <div class="phase-box">
+                <h4>Phase 3: Communication (Weeks 9-12)</h4>
+                <p>Practice conversational skills and cultural integration</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-list-ol"></i> Weekly Breakdown</h2>
+            
+            <table class="weekly-table">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Topic</th>
+                        <th>Key Focus</th>
+                        <th>Vocabulary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td>Introduction & Tones</td>
+                        <td>Pronunciation foundation</td>
+                        <td>20-30 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td>Greetings & Self-Introduction</td>
+                        <td>Basic social interaction</td>
+                        <td>30-40 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td>Family & Relationships</td>
+                        <td>Personal information</td>
+                        <td>40-50 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td>Numbers, Time & Calendar</td>
+                        <td>Time expressions</td>
+                        <td>40-50 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td>Food & Dining</td>
+                        <td>Restaurant survival</td>
+                        <td>50-60 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6</strong></td>
+                        <td>Shopping & Money</td>
+                        <td>Market interactions</td>
+                        <td>50-60 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7</strong></td>
+                        <td>Directions & Transportation</td>
+                        <td>Getting around</td>
+                        <td>50-60 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8</strong></td>
+                        <td>Daily Routines & Activities</td>
+                        <td>Describing your day</td>
+                        <td>60-70 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9</strong></td>
+                        <td>Health & Body Parts</td>
+                        <td>Medical basics</td>
+                        <td>50-60 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10</strong></td>
+                        <td>Weather & Seasons</td>
+                        <td>Describing conditions</td>
+                        <td>40-50 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11</strong></td>
+                        <td>Hobbies & Interests</td>
+                        <td>Personal preferences</td>
+                        <td>50-60 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>12</strong></td>
+                        <td>Review & Integration</td>
+                        <td>Comprehensive practice</td>
+                        <td>Review all</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box">
+                <p><strong>Total Active Vocabulary:</strong> 500-600 words</p>
+                <p><strong>Recognition Vocabulary:</strong> 700-800 words</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-chalkboard-teacher"></i> Teaching Methodology</h2>
+            
+            <div class="methodology-grid">
+                <div class="methodology-item">
+                    <strong>Communicative Approach</strong>
+                    <p>Focus on practical use and real-world application</p>
+                </div>
+                <div class="methodology-item">
+                    <strong>Task-Based Learning</strong>
+                    <p>Students learn through completing meaningful tasks</p>
+                </div>
+                <div class="methodology-item">
+                    <strong>Integrated Skills</strong>
+                    <p>Speaking, listening, reading, and writing developed together</p>
+                </div>
+                <div class="methodology-item">
+                    <strong>Cultural Context</strong>
+                    <p>Language taught within cultural framework</p>
+                </div>
+                <div class="methodology-item">
+                    <strong>Spaced Repetition</strong>
+                    <p>Regular review of previously learned material</p>
+                </div>
+                <div class="methodology-item">
+                    <strong>Interactive Practice</strong>
+                    <p>Pair work, group activities, role-plays</p>
+                </div>
+                <div class="methodology-item">
+                    <strong>Differentiation</strong>
+                    <p>Activities adapted for various learning speeds</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-clock"></i> Lesson Structure (2-hour session)</h2>
+            
+            <div class="lesson-structure">
+                <p>Each lesson follows this general structure:</p>
+                <ul>
+                    <li><strong>Warm-up & Review (15 min):</strong> Recap previous lesson, activate prior knowledge</li>
+                    <li><strong>Presentation (20 min):</strong> Introduce new vocabulary and structures</li>
+                    <li><strong>Pronunciation Practice (15 min):</strong> Focused tone and sound practice</li>
+                    <li><strong>Guided Practice (25 min):</strong> Teacher-led activities, controlled practice</li>
+                    <li><strong>Communicative Practice (30 min):</strong> Pair/group work, role-plays, games</li>
+                    <li><strong>Application Activity (10 min):</strong> Real-world task or project work</li>
+                    <li><strong>Wrap-up & Homework (5 min):</strong> Summarize key points, assign homework</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-chart-line"></i> Assessment Methods</h2>
+            
+            <h3>Formative Assessment (Ongoing)</h3>
+            <ul>
+                <li>Weekly vocabulary quizzes (5-10 minutes)</li>
+                <li>Oral participation and engagement</li>
+                <li>Homework completion and quality</li>
+                <li>Pair/group activity performance</li>
+                <li>Self-assessment checklists</li>
+            </ul>
+            
+            <h3>Summative Assessment</h3>
+            
+            <div class="assessment-box">
+                <h4><i class="fas fa-check-circle"></i> Week 4: Mid-term Progress Check</h4>
+                <ul>
+                    <li>Oral interview (greetings, self-introduction, basic Q&A)</li>
+                    <li>Written vocabulary test</li>
+                    <li>Listening comprehension exercise</li>
+                </ul>
+            </div>
+            
+            <div class="assessment-box">
+                <h4><i class="fas fa-check-circle"></i> Week 8: Progress Evaluation</h4>
+                <ul>
+                    <li>Short conversation simulation</li>
+                    <li>Reading comprehension</li>
+                    <li>Writing task (describe daily routine)</li>
+                </ul>
+            </div>
+            
+            <div class="assessment-box">
+                <h4><i class="fas fa-trophy"></i> Week 12: Final Project & Assessment</h4>
+                <ul>
+                    <li>5-minute oral presentation (introduce yourself, family, interests)</li>
+                    <li>Written portfolio (collection of best work)</li>
+                    <li>Comprehensive listening and reading test</li>
+                    <li>Self-reflection essay</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-percentage"></i> Grading Breakdown</h2>
+            
+            <div class="grading-breakdown">
+                <div class="grading-item">
+                    <span>Class Participation & Engagement</span>
+                    <span>20%</span>
+                </div>
+                <div class="grading-item">
+                    <span>Weekly Homework & Quizzes</span>
+                    <span>25%</span>
+                </div>
+                <div class="grading-item">
+                    <span>Mid-term Assessment (Week 4)</span>
+                    <span>15%</span>
+                </div>
+                <div class="grading-item">
+                    <span>Progress Evaluation (Week 8)</span>
+                    <span>15%</span>
+                </div>
+                <div class="grading-item">
+                    <span>Final Project & Assessment</span>
+                    <span>25%</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-book-reader"></i> Required Materials</h2>
+            
+            <h3>For Students:</h3>
+            <ul>
+                <li>Course workbook (provided)</li>
+                <li>Vietnamese-English dictionary (print or app)</li>
+                <li>Notebook for vocabulary and notes</li>
+                <li>Audio recordings access (via course website)</li>
+                <li>Online resources access</li>
+            </ul>
+            
+            <h3>For Instructor:</h3>
+            <ul>
+                <li>Teacher's guide with lesson plans</li>
+                <li>Visual aids and flashcards</li>
+                <li>Audio/video equipment</li>
+                <li>Whiteboard/markers</li>
+                <li>Supplementary materials library</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-laptop"></i> Recommended Resources</h2>
+            
+            <h3>Textbooks & References</h3>
+            <ul>
+                <li>Course-created materials (primary resource)</li>
+                <li>Vietnamese-English dictionary</li>
+                <li>Tone practice audio files</li>
+            </ul>
+            
+            <h3>Digital Resources</h3>
+            <ul>
+                <li>Learn Vietnamese website (course website)</li>
+                <li>Online flashcard system (Anki, Quizlet)</li>
+                <li>Vietnamese keyboard app</li>
+                <li>Language exchange platforms</li>
+            </ul>
+            
+            <h3>Cultural Resources</h3>
+            <ul>
+                <li>Vietnamese music playlists</li>
+                <li>Vietnamese cooking videos</li>
+                <li>Vietnamese film recommendations (with subtitles)</li>
+                <li>Vietnamese news simplified for learners</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-home"></i> Homework Expectations</h2>
+            <p>Students should expect 1-2 hours of homework per week:</p>
+            <ul>
+                <li><strong>Daily Practice (10-15 min):</strong> Tone drills, vocabulary review using flashcards</li>
+                <li><strong>Weekly Assignments (30-45 min):</strong> Written exercises, listening practice</li>
+                <li><strong>Speaking Practice (15-20 min):</strong> Record yourself, language exchange</li>
+                <li><strong>Cultural Exploration (20-30 min):</strong> Watch videos, read about Vietnam, try recipes</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-globe-asia"></i> Cultural Components</h2>
+            <p>Each week includes cultural insights:</p>
+            <ul>
+                <li>Vietnamese addressing customs and honorifics</li>
+                <li>Holiday celebrations (Tết, Mid-Autumn Festival)</li>
+                <li>Food culture and dining etiquette</li>
+                <li>Family structures and relationships</li>
+                <li>Business and social etiquette</li>
+                <li>Regional differences (Northern vs. Southern Vietnamese)</li>
+                <li>Important historical and cultural contexts</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-star"></i> Success Tips for Students</h2>
+            
+            <ol class="tips-list">
+                <li><strong>Practice Daily:</strong> Even 10 minutes daily is better than 2 hours once a week</li>
+                <li><strong>Don't Fear Mistakes:</strong> Mistakes are essential to learning</li>
+                <li><strong>Use Resources:</strong> Review audio files, use apps, practice with native speakers</li>
+                <li><strong>Immerse Yourself:</strong> Listen to Vietnamese music, watch videos, try cooking</li>
+                <li><strong>Be Patient with Tones:</strong> Tone mastery takes time - keep practicing!</li>
+                <li><strong>Connect with Culture:</strong> Understanding culture helps language make sense</li>
+                <li><strong>Find a Practice Partner:</strong> Study with classmates outside of class</li>
+                <li><strong>Set Personal Goals:</strong> Track your progress, celebrate small wins</li>
+            </ol>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Expected Outcomes</h2>
+            <p>By Week 12, students should be able to:</p>
+            <ul>
+                <li>Introduce themselves and others confidently</li>
+                <li>Handle common daily situations (ordering food, shopping, asking directions)</li>
+                <li>Have basic conversations about familiar topics</li>
+                <li>Understand slow, clear speech on familiar topics</li>
+                <li>Read simple texts with familiar vocabulary</li>
+                <li>Write simple messages and descriptions</li>
+                <li>Demonstrate cultural awareness in interactions</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-forward"></i> Post-Course Recommendations</h2>
+            <p>To continue learning after this course:</p>
+            <ol>
+                <li><strong>Intermediate Vietnamese Course</strong> (if available)</li>
+                <li><strong>Language Exchange Partners:</strong> Find Vietnamese conversation partners</li>
+                <li><strong>Self-Study Resources:</strong> Continue with online courses and apps</li>
+                <li><strong>Cultural Immersion:</strong> Visit Vietnamese restaurants, cultural events</li>
+                <li><strong>Media Consumption:</strong> Vietnamese movies, TV shows, podcasts</li>
+                <li><strong>Online Communities:</strong> Join Vietnamese learning forums and groups</li>
+                <li><strong>Travel:</strong> Plan a trip to Vietnam to practice</li>
+            </ol>
+        </section>
+
+        <div class="info-box">
+            <p><strong>Note:</strong> This syllabus is subject to adjustment based on class needs and progress. Students will be notified of any changes in advance.</p>
+            <p><strong>Version:</strong> 1.0 | <strong>Last Updated:</strong> March 2026</p>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Syllabus
+    </button>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

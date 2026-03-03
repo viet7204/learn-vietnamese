@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3: Family & Relationships | Tuần 3: Gia Đình & Quan Hệ</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .language-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e74c3c;
+            background: white;
+            padding: 0;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            background: white;
+            color: #555;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tab-button:hover {
+            background: #f8f9fa;
+        }
+        
+        .tab-button.active {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #e74c3c;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .objectives-list, .vocab-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .objectives-list li {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .objectives-list li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .vocab-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .vocab-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .vocab-item strong {
+            color: #e74c3c;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .activity-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .activity-box h4 {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+        }
+        
+        .time-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .lesson-structure {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .lesson-step {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .lesson-step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .note-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .note-box strong {
+            color: #856404;
+        }
+        
+        .materials-checklist {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .materials-checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .materials-checklist li {
+            padding: 8px 0;
+        }
+        
+        .materials-checklist li:before {
+            content: "☐ ";
+            margin-right: 10px;
+            font-size: 18px;
+            color: #667eea;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .print-button:hover {
+            transform: scale(1.05);
+        }
+        
+        @media print {
+            .language-tabs, .print-button { display: none; }
+            .tab-content { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Week 3: Family & Relationships</h1>
+        <p>Tuần 3: Gia Đình & Quan Hệ</p>
+        <p style="margin-top: 10px; font-size: 14px;">Adult Beginners Course | Khóa Học Cho Người Lớn Bắt Đầu</p>
+    </div>
+
+    <div class="container">
+        <div class="language-tabs">
+            <button class="tab-button active" onclick="switchLanguage('english')">
+                <i class="fas fa-language"></i> English
+            </button>
+            <button class="tab-button" onclick="switchLanguage('vietnamese')">
+                <i class="fas fa-language"></i> Tiếng Việt
+            </button>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <div id="english-content" class="tab-content active">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
+                <p>By the end of this lesson, students will be able to:</p>
+                <ul class="objectives-list">
+                    <li>Name immediate family members in Vietnamese</li>
+                    <li>Describe their family structure and size</li>
+                    <li>Use possessive structures (của, của tôi)</li>
+                    <li>Count family members using classifiers</li>
+                    <li>Understand basic Vietnamese kinship terms</li>
+                    <li>Talk about marital status</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Vocabulary (40-50 words)</h2>
+                
+                <h3>Family Members</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Gia đình</strong><p>Family</p></div>
+                    <div class="vocab-item"><strong>Bố/Ba</strong><p>Father</p></div>
+                    <div class="vocab-item"><strong>Mẹ/Ma</strong><p>Mother</p></div>
+                    <div class="vocab-item"><strong>Anh trai</strong><p>Older brother</p></div>
+                    <div class="vocab-item"><strong>Chị gái</strong><p>Older sister</p></div>
+                    <div class="vocab-item"><strong>Em trai</strong><p>Younger brother</p></div>
+                    <div class="vocab-item"><strong>Em gái</strong><p>Younger sister</p></div>
+                    <div class="vocab-item"><strong>Con trai</strong><p>Son</p></div>
+                    <div class="vocab-item"><strong>Con gái</strong><p>Daughter</p></div>
+                    <div class="vocab-item"><strong>Ông</strong><p>Grandfather</p></div>
+                    <div class="vocab-item"><strong>Bà</strong><p>Grandmother</p></div>
+                    <div class="vocab-item"><strong>Cô</strong><p>Aunt (father's younger sister)</p></div>
+                    <div class="vocab-item"><strong>Chú</strong><p>Uncle (father's younger brother)</p></div>
+                    <div class="vocab-item"><strong>Dì</strong><p>Aunt (mother's younger sister)</p></div>
+                    <div class="vocab-item"><strong>Cậu</strong><p>Uncle (mother's younger brother)</p></div>
+                </div>
+
+                <h3>Relationships</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Vợ</strong><p>Wife</p></div>
+                    <div class="vocab-item"><strong>Chồng</strong><p>Husband</p></div>
+                    <div class="vocab-item"><strong>Bạn</strong><p>Friend</p></div>
+                    <div class="vocab-item"><strong>Người yêu</strong><p>Boyfriend/Girlfriend</p></div>
+                </div>
+
+                <h3>Descriptors</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Lớn</strong><p>Big/Old</p></div>
+                    <div class="vocab-item"><strong>Nhỏ</strong><p>Small/Young</p></div>
+                    <div class="vocab-item"><strong>Của</strong><p>Of (possessive)</p></div>
+                    <div class="vocab-item"><strong>Có</strong><p>Have/Has</p></div>
+                    <div class="vocab-item"><strong>Người</strong><p>Person (classifier)</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Grammar Focus</h2>
+                
+                <h3>1. Possessive Structure</h3>
+                <ul>
+                    <li>Của + pronoun: của tôi (my/mine), của bạn (your/yours)</li>
+                    <li>Direct structure: gia đình tôi (my family)</li>
+                </ul>
+
+                <h3>2. "Có" (to have)</h3>
+                <ul>
+                    <li>Tôi có hai em gái (I have two younger sisters)</li>
+                    <li>Bạn có anh trai không? (Do you have an older brother?)</li>
+                </ul>
+
+                <h3>3. Classifiers</h3>
+                <ul>
+                    <li>Người (for people): ba người (three people)</li>
+                    <li>Classifier goes between number and noun</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Lesson Plan (120 minutes)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Warm-up & Review</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-users"></i> Activity: "Introduction Speed Round"</h4>
+                            <ul>
+                                <li>Students stand in two lines facing each other</li>
+                                <li>Each student introduces themselves to person opposite</li>
+                                <li>After 30 seconds, one line shifts over</li>
+                                <li>Repeat 5 times</li>
+                            </ul>
+                        </div>
+                        <p><strong>Vocabulary Quiz:</strong> Quick 5-minute quiz on Weeks 1-2 vocabulary (20 items)</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Presentation: Family Vocabulary</h3>
+                            </div>
+                            <span class="time-badge">20 min</span>
+                        </div>
+                        
+                        <p><strong>Visual Introduction:</strong> Display family tree on board/screen</p>
+                        
+                        <h4>Introduce Immediate Family First:</h4>
+                        <ul>
+                            <li>Bố (father)</li>
+                            <li>Mẹ (mother)</li>
+                            <li>Anh trai / Chị gái (older siblings)</li>
+                            <li>Em trai / Em gái (younger siblings)</li>
+                        </ul>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-lightbulb"></i> Key Teaching Point:</strong>
+                            Vietnamese distinguishes between older vs. younger siblings (not just "brother/sister"). Age hierarchy is very important in Vietnamese culture.
+                        </div>
+
+                        <h4>Model Sentences:</h4>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p style="margin: 5px 0;"><strong>Gia đình tôi có bốn người.</strong></p>
+                            <p style="margin: 5px 0; font-style: italic;">(My family has four people.)</p>
+                            <p style="margin: 5px 0; margin-top: 15px;"><strong>Tôi có một anh trai và một em gái.</strong></p>
+                            <p style="margin: 5px 0; font-style: italic;">(I have one older brother and one younger sister.)</p>
+                            <p style="margin: 5px 0; margin-top: 15px;"><strong>Bố tôi tên là [name].</strong></p>
+                            <p style="margin: 5px 0; font-style: italic;">(My father's name is [name].)</p>
+                        </div>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-globe"></i> Cultural Note:</strong>
+                            Vietnamese family structures are often extended family living together or very close by. Family is central to Vietnamese culture.
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Pronunciation Practice</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: "Family Member Drill"</h4>
+                            <ul>
+                                <li>Teacher models each family term</li>
+                                <li>Students repeat chorally (3 times each)</li>
+                                <li>Special attention to: Gia đình, Anh trai, Chị gái</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "Older vs. Younger"</h4>
+                            <p>Practice distinguishing:</p>
+                            <ul>
+                                <li>Anh trai (older brother) vs. Em trai (younger brother)</li>
+                                <li>Chị gái (older sister) vs. Em gái (younger sister)</li>
+                            </ul>
+                            <p>Pair practice: Student A says one, Student B identifies "older" or "younger"</p>
+                        </div>
+
+                        <p><strong>Tricky Sounds:</strong> "Chị" (practice the "ch" sound), "Gái" (proper tone), "Của" (the ư vowel sound)</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Guided Practice: Describing Your Family</h3>
+                            </div>
+                            <span class="time-badge">25 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: "Family Tree Drawing"</h4>
+                            <ul>
+                                <li>Provide blank family tree template</li>
+                                <li>Students fill in with their own family (can use English names)</li>
+                                <li>Label each person in Vietnamese (bố, mẹ, etc.)</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "My Family Composition"</h4>
+                            <p>Teach structure: <strong>Gia đình tôi có [số người] người</strong></p>
+                            <ul>
+                                <li>Students write their sentence</li>
+                                <li>Practice saying it aloud</li>
+                                <li>Teacher circulates, corrects</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: "Family Members I Have"</h4>
+                            <p>Teach: <strong>Tôi có [number] [family member]</strong></p>
+                            <p>Example sentences:</p>
+                            <ul>
+                                <li>Tôi có một anh trai.</li>
+                                <li>Tôi có một em gái.</li>
+                                <li>Tôi không có em trai.</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 4: "Possessive Practice"</h4>
+                            <p>Practice: của tôi (my/mine)</p>
+                            <ul>
+                                <li>Gia đình của tôi (my family)</li>
+                                <li>Bố của tôi (my father)</li>
+                                <li>Em gái của tôi (my younger sister)</li>
+                            </ul>
+                            <p><em>Note: Often "của" is dropped: gia đình tôi</em></p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Communicative Practice: Family Information Exchange</h3>
+                            </div>
+                            <span class="time-badge">30 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: "Family Size Survey"</h4>
+                            <ul>
+                                <li>Students walk around class</li>
+                                <li>Ask 5 classmates: "Gia đình bạn có mấy người?" (How many people in your family?)</li>
+                                <li>Record answers</li>
+                                <li>Calculate class average</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "Family Interviews"</h4>
+                            <p>Pair students, practice Q&A:</p>
+                            <ul>
+                                <li>Q: Bạn có anh trai không? (Do you have older brother?)</li>
+                                <li>A: Có, tôi có một anh trai. / Không, tôi không có anh trai.</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: "Family Photo Share"</h4>
+                            <ul>
+                                <li>Students bring family photo (or describe from memory)</li>
+                                <li>In small groups (3-4 people)</li>
+                                <li>Show photo and describe: "Đây là gia đình tôi." "Đây là bố tôi."</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 4: "Find Someone Who..."</h4>
+                            <p>Bingo-style worksheet:</p>
+                            <ul>
+                                <li>Find someone who has an older brother</li>
+                                <li>Find someone who has two younger sisters</li>
+                                <li>Find someone who is an only child</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Application Activity: Family Presentations</h3>
+                            </div>
+                            <span class="time-badge">10 min</span>
+                        </div>
+                        
+                        <p><strong>Activity: "Meet My Family"</strong></p>
+                        <p>Each student presents their family to the class (1-2 minutes)</p>
+                        
+                        <h4>Required elements:</h4>
+                        <ul>
+                            <li>Family size: Gia đình tôi có ___ người</li>
+                            <li>Family members: Tôi có...</li>
+                            <li>At least 3 family member descriptions</li>
+                            <li>Use possessive structure at least once</li>
+                        </ul>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Wrap-up & Homework</h3>
+                            </div>
+                            <span class="time-badge">5 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Review Game: "Family Member Popcorn"</h4>
+                            <ul>
+                                <li>Teacher calls out English family term</li>
+                                <li>Student called stands and says Vietnamese term</li>
+                                <li>That student then says another English term</li>
+                                <li>Fast pace!</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Next Week Preview:</strong> Numbers, Time & Calendar - we'll learn to tell time and talk about schedules!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Assessment</h2>
+                
+                <h3>Formative Assessment</h3>
+                <ul>
+                    <li>Vocabulary quiz (Week 1-2): 5-10 minutes</li>
+                    <li>Monitor pronunciation during drills</li>
+                    <li>Check family tree accuracy</li>
+                    <li>Observe interview interactions</li>
+                    <li>Note presentation completeness</li>
+                </ul>
+
+                <h3>Exit Ticket</h3>
+                <p>Each student must tell teacher:</p>
+                <ul>
+                    <li>How many people in their family (Vietnamese)</li>
+                    <li>One family member they have (Vietnamese)</li>
+                    <li>Say goodbye!</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Materials Needed</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>Week 1-2 vocabulary quiz (printed)</li>
+                        <li>Family tree templates (blank)</li>
+                        <li>Example family tree (teacher's)</li>
+                        <li>Family vocabulary flashcards (large, for class)</li>
+                        <li>Audio files for family terms</li>
+                        <li>"Find Someone Who" worksheets</li>
+                        <li>Interview question cards</li>
+                        <li>Presentation checklist</li>
+                        <li>Week 3 homework assignment sheets</li>
+                        <li>Cultural reading handout</li>
+                        <li>Week 3 audio files (for students)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Homework</h2>
+                
+                <h3>1. Family Description Essay (30 min)</h3>
+                <ul>
+                    <li>Write 10-12 sentences about your family in Vietnamese</li>
+                    <li>Include: family size, each member, their names, ages (optional)</li>
+                    <li>Use possessive structures</li>
+                    <li>Bring to class for peer review</li>
+                </ul>
+
+                <h3>2. Vocabulary Practice (20 min)</h3>
+                <ul>
+                    <li>Create flashcards for all Week 3 family vocabulary</li>
+                    <li>Practice with app or physical cards</li>
+                    <li>Record yourself saying each term</li>
+                </ul>
+
+                <h3>3. Family Tree Poster (30 min)</h3>
+                <ul>
+                    <li>Create a detailed family tree with Vietnamese labels</li>
+                    <li>Include photos or drawings</li>
+                    <li>Add ages, occupations (in English if needed)</li>
+                    <li>Be creative! This will be displayed in class</li>
+                </ul>
+
+                <h3>4. Listening Practice (15 min)</h3>
+                <ul>
+                    <li>Listen to Week 3 audio files (3 times)</li>
+                    <li>Try to write what you hear</li>
+                </ul>
+
+                <h3>5. Cultural Reading (20 min)</h3>
+                <ul>
+                    <li>Read: "Vietnamese Family Structure and Values"</li>
+                    <li>Write: Compare Vietnamese family culture to your own (3-5 sentences in English)</li>
+                </ul>
+
+                <h3>6. Preparation</h3>
+                <ul>
+                    <li>Review Weeks 1-3 vocabulary</li>
+                    <li>Week 4 quiz will cover all three weeks!</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Teacher Notes</h2>
+                
+                <h3>Key Teaching Points</h3>
+                <ul>
+                    <li>Age Hierarchy is Crucial: Vietnamese distinguishes older/younger siblings because age determines pronouns used</li>
+                    <li>Extended Family: Vietnamese families are often large and close. Don't assume nuclear family structure</li>
+                    <li>Pronunciation Challenges: "Chị" and "gái" - practice extensively; "Của" - the ư sound is difficult</li>
+                </ul>
+
+                <h3>Common Errors</h3>
+                <ul>
+                    <li>Confusing anh trai and em trai (older vs. younger brother)</li>
+                    <li>Forgetting classifiers with numbers</li>
+                    <li>Mispronouncing "gia đình"</li>
+                </ul>
+
+                <h3>Differentiation</h3>
+                <ul>
+                    <li><strong>Extra Support:</strong> Provide completed family tree example, sentence frames</li>
+                    <li><strong>Challenge:</strong> Include extended family, ages, occupations in Vietnamese</li>
+                </ul>
+
+                <h3>Cultural Sensitivity</h3>
+                <p>Some students may have complicated family situations - make participation optional for personal details.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Success Indicators</h2>
+                <p>Students successfully completed Week 3 if they can:</p>
+                <ul class="objectives-list">
+                    <li>Name at least 5 family member terms</li>
+                    <li>Describe their family size in Vietnamese</li>
+                    <li>Use "có" (have) correctly</li>
+                    <li>Distinguish older vs. younger siblings</li>
+                    <li>Complete basic family presentation</li>
+                    <li>Understand importance of age hierarchy</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VIETNAMESE CONTENT -->
+        <div id="vietnamese-content" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Mục Tiêu Học Tập</h2>
+                <p>Sau bài học này, học viên sẽ có thể:</p>
+                <ul class="objectives-list">
+                    <li>Gọi tên các thành viên gia đình trực tiếp bằng tiếng Việt</li>
+                    <li>Mô tả cấu trúc và quy mô gia đình của họ</li>
+                    <li>Sử dụng cấu trúc sở hữu (của, của tôi)</li>
+                    <li>Đếm thành viên gia đình bằng cách sử dụng từ loại</li>
+                    <li>Hiểu các thuật ngữ thân thuộc cơ bản trong tiếng Việt</li>
+                    <li>Nói về tình trạng hôn nhân</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Từ Vựng (40-50 từ)</h2>
+                
+                <h3>Các Thành Viên Gia Đình</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Gia đình</strong><p>Gia đình</p></div>
+                    <div class="vocab-item"><strong>Bố/Ba</strong><p>Cha</p></div>
+                    <div class="vocab-item"><strong>Mẹ/Ma</strong><p>Mẹ</p></div>
+                    <div class="vocab-item"><strong>Anh trai</strong><p>Anh trai (lớn hơn)</p></div>
+                    <div class="vocab-item"><strong>Chị gái</strong><p>Chị gái (lớn hơn)</p></div>
+                    <div class="vocab-item"><strong>Em trai</strong><p>Em trai (nhỏ hơn)</p></div>
+                    <div class="vocab-item"><strong>Em gái</strong><p>Em gái (nhỏ hơn)</p></div>
+                    <div class="vocab-item"><strong>Con trai</strong><p>Con trai</p></div>
+                    <div class="vocab-item"><strong>Con gái</strong><p>Con gái</p></div>
+                    <div class="vocab-item"><strong>Ông</strong><p>Ông (nội/ngoại)</p></div>
+                    <div class="vocab-item"><strong>Bà</strong><p>Bà (nội/ngoại)</p></div>
+                    <div class="vocab-item"><strong>Cô</strong><p>Cô (em gái của bố)</p></div>
+                    <div class="vocab-item"><strong>Chú</strong><p>Chú (em trai của bố)</p></div>
+                    <div class="vocab-item"><strong>Dì</strong><p>Dì (em gái của mẹ)</p></div>
+                    <div class="vocab-item"><strong>Cậu</strong><p>Cậu (em trai của mẹ)</p></div>
+                </div>
+
+                <h3>Các Mối Quan Hệ</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Vợ</strong><p>Vợ</p></div>
+                    <div class="vocab-item"><strong>Chồng</strong><p>Chồng</p></div>
+                    <div class="vocab-item"><strong>Bạn</strong><p>Bạn bè</p></div>
+                    <div class="vocab-item"><strong>Người yêu</strong><p>Bạn trai/Bạn gái</p></div>
+                </div>
+
+                <h3>Từ Mô Tả</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Lớn</strong><p>To/Lớn tuổi</p></div>
+                    <div class="vocab-item"><strong>Nhỏ</strong><p>Nhỏ/Trẻ</p></div>
+                    <div class="vocab-item"><strong>Của</strong><p>Của (sở hữu)</p></div>
+                    <div class="vocab-item"><strong>Có</strong><p>Có/Sở hữu</p></div>
+                    <div class="vocab-item"><strong>Người</strong><p>Người (từ loại)</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Trọng Tâm Ngữ Pháp</h2>
+                
+                <h3>1. Cấu Trúc Sở Hữu</h3>
+                <ul>
+                    <li>Của + đại từ: của tôi (của tôi), của bạn (của bạn)</li>
+                    <li>Cấu trúc trực tiếp: gia đình tôi (gia đình tôi)</li>
+                </ul>
+
+                <h3>2. "Có" (có/sở hữu)</h3>
+                <ul>
+                    <li>Tôi có hai em gái (Tôi có hai em gái)</li>
+                    <li>Bạn có anh trai không? (Bạn có anh trai không?)</li>
+                </ul>
+
+                <h3>3. Từ Loại</h3>
+                <ul>
+                    <li>Người (dành cho con người): ba người (ba người)</li>
+                    <li>Từ loại đứng giữa số đếm và danh từ</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Kế Hoạch Bài Học (120 phút)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Khởi Động & Ôn Tập</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-users"></i> Hoạt Động: "Vòng Giới Thiệu Nhanh"</h4>
+                            <ul>
+                                <li>Học viên đứng thành hai hàng đối diện nhau</li>
+                                <li>Mỗi học viên giới thiệu bản thân với người đối diện</li>
+                                <li>Sau 30 giây, một hàng dịch chuyển</li>
+                                <li>Lặp lại 5 lần</li>
+                            </ul>
+                        </div>
+                        <p><strong>Kiểm Tra Từ Vựng:</strong> Kiểm tra nhanh 5 phút về từ vựng Tuần 1-2 (20 mục)</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Trình Bày: Từ Vựng Gia Đình</h3>
+                            </div>
+                            <span class="time-badge">20 phút</span>
+                        </div>
+                        
+                        <p><strong>Giới Thiệu Bằng Hình Ảnh:</strong> Hiển thị cây gia phả trên bảng/màn hình</p>
+                        
+                        <h4>Giới Thiệu Gia Đình Trước Tiên:</h4>
+                        <ul>
+                            <li>Bố (cha)</li>
+                            <li>Mẹ (mẹ)</li>
+                            <li>Anh trai / Chị gái (anh chị)</li>
+                            <li>Em trai / Em gái (em)</li>
+                        </ul>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-lightbulb"></i> Điểm Dạy Chính:</strong>
+                            Tiếng Việt phân biệt giữa anh chị và em (không chỉ "anh trai/chị gái"). Thứ bậc tuổi tác rất quan trọng trong văn hóa Việt Nam.
+                        </div>
+
+                        <h4>Câu Mẫu:</h4>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p style="margin: 5px 0;"><strong>Gia đình tôi có bốn người.</strong></p>
+                            <p style="margin: 5px 0; font-style: italic;">(Gia đình tôi có bốn người.)</p>
+                            <p style="margin: 5px 0; margin-top: 15px;"><strong>Tôi có một anh trai và một em gái.</strong></p>
+                            <p style="margin: 5px 0; font-style: italic;">(Tôi có một anh trai và một em gái.)</p>
+                            <p style="margin: 5px 0; margin-top: 15px;"><strong>Bố tôi tên là [tên].</strong></p>
+                            <p style="margin: 5px 0; font-style: italic;">(Bố tôi tên là [tên].)</p>
+                        </div>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-globe"></i> Ghi Chú Văn Hóa:</strong>
+                            Cấu trúc gia đình Việt Nam thường là đại gia đình sống cùng nhau hoặc rất gần nhau. Gia đình là trung tâm của văn hóa Việt Nam.
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Thực Hành Phát Âm</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Luyện Từ Gia Đình"</h4>
+                            <ul>
+                                <li>Giáo viên mẫu từng thuật ngữ gia đình</li>
+                                <li>Học viên lặp lại đồng thanh (mỗi từ 3 lần)</li>
+                                <li>Chú ý đặc biệt đến: Gia đình, Anh trai, Chị gái</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Lớn Hơn so với Nhỏ Hơn"</h4>
+                            <p>Thực hành phân biệt:</p>
+                            <ul>
+                                <li>Anh trai (anh trai lớn hơn) so với Em trai (em trai nhỏ hơn)</li>
+                                <li>Chị gái (chị gái lớn hơn) so với Em gái (em gái nhỏ hơn)</li>
+                            </ul>
+                            <p>Thực hành cặp: Học viên A nói một từ, Học viên B xác định "lớn hơn" hoặc "nhỏ hơn"</p>
+                        </div>
+                        <p><strong>Âm Khó:</strong> "Chị" (thực hành âm "ch"), "Gái" (thanh điệu đúng), "Của" (âm nguyên âm ư)</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Thực Hành Có Hướng Dẫn: Mô Tả Gia Đình</h3>
+                            </div>
+                            <span class="time-badge">25 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Vẽ Cây Gia Phả"</h4>
+                            <ul>
+                                <li>Cung cấp mẫu cây gia phả trống</li>
+                                <li>Học viên điền với gia đình của họ (có thể dùng tên tiếng Anh)</li>
+                                <li>Ghi nhãn từng người bằng tiếng Việt (bố, mẹ, v.v.)</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Thành Phần Gia Đình Của Tôi"</h4>
+                            <p>Dạy cấu trúc: <strong>Gia đình tôi có [số người] người</strong></p>
+                            <ul>
+                                <li>Học viên viết câu của họ</li>
+                                <li>Thực hành nói to</li>
+                                <li>Giáo viên đi quanh, sửa chữa</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: "Các Thành Viên Gia Đình Tôi Có"</h4>
+                            <p>Dạy: <strong>Tôi có [số lượng] [thành viên gia đình]</strong></p>
+                            <p>Câu ví dụ:</p>
+                            <ul>
+                                <li>Tôi có một anh trai.</li>
+                                <li>Tôi có một em gái.</li>
+                                <li>Tôi không có em trai.</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 4: "Thực Hành Sở Hữu"</h4>
+                            <p>Thực hành: của tôi (của tôi)</p>
+                            <ul>
+                                <li>Gia đình của tôi (gia đình của tôi)</li>
+                                <li>Bố của tôi (bố của tôi)</li>
+                                <li>Em gái của tôi (em gái của tôi)</li>
+                            </ul>
+                            <p><em>Lưu ý: Thường bỏ "của": gia đình tôi</em></p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Thực Hành Giao Tiếp: Trao Đổi Thông Tin Gia Đình</h3>
+                            </div>
+                            <span class="time-badge">30 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Khảo Sát Quy Mô Gia Đình"</h4>
+                            <ul>
+                                <li>Học viên đi vòng quanh lớp</li>
+                                <li>Hỏi 5 bạn học: "Gia đình bạn có mấy người?"</li>
+                                <li>Ghi lại câu trả lời</li>
+                                <li>Tính trung bình của lớp</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Phỏng Vấn Gia Đình"</h4>
+                            <p>Ghép cặp học viên, thực hành hỏi đáp:</p>
+                            <ul>
+                                <li>Hỏi: Bạn có anh trai không?</li>
+                                <li>Trả lời: Có, tôi có một anh trai. / Không, tôi không có anh trai.</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: "Chia Sẻ Ảnh Gia Đình"</h4>
+                            <ul>
+                                <li>Học viên mang ảnh gia đình (hoặc mô tả từ trí nhớ)</li>
+                                <li>Trong nhóm nhỏ (3-4 người)</li>
+                                <li>Cho xem ảnh và mô tả: "Đây là gia đình tôi." "Đây là bố tôi."</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 4: "Tìm Người Có..."</h4>
+                            <p>Bảng tập kiểu bingo:</p>
+                            <ul>
+                                <li>Tìm người có anh trai</li>
+                                <li>Tìm người có hai em gái</li>
+                                <li>Tìm người là con một</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Hoạt Động Ứng Dụng: Thuyết Trình Gia Đình</h3>
+                            </div>
+                            <span class="time-badge">10 phút</span>
+                        </div>
+                        
+                        <p><strong>Hoạt Động: "Gặp Gỡ Gia Đình Tôi"</strong></p>
+                        <p>Mỗi học viên thuyết trình về gia đình của họ với cả lớp (1-2 phút)</p>
+                        
+                        <h4>Các yếu tố bắt buộc:</h4>
+                        <ul>
+                            <li>Quy mô gia đình: Gia đình tôi có ___ người</li>
+                            <li>Các thành viên gia đình: Tôi có...</li>
+                            <li>Ít nhất 3 mô tả thành viên gia đình</li>
+                            <li>Sử dụng cấu trúc sở hữu ít nhất một lần</li>
+                        </ul>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Tổng Kết & Bài Tập Về Nhà</h3>
+                            </div>
+                            <span class="time-badge">5 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Trò Chơi Ôn Tập: "Thành Viên Gia Đình Bật Lên"</h4>
+                            <ul>
+                                <li>Giáo viên gọi thuật ngữ gia đình bằng tiếng Anh</li>
+                                <li>Học viên được gọi đứng lên và nói thuật ngữ tiếng Việt</li>
+                                <li>Học viên đó sau đó nói thuật ngữ tiếng Anh khác</li>
+                                <li>Nhịp độ nhanh!</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Giới Thiệu Tuần Sau:</strong> Số Đếm, Thời Gian & Lịch - chúng ta sẽ học cách xem giờ và nói về lịch trình!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Đánh Giá</h2>
+                
+                <h3>Đánh Giá Quá Trình</h3>
+                <ul>
+                    <li>Kiểm tra từ vựng (Tuần 1-2): 5-10 phút</li>
+                    <li>Theo dõi phát âm trong khi luyện tập</li>
+                    <li>Kiểm tra độ chính xác cây gia phả</li>
+                    <li>Quan sát tương tác phỏng vấn</li>
+                    <li>Ghi chú tính đầy đủ của bài thuyết trình</li>
+                </ul>
+
+                <h3>Phiếu Ra Cửa</h3>
+                <p>Mỗi học viên phải nói với giáo viên:</p>
+                <ul>
+                    <li>Gia đình có bao nhiêu người (tiếng Việt)</li>
+                    <li>Một thành viên gia đình họ có (tiếng Việt)</li>
+                    <li>Nói tạm biệt!</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Vật Liệu Cần Thiết</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>Bài kiểm tra từ vựng Tuần 1-2 (in sẵn)</li>
+                        <li>Mẫu cây gia phả (trống)</li>
+                        <li>Cây gia phả mẫu (của giáo viên)</li>
+                        <li>Thẻ từ vựng gia đình (lớn, cho cả lớp)</li>
+                        <li>File âm thanh cho thuật ngữ gia đình</li>
+                        <li>Bảng tập "Tìm Người Có"</li>
+                        <li>Thẻ câu hỏi phỏng vấn</li>
+                        <li>Danh sách kiểm tra thuyết trình</li>
+                        <li>Tờ bài tập về nhà Tuần 3</li>
+                        <li>Tài liệu đọc văn hóa</li>
+                        <li>File âm thanh Tuần 3 (cho học viên)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Bài Tập Về Nhà</h2>
+                
+                <h3>1. Bài Văn Mô Tả Gia Đình (30 phút)</h3>
+                <ul>
+                    <li>Viết 10-12 câu về gia đình của bạn bằng tiếng Việt</li>
+                    <li>Bao gồm: quy mô gia đình, từng thành viên, tên của họ, tuổi (tùy chọn)</li>
+                    <li>Sử dụng cấu trúc sở hữu</li>
+                    <li>Mang đến lớp để bạn bè xem xét</li>
+                </ul>
+
+                <h3>2. Thực Hành Từ Vựng (20 phút)</h3>
+                <ul>
+                    <li>Tạo thẻ từ cho tất cả từ vựng gia đình Tuần 3</li>
+                    <li>Thực hành với ứng dụng hoặc thẻ vật lý</li>
+                    <li>Ghi âm bản thân nói từng thuật ngữ</li>
+                </ul>
+
+                <h3>3. Áp Phích Cây Gia Phả (30 phút)</h3>
+                <ul>
+                    <li>Tạo cây gia phả chi tiết với nhãn tiếng Việt</li>
+                    <li>Bao gồm ảnh hoặc bản vẽ</li>
+                    <li>Thêm tuổi, nghề nghiệp (bằng tiếng Anh nếu cần)</li>
+                    <li>Sáng tạo! Sẽ được trưng bày trong lớp</li>
+                </ul>
+
+                <h3>4. Thực Hành Nghe (15 phút)</h3>
+                <ul>
+                    <li>Nghe file âm thanh Tuần 3 (3 lần)</li>
+                    <li>Cố gắng viết những gì bạn nghe</li>
+                </ul>
+
+                <h3>5. Đọc Văn Hóa (20 phút)</h3>
+                <ul>
+                    <li>Đọc: "Cấu Trúc Gia Đình và Giá Trị Việt Nam"</li>
+                    <li>Viết: So sánh văn hóa gia đình Việt Nam với văn hóa của bạn (3-5 câu bằng tiếng Anh)</li>
+                </ul>
+
+                <h3>6. Chuẩn Bị</h3>
+                <ul>
+                    <li>Ôn tập từ vựng Tuần 1-3</li>
+                    <li>Bài kiểm tra Tuần 4 sẽ bao gồm cả ba tuần!</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Ghi Chú Cho Giáo Viên</h2>
+                
+                <h3>Điểm Dạy Chính</h3>
+                <ul>
+                    <li>Thứ Bậc Tuổi Tác Rất Quan Trọng: Tiếng Việt phân biệt anh chị/em vì tuổi quyết định đại từ được sử dụng</li>
+                    <li>Đại Gia Đình: Gia đình Việt Nam thường lớn và gần gũi. Đừng giả định cấu trúc gia đình hạt nhân</li>
+                    <li>Thách Thức Phát Âm: "Chị" và "gái" - thực hành nhiều; "Của" - âm ư khó</li>
+                </ul>
+
+                <h3>Lỗi Thường Gặp</h3>
+                <ul>
+                    <li>Nhầm anh trai và em trai (lớn hơn vs nhỏ hơn)</li>
+                    <li>Quên từ loại với số đếm</li>
+                    <li>Phát âm sai "gia đình"</li>
+                </ul>
+
+                <h3>Phân Biệt</h3>
+                <ul>
+                    <li><strong>Hỗ Trợ Thêm:</strong> Cung cấp ví dụ cây gia phả hoàn chỉnh, khung câu</li>
+                    <li><strong>Thách Thức:</strong> Bao gồm đại gia đình, tuổi, nghề nghiệp bằng tiếng Việt</li>
+                </ul>
+
+                <h3>Nhạy Cảm Văn Hóa</h3>
+                <p>Một số học viên có thể có tình huống gia đình phức tạp - làm cho việc tham gia trở thành tùy chọn cho các chi tiết cá nhân.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Chỉ Số Thành Công</h2>
+                <p>Học viên hoàn thành thành công Tuần 3 nếu có thể:</p>
+                <ul class="objectives-list">
+                    <li>Gọi tên ít nhất 5 thuật ngữ thành viên gia đình</li>
+                    <li>Mô tả quy mô gia đình bằng tiếng Việt</li>
+                    <li>Sử dụng "có" đúng cách</li>
+                    <li>Phân biệt anh chị vs em</li>
+                    <li>Hoàn thành bài thuyết trình gia đình cơ bản</li>
+                    <li>Hiểu tầm quan trọng của thứ bậc tuổi tác</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Lesson Plan
+    </button>
+
+    <script>
+        function switchLanguage(lang) {
+            document.getElementById('english-content').classList.remove('active');
+            document.getElementById('vietnamese-content').classList.remove('active');
+            
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (lang === 'english') {
+                document.getElementById('english-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[0].classList.add('active');
+            } else {
+                document.getElementById('vietnamese-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[1].classList.add('active');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === 'e') {
+                switchLanguage('english');
+            } else if (e.altKey && e.key === 'v') {
+                switchLanguage('vietnamese');
+            }
+        });
+    </script>
+</body>
+</html>

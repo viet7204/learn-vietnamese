@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Vietnamese Learning - Viet Le</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/visual-learning.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html" data-en="Learn Vietnamese" data-vi="Học Tiếng Việt">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-vi="Trang Chủ">Home</a></li>
+                <li><a href="courses.html" data-en="Courses" data-vi="Khóa Học">Courses</a></li>
+                <li><a href="lectures.html" data-en="Lectures" data-vi="Bài Giảng">Lectures</a></li>
+                <li><a href="practice.html" data-en="Practice" data-vi="Luyện Tập">Practice</a></li>
+                <li><a href="visual.html" class="active" data-en="Visual Learning" data-vi="Học Bằng Hình Ảnh">Visual Learning</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section-small">
+        <div class="container">
+            <h1 data-en="Visual Vietnamese Learning" data-vi="Học Tiếng Việt Qua Hình Ảnh">Visual Vietnamese Learning</h1>
+            <p data-en="Click on items in the scenes to learn Vietnamese vocabulary in context!" 
+               data-vi="Nhấp vào các đồ vật để học từ vựng tiếng Việt trong ngữ cảnh!">
+                Click on items in the scenes to learn Vietnamese vocabulary in context!
+            </p>
+        </div>
+    </section>
+
+    <!-- Scene Selector -->
+    <section class="scene-selector-section">
+        <div class="container">
+            <h2>Choose a Scene</h2>
+            <div class="scene-tabs">
+                <button class="scene-tab active" data-scene="market">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Vietnamese Market</span>
+                </button>
+                <button class="scene-tab" data-scene="restaurant">
+                    <i class="fas fa-utensils"></i>
+                    <span>Restaurant</span>
+                </button>
+                <button class="scene-tab" data-scene="street">
+                    <i class="fas fa-road"></i>
+                    <span>Street Scene</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Scene -->
+    <section class="scene-container">
+        <div class="container">
+            <div class="scene-wrapper">
+                <!-- Market Scene -->
+                <div id="market-scene" class="interactive-scene active">
+                    <div class="scene-background">
+                        <div class="scene-title">
+                            <h3>Chợ Việt Nam - Vietnamese Market</h3>
+                            <p>Click on items to learn their Vietnamese names</p>
+                        </div>
+                        
+                        <!-- Clickable items -->
+                        <div class="hotspot" data-item="pho" style="top: 15%; left: 20%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍜</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="banhmi" style="top: 15%; left: 45%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🥖</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="cafe" style="top: 15%; left: 70%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">☕</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="com" style="top: 40%; left: 15%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍚</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="bun" style="top: 40%; left: 40%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍝</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="xoai" style="top: 40%; left: 65%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🥭</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="chuoi" style="top: 65%; left: 20%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍌</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="nuoc" style="top: 65%; left: 45%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">💧</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="banh" style="top: 65%; left: 70%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🧁</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Scene -->
+                <div id="restaurant-scene" class="interactive-scene">
+                    <div class="scene-background">
+                        <div class="scene-title">
+                            <h3>Nhà Hàng - Restaurant</h3>
+                            <p>Click to learn restaurant vocabulary</p>
+                        </div>
+                        
+                        <div class="hotspot" data-item="thucdon" style="top: 20%; left: 25%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">📋</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="dia" style="top: 20%; left: 55%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍽️</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="coc" style="top: 45%; left: 20%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🥤</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="muong" style="top: 45%; left: 45%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🥄</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="dua" style="top: 45%; left: 70%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🥢</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="phache" style="top: 70%; left: 30%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍨</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="che" style="top: 70%; left: 60%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍧</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Street Scene -->
+                <div id="street-scene" class="interactive-scene">
+                    <div class="scene-background">
+                        <div class="scene-title">
+                            <h3>Đường Phố - Street Scene</h3>
+                            <p>Learn about Vietnamese streets and transportation</p>
+                        </div>
+                        
+                        <div class="hotspot" data-item="xemay" style="top: 25%; left: 30%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🛵</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="xebus" style="top: 25%; left: 60%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🚌</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="taxi" style="top: 50%; left: 20%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🚕</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="cho" style="top: 50%; left: 50%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🏪</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="nhahang" style="top: 50%; left: 75%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🍽️</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="duong" style="top: 75%; left: 35%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🛣️</div>
+                        </div>
+                        
+                        <div class="hotspot" data-item="cay" style="top: 75%; left: 65%;">
+                            <div class="hotspot-pulse"></div>
+                            <div class="item-visual">🌳</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Card -->
+            <div id="info-card" class="info-card hidden">
+                <button class="close-btn" onclick="closeInfoCard()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="info-content">
+                    <div class="item-icon" id="info-icon">🍜</div>
+                    <h3 id="info-vietnamese">Phở</h3>
+                    <p id="info-pronunciation">/fở/</p>
+                    <p id="info-english">Vietnamese noodle soup</p>
+                    <button class="play-btn" onclick="speakWord()">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                    <div class="info-details" id="info-details">
+                        <p><strong>Usage:</strong> <span id="info-usage"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="container">
+            <h3>Your Learning Progress</h3>
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="items-learned">0</div>
+                    <div class="stat-label">Items Learned</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="scenes-completed">0</div>
+                    <div class="stat-label">Scenes Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-items">23</div>
+                    <div class="stat-label">Total Items</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Resources Section -->
+    <section class="section" style="background: #f8f9fa; padding: 60px 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #333; font-size: 2rem;">
+                <i class="fas fa-folder-open"></i> 
+                <span data-en="Course Resources" data-vi="Tài Nguyên Khóa Học">Course Resources</span>
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <a href="listen.html" style="text-decoration: none; background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-headphones"></i></div>
+                    <h3 style="margin-bottom: 10px; color: white;" data-en="Listen & Practice" data-vi="Nghe & Luyện Tập">Listen & Practice</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;" data-en="Audio pronunciation for all weeks" data-vi="Phát âm cho tất cả các tuần">Audio pronunciation for all weeks</p>
+                </a>
+                <a href="course-materials/course-syllabus.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-file-alt"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Course Syllabus" data-vi="Chương Trình">Course Syllabus</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="12-week overview" data-vi="Tổng quan 12 tuần">12-week overview</p>
+                </a>
+                <a href="course-materials/teacher-resources/Teachers-Guide.html" target="_blank" class="teacher-only" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; position: relative; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <span style="position: absolute; top: 10px; right: 10px; background: #e74c3c; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Teacher Only</span>
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Teacher's Guide" data-vi="Hướng Dẫn GV">Teacher's Guide</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Teaching resource" data-vi="Tài liệu giảng dạy">Teaching resource</p>
+                </a>
+                <a href="course-materials/worksheets/Student-Workbook-Sample.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-book"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Student Workbook" data-vi="Sách Bài Tập">Student Workbook</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Practice exercises" data-vi="Bài tập thực hành">Practice exercises</p>
+                </a>
+                <a href="course-materials/assessment-rubrics.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Assessment Rubrics" data-vi="Tiêu Chí Đánh Giá">Assessment Rubrics</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Grading criteria" data-vi="Tiêu chí chấm điểm">Grading criteria</p>
+                </a>
+                <a href="course.html" style="text-decoration: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 style="margin-bottom: 10px; color: white;" data-en="Full Course" data-vi="Khóa Học Đầy Đủ">Full Course</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;" data-en="12-week program" data-vi="Chương trình 12 tuần">12-week program</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Viet Le. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/visual-learning.js"></script>
+</body>
+</html>

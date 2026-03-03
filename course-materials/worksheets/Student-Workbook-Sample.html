@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Workbook - Vietnamese for Adult Beginners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .workbook-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+        }
+        
+        .workbook-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .workbook-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .workbook-header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+        
+        .student-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .student-info input {
+            width: 100%;
+            max-width: 400px;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .nav-btn {
+            padding: 10px 20px;
+            background: #f093fb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .nav-btn:hover {
+            background: #f5576c;
+            transform: translateY(-2px);
+        }
+        
+        .welcome-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .welcome-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .section {
+            margin: 50px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #f093fb;
+        }
+        
+        .section h2 {
+            color: #f093fb;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3 {
+            color: #f5576c;
+            font-size: 1.5rem;
+            margin: 25px 0 15px 0;
+        }
+        
+        .section h4 {
+            color: #495057;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .tip-card::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .toc {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .toc h3 {
+            color: #f093fb;
+            margin-bottom: 15px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .toc li:last-child {
+            border-bottom: none;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        th {
+            background: #f093fb;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .goals-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .goals-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+        
+        .goals-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .week-objectives {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .week-objectives li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+        }
+        
+        .week-objectives li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #f093fb;
+            font-size: 1.2rem;
+        }
+        
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .vocab-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .vocab-card h4 {
+            color: #f093fb;
+            margin-top: 0;
+            border-bottom: 2px solid #f093fb;
+            padding-bottom: 8px;
+        }
+        
+        .vocab-item {
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .vocab-item::before {
+            content: "□";
+            color: #f093fb;
+            margin-right: 8px;
+        }
+        
+        .tone-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .tone-row {
+            display: grid;
+            grid-template-columns: 50px 150px 80px 100px 150px 150px;
+            gap: 10px;
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+            align-items: center;
+        }
+        
+        .tone-row:first-child {
+            background: #f093fb;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .tone-row:hover:not(:first-child) {
+            background: #f8f9fa;
+        }
+        
+        .emphasis-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .info-highlight {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        @media print {
+            .nav-buttons {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tone-row {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="workbook-container">
+        <div class="workbook-header">
+            <h1><i class="fas fa-book"></i> Vietnamese for Adult Beginners</h1>
+            <h2>Student Workbook - 12 Week Course</h2>
+        </div>
+
+        <div class="student-info">
+            <p><strong>Student Name:</strong> <input type="text" placeholder="Enter your name"></p>
+            <p><strong>Course Start Date:</strong> <input type="date"></p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="../course-syllabus.html" class="nav-btn"><i class="fas fa-file-alt"></i> Course Syllabus</a>
+            <a href="../assessment-rubrics.html" class="nav-btn"><i class="fas fa-clipboard-check"></i> Assessment Rubrics</a>
+            <a href="../../course.html" class="nav-btn"><i class="fas fa-home"></i> Back to Course</a>
+        </div>
+
+        <div class="welcome-box">
+            <h3><i class="fas fa-hand-peace"></i> Welcome to Vietnamese Language Learning!</h3>
+            <p style="font-size: 1.3rem; margin: 0;"><strong>Chào mừng bạn!</strong> (Welcome!)</p>
+            <p style="margin-top: 20px;">This workbook will be your companion throughout the 12-week Vietnamese for Adult Beginners course. It contains:</p>
+            <ul>
+                <li>Weekly vocabulary lists</li>
+                <li>Practice exercises</li>
+                <li>Cultural notes</li>
+                <li>Progress tracking</li>
+                <li>Reference materials</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-lightbulb"></i> How to Use This Workbook</h2>
+            <ol style="font-size: 1.1rem; line-height: 1.8;">
+                <li><strong>Bring to Every Class:</strong> This is your primary learning tool</li>
+                <li><strong>Complete Exercises:</strong> Practice regularly for best results</li>
+                <li><strong>Track Progress:</strong> Use the self-assessment sections</li>
+                <li><strong>Review Often:</strong> Revisit previous weeks' content</li>
+                <li><strong>Add Notes:</strong> Write additional notes in margins</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Learning Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">Practice Daily: Even 15 minutes makes a difference</div>
+                <div class="tip-card">Don't Fear Mistakes: They're essential to learning</div>
+                <div class="tip-card">Use Audio Resources: Listen to pronunciation models</div>
+                <div class="tip-card">Speak Out Loud: Private practice builds confidence</div>
+                <div class="tip-card">Be Patient: Language learning takes time</div>
+                <div class="tip-card">Immerse Yourself: Seek out Vietnamese media and culture</div>
+                <div class="tip-card">Ask Questions: Your teacher is here to help!</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-list"></i> Table of Contents</h2>
+            
+            <div class="toc">
+                <h3>Course Information</h3>
+                <ul>
+                    <li>Course Syllabus Overview........................Page 3</li>
+                    <li>Learning Objectives................................Page 4</li>
+                    <li>Assessment Overview...............................Page 5</li>
+                    <li>Resources & Reference..............................Page 6</li>
+                </ul>
+            </div>
+            
+            <div class="toc">
+                <h3>Week-by-Week Content</h3>
+                <ul>
+                    <li>Week 1: Tones & Introduction......................Page 7</li>
+                    <li>Week 2: Greetings & Self-Introduction.............Page 15</li>
+                    <li>Week 3: Family & Relationships....................Page 23</li>
+                    <li>Week 4: Numbers, Time & Calendar..................Page 31</li>
+                    <li>Week 5: Food & Dining.............................Page 39</li>
+                    <li>Week 6: Shopping & Money..........................Page 47</li>
+                    <li>Week 7: Directions & Transportation...............Page 55</li>
+                    <li>Week 8: Daily Routines & Activities...............Page 63</li>
+                    <li>Week 9: Health & Body Parts.......................Page 71</li>
+                    <li>Week 10: Weather & Seasons........................Page 79</li>
+                    <li>Week 11: Hobbies & Interests......................Page 87</li>
+                    <li>Week 12: Review & Final Project...................Page 95</li>
+                </ul>
+            </div>
+            
+            <div class="toc">
+                <h3>Reference Materials</h3>
+                <ul>
+                    <li>Complete Vocabulary List (A-Z)....................Page 103</li>
+                    <li>Grammar Quick Reference...........................Page 110</li>
+                    <li>Tone Chart & Practice.............................Page 115</li>
+                    <li>Common Phrases Cheat Sheet........................Page 118</li>
+                    <li>Vietnamese Keyboard Guide.........................Page 120</li>
+                    <li>Cultural Notes Compilation........................Page 122</li>
+                    <li>Continued Learning Resources......................Page 125</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-bullseye"></i> Course Syllabus Overview</h2>
+            
+            <h3>Course Goals</h3>
+            <p>By the end of 12 weeks, you will be able to:</p>
+            <ul class="goals-list">
+                <li>Pronounce Vietnamese tones accurately</li>
+                <li>Introduce yourself and others</li>
+                <li>Handle common daily situations (ordering food, shopping, directions)</li>
+                <li>Have basic conversations on familiar topics</li>
+                <li>Understand slow, clear speech about everyday matters</li>
+                <li>Read simple texts with familiar vocabulary</li>
+                <li>Write basic messages and descriptions</li>
+                <li>Demonstrate cultural awareness</li>
+            </ul>
+            
+            <h3>Weekly Time Commitment</h3>
+            <ul>
+                <li><strong>Class Time:</strong> 2 hours per week</li>
+                <li><strong>Homework:</strong> 1-2 hours per week (10-20 minutes daily is ideal)</li>
+                <li><strong>Total:</strong> 3-4 hours per week</li>
+            </ul>
+            
+            <h3>Assessment Schedule</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Assessment Type</th>
+                        <th>Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ongoing</td>
+                        <td>Participation & Homework</td>
+                        <td>45%</td>
+                    </tr>
+                    <tr>
+                        <td>Week 4</td>
+                        <td>Mid-term Progress Check</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>Week 8</td>
+                        <td>Progress Evaluation</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>Week 12</td>
+                        <td>Final Project & Assessment</td>
+                        <td>25%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Grading Scale</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Grade</th>
+                        <th>Range</th>
+                        <th>Grade</th>
+                        <th>Range</th>
+                        <th>Grade</th>
+                        <th>Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A</td>
+                        <td>93-100%</td>
+                        <td>B</td>
+                        <td>83-89%</td>
+                        <td>C</td>
+                        <td>73-79%</td>
+                    </tr>
+                    <tr>
+                        <td>A-</td>
+                        <td>90-92%</td>
+                        <td>B-</td>
+                        <td>80-82%</td>
+                        <td>C-</td>
+                        <td>70-72%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-highlight">
+                <strong><i class="fas fa-star"></i> Remember:</strong> This course emphasizes growth and effort. Success comes from consistent practice and active participation!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-calendar-alt"></i> Week 1: Introduction & Vietnamese Tones</h2>
+            
+            <h3>Learning Objectives</h3>
+            <p>This week you will:</p>
+            <ul class="week-objectives">
+                <li>Learn the six Vietnamese tones</li>
+                <li>Say basic greetings (hello, goodbye)</li>
+                <li>Count from 0-10</li>
+                <li>Understand why tones are important</li>
+            </ul>
+            
+            <h3>Vocabulary (20-30 words)</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <h4>Core Greetings</h4>
+                    <div class="vocab-item"><span>Xin chào</span> <span>Hello</span></div>
+                    <div class="vocab-item"><span>Tạm biệt</span> <span>Goodbye</span></div>
+                    <div class="vocab-item"><span>Cảm ơn</span> <span>Thank you</span></div>
+                    <div class="vocab-item"><span>Xin lỗi</span> <span>Sorry/Excuse me</span></div>
+                    <div class="vocab-item"><span>Có</span> <span>Yes</span></div>
+                    <div class="vocab-item"><span>Không</span> <span>No</span></div>
+                </div>
+                
+                <div class="vocab-card">
+                    <h4>Numbers 0-10</h4>
+                    <div class="vocab-item"><span>Không</span> <span>0</span></div>
+                    <div class="vocab-item"><span>Một</span> <span>1</span></div>
+                    <div class="vocab-item"><span>Hai</span> <span>2</span></div>
+                    <div class="vocab-item"><span>Ba</span> <span>3</span></div>
+                    <div class="vocab-item"><span>Bốn</span> <span>4</span></div>
+                    <div class="vocab-item"><span>Năm</span> <span>5</span></div>
+                    <div class="vocab-item"><span>Sáu</span> <span>6</span></div>
+                    <div class="vocab-item"><span>Bảy</span> <span>7</span></div>
+                    <div class="vocab-item"><span>Tám</span> <span>8</span></div>
+                    <div class="vocab-item"><span>Chín</span> <span>9</span></div>
+                    <div class="vocab-item"><span>Mười</span> <span>10</span></div>
+                </div>
+            </div>
+            
+            <h3>The Six Vietnamese Tones</h3>
+            
+            <div class="emphasis-box">
+                <strong><i class="fas fa-exclamation-triangle"></i> Important!</strong>
+                <p>Vietnamese is a <strong>tonal language</strong> - the pitch/melody of your voice changes the meaning of words!</p>
+            </div>
+            
+            <h4>Tone Chart with "ma"</h4>
+            <div class="tone-table">
+                <div class="tone-row">
+                    <div>#</div>
+                    <div>Tone Name</div>
+                    <div>Mark</div>
+                    <div>Syllable</div>
+                    <div>Meaning</div>
+                    <div>Pitch Pattern</div>
+                </div>
+                <div class="tone-row">
+                    <div>1</div>
+                    <div>Mid-level</div>
+                    <div>(none)</div>
+                    <div>ma</div>
+                    <div>ghost</div>
+                    <div>→ (flat)</div>
+                </div>
+                <div class="tone-row">
+                    <div>2</div>
+                    <div>High rising</div>
+                    <div>á</div>
+                    <div>má</div>
+                    <div>mother</div>
+                    <div>↗ (go up)</div>
+                </div>
+                <div class="tone-row">
+                    <div>3</div>
+                    <div>Low falling</div>
+                    <div>à</div>
+                    <div>mà</div>
+                    <div>but</div>
+                    <div>↘ (go down)</div>
+                </div>
+                <div class="tone-row">
+                    <div>4</div>
+                    <div>Rising</div>
+                    <div>ả</div>
+                    <div>mả</div>
+                    <div>tomb</div>
+                    <div>↗↘ (curve)</div>
+                </div>
+                <div class="tone-row">
+                    <div>5</div>
+                    <div>Creaky/Wavy</div>
+                    <div>ã</div>
+                    <div>mã</div>
+                    <div>horse</div>
+                    <div>↘↗ (dip up)</div>
+                </div>
+                <div class="tone-row">
+                    <div>6</div>
+                    <div>Heavy/Glottal</div>
+                    <div>ạ</div>
+                    <div>mạ</div>
+                    <div>seedling</div>
+                    <div>↓ (drop stop)</div>
+                </div>
+            </div>
+            
+            <div class="info-highlight">
+                <strong><i class="fas fa-headphones"></i> Practice Tip:</strong>
+                <p>Listen to native speakers and repeat! Use the audio resources provided in the course. Practice each tone slowly and deliberately before trying to speak quickly.</p>
+            </div>
+            
+            <h3>Practice Exercises</h3>
+            <p><strong>Exercise 1:</strong> Listen to your teacher and circle the tone you hear</p>
+            <p><strong>Exercise 2:</strong> Practice saying each tone 10 times</p>
+            <p><strong>Exercise 3:</strong> Record yourself and compare to native speaker audio</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-brain"></i> Tips for Success</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">Listen to Vietnamese music and podcasts daily</div>
+                <div class="tip-card">Practice writing Vietnamese words with correct tone marks</div>
+                <div class="tip-card">Find a language exchange partner</div>
+                <div class="tip-card">Watch Vietnamese movies with subtitles</div>
+                <div class="tip-card">Use flashcard apps for vocabulary practice</div>
+                <div class="tip-card">Join online Vietnamese learning communities</div>
+                <div class="tip-card">Set realistic daily practice goals</div>
+                <div class="tip-card">Celebrate your progress every week!</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-bookmark"></i> Quick Reference</h2>
+            
+            <h3>Common Phrases You'll Use Often</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vietnamese</th>
+                        <th>English</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Xin chào</td>
+                        <td>Hello</td>
+                        <td>General greeting</td>
+                    </tr>
+                    <tr>
+                        <td>Cảm ơn</td>
+                        <td>Thank you</td>
+                        <td>Expressing gratitude</td>
+                    </tr>
+                    <tr>
+                        <td>Xin lỗi</td>
+                        <td>Sorry/Excuse me</td>
+                        <td>Apologizing or getting attention</td>
+                    </tr>
+                    <tr>
+                        <td>Tạm biệt</td>
+                        <td>Goodbye</td>
+                        <td>Formal farewell</td>
+                    </tr>
+                    <tr>
+                        <td>Tôi không hiểu</td>
+                        <td>I don't understand</td>
+                        <td>When you need clarification</td>
+                    </tr>
+                    <tr>
+                        <td>Xin nhắc lại</td>
+                        <td>Please repeat</td>
+                        <td>Asking for repetition</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Study Resources</h3>
+            <ul>
+                <li><strong>Online:</strong> Course website with audio files</li>
+                <li><strong>Apps:</strong> Duolingo, Memrise, Anki (flashcards)</li>
+                <li><strong>YouTube:</strong> Vietnamese pronunciation tutorials</li>
+                <li><strong>Podcasts:</strong> "Learn Vietnamese with Annie", "VietnamesePod101"</li>
+                <li><strong>Books:</strong> Vietnamese-English dictionary (recommended)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-chart-line"></i> Track Your Progress</h2>
+            
+            <h3>Weekly Self-Assessment</h3>
+            <p>At the end of each week, rate your confidence level (1-5 stars):</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Topic</th>
+                        <th>Confidence Level (★☆☆☆☆)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Tones & Introduction</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Greetings & Self-Introduction</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Family & Relationships</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Numbers, Time & Calendar</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Food & Dining</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Shopping & Money</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Directions & Transportation</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Daily Routines & Activities</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Health & Body Parts</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Weather & Seasons</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Hobbies & Interests</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Review & Final Project</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="welcome-box">
+            <h3><i class="fas fa-rocket"></i> Your Vietnamese Learning Journey Starts Here!</h3>
+            <p>This workbook is your companion for the next 12 weeks. Use it actively, add your own notes, and don't be afraid to make mistakes. Every step forward is progress!</p>
+            <p><strong>Chúc bạn học tốt!</strong> (Good luck with your studies!)</p>
+            
+            <p style="margin-top: 30px; text-align: center; font-size: 0.9rem; opacity: 0.9;">
+                <strong>Student Workbook Version:</strong> 1.0<br>
+                <strong>Last Updated:</strong> March 2026
+            </p>
+        </div>
+
+        <div class="nav-buttons" style="margin-top: 40px;">
+            <a href="../course-syllabus.html" class="nav-btn"><i class="fas fa-file-alt"></i> Course Syllabus</a>
+            <a href="../assessment-rubrics.html" class="nav-btn"><i class="fas fa-clipboard-check"></i> Assessment Rubrics</a>
+            <a href="../../course.html" class="nav-btn"><i class="fas fa-home"></i> Back to Course</a>
+        </div>
+    </div>
+</body>
+</html>

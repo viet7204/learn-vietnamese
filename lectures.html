@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Lectures | Bài Giảng Tiếng Việt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teaching.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+        <button id="lang-vi" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html" data-en="Learn Vietnamese" data-vi="Học Tiếng Việt">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-vi="Trang Chủ">Home</a></li>
+                <li><a href="courses.html" data-en="Courses" data-vi="Khóa Học">Courses</a></li>
+                <li><a href="lectures.html" class="active" data-en="Lectures" data-vi="Bài Giảng">Lectures</a></li>
+                <li><a href="practice.html" data-en="Practice" data-vi="Luyện Tập">Practice</a></li>
+                <li><a href="visual.html" data-en="Visual Learning" data-vi="Học Bằng Hình Ảnh">Visual Learning</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-en="Vietnamese Lectures" data-vi="Bài Giảng Tiếng Việt">Vietnamese Lectures</h1>
+            <p data-en="Comprehensive lessons to master Vietnamese language" 
+               data-vi="Các bài học toàn diện để thành thạo tiếng Việt">
+               Comprehensive lessons to master Vietnamese language
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Options -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label data-en="Level:" data-vi="Trình độ:">Level:</label>
+                    <select id="level-filter" class="filter-select">
+                        <option value="all" data-en="All Levels" data-vi="Tất cả">All Levels</option>
+                        <option value="beginner" data-en="Beginner" data-vi="Sơ Cấp">Beginner</option>
+                        <option value="intermediate" data-en="Intermediate" data-vi="Trung Cấp">Intermediate</option>
+                        <option value="advanced" data-en="Advanced" data-vi="Nâng Cao">Advanced</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label data-en="Topic:" data-vi="Chủ đề:">Topic:</label>
+                    <select id="topic-filter" class="filter-select">
+                        <option value="all" data-en="All Topics" data-vi="Tất cả">All Topics</option>
+                        <option value="pronunciation" data-en="Pronunciation" data-vi="Phát âm">Pronunciation</option>
+                        <option value="grammar" data-en="Grammar" data-vi="Ngữ pháp">Grammar</option>
+                        <option value="vocabulary" data-en="Vocabulary" data-vi="Từ vựng">Vocabulary</option>
+                        <option value="conversation" data-en="Conversation" data-vi="Hội thoại">Conversation</option>
+                        <option value="culture" data-en="Culture" data-vi="Văn hóa">Culture</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label data-en="Sort by:" data-vi="Sắp xếp:">Sort by:</label>
+                    <select id="sort-filter" class="filter-select">
+                        <option value="newest" data-en="Newest" data-vi="Mới nhất">Newest</option>
+                        <option value="popular" data-en="Most Popular" data-vi="Phổ biến">Most Popular</option>
+                        <option value="rating" data-en="Highest Rated" data-vi="Đánh giá cao">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lectures Grid -->
+    <section class="lectures-section">
+        <div class="container">
+            <div class="lectures-grid">
+                <!-- Lecture 1 -->
+                <article class="lecture-card" data-level="beginner" data-topic="pronunciation">
+                    <div class="lecture-image">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400" alt="Vietnamese Tones">
+                        <span class="lecture-badge beginner-badge">Beginner</span>
+                    </div>
+                    <div class="lecture-content">
+                        <div class="lecture-meta">
+                            <span class="lecture-topic"><i class="fas fa-tag"></i> Pronunciation</span>
+                            <span class="lecture-date"><i class="far fa-calendar"></i> Feb 20, 2026</span>
+                        </div>
+                        <h3 class="lecture-title">
+                            <a href="lessons/vietnamese-tones.html">Vietnamese Tones Explained</a>
+                        </h3>
+                        <p class="lecture-description">
+                            Master all 6 Vietnamese tones with detailed explanations, audio examples, and practice exercises.
+                        </p>
+                        <div class="lecture-stats">
+                            <span><i class="far fa-clock"></i> 25 min</span>
+                            <span><i class="fas fa-users"></i> 423 learners</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                        <a href="lessons/vietnamese-tones.html" class="lecture-link">
+                            <span>Start Learning</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Lecture 2 -->
+                <article class="lecture-card" data-level="beginner" data-topic="vocabulary">
+                    <div class="lecture-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400" alt="Greetings">
+                        <span class="lecture-badge beginner-badge">Beginner</span>
+                    </div>
+                    <div class="lecture-content">
+                        <div class="lecture-meta">
+                            <span class="lecture-topic"><i class="fas fa-tag"></i> Vocabulary</span>
+                            <span class="lecture-date"><i class="far fa-calendar"></i> Feb 18, 2026</span>
+                        </div>
+                        <h3 class="lecture-title">
+                            <a href="lessons/greetings-basics.html">Greetings and Basic Phrases</a>
+                        </h3>
+                        <p class="lecture-description">
+                            Learn essential Vietnamese greetings, polite expressions and how to introduce yourself properly.
+                        </p>
+                        <div class="lecture-stats">
+                            <span><i class="far fa-clock"></i> 20 min</span>
+                            <span><i class="fas fa-users"></i> 567 learners</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <a href="lessons/greetings-basics.html" class="lecture-link">
+                            <span>Start Learning</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Lecture 3 -->
+                <article class="lecture-card" data-level="intermediate" data-topic="grammar">
+                    <div class="lecture-image">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400" alt="Grammar">
+                        <span class="lecture-badge intermediate-badge">Intermediate</span>
+                    </div>
+                    <div class="lecture-content">
+                        <div class="lecture-meta">
+                            <span class="lecture-topic"><i class="fas fa-tag"></i> Grammar</span>
+                            <span class="lecture-date"><i class="far fa-calendar"></i> Feb 15, 2026</span>
+                        </div>
+                        <h3 class="lecture-title">
+                            <a href="lessons/sentence-structure.html">Vietnamese Sentence Structure</a>
+                        </h3>
+                        <p class="lecture-description">
+                            Understand how to build proper Vietnamese sentences with correct word order and grammar rules.
+                        </p>
+                        <div class="lecture-stats">
+                            <span><i class="far fa-clock"></i> 30 min</span>
+                            <span><i class="fas fa-users"></i> 345 learners</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <a href="lessons/sentence-structure.html" class="lecture-link">
+                            <span>Start Learning</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Lecture 4 -->
+                <article class="lecture-card" data-level="intermediate" data-topic="conversation">
+                    <div class="lecture-image">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400" alt="Conversations">
+                        <span class="lecture-badge intermediate-badge">Intermediate</span>
+                    </div>
+                    <div class="lecture-content">
+                        <div class="lecture-meta">
+                            <span class="lecture-topic"><i class="fas fa-tag"></i> Conversation</span>
+                            <span class="lecture-date"><i class="far fa-calendar"></i> Feb 12, 2026</span>
+                        </div>
+                        <h3 class="lecture-title">
+                            <a href="lessons/daily-conversations.html">Daily Conversations in Vietnamese</a>
+                        </h3>
+                        <p class="lecture-description">
+                            Practice real-life dialogues for shopping, dining, asking directions and social situations.
+                        </p>
+                        <div class="lecture-stats">
+                            <span><i class="far fa-clock"></i> 35 min</span>
+                            <span><i class="fas fa-users"></i> 289 learners</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                        <a href="lessons/daily-conversations.html" class="lecture-link">
+                            <span>Start Learning</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Lecture 5 -->
+                <article class="lecture-card" data-level="advanced" data-topic="culture">
+                    <div class="lecture-image">
+                        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=400" alt="Culture">
+                        <span class="lecture-badge advanced-badge">Advanced</span>
+                    </div>
+                    <div class="lecture-content">
+                        <div class="lecture-meta">
+                            <span class="lecture-topic"><i class="fas fa-tag"></i> Culture</span>
+                            <span class="lecture-date"><i class="far fa-calendar"></i> Feb 10, 2026</span>
+                        </div>
+                        <h3 class="lecture-title">
+                            <a href="lessons/idioms-proverbs.html">Vietnamese Idioms and Proverbs</a>
+                        </h3>
+                        <p class="lecture-description">
+                            Explore common Vietnamese idioms, proverbs and their cultural meanings in context.
+                        </p>
+                        <div class="lecture-stats">
+                            <span><i class="far fa-clock"></i> 40 min</span>
+                            <span><i class="fas fa-users"></i> 156 learners</span>
+                            <span><i class="fas fa-star"></i> 5.0</span>
+                        </div>
+                        <a href="lessons/idioms-proverbs.html" class="lecture-link">
+                            <span>Start Learning</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Lecture 6 -->
+                <article class="lecture-card" data-level="beginner" data-topic="vocabulary">
+                    <div class="lecture-image">
+                        <img src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?w=400" alt="Numbers">
+                        <span class="lecture-badge beginner-badge">Beginner</span>
+                    </div>
+                    <div class="lecture-content">
+                        <div class="lecture-meta">
+                            <span class="lecture-topic"><i class="fas fa-tag"></i> Vocabulary</span>
+                            <span class="lecture-date"><i class="far fa-calendar"></i> Feb 8, 2026</span>
+                        </div>
+                        <h3 class="lecture-title">
+                            <a href="lessons/numbers-time.html">Numbers, Time and Dates</a>
+                        </h3>
+                        <p class="lecture-description">
+                            Master Vietnamese numbers, telling time, days of the week and expressing dates correctly.
+                        </p>
+                        <div class="lecture-stats">
+                            <span><i class="far fa-clock"></i> 22 min</span>
+                            <span><i class="fas fa-users"></i> 498 learners</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <a href="lessons/numbers-time.html" class="lecture-link">
+                            <span>Start Learning</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="btn-load-more">
+                    <span data-en="Load More Lectures" data-vi="Tải Thêm Bài Giảng">Load More Lectures</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-en="Ready to Practice?" data-vi="Sẵn Sàng Luyện Tập?">Ready to Practice?</h2>
+                <p data-en="Try our interactive speaking practice tool to improve your pronunciation" 
+                   data-vi="Thử công cụ luyện nói tương tác để cải thiện phát âm của bạn">
+                   Try our interactive speaking practice tool to improve your pronunciation
+                </p>
+                <a href="practice.html" class="btn-cta">
+                    <i class="fas fa-microphone"></i>
+                    <span data-en="Start Practicing" data-vi="Bắt Đầu Luyện Tập">Start Practicing</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Resources Section -->
+    <section class="section" style="background: #f8f9fa; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">
+                <i class="fas fa-folder-open"></i> 
+                <span data-en="Course Resources" data-vi="Tài Nguyên Khóa Học">Course Resources</span>
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <a href="listen.html" style="text-decoration: none; background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-headphones"></i></div>
+                    <h3 style="margin-bottom: 10px; color: white;" data-en="Listen & Practice" data-vi="Nghe & Luyện Tập">Listen & Practice</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;" data-en="Audio pronunciation for all weeks" data-vi="Phát âm cho tất cả các tuần">Audio pronunciation for all weeks</p>
+                </a>
+                <a href="course-materials/course-syllabus.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-file-alt"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Course Syllabus" data-vi="Chương Trình">Course Syllabus</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="12-week overview" data-vi="Tổng quan 12 tuần">12-week overview</p>
+                </a>
+                <a href="course-materials/teacher-resources/Teachers-Guide.html" target="_blank" class="teacher-only" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; position: relative; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <span style="position: absolute; top: 10px; right: 10px; background: #e74c3c; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Teacher Only</span>
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Teacher's Guide" data-vi="Hướng Dẫn GV">Teacher's Guide</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Teaching resource" data-vi="Tài liệu giảng dạy">Teaching resource</p>
+                </a>
+                <a href="course-materials/worksheets/Student-Workbook-Sample.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-book"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Student Workbook" data-vi="Sách Bài Tập">Student Workbook</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Practice exercises" data-vi="Bài tập thực hành">Practice exercises</p>
+                </a>
+                <a href="course-materials/assessment-rubrics.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Assessment Rubrics" data-vi="Tiêu Chí Đánh Giá">Assessment Rubrics</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Grading criteria" data-vi="Tiêu chí chấm điểm">Grading criteria</p>
+                </a>
+                <a href="course.html" style="text-decoration: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 style="margin-bottom: 10px; color: white;" data-en="Full Course" data-vi="Khóa Học Đầy Đủ">Full Course</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;" data-en="12-week program" data-vi="Chương trình 12 tuần">12-week program</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="&copy; 2026 Vietnamese Learning Platform. Built with ❤️" 
+               data-vi="&copy; 2026 Nền Tảng Học Tiếng Việt. Được xây dựng với ❤️">
+               &copy; 2026 Vietnamese Learning Platform. Built with ❤️
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/lectures.js"></script>
+</body>
+</html>

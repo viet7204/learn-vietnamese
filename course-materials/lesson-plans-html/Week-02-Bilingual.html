@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Greetings & Self-Introduction | Tuần 2: Chào Hỏi & Tự Giới Thiệu</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .language-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e74c3c;
+            background: white;
+            padding: 0;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            background: white;
+            color: #555;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tab-button:hover {
+            background: #f8f9fa;
+        }
+        
+        .tab-button.active {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #e74c3c;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .objectives-list, .vocab-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .objectives-list li {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .objectives-list li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .vocab-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .vocab-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .vocab-item strong {
+            color: #e74c3c;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .activity-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .activity-box h4 {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+        }
+        
+        .time-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .lesson-structure {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .lesson-step {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .lesson-step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .note-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .note-box strong {
+            color: #856404;
+        }
+        
+        .materials-checklist {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .materials-checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .materials-checklist li {
+            padding: 8px 0;
+        }
+        
+        .materials-checklist li:before {
+            content: "☐ ";
+            margin-right: 10px;
+            font-size: 18px;
+            color: #667eea;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .print-button:hover {
+            transform: scale(1.05);
+        }
+        
+        @media print {
+            .language-tabs, .print-button { display: none; }
+            .tab-content { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Week 2: Greetings & Self-Introduction</h1>
+        <p>Tuần 2: Chào Hỏi & Tự Giới Thiệu</p>
+        <p style="margin-top: 10px; font-size: 14px;">Adult Beginners Course | Khóa Học Cho Người Lớn Bắt Đầu</p>
+    </div>
+
+    <div class="container">
+        <div class="language-tabs">
+            <button class="tab-button active" onclick="switchLanguage('english')">
+                <i class="fas fa-language"></i> English
+            </button>
+            <button class="tab-button" onclick="switchLanguage('vietnamese')">
+                <i class="fas fa-language"></i> Tiếng Việt
+            </button>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <div id="english-content" class="tab-content active">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
+                <p>By the end of this lesson, students will be able to:</p>
+                <ul class="objectives-list">
+                    <li>Introduce themselves using full sentences (name, age, nationality)</li>
+                    <li>Ask basic questions: "What's your name?" "Where are you from?"</li>
+                    <li>Use personal pronouns appropriately (tôi, bạn)</li>
+                    <li>Practice formal vs. informal greetings</li>
+                    <li>Count from 11-20</li>
+                    <li>Apply Week 1 tones in conversational context</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Vocabulary (30-40 words)</h2>
+                
+                <h3>Self-Introduction</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Tên</strong><p>Name</p></div>
+                    <div class="vocab-item"><strong>Tôi</strong><p>I/me</p></div>
+                    <div class="vocab-item"><strong>Bạn</strong><p>You (informal, friend)</p></div>
+                    <div class="vocab-item"><strong>Tên tôi là...</strong><p>My name is...</p></div>
+                    <div class="vocab-item"><strong>Bạn tên là gì?</strong><p>What's your name?</p></div>
+                    <div class="vocab-item"><strong>Rất vui được gặp bạn</strong><p>Nice to meet you</p></div>
+                    <div class="vocab-item"><strong>Tôi đến từ...</strong><p>I come from...</p></div>
+                    <div class="vocab-item"><strong>Tuổi</strong><p>Age</p></div>
+                    <div class="vocab-item"><strong>Tôi...tuổi</strong><p>I am...years old</p></div>
+                </div>
+
+                <h3>Countries/Places</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Mỹ</strong><p>America</p></div>
+                    <div class="vocab-item"><strong>Anh</strong><p>England</p></div>
+                    <div class="vocab-item"><strong>Canada</strong><p>Canada</p></div>
+                    <div class="vocab-item"><strong>Úc</strong><p>Australia</p></div>
+                    <div class="vocab-item"><strong>Việt Nam</strong><p>Vietnam</p></div>
+                </div>
+
+                <h3>Time Greetings</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Chào buổi sáng</strong><p>Good morning</p></div>
+                    <div class="vocab-item"><strong>Chào buổi chiều</strong><p>Good afternoon</p></div>
+                    <div class="vocab-item"><strong>Chào buổi tối</strong><p>Good evening</p></div>
+                </div>
+
+                <h3>Polite Expressions</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Xin lỗi</strong><p>Excuse me/Sorry</p></div>
+                    <div class="vocab-item"><strong>Cảm ơn</strong><p>Thank you</p></div>
+                    <div class="vocab-item"><strong>Không có gì</strong><p>You're welcome</p></div>
+                </div>
+
+                <h3>Numbers 11-20</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Mười một</strong><p>11</p></div>
+                    <div class="vocab-item"><strong>Mười hai</strong><p>12</p></div>
+                    <div class="vocab-item"><strong>Mười ba</strong><p>13</p></div>
+                    <div class="vocab-item"><strong>Hai mươi</strong><p>20</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Grammar Focus</h2>
+                
+                <h3>1. Basic Sentence Structure</h3>
+                <ul>
+                    <li>Tôi là [name] - I am [name]</li>
+                    <li>Tên tôi là [name] - My name is [name]</li>
+                </ul>
+
+                <h3>2. Question Formation</h3>
+                <ul>
+                    <li>Statement + không? (yes/no questions)</li>
+                    <li>Question word + verb: Tên là gì? (What is name?)</li>
+                </ul>
+
+                <h3>3. Personal Pronouns</h3>
+                <ul>
+                    <li>Tôi (I) - neutral, safe for beginners</li>
+                    <li>Bạn (you) - for friends, same age/status</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Lesson Plan (120 minutes)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Warm-up & Review</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-gamepad"></i> Activity: "Tone Review Game - ma Relay"</h4>
+                            <ul>
+                                <li>Students stand in two lines</li>
+                                <li>Teacher calls out a number (1-6) representing a tone</li>
+                                <li>First person in each line says "ma" with that tone</li>
+                                <li>Correct pronunciation = sit down, team with everyone seated first wins</li>
+                                <li>Review: Count from 0-20 together (introduce 11-20)</li>
+                            </ul>
+                            <p><strong>Quick Check:</strong> "Good morning" in Vietnamese? (Chào buổi sáng)</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Presentation: Self-Introduction Structure</h3>
+                            </div>
+                            <span class="time-badge">20 min</span>
+                        </div>
+                        
+                        <p><strong>Teacher introduces self slowly, clearly:</strong></p>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p style="margin: 5px 0;">Xin chào!</p>
+                            <p style="margin: 5px 0;">Tên tôi là [Teacher Name].</p>
+                            <p style="margin: 5px 0;">Tôi đến từ [Country].</p>
+                            <p style="margin: 5px 0;">Tôi là giáo viên.</p>
+                            <p style="margin: 5px 0;">Rất vui được gặp bạn!</p>
+                        </div>
+
+                        <h4>Break Down Each Sentence:</h4>
+                        <ul>
+                            <li><strong>Tên tôi là...</strong> = "My name is..." (Tên = name, Tôi = I, Là = is/am/are)</li>
+                            <li><strong>Tôi đến từ...</strong> = "I come from..." (Đến = come, Từ = from)</li>
+                            <li><strong>Rất vui được gặp bạn</strong> = "Nice to meet you"</li>
+                        </ul>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-globe"></i> Cultural Note:</strong>
+                            Vietnamese people often ask age soon after meeting - age determines which pronoun to use! We'll learn more complex pronouns later, but start with tôi/bạn for now.
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Pronunciation Practice</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: "Mirror Drill"</h4>
+                            <ul>
+                                <li>Students repeat each key phrase 3 times</li>
+                                <li>Focus on tone accuracy</li>
+                                <li>Pay special attention to: tên (mid), tôi (mid), đến (low falling)</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "Name Chain"</h4>
+                            <ul>
+                                <li>Teacher: "Tên tôi là [Name]"</li>
+                                <li>Student 1: "Tên tôi là [Name]"</li>
+                                <li>Continue around circle</li>
+                                <li>Add element: Each student adds their country</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Pronunciation Challenge Spot:</strong> "Rất vui được gặp bạn" - break into chunks: "Rất vui" / "được gặp" / "bạn"</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Guided Practice: Q&A Structure</h3>
+                            </div>
+                            <span class="time-badge">25 min</span>
+                        </div>
+                        
+                        <h4>Teach Questions:</h4>
+                        <ul>
+                            <li>"Bạn tên là gì?" (What's your name?)</li>
+                            <li>"Bạn đến từ đâu?" (Where are you from?)</li>
+                        </ul>
+
+                        <div class="activity-box">
+                            <h4>Activity 1: "Question & Answer Practice"</h4>
+                            <ul>
+                                <li>Teacher asks each student → student answers</li>
+                                <li>Student asks teacher → teacher answers</li>
+                                <li>Students ask each other in pairs</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "Information Exchange"</h4>
+                            <ul>
+                                <li>Create simple ID cards with: Name, Country, Age (optional)</li>
+                                <li>Students complete in English first</li>
+                                <li>Practice saying each piece of information in Vietnamese</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: "Two Truths and a Lie - Vietnamese Style"</h4>
+                            <ul>
+                                <li>Each student writes 3 statements about themselves</li>
+                                <li>Practice saying ONE in Vietnamese: "Tôi đến từ [place]"</li>
+                                <li>Share with small group, group guesses which is false</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Communicative Practice: Speed Introductions</h3>
+                            </div>
+                            <span class="time-badge">30 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: "Musical Introductions"</h4>
+                            <ul>
+                                <li>Play Vietnamese music</li>
+                                <li>Students walk around</li>
+                                <li>When music stops, find nearest person and do full introduction exchange</li>
+                                <li>Repeat 5-6 times with different partners</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "Cocktail Party"</h4>
+                            <ul>
+                                <li>Arrange room like cocktail party</li>
+                                <li>Students mingle, introducing themselves</li>
+                                <li>Goal: Meet everyone in class</li>
+                                <li>"VIP challenge": Stay in Vietnamese for 2 full minutes</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: "Introduction Circle"</h4>
+                            <ul>
+                                <li>Sit in circle</li>
+                                <li>Each student introduces themselves to whole class</li>
+                                <li>Class responds: "Rất vui được gặp bạn!"</li>
+                                <li>Try to remember everyone's names in Vietnamese</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Application Activity: Video Introductions</h3>
+                            </div>
+                            <span class="time-badge">10 min</span>
+                        </div>
+                        
+                        <p><strong>Activity: "My Vietnamese Introduction"</strong></p>
+                        <p>Students prepare and record (phone video or audio) a self-introduction including:</p>
+                        <ul>
+                            <li>Greeting</li>
+                            <li>Name</li>
+                            <li>Country of origin</li>
+                            <li>Nice to meet you</li>
+                            <li>Goodbye</li>
+                        </ul>
+                        <p><strong>Alternative:</strong> Write out introduction, present to partner</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Wrap-up & Homework</h3>
+                            </div>
+                            <span class="time-badge">5 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Review Game: "Popcorn Introductions"</h4>
+                            <ul>
+                                <li>Teacher points to random student</li>
+                                <li>Student stands, introduces self (full sentence)</li>
+                                <li>Then points to another student</li>
+                                <li>Continue rapidly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Assessment</h2>
+                
+                <h3>Formative Assessment</h3>
+                <ul>
+                    <li>Monitor introduction accuracy during practice</li>
+                    <li>Check pronunciation of key phrases</li>
+                    <li>Observe confidence level in speaking</li>
+                    <li>Review recorded introductions</li>
+                </ul>
+
+                <h3>Exit Task</h3>
+                <p>Each student must:</p>
+                <ul>
+                    <li>Greet teacher (time-appropriate greeting)</li>
+                    <li>Introduce self: name and country</li>
+                    <li>Say "Nice to meet you"</li>
+                    <li>Say goodbye</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Materials Needed</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>ID card templates</li>
+                        <li>Week 2 vocabulary list (handout)</li>
+                        <li>Pronunciation guide</li>
+                        <li>Vietnamese music (for Musical Introductions)</li>
+                        <li>Recording devices (student phones)</li>
+                        <li>Whiteboard/markers</li>
+                        <li>Country flashcards</li>
+                        <li>Week 2 audio files</li>
+                        <li>Homework sheets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Homework</h2>
+                
+                <h3>1. Introduction Practice (20 min)</h3>
+                <ul>
+                    <li>Record video introduction (1-2 minutes)</li>
+                    <li>Practice introduction 10 times aloud</li>
+                    <li>Memorize so you don't need to read</li>
+                </ul>
+
+                <h3>2. Vocabulary Study (15 min)</h3>
+                <ul>
+                    <li>Create flashcards for Week 2 vocabulary</li>
+                    <li>Practice with digital flashcard app</li>
+                    <li>Write each word 5 times</li>
+                </ul>
+
+                <h3>3. Numbers 11-20 (10 min)</h3>
+                <ul>
+                    <li>Count 11-20 aloud 10 times</li>
+                    <li>Quiz yourself randomly</li>
+                </ul>
+
+                <h3>4. Listening Practice (15 min)</h3>
+                <ul>
+                    <li>Listen to Week 2 audio files (3 times)</li>
+                    <li>Try to write what you hear (tone marks too!)</li>
+                </ul>
+
+                <h3>5. Cultural Task (20 min)</h3>
+                <ul>
+                    <li>Research: Vietnamese naming conventions</li>
+                    <li>Read: "Vietnamese Personal Pronouns" article</li>
+                    <li>Write: What's different from your culture?</li>
+                </ul>
+
+                <h3>6. Preparation for Week 3</h3>
+                <ul>
+                    <li>Bring family photo or drawing</li>
+                    <li>Be ready to name family members</li>
+                </ul>
+
+                <div class="note-box">
+                    <strong><i class="fas fa-exclamation-triangle"></i> Quiz Alert:</strong>
+                    Week 3 will have a 5-minute vocabulary quiz on Weeks 1-2!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Teacher Notes</h2>
+                
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Students often struggle with pronouncing "tôi" correctly - practice this extensively</li>
+                    <li>"Rất vui được gặp bạn" is long - break into manageable chunks</li>
+                    <li>Encourage natural flow, not robot-like recitation</li>
+                </ul>
+
+                <h3>Common Errors</h3>
+                <ul>
+                    <li>Confusing "tên" (name) with "đến" (come) - different tones!</li>
+                    <li>Forgetting "là" in "Tên tôi là..."</li>
+                    <li>Using wrong pronouns (keep simple with tôi/bạn for now)</li>
+                </ul>
+
+                <h3>Differentiation</h3>
+                <ul>
+                    <li><strong>Extra Support:</strong> Provide written script for introduction</li>
+                    <li><strong>Challenge:</strong> Add age, occupation, or hobby to introduction</li>
+                </ul>
+
+                <h3>Cultural Sensitivity</h3>
+                <ul>
+                    <li>Some students may not want to share age - make it optional</li>
+                    <li>Respect privacy regarding personal information</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Success Indicators</h2>
+                <p>Students successfully completed Week 2 if they can:</p>
+                <ul class="objectives-list">
+                    <li>Introduce themselves with name and origin</li>
+                    <li>Ask someone their name in Vietnamese</li>
+                    <li>Say "Nice to meet you" clearly</li>
+                    <li>Count from 11-20</li>
+                    <li>Recognize tôi vs bạn</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VIETNAMESE CONTENT -->
+        <div id="vietnamese-content" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Mục Tiêu Học Tập</h2>
+                <p>Sau bài học này, học viên sẽ có thể:</p>
+                <ul class="objectives-list">
+                    <li>Tự giới thiệu bản thân bằng câu đầy đủ (tên, tuổi, quốc tịch)</li>
+                    <li>Đặt câu hỏi cơ bản: "Bạn tên là gì?" "Bạn đến từ đâu?"</li>
+                    <li>Sử dụng đại từ nhân xưng phù hợp (tôi, bạn)</li>
+                    <li>Thực hành lời chào trang trọng và thân mật</li>
+                    <li>Đếm từ 11-20</li>
+                    <li>Áp dụng thanh điệu từ Tuần 1 trong ngữ cảnh hội thoại</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Từ Vựng (30-40 từ)</h2>
+                
+                <h3>Tự Giới Thiệu</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Tên</strong><p>Tên gọi của người</p></div>
+                    <div class="vocab-item"><strong>Tôi</strong><p>Đại từ ngôi thứ nhất</p></div>
+                    <div class="vocab-item"><strong>Bạn</strong><p>Bạn bè, đồng trang lứa</p></div>
+                    <div class="vocab-item"><strong>Tên tôi là...</strong><p>Cách nói tên mình</p></div>
+                    <div class="vocab-item"><strong>Bạn tên là gì?</strong><p>Hỏi tên người khác</p></div>
+                    <div class="vocab-item"><strong>Rất vui được gặp bạn</strong><p>Lời chào hỏi lịch sự</p></div>
+                    <div class="vocab-item"><strong>Tôi đến từ...</strong><p>Nơi xuất thân</p></div>
+                    <div class="vocab-item"><strong>Tuổi</strong><p>Số tuổi</p></div>
+                    <div class="vocab-item"><strong>Tôi...tuổi</strong><p>Nói về tuổi của mình</p></div>
+                </div>
+
+                <h3>Các Quốc Gia/Địa Điểm</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Mỹ</strong><p>Hoa Kỳ</p></div>
+                    <div class="vocab-item"><strong>Anh</strong><p>Vương quốc Anh</p></div>
+                    <div class="vocab-item"><strong>Canada</strong><p>Ca-na-đa</p></div>
+                    <div class="vocab-item"><strong>Úc</strong><p>Úc Đại Lợi</p></div>
+                    <div class="vocab-item"><strong>Việt Nam</strong><p>Nước Việt Nam</p></div>
+                </div>
+
+                <h3>Lời Chào Theo Thời Gian</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Chào buổi sáng</strong><p>Lời chào buổi sáng</p></div>
+                    <div class="vocab-item"><strong>Chào buổi chiều</strong><p>Lời chào buổi chiều</p></div>
+                    <div class="vocab-item"><strong>Chào buổi tối</strong><p>Lời chào buổi tối</p></div>
+                </div>
+
+                <h3>Cách Nói Lịch Sự</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Xin lỗi</strong><p>Lời xin lỗi hoặc thu hút sự chú ý</p></div>
+                    <div class="vocab-item"><strong>Cảm ơn</strong><p>Lời cảm ơn</p></div>
+                    <div class="vocab-item"><strong>Không có gì</strong><p>Đáp lại lời cảm ơn</p></div>
+                </div>
+
+                <h3>Số Đếm 11-20</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Mười một</strong><p>Số 11</p></div>
+                    <div class="vocab-item"><strong>Mười hai</strong><p>Số 12</p></div>
+                    <div class="vocab-item"><strong>Mười ba</strong><p>Số 13</p></div>
+                    <div class="vocab-item"><strong>Hai mươi</strong><p>Số 20</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Trọng Tâm Ngữ Pháp</h2>
+                
+                <h3>1. Cấu Trúc Câu Cơ Bản</h3>
+                <ul>
+                    <li>Tôi là [tên] - Tôi là [tên]</li>
+                    <li>Tên tôi là [tên] - Tên của tôi là [tên]</li>
+                </ul>
+
+                <h3>2. Cách Đặt Câu Hỏi</h3>
+                <ul>
+                    <li>Câu khẳng định + không? (câu hỏi có/không)</li>
+                    <li>Từ để hỏi + động từ: Tên là gì? (Tên là cái gì?)</li>
+                </ul>
+
+                <h3>3. Đại Từ Nhân Xưng</h3>
+                <ul>
+                    <li>Tôi - trung tính, an toàn cho người mới bắt đầu</li>
+                    <li>Bạn - dành cho bạn bè, cùng tuổi/vị trí</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Kế Hoạch Bài Học (120 phút)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Khởi Động & Ôn Tập</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-gamepad"></i> Hoạt Động: "Trò Chơi Ôn Thanh - Tiếp Sức 'ma'"</h4>
+                            <ul>
+                                <li>Học viên đứng thành hai hàng</li>
+                                <li>Giáo viên gọi một số (1-6) đại diện cho một thanh</li>
+                                <li>Người đầu tiên mỗi hàng nói "ma" với thanh đó</li>
+                                <li>Phát âm đúng = ngồi xuống, đội nào ngồi hết trước thắng</li>
+                                <li>Ôn tập: Đếm từ 0-20 cùng nhau (giới thiệu 11-20)</li>
+                            </ul>
+                            <p><strong>Kiểm Tra Nhanh:</strong> "Chào buổi sáng" là gì? (Chào buổi sáng)</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Trình Bày: Cấu Trúc Tự Giới Thiệu</h3>
+                            </div>
+                            <span class="time-badge">20 phút</span>
+                        </div>
+                        
+                        <p><strong>Giáo viên tự giới thiệu chậm rãi, rõ ràng:</strong></p>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p style="margin: 5px 0;">Xin chào!</p>
+                            <p style="margin: 5px 0;">Tên tôi là [Tên Giáo Viên].</p>
+                            <p style="margin: 5px 0;">Tôi đến từ [Quốc Gia].</p>
+                            <p style="margin: 5px 0;">Tôi là giáo viên.</p>
+                            <p style="margin: 5px 0;">Rất vui được gặp bạn!</p>
+                        </div>
+
+                        <h4>Phân Tích Từng Câu:</h4>
+                        <ul>
+                            <li><strong>Tên tôi là...</strong> = "Tên của tôi là..." (Tên = tên gọi, Tôi = tôi, Là = thì là)</li>
+                            <li><strong>Tôi đến từ...</strong> = "Tôi đến từ..." (Đến = đến, Từ = từ)</li>
+                            <li><strong>Rất vui được gặp bạn</strong> = "Rất vui được gặp bạn"</li>
+                        </ul>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-globe"></i> Ghi Chú Văn Hóa:</strong>
+                            Người Việt Nam thường hỏi tuổi ngay sau khi gặp - tuổi quyết định đại từ nào được sử dụng! Chúng ta sẽ học các đại từ phức tạp hơn sau, nhưng bây giờ bắt đầu với tôi/bạn.
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Thực Hành Phát Âm</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Luyện Tập Gương"</h4>
+                            <ul>
+                                <li>Học viên lặp lại mỗi cụm từ chính 3 lần</li>
+                                <li>Tập trung vào độ chính xác của thanh điệu</li>
+                                <li>Chú ý đặc biệt đến: tên (ngang), tôi (ngang), đến (huyền)</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Chuỗi Tên"</h4>
+                            <ul>
+                                <li>Giáo viên: "Tên tôi là [Tên]"</li>
+                                <li>Học viên 1: "Tên tôi là [Tên]"</li>
+                                <li>Tiếp tục vòng quanh</li>
+                                <li>Thêm yếu tố: Mỗi học viên thêm quốc gia của họ</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Điểm Phát Âm Khó:</strong> "Rất vui được gặp bạn" - chia thành từng đoạn: "Rất vui" / "được gặp" / "bạn"</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Thực Hành Có Hướng Dẫn: Cấu Trúc Hỏi Đáp</h3>
+                            </div>
+                            <span class="time-badge">25 phút</span>
+                        </div>
+                        
+                        <h4>Dạy Câu Hỏi:</h4>
+                        <ul>
+                            <li>"Bạn tên là gì?" (Bạn tên là gì?)</li>
+                            <li>"Bạn đến từ đâu?" (Bạn từ đâu đến?)</li>
+                        </ul>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Thực Hành Hỏi và Đáp"</h4>
+                            <ul>
+                                <li>Giáo viên hỏi từng học viên → học viên trả lời</li>
+                                <li>Học viên hỏi giáo viên → giáo viên trả lời</li>
+                                <li>Học viên hỏi nhau theo cặp</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Trao Đổi Thông Tin"</h4>
+                            <ul>
+                                <li>Tạo thẻ ID đơn giản với: Tên, Quốc gia, Tuổi (tùy chọn)</li>
+                                <li>Học viên hoàn thành bằng tiếng Anh trước</li>
+                                <li>Thực hành nói từng thông tin bằng tiếng Việt</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: "Hai Sự Thật và Một Điều Dối - Phiên Bản Việt"</h4>
+                            <ul>
+                                <li>Mỗi học viên viết 3 câu về bản thân</li>
+                                <li>Thực hành nói MỘT câu bằng tiếng Việt: "Tôi đến từ [địa điểm]"</li>
+                                <li>Chia sẻ với nhóm nhỏ, nhóm đoán câu nào sai</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Thực Hành Giao Tiếp: Giới Thiệu Nhanh</h3>
+                            </div>
+                            <span class="time-badge">30 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Giới Thiệu Âm Nhạc"</h4>
+                            <ul>
+                                <li>Phát nhạc Việt Nam</li>
+                                <li>Học viên đi vòng quanh</li>
+                                <li>Khi nhạc dừng, tìm người gần nhất và giới thiệu đầy đủ</li>
+                                <li>Lặp lại 5-6 lần với các đối tác khác nhau</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Tiệc Cocktail"</h4>
+                            <ul>
+                                <li>Sắp xếp phòng như tiệc cocktail</li>
+                                <li>Học viên giao lưu, tự giới thiệu</li>
+                                <li>Mục tiêu: Gặp mọi người trong lớp</li>
+                                <li>"Thử thách VIP": Nói tiếng Việt trong 2 phút đầy đủ</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: "Vòng Giới Thiệu"</h4>
+                            <ul>
+                                <li>Ngồi thành vòng tròn</li>
+                                <li>Mỗi học viên tự giới thiệu với cả lớp</li>
+                                <li>Lớp đáp lại: "Rất vui được gặp bạn!"</li>
+                                <li>Cố gắng nhớ tên của mọi người (bằng tiếng Việt)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Hoạt Động Ứng Dụng: Video Giới Thiệu</h3>
+                            </div>
+                            <span class="time-badge">10 phút</span>
+                        </div>
+                        
+                        <p><strong>Hoạt Động: "Bài Giới Thiệu Tiếng Việt Của Tôi"</strong></p>
+                        <p>Học viên chuẩn bị và ghi âm (video hoặc âm thanh điện thoại) bài giới thiệu bản thân bao gồm:</p>
+                        <ul>
+                            <li>Lời chào</li>
+                            <li>Tên</li>
+                            <li>Quốc gia xuất thân</li>
+                            <li>Rất vui được gặp bạn</li>
+                            <li>Tạm biệt</li>
+                        </ul>
+                        <p><strong>Phương Án Khác:</strong> Viết ra lời giới thiệu, trình bày với bạn</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Tổng Kết & Bài Tập Về Nhà</h3>
+                            </div>
+                            <span class="time-badge">5 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Trò Chơi Ôn Tập: "Giới Thiệu Bật Lên"</h4>
+                            <ul>
+                                <li>Giáo viên chỉ vào học viên ngẫu nhiên</li>
+                                <li>Học viên đứng lên, tự giới thiệu (câu đầy đủ)</li>
+                                <li>Sau đó chỉ vào học viên khác</li>
+                                <li>Tiếp tục nhanh chóng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Đánh Giá</h2>
+                
+                <h3>Đánh Giá Quá Trình</h3>
+                <ul>
+                    <li>Theo dõi độ chính xác giới thiệu trong lúc thực hành</li>
+                    <li>Kiểm tra phát âm các cụm từ chính</li>
+                    <li>Quan sát mức độ tự tin khi nói</li>
+                    <li>Xem xét các bài giới thiệu được ghi âm</li>
+                </ul>
+
+                <h3>Nhiệm Vụ Ra Cửa</h3>
+                <p>Mỗi học viên phải:</p>
+                <ul>
+                    <li>Chào giáo viên (lời chào phù hợp với thời gian)</li>
+                    <li>Tự giới thiệu: tên và quốc gia</li>
+                    <li>Nói "Rất vui được gặp bạn"</li>
+                    <li>Nói tạm biệt</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Vật Liệu Cần Thiết</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>Mẫu thẻ ID</li>
+                        <li>Danh sách từ vựng Tuần 2 (tài liệu phát tay)</li>
+                        <li>Hướng dẫn phát âm</li>
+                        <li>Nhạc Việt Nam (cho Giới Thiệu Âm Nhạc)</li>
+                        <li>Thiết bị ghi âm (điện thoại học viên)</li>
+                        <li>Bảng trắng/bút lông</li>
+                        <li>Thẻ từ các quốc gia</li>
+                        <li>File âm thanh Tuần 2</li>
+                        <li>Tờ bài tập về nhà</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Bài Tập Về Nhà</h2>
+                
+                <h3>1. Thực Hành Giới Thiệu (20 phút)</h3>
+                <ul>
+                    <li>Ghi video giới thiệu (1-2 phút)</li>
+                    <li>Thực hành giới thiệu 10 lần to tiếng</li>
+                    <li>Học thuộc để không cần đọc</li>
+                </ul>
+
+                <h3>2. Học Từ Vựng (15 phút)</h3>
+                <ul>
+                    <li>Tạo thẻ từ cho từ vựng Tuần 2</li>
+                    <li>Thực hành với ứng dụng thẻ từ kỹ thuật số</li>
+                    <li>Viết mỗi từ 5 lần</li>
+                </ul>
+
+                <h3>3. Số Đếm 11-20 (10 phút)</h3>
+                <ul>
+                    <li>Đếm 11-20 to tiếng 10 lần</li>
+                    <li>Tự kiểm tra ngẫu nhiên</li>
+                </ul>
+
+                <h3>4. Thực Hành Nghe (15 phút)</h3>
+                <ul>
+                    <li>Nghe file âm thanh Tuần 2 (3 lần)</li>
+                    <li>Cố gắng viết những gì bạn nghe (cả dấu thanh!)</li>
+                </ul>
+
+                <h3>5. Nhiệm Vụ Văn Hóa (20 phút)</h3>
+                <ul>
+                    <li>Nghiên cứu: Quy ước đặt tên Việt Nam</li>
+                    <li>Đọc: Bài viết "Đại Từ Nhân Xưng Tiếng Việt"</li>
+                    <li>Viết: Điều gì khác so với văn hóa của bạn?</li>
+                </ul>
+
+                <h3>6. Chuẩn Bị Cho Tuần 3</h3>
+                <ul>
+                    <li>Mang ảnh gia đình hoặc bản vẽ</li>
+                    <li>Sẵn sàng kể tên các thành viên gia đình</li>
+                </ul>
+
+                <div class="note-box">
+                    <strong><i class="fas fa-exclamation-triangle"></i> Thông Báo Kiểm Tra:</strong>
+                    Tuần 3 sẽ có bài kiểm tra từ vựng 5 phút về Tuần 1-2!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Ghi Chú Cho Giáo Viên</h2>
+                
+                <h3>Điểm Chính</h3>
+                <ul>
+                    <li>Học viên thường gặp khó khăn với việc phát âm "tôi" đúng - thực hành nhiều</li>
+                    <li>"Rất vui được gặp bạn" dài - chia thành các đoạn dễ quản lý</li>
+                    <li>Khuyến khích dòng chảy tự nhiên, không đọc như robot</li>
+                </ul>
+
+                <h3>Lỗi Thường Gặp</h3>
+                <ul>
+                    <li>Nhầm "tên" (tên gọi) với "đến" (đi đến) - thanh điệu khác nhau!</li>
+                    <li>Quên "là" trong "Tên tôi là..."</li>
+                    <li>Dùng sai đại từ (giữ đơn giản với tôi/bạn hiện tại)</li>
+                </ul>
+
+                <h3>Phân Biệt</h3>
+                <ul>
+                    <li><strong>Hỗ Trợ Thêm:</strong> Cung cấp kịch bản viết sẵn cho bài giới thiệu</li>
+                    <li><strong>Thách Thức:</strong> Thêm tuổi, nghề nghiệp, hoặc sở thích vào bài giới thiệu</li>
+                </ul>
+
+                <h3>Nhạy Cảm Văn Hóa</h3>
+                <ul>
+                    <li>Một số học viên có thể không muốn chia sẻ tuổi - làm cho tùy chọn</li>
+                    <li>Tôn trọng quyền riêng tư về thông tin cá nhân</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Chỉ Số Thành Công</h2>
+                <p>Học viên hoàn thành thành công Tuần 2 nếu có thể:</p>
+                <ul class="objectives-list">
+                    <li>Tự giới thiệu với tên và nơi xuất thân</li>
+                    <li>Hỏi tên người khác bằng tiếng Việt</li>
+                    <li>Nói "Rất vui được gặp bạn" rõ ràng</li>
+                    <li>Đếm từ 11-20</li>
+                    <li>Nhận biết tôi so với bạn</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Lesson Plan
+    </button>
+
+    <script>
+        function switchLanguage(lang) {
+            document.getElementById('english-content').classList.remove('active');
+            document.getElementById('vietnamese-content').classList.remove('active');
+            
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (lang === 'english') {
+                document.getElementById('english-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[0].classList.add('active');
+            } else {
+                document.getElementById('vietnamese-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[1].classList.add('active');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === 'e') {
+                switchLanguage('english');
+            } else if (e.altKey && e.key === 'v') {
+                switchLanguage('vietnamese');
+            }
+        });
+    </script>
+</body>
+</html>

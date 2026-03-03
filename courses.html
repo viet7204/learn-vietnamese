@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Courses | Khóa Học Tiếng Việt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teaching.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .courses-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .courses-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .courses-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .courses-section {
+            padding: 60px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-header {
+            padding: 40px 30px 30px;
+            position: relative;
+        }
+        
+        .course-card.beginner .course-header {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+        
+        .course-card.intermediate .course-header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .course-card.advanced .course-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .course-card.travel .course-header {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .course-card.coming-soon .course-header {
+            background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+            opacity: 0.7;
+        }
+        
+        .course-level-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        
+        .course-card.beginner .course-level-badge {
+            color: #2ecc71;
+        }
+        
+        .course-card.intermediate .course-level-badge {
+            color: #e67e22;
+        }
+        
+        .course-card.advanced .course-level-badge {
+            color: #9b59b6;
+        }
+        
+        .course-card.travel .course-level-badge {
+            color: #e74c3c;
+        }
+        
+        .course-header h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .course-duration {
+            font-size: 0.95rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .course-body {
+            padding: 30px;
+        }
+        
+        .course-description {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        .course-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        
+        .course-features li {
+            padding: 10px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .course-features li i {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+        
+        .course-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 25px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .course-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .course-btn.coming-soon-btn {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .course-btn.coming-soon-btn:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .coming-soon-label {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #f39c12;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .courses-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .courses-hero p {
+                font-size: 1rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+        <button id="lang-vi" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="lectures.html">Lectures</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="visual.html">Visual Learning</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="courses-hero">
+        <div class="container">
+            <h1>Vietnamese Language Courses</h1>
+            <p>Choose the perfect course for your learning journey. From complete beginners to advanced speakers, we have structured programs to help you master Vietnamese.</p>
+        </div>
+    </section>
+
+    <!-- Level-Based Courses -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Learn by Level</h2>
+                <p>Progress through structured courses designed for your proficiency level</p>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- Beginner Course -->
+                <div class="course-card beginner">
+                    <div class="course-header">
+                        <span class="course-level-badge">
+                            <i class="fas fa-seedling"></i> Beginner
+                        </span>
+                        <h3>Complete Beginner Course</h3>
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i>
+                            <span>12 weeks • 3-5 hours/week</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">
+                            Start your Vietnamese learning journey from scratch. Master the alphabet, tones, basic grammar, and essential vocabulary for everyday situations.
+                        </p>
+                        
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Weeks</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">48</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">300+</span>
+                                <span class="stat-label">Words</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="course-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Vietnamese alphabet & tone system</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Essential greetings & introductions</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Numbers, time, and daily vocabulary</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Basic sentence structures & grammar</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Restaurant, shopping & travel phrases</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="course.html" class="course-btn">
+                            Start Beginner Course <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Intermediate Course -->
+                <div class="course-card intermediate coming-soon">
+                    <div class="course-header">
+                        <span class="course-level-badge">
+                            <i class="fas fa-chart-line"></i> Intermediate
+                        </span>
+                        <span class="coming-soon-label">Coming Soon</span>
+                        <h3>Intermediate Course</h3>
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i>
+                            <span>16 weeks • 4-6 hours/week</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">
+                            Build on your foundation with complex grammar, expanded vocabulary, and natural conversation skills. Learn to express opinions and discuss various topics.
+                        </p>
+                        
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">16</span>
+                                <span class="stat-label">Weeks</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">64</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">800+</span>
+                                <span class="stat-label">Words</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="course-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Complex sentence structures</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Family, work & social topics</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Vietnamese culture & customs</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Reading short texts & articles</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Natural conversation practice</span>
+                            </li>
+                        </ul>
+                        
+                        <button class="course-btn coming-soon-btn" disabled>
+                            Coming Soon <i class="fas fa-hourglass-half"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Advanced Course -->
+                <div class="course-card advanced coming-soon">
+                    <div class="course-header">
+                        <span class="course-level-badge">
+                            <i class="fas fa-crown"></i> Advanced
+                        </span>
+                        <span class="coming-soon-label">Coming Soon</span>
+                        <h3>Advanced Course</h3>
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i>
+                            <span>20 weeks • 5-7 hours/week</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">
+                            Master Vietnamese at a native level. Learn idioms, formal writing, regional dialects, and cultural nuances. Perfect for those aiming for fluency.
+                        </p>
+                        
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">20</span>
+                                <span class="stat-label">Weeks</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">80</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">1500+</span>
+                                <span class="stat-label">Words</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="course-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Vietnamese idioms & proverbs</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Formal & business Vietnamese</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Northern, Central & Southern dialects</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Literature & poetry reading</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Native-level fluency practice</span>
+                            </li>
+                        </ul>
+                        
+                        <button class="course-btn coming-soon-btn" disabled>
+                            Coming Soon <i class="fas fa-hourglass-half"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category-Based Courses -->
+    <section class="courses-section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Learn by Category</h2>
+                <p>Specialized courses focused on specific topics and situations</p>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- Travel Vietnamese -->
+                <div class="course-card travel">
+                    <div class="course-header">
+                        <span class="course-level-badge">
+                            <i class="fas fa-plane"></i> Travel
+                        </span>
+                        <h3>Vietnamese for Travelers</h3>
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i>
+                            <span>6 weeks • 2-3 hours/week • All Levels</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">
+                            Essential Vietnamese for your Vietnam adventure! Navigate airports, order amazing food, bargain at markets, and handle any situation with confidence. Real-world scenarios and practical phrases you'll actually use!
+                        </p>
+                        
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">6</span>
+                                <span class="stat-label">Weeks</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">24</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">400+</span>
+                                <span class="stat-label">Phrases</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="course-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Airport & transportation phrases</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Hotel & accommodation vocabulary</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Restaurant & street food ordering</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Shopping & bargaining skills</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Emergency & safety situations</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="course-travel.html" class="course-btn">
+                            Start Travel Course <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Business Vietnamese (Future) -->
+                <div class="course-card intermediate coming-soon">
+                    <div class="course-header">
+                        <span class="course-level-badge">
+                            <i class="fas fa-briefcase"></i> Business
+                        </span>
+                        <span class="coming-soon-label">Coming Soon</span>
+                        <h3>Business Vietnamese</h3>
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i>
+                            <span>10 weeks • 4-5 hours/week</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">
+                            Professional Vietnamese for business contexts. Learn formal communication, email writing, presentations, and negotiations in Vietnamese.
+                        </p>
+                        
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">10</span>
+                                <span class="stat-label">Weeks</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">40</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">600+</span>
+                                <span class="stat-label">Terms</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="course-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Business emails & correspondence</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Meeting & presentation skills</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Negotiation vocabulary</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Professional networking phrases</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Industry-specific terminology</span>
+                            </li>
+                        </ul>
+                        
+                        <button class="course-btn coming-soon-btn" disabled>
+                            Coming Soon <i class="fas fa-hourglass-half"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kids Vietnamese -->
+                <div class="course-card beginner">
+                    <div class="course-header">
+                        <span class="course-level-badge">
+                            <i class="fas fa-child"></i> Kids
+                        </span>
+                        <h3>Vietnamese for Kids</h3>
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i>
+                            <span>12 weeks • 2-3 hours/week • Ages 5-12</span>
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <p class="course-description">
+                            Fun and interactive Vietnamese course designed for children ages 5-12. Learn through games, songs, stories, crafts, and colorful activities. Perfect for heritage learners and young language enthusiasts!
+                        </p>
+                        
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Weeks</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">36</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">200+</span>
+                                <span class="stat-label">Words</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="course-features">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Interactive games & activities</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Vietnamese songs & rhymes</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Colorful visual learning</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Arts & crafts projects</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Parent/teacher materials included</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="course-kids.html" class="course-btn">
+                            Start Kids Course <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="courses-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Ready to Start Learning?</h2>
+            <p style="font-size: 1.2rem; opacity: 0.95; max-width: 600px; margin: 0 auto 30px;">
+                Begin your Vietnamese language journey today with our comprehensive beginner course. No prior experience needed!
+            </p>
+            <a href="course.html" class="course-btn" style="display: inline-block; width: auto; padding: 15px 40px; background: white; color: #667eea;">
+                Start Learning Now <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Learn Vietnamese. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/language.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

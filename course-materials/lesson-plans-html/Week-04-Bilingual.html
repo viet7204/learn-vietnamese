@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4: Numbers, Time & Calendar | Tuần 4: Số Đếm, Thời Gian & Lịch</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .language-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e74c3c;
+            background: white;
+            padding: 0;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            background: white;
+            color: #555;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tab-button:hover {
+            background: #f8f9fa;
+        }
+        
+        .tab-button.active {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #e74c3c;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .objectives-list, .vocab-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .objectives-list li {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .objectives-list li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .vocab-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .vocab-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .vocab-item strong {
+            color: #e74c3c;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .activity-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .activity-box h4 {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+        }
+        
+        .time-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .lesson-structure {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .lesson-step {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .lesson-step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .note-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .note-box strong {
+            color: #856404;
+        }
+        
+        .materials-checklist {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .materials-checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .materials-checklist li {
+            padding: 8px 0;
+        }
+        
+        .materials-checklist li:before {
+            content: "☐ ";
+            margin-right: 10px;
+            font-size: 18px;
+            color: #667eea;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .print-button:hover {
+            transform: scale(1.05);
+        }
+        
+        @media print {
+            .language-tabs, .print-button { display: none; }
+            .tab-content { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Week 4: Numbers, Time & Calendar</h1>
+        <p>Tuần 4: Số Đếm, Thời Gian & Lịch</p>
+        <p style="margin-top: 10px; font-size: 14px;">Adult Beginners Course | Khóa Học Cho Người Lớn Bắt Đầu</p>
+    </div>
+
+    <div class="container">
+        <div class="language-tabs">
+            <button class="tab-button active" onclick="switchLanguage('english')">
+                <i class="fas fa-language"></i> English
+            </button>
+            <button class="tab-button" onclick="switchLanguage('vietnamese')">
+                <i class="fas fa-language"></i> Tiếng Việt
+            </button>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <div id="english-content" class="tab-content active">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
+                <p>By the end of this lesson, students will be able to:</p>
+                <ul class="objectives-list">
+                    <li>Count from 0-100 in Vietnamese</li>
+                    <li>Tell time (hours and minutes)</li>
+                    <li>Express dates, days of the week, and months</li>
+                    <li>Ask "What time is it?" and "What day is it?"</li>
+                    <li>Talk about their daily schedule</li>
+                    <li>Make appointments and plans</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Vocabulary (40-50 words)</h2>
+                
+                <h3>Time Words</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Giờ</strong><p>Hour/O'clock</p></div>
+                    <div class="vocab-item"><strong>Phút</strong><p>Minute</p></div>
+                    <div class="vocab-item"><strong>Bây giờ</strong><p>Now</p></div>
+                    <div class="vocab-item"><strong>Mấy giờ?</strong><p>What time?</p></div>
+                    <div class="vocab-item"><strong>Mấy giờ rồi?</strong><p>What time is it?</p></div>
+                    <div class="vocab-item"><strong>Lúc</strong><p>At (time)</p></div>
+                </div>
+
+                <h3>Days of the Week</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Thứ Hai</strong><p>Monday</p></div>
+                    <div class="vocab-item"><strong>Thứ Ba</strong><p>Tuesday</p></div>
+                    <div class="vocab-item"><strong>Thứ Tư</strong><p>Wednesday</p></div>
+                    <div class="vocab-item"><strong>Thứ Năm</strong><p>Thursday</p></div>
+                    <div class="vocab-item"><strong>Thứ Sáu</strong><p>Friday</p></div>
+                    <div class="vocab-item"><strong>Thứ Bảy</strong><p>Saturday</p></div>
+                    <div class="vocab-item"><strong>Chủ Nhật</strong><p>Sunday</p></div>
+                    <div class="vocab-item"><strong>Hôm nay</strong><p>Today</p></div>
+                    <div class="vocab-item"><strong>Ngày mai</strong><p>Tomorrow</p></div>
+                    <div class="vocab-item"><strong>Hôm qua</strong><p>Yesterday</p></div>
+                </div>
+
+                <h3>Months</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Tháng Một</strong><p>January</p></div>
+                    <div class="vocab-item"><strong>Tháng Hai</strong><p>February</p></div>
+                    <div class="vocab-item"><strong>Tháng Ba</strong><p>March</p></div>
+                    <div class="vocab-item"><strong>Tháng Mười Hai</strong><p>December</p></div>
+                </div>
+
+                <h3>Calendar</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Ngày</strong><p>Day</p></div>
+                    <div class="vocab-item"><strong>Tuần</strong><p>Week</p></div>
+                    <div class="vocab-item"><strong>Tháng</strong><p>Month</p></div>
+                    <div class="vocab-item"><strong>Năm</strong><p>Year</p></div>
+                </div>
+
+                <h3>Numbers 21-100 (key examples)</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Hai mươi một</strong><p>21</p></div>
+                    <div class="vocab-item"><strong>Ba mươi</strong><p>30</p></div>
+                    <div class="vocab-item"><strong>Năm mươi</strong><p>50</p></div>
+                    <div class="vocab-item"><strong>Một trăm</strong><p>100</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Grammar Focus</h2>
+                
+                <h3>1. Telling Time</h3>
+                <ul>
+                    <li>[Number] giờ = [Number] o'clock</li>
+                    <li>[Number] giờ [Number] phút = [Hour]:[Minutes]</li>
+                    <li>Example: Bảy giờ mười lăm phút (7:15)</li>
+                </ul>
+
+                <h3>2. Dates</h3>
+                <ul>
+                    <li>Ngày [number] tháng [number] = [Day] of [Month]</li>
+                    <li>Example: Ngày 15 tháng 3 (March 15)</li>
+                </ul>
+
+                <h3>3. Time Expressions</h3>
+                <ul>
+                    <li>Lúc + time = at [time]</li>
+                    <li>Vào + day = on [day]</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Lesson Plan (120 minutes)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Warm-up & Review</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-home"></i> Activity: "Family Spotlight"</h4>
+                            <ul>
+                                <li>3-4 students share their family trees (from homework)</li>
+                                <li>Class asks questions in Vietnamese</li>
+                                <li>Review: Bạn có ___ không? structure</li>
+                            </ul>
+                        </div>
+                        <p><strong>Number Review:</strong> Count 0-20 as a class</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Presentation: Numbers 21-100</h3>
+                            </div>
+                            <span class="time-badge">20 min</span>
+                        </div>
+                        
+                        <h4>Number Patterns:</h4>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p><strong>21-29:</strong> Hai mươi + (một, hai, ba...)</p>
+                            <ul>
+                                <li>21 = Hai mươi một</li>
+                                <li>25 = Hai mươi lăm (note: năm → lăm after mươi)</li>
+                                <li>29 = Hai mươi chín</li>
+                            </ul>
+                            
+                            <p><strong>30, 40, 50... pattern:</strong> [Number] mươi</p>
+                            <ul>
+                                <li>30 = Ba mươi</li>
+                                <li>40 = Bốn mươi</li>
+                                <li>50 = Năm mươi</li>
+                                <li>100 = Một trăm</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-exclamation-circle"></i> Special Note:</strong>
+                            After "mươi," năm (5) becomes lăm. Example: 25 = hai mươi lăm (NOT hai mươi năm)
+                        </div>
+
+                        <p><strong>Practice:</strong> Count by tens: 10, 20, 30...100</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Pronunciation & Time Introduction</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        
+                        <h4>Days of Week Practice:</h4>
+                        <ul>
+                            <li>Monday through Sunday</li>
+                            <li>Note the pattern: Thứ + number (2-7), except Sunday</li>
+                            <li>Monday = Thứ Hai (literally "Day two")</li>
+                            <li>Sunday = Chủ Nhật (special term)</li>
+                        </ul>
+
+                        <h4>Months:</h4>
+                        <ul>
+                            <li>Simple pattern: Tháng + number</li>
+                            <li>January = Tháng Một (Month One)</li>
+                        </ul>
+
+                        <h4>Telling Time - Basic Structure:</h4>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p><strong>Mấy giờ rồi?</strong> (What time is it?)</p>
+                            <p><strong>[Number] giờ</strong> ([Number] o'clock)</p>
+                            <p>Examples:</p>
+                            <ul>
+                                <li>1:00 = Một giờ</li>
+                                <li>7:00 = Bảy giờ</li>
+                                <li>12:00 = Mười hai giờ</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Guided Practice: Time Practice</h3>
+                            </div>
+                            <span class="time-badge">25 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: "Clock Practice"</h4>
+                            <ul>
+                                <li>Use large demonstration clock</li>
+                                <li>Teacher sets time, students say in Vietnamese</li>
+                                <li>Start with o'clock times (1:00, 2:00, etc.)</li>
+                                <li>Progress to half hours (3:30, 4:30)</li>
+                            </ul>
+                        </div>
+
+                        <h4>Time with Minutes:</h4>
+                        <ul>
+                            <li>[Hour] giờ [minutes] phút</li>
+                            <li>3:15 = Ba giờ mười lăm phút</li>
+                            <li>7:45 = Bảy giờ bốn mươi lăm phút</li>
+                        </ul>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "Time Bingo"</h4>
+                            <ul>
+                                <li>Create bingo cards with times (3:00, 7:30, 9:15, etc.)</li>
+                                <li>Teacher calls times in Vietnamese</li>
+                                <li>Students mark cards</li>
+                                <li>First to complete line wins</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: "What Time Do You...?"</h4>
+                            <p>Practice asking about daily activities:</p>
+                            <ul>
+                                <li>Bạn thức dậy lúc mấy giờ? (What time do you wake up?)</li>
+                                <li>Bạn đi làm lúc mấy giờ? (What time do you go to work?)</li>
+                                <li>Answer: Tôi thức dậy lúc sáu giờ (I wake up at 6:00)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Communicative Practice: Schedules & Appointments</h3>
+                            </div>
+                            <span class="time-badge">30 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: "Daily Schedule Creation"</h4>
+                            <ul>
+                                <li>Provide schedule template (7 AM - 10 PM)</li>
+                                <li>Students fill in their typical daily activities with times</li>
+                                <li>Must include at least 5 activities</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: "Schedule Exchange"</h4>
+                            <ul>
+                                <li>Pairs compare schedules</li>
+                                <li>Ask each other: "Bạn [activity] lúc mấy giờ?"</li>
+                                <li>Find similarities and differences</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: "Making Appointments"</h4>
+                            <p>Teach phrases:</p>
+                            <ul>
+                                <li>Chúng ta gặp nhau lúc mấy giờ? (What time shall we meet?)</li>
+                                <li>Lúc [time] được không? (Is [time] okay?)</li>
+                                <li>Được! (OK!/Sure!)</li>
+                            </ul>
+                            <p>Students practice in pairs, make 3-4 "appointments" with different classmates</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 4: "Date and Birthday Survey"</h4>
+                            <ul>
+                                <li>Students write their birthday in Vietnamese</li>
+                                <li>Walk around asking: Sinh nhật bạn là ngày nào? (When is your birthday?)</li>
+                                <li>Record at least 5 classmates' birthdays</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Application Activity: Calendar Game</h3>
+                            </div>
+                            <span class="time-badge">10 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity: "Calendar Master"</h4>
+                            <p>Divide into teams of 3-4. Teacher asks questions:</p>
+                            <ul>
+                                <li>Hôm nay là thứ mấy? (What day is today?)</li>
+                                <li>Ngày mai là thứ mấy? (What day is tomorrow?)</li>
+                                <li>Bây giờ là mấy giờ? (What time is it now?)</li>
+                                <li>Tháng này là tháng mấy? (What month is this?)</li>
+                            </ul>
+                            <p>Teams write answers in Vietnamese. First team with correct answer gets point.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Wrap-up & Homework</h3>
+                            </div>
+                            <span class="time-badge">5 min</span>
+                        </div>
+                        
+                        <ul>
+                            <li>Count by tens: 10, 20, 30...100</li>
+                            <li>Say days of week together</li>
+                            <li>Say today's date together</li>
+                        </ul>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-exclamation-triangle"></i> IMPORTANT: Week 4 Mid-term Assessment Next Week!</strong>
+                            <p>Mid-term will include: Oral interview, Written vocabulary test (Weeks 1-4), Listening comprehension</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Assessment</h2>
+                
+                <h3>Formative Assessment</h3>
+                <ul>
+                    <li>Number pronunciation during drills</li>
+                    <li>Time-telling accuracy during clock practice</li>
+                    <li>Participation in schedule activities</li>
+                    <li>Appointment-making dialogues</li>
+                </ul>
+
+                <h3>Week 4 Mid-term Progress Check (Next Class)</h3>
+                <p><strong>1. Oral Interview (8 points):</strong></p>
+                <ul>
+                    <li>Greet appropriately</li>
+                    <li>Introduce self (name, origin)</li>
+                    <li>Describe family (2-3 sentences)</li>
+                    <li>Tell current time</li>
+                    <li>Say today's date</li>
+                </ul>
+                <p><strong>2. Written Vocabulary Test (5 points):</strong> 25 vocabulary items from Weeks 1-4</p>
+                <p><strong>3. Listening Exercise (2 points):</strong> Listen to 4 short clips, answer questions</p>
+                <p><strong>Total: 15 points (15% of final grade)</strong></p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Materials Needed</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>Large demonstration clock (analog)</li>
+                        <li>Digital time displays</li>
+                        <li>Calendar (large, for classroom)</li>
+                        <li>Time bingo cards (prepared)</li>
+                        <li>Time flashcards (various times)</li>
+                        <li>Schedule templates (printed)</li>
+                        <li>Appointment dialogue cards</li>
+                        <li>Birthday survey sheets</li>
+                        <li>Number chart (1-100)</li>
+                        <li>Days/months poster</li>
+                        <li>Week 4 audio files</li>
+                        <li>Homework assignment sheets</li>
+                        <li>Mid-term study guide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Homework</h2>
+                
+                <h3>1. Weekly Schedule (30 min)</h3>
+                <ul>
+                    <li>Create detailed weekly schedule in Vietnamese</li>
+                    <li>Include: times, days, activities</li>
+                    <li>Must have at least 3 activities per day</li>
+                </ul>
+
+                <h3>2. Number Practice (15 min)</h3>
+                <ul>
+                    <li>Write numbers 1-100 in Vietnamese</li>
+                    <li>Practice counting aloud (record yourself)</li>
+                </ul>
+
+                <h3>3. Time Practice (20 min)</h3>
+                <ul>
+                    <li>Throughout the day, check time and say it in Vietnamese</li>
+                    <li>Practice telling time 20 times</li>
+                </ul>
+
+                <h3>4. Study for Mid-term (45 min)</h3>
+                <ul>
+                    <li>Review ALL vocabulary from Weeks 1-4</li>
+                    <li>Practice pronunciation with audio files</li>
+                    <li>Self-test with flashcards</li>
+                </ul>
+
+                <h3>5. Calendar Journal (15 min)</h3>
+                <ul>
+                    <li>Write 7 sentences about your week</li>
+                    <li>Example: Thứ Hai, tôi đi làm lúc 8 giờ</li>
+                </ul>
+
+                <h3>6. Listening Practice (15 min)</h3>
+                <ul>
+                    <li>Listen to Week 4 audio files</li>
+                    <li>Practice days, months, times</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Teacher Notes</h2>
+                
+                <h3>Key Teaching Points</h3>
+                <ul>
+                    <li>Number Pattern Recognition: Help students see patterns - it's very logical!</li>
+                    <li>Lăm vs Năm: This is confusing - emphasize that năm (5) becomes lăm after mươi</li>
+                    <li>Time Practice: Need LOTS of practice - time-telling is a practical skill</li>
+                </ul>
+
+                <h3>Common Errors</h3>
+                <ul>
+                    <li>Using năm instead of lăm (25, 35, 45, etc.)</li>
+                    <li>Forgetting giờ and phút when telling time</li>
+                    <li>Confusing thứ (day) with tháng (month)</li>
+                </ul>
+
+                <h3>Differentiation</h3>
+                <ul>
+                    <li><strong>Extra Support:</strong> Number charts, pre-filled schedule templates</li>
+                    <li><strong>Challenge:</strong> Practice 24-hour format, calculate time differences</li>
+                </ul>
+
+                <h3>Cultural Notes</h3>
+                <ul>
+                    <li>Vietnam uses 24-hour clock officially but 12-hour conversationally</li>
+                    <li>Some numbers are considered lucky (8, 9) or unlucky (4)</li>
+                    <li>Vietnam uses both solar and lunar calendars</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Success Indicators</h2>
+                <p>Students successfully completed Week 4 if they can:</p>
+                <ul class="objectives-list">
+                    <li>Count to 100 with reasonable accuracy</li>
+                    <li>Tell time to the hour and half-hour</li>
+                    <li>Say all days of the week</li>
+                    <li>Express dates (month and day)</li>
+                    <li>Ask and answer "What time is it?"</li>
+                    <li>Describe basic daily schedule</li>
+                    <li>Feel prepared for mid-term assessment</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VIETNAMESE CONTENT -->
+        <div id="vietnamese-content" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Mục Tiêu Học Tập</h2>
+                <p>Sau bài học này, học viên sẽ có thể:</p>
+                <ul class="objectives-list">
+                    <li>Đếm từ 0-100 bằng tiếng Việt</li>
+                    <li>Xem giờ (giờ và phút)</li>
+                    <li>Diễn đạt ngày tháng, các ngày trong tuần và các tháng</li>
+                    <li>Hỏi "Mấy giờ rồi?" và "Hôm nay thứ mấy?"</li>
+                    <li>Nói về lịch trình hàng ngày của họ</li>
+                    <li>Hẹn gặp và lên kế hoạch</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Từ Vựng (40-50 từ)</h2>
+                
+                <h3>Từ Về Thời Gian</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Giờ</strong><p>Giờ</p></div>
+                    <div class="vocab-item"><strong>Phút</strong><p>Phút</p></div>
+                    <div class="vocab-item"><strong>Bây giờ</strong><p>Bây giờ</p></div>
+                    <div class="vocab-item"><strong>Mấy giờ?</strong><p>Mấy giờ?</p></div>
+                    <div class="vocab-item"><strong>Mấy giờ rồi?</strong><p>Mấy giờ rồi?</p></div>
+                    <div class="vocab-item"><strong>Lúc</strong><p>Lúc (thời điểm)</p></div>
+                </div>
+
+                <h3>Các Ngày Trong Tuần</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Thứ Hai</strong><p>Thứ Hai</p></div>
+                    <div class="vocab-item"><strong>Thứ Ba</strong><p>Thứ Ba</p></div>
+                    <div class="vocab-item"><strong>Thứ Tư</strong><p>Thứ Tư</p></div>
+                    <div class="vocab-item"><strong>Thứ Năm</strong><p>Thứ Năm</p></div>
+                    <div class="vocab-item"><strong>Thứ Sáu</strong><p>Thứ Sáu</p></div>
+                    <div class="vocab-item"><strong>Thứ Bảy</strong><p>Thứ Bảy</p></div>
+                    <div class="vocab-item"><strong>Chủ Nhật</strong><p>Chủ Nhật</p></div>
+                    <div class="vocab-item"><strong>Hôm nay</strong><p>Hôm nay</p></div>
+                    <div class="vocab-item"><strong>Ngày mai</strong><p>Ngày mai</p></div>
+                    <div class="vocab-item"><strong>Hôm qua</strong><p>Hôm qua</p></div>
+                </div>
+
+                <h3>Các Tháng</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Tháng Một</strong><p>Tháng Một</p></div>
+                    <div class="vocab-item"><strong>Tháng Hai</strong><p>Tháng Hai</p></div>
+                    <div class="vocab-item"><strong>Tháng Ba</strong><p>Tháng Ba</p></div>
+                    <div class="vocab-item"><strong>Tháng Mười Hai</strong><p>Tháng Mười Hai</p></div>
+                </div>
+
+                <h3>Lịch</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Ngày</strong><p>Ngày</p></div>
+                    <div class="vocab-item"><strong>Tuần</strong><p>Tuần</p></div>
+                    <div class="vocab-item"><strong>Tháng</strong><p>Tháng</p></div>
+                    <div class="vocab-item"><strong>Năm</strong><p>Năm</p></div>
+                </div>
+
+                <h3>Số Đếm 21-100 (ví dụ chính)</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Hai mươi một</strong><p>21</p></div>
+                    <div class="vocab-item"><strong>Ba mươi</strong><p>30</p></div>
+                    <div class="vocab-item"><strong>Năm mươi</strong><p>50</p></div>
+                    <div class="vocab-item"><strong>Một trăm</strong><p>100</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Trọng Tâm Ngữ Pháp</h2>
+                
+                <h3>1. Xem Giờ</h3>
+                <ul>
+                    <li>[Số] giờ = [Số] giờ</li>
+                    <li>[Số] giờ [Số] phút = [Giờ]:[Phút]</li>
+                    <li>Ví dụ: Bảy giờ mười lăm phút (7:15)</li>
+                </ul>
+
+                <h3>2. Ngày Tháng</h3>
+                <ul>
+                    <li>Ngày [số] tháng [số] = Ngày [số] tháng [số]</li>
+                    <li>Ví dụ: Ngày 15 tháng 3 (15 tháng 3)</li>
+                </ul>
+
+                <h3>3. Cách Diễn Đạt Thời Gian</h3>
+                <ul>
+                    <li>Lúc + thời gian = vào lúc [thời gian]</li>
+                    <li>Vào + ngày = vào [ngày]</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Kế Hoạch Bài Học (120 phút)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Khởi Động & Ôn Tập</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-home"></i> Hoạt Động: "Điểm Nhấn Gia Đình"</h4>
+                            <ul>
+                                <li>3-4 học viên chia sẻ cây gia phả của họ (từ bài tập về nhà)</li>
+                                <li>Lớp đặt câu hỏi bằng tiếng Việt</li>
+                                <li>Ôn tập: cấu trúc Bạn có ___ không?</li>
+                            </ul>
+                        </div>
+                        <p><strong>Ôn Tập Số Đếm:</strong> Đếm 0-20 cùng cả lớp</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Trình Bày: Số Đếm 21-100</h3>
+                            </div>
+                            <span class="time-badge">20 phút</span>
+                        </div>
+                        
+                        <h4>Quy Luật Số Đếm:</h4>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p><strong>21-29:</strong> Hai mươi + (một, hai, ba...)</p>
+                            <ul>
+                                <li>21 = Hai mươi một</li>
+                                <li>25 = Hai mươi lăm (lưu ý: năm → lăm sau mươi)</li>
+                                <li>29 = Hai mươi chín</li>
+                            </ul>
+                            
+                            <p><strong>30, 40, 50... quy luật:</strong> [Số] mươi</p>
+                            <ul>
+                                <li>30 = Ba mươi</li>
+                                <li>40 = Bốn mươi</li>
+                                <li>50 = Năm mươi</li>
+                                <li>100 = Một trăm</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-exclamation-circle"></i> Lưu Ý Đặc Biệt:</strong>
+                            Sau "mươi," năm (5) trở thành lăm. Ví dụ: 25 = hai mươi lăm (KHÔNG phải hai mươi năm)
+                        </div>
+
+                        <p><strong>Thực Hành:</strong> Đếm theo chục: 10, 20, 30...100</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Phát Âm & Giới Thiệu Thời Gian</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        
+                        <h4>Thực Hành Các Ngày Trong Tuần:</h4>
+                        <ul>
+                            <li>Từ Thứ Hai đến Chủ Nhật</li>
+                            <li>Lưu ý quy luật: Thứ + số (2-7), ngoại trừ Chủ Nhật</li>
+                            <li>Thứ Hai = Thứ Hai (theo nghĩa đen "Ngày hai")</li>
+                            <li>Chủ Nhật = Chủ Nhật (thuật ngữ đặc biệt)</li>
+                        </ul>
+
+                        <h4>Các Tháng:</h4>
+                        <ul>
+                            <li>Quy luật đơn giản: Tháng + số</li>
+                            <li>Tháng Một = Tháng Một</li>
+                        </ul>
+
+                        <h4>Xem Giờ - Cấu Trúc Cơ Bản:</h4>
+                        <div style="background: #f8f9fa; padding: 20px; border-left: 4px solid #667eea; margin: 15px 0;">
+                            <p><strong>Mấy giờ rồi?</strong> (Mấy giờ rồi?)</p>
+                            <p><strong>[Số] giờ</strong> ([Số] giờ)</p>
+                            <p>Ví dụ:</p>
+                            <ul>
+                                <li>1:00 = Một giờ</li>
+                                <li>7:00 = Bảy giờ</li>
+                                <li>12:00 = Mười hai giờ</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Thực Hành Có Hướng Dẫn: Thực Hành Thời Gian</h3>
+                            </div>
+                            <span class="time-badge">25 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Thực Hành Đồng Hồ"</h4>
+                            <ul>
+                                <li>Sử dụng đồng hồ trình diễn lớn</li>
+                                <li>Giáo viên đặt thời gian, học viên nói bằng tiếng Việt</li>
+                                <li>Bắt đầu với giờ tròn (1:00, 2:00, v.v.)</li>
+                                <li>Tiến triển đến nửa giờ (3:30, 4:30)</li>
+                            </ul>
+                        </div>
+
+                        <h4>Thời Gian Có Phút:</h4>
+                        <ul>
+                            <li>[Giờ] giờ [phút] phút</li>
+                            <li>3:15 = Ba giờ mười lăm phút</li>
+                            <li>7:45 = Bảy giờ bốn mươi lăm phút</li>
+                        </ul>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Bingo Thời Gian"</h4>
+                            <ul>
+                                <li>Tạo thẻ bingo với các thời gian (3:00, 7:30, 9:15, v.v.)</li>
+                                <li>Giáo viên gọi thời gian bằng tiếng Việt</li>
+                                <li>Học viên đánh dấu thẻ</li>
+                                <li>Người đầu tiên hoàn thành hàng thắng</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: "Bạn... Lúc Mấy Giờ?"</h4>
+                            <p>Thực hành hỏi về các hoạt động hàng ngày:</p>
+                            <ul>
+                                <li>Bạn thức dậy lúc mấy giờ? (Bạn thức dậy lúc mấy giờ?)</li>
+                                <li>Bạn đi làm lúc mấy giờ? (Bạn đi làm lúc mấy giờ?)</li>
+                                <li>Trả lời: Tôi thức dậy lúc sáu giờ (Tôi thức dậy lúc 6:00)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Thực Hành Giao Tiếp: Lịch Trình & Hẹn Gặp</h3>
+                            </div>
+                            <span class="time-badge">30 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: "Tạo Lịch Trình Hàng Ngày"</h4>
+                            <ul>
+                                <li>Cung cấp mẫu lịch trình (7 giờ sáng - 10 giờ tối)</li>
+                                <li>Học viên điền các hoạt động hàng ngày với thời gian</li>
+                                <li>Phải bao gồm ít nhất 5 hoạt động</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: "Trao Đổi Lịch Trình"</h4>
+                            <ul>
+                                <li>Các cặp so sánh lịch trình</li>
+                                <li>Hỏi nhau: "Bạn [hoạt động] lúc mấy giờ?"</li>
+                                <li>Tìm điểm giống và khác nhau</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: "Hẹn Gặp"</h4>
+                            <p>Dạy các cụm từ:</p>
+                            <ul>
+                                <li>Chúng ta gặp nhau lúc mấy giờ? (Chúng ta gặp nhau lúc mấy giờ?)</li>
+                                <li>Lúc [thời gian] được không? (Lúc [thời gian] có được không?)</li>
+                                <li>Được! (Được!)</li>
+                            </ul>
+                            <p>Học viên thực hành theo cặp, tạo 3-4 "cuộc hẹn" với các bạn học khác nhau</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Hoạt Động 4: "Khảo Sát Ngày Sinh Nhật"</h4>
+                            <ul>
+                                <li>Học viên viết sinh nhật của họ bằng tiếng Việt</li>
+                                <li>Đi vòng quanh hỏi: Sinh nhật bạn là ngày nào? (Sinh nhật bạn là khi nào?)</li>
+                                <li>Ghi lại sinh nhật của ít nhất 5 bạn học</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Hoạt Động Ứng Dụng: Trò Chơi Lịch</h3>
+                            </div>
+                            <span class="time-badge">10 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động: "Bậc Thầy Lịch"</h4>
+                            <p>Chia thành các đội 3-4 người. Giáo viên đặt câu hỏi:</p>
+                            <ul>
+                                <li>Hôm nay là thứ mấy? (Hôm nay là thứ mấy?)</li>
+                                <li>Ngày mai là thứ mấy? (Ngày mai là thứ mấy?)</li>
+                                <li>Bây giờ là mấy giờ? (Bây giờ là mấy giờ?)</li>
+                                <li>Tháng này là tháng mấy? (Tháng này là tháng mấy?)</li>
+                            </ul>
+                            <p>Các đội viết câu trả lời bằng tiếng Việt. Đội đầu tiên có câu trả lời đúng được điểm.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Tổng Kết & Bài Tập Về Nhà</h3>
+                            </div>
+                            <span class="time-badge">5 phút</span>
+                        </div>
+                        
+                        <ul>
+                            <li>Đếm theo chục: 10, 20, 30...100</li>
+                            <li>Nói các ngày trong tuần cùng nhau</li>
+                            <li>Nói ngày hôm nay cùng nhau</li>
+                        </ul>
+
+                        <div class="note-box">
+                            <strong><i class="fas fa-exclamation-triangle"></i> QUAN TRỌNG: Đánh Giá Giữa Kỳ Tuần 4 Vào Tuần Sau!</strong>
+                            <p>Giữa kỳ sẽ bao gồm: Phỏng vấn trực tiếp, Bài kiểm tra từ vựng viết (Tuần 1-4), Nghe hiểu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Đánh Giá</h2>
+                
+                <h3>Đánh Giá Quá Trình</h3>
+                <ul>
+                    <li>Phát âm số đếm trong khi luyện tập</li>
+                    <li>Độ chính xác xem giờ trong lúc thực hành đồng hồ</li>
+                    <li>Tham gia vào các hoạt động lịch trình</li>
+                    <li>Hội thoại hẹn gặp</li>
+                </ul>
+
+                <h3>Kiểm Tra Tiến Độ Giữa Kỳ Tuần 4 (Lớp Sau)</h3>
+                <p><strong>1. Phỏng Vấn Trực Tiếp (8 điểm):</strong></p>
+                <ul>
+                    <li>Chào hỏi phù hợp</li>
+                    <li>Tự giới thiệu (tên, xuất xứ)</li>
+                    <li>Mô tả gia đình (2-3 câu)</li>
+                    <li>Nói giờ hiện tại</li>
+                    <li>Nói ngày hôm nay</li>
+                </ul>
+                <p><strong>2. Bài Kiểm Tra Từ Vựng Viết (5 điểm):</strong> 25 mục từ vựng từ Tuần 1-4</p>
+                <p><strong>3. Bài Tập Nghe (2 điểm):</strong> Nghe 4 đoạn ngắn, trả lời câu hỏi</p>
+                <p><strong>Tổng: 15 điểm (15% điểm cuối kỳ)</strong></p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Vật Liệu Cần Thiết</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>Đồng hồ trình diễn lớn (kim)</li>
+                        <li>Hiển thị thời gian kỹ thuật số</li>
+                        <li>Lịch (lớn, cho lớp học)</li>
+                        <li>Thẻ bingo thời gian (chuẩn bị sẵn)</li>
+                        <li>Thẻ từ thời gian (các thời gian khác nhau)</li>
+                        <li>Mẫu lịch trình (in sẵn)</li>
+                        <li>Thẻ hội thoại hẹn gặp</li>
+                        <li>Tờ khảo sát sinh nhật</li>
+                        <li>Bảng số đếm (1-100)</li>
+                        <li>Áp phích các ngày/tháng</li>
+                        <li>File âm thanh Tuần 4</li>
+                        <li>Tờ bài tập về nhà</li>
+                        <li>Hướng dẫn học tập giữa kỳ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Bài Tập Về Nhà</h2>
+                
+                <h3>1. Lịch Trình Hàng Tuần (30 phút)</h3>
+                <ul>
+                    <li>Tạo lịch trình hàng tuần chi tiết bằng tiếng Việt</li>
+                    <li>Bao gồm: thời gian, ngày, hoạt động</li>
+                    <li>Phải có ít nhất 3 hoạt động mỗi ngày</li>
+                </ul>
+
+                <h3>2. Thực Hành Số Đếm (15 phút)</h3>
+                <ul>
+                    <li>Viết số đếm 1-100 bằng tiếng Việt</li>
+                    <li>Thực hành đếm to (ghi âm bản thân)</li>
+                </ul>
+
+                <h3>3. Thực Hành Xem Giờ (20 phút)</h3>
+                <ul>
+                    <li>Trong suốt cả ngày, kiểm tra giờ và nói bằng tiếng Việt</li>
+                    <li>Thực hành xem giờ 20 lần</li>
+                </ul>
+
+                <h3>4. Học Cho Giữa Kỳ (45 phút)</h3>
+                <ul>
+                    <li>Ôn tập TẤT CẢ từ vựng từ Tuần 1-4</li>
+                    <li>Thực hành phát âm với file âm thanh</li>
+                    <li>Tự kiểm tra với thẻ từ</li>
+                </ul>
+
+                <h3>5. Nhật Ký Lịch (15 phút)</h3>
+                <ul>
+                    <li>Viết 7 câu về tuần của bạn</li>
+                    <li>Ví dụ: Thứ Hai, tôi đi làm lúc 8 giờ</li>
+                </ul>
+
+                <h3>6. Thực Hành Nghe (15 phút)</h3>
+                <ul>
+                    <li>Nghe file âm thanh Tuần 4</li>
+                    <li>Thực hành các ngày, tháng, thời gian</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Ghi Chú Cho Giáo Viên</h2>
+                
+                <h3>Điểm Dạy Chính</h3>
+                <ul>
+                    <li>Nhận Biết Quy Luật Số: Giúp học viên thấy quy luật - rất logic!</li>
+                    <li>Lăm so với Năm: Điều này gây nhầm lẫn - nhấn mạnh rằng năm (5) trở thành lăm sau mươi</li>
+                    <li>Thực Hành Xem Giờ: Cần NHIỀU thực hành - xem giờ là kỹ năng thực tế</li>
+                </ul>
+
+                <h3>Lỗi Thường Gặp</h3>
+                <ul>
+                    <li>Dùng năm thay vì lăm (25, 35, 45, v.v.)</li>
+                    <li>Quên giờ và phút khi xem giờ</li>
+                    <li>Nhầm thứ (ngày) với tháng</li>
+                </ul>
+
+                <h3>Phân Biệt</h3>
+                <ul>
+                    <li><strong>Hỗ Trợ Thêm:</strong> Bảng số đếm, mẫu lịch trình điền sẵn</li>
+                    <li><strong>Thách Thức:</strong> Thực hành định dạng 24 giờ, tính chênh lệch thời gian</li>
+                </ul>
+
+                <h3>Ghi Chú Văn Hóa</h3>
+                <ul>
+                    <li>Việt Nam sử dụng đồng hồ 24 giờ chính thức nhưng 12 giờ trong hội thoại</li>
+                    <li>Một số con số được coi là may mắn (8, 9) hoặc không may (4)</li>
+                    <li>Việt Nam sử dụng cả lịch dương và lịch âm</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Chỉ Số Thành Công</h2>
+                <p>Học viên hoàn thành thành công Tuần 4 nếu có thể:</p>
+                <ul class="objectives-list">
+                    <li>Đếm đến 100 với độ chính xác hợp lý</li>
+                    <li>Xem giờ đến giờ tròn và nửa giờ</li>
+                    <li>Nói tất cả các ngày trong tuần</li>
+                    <li>Diễn đạt ngày tháng (tháng và ngày)</li>
+                    <li>Hỏi và trả lời "Mấy giờ rồi?"</li>
+                    <li>Mô tả lịch trình hàng ngày cơ bản</li>
+                    <li>Cảm thấy sẵn sàng cho đánh giá giữa kỳ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Lesson Plan
+    </button>
+
+    <script>
+        function switchLanguage(lang) {
+            document.getElementById('english-content').classList.remove('active');
+            document.getElementById('vietnamese-content').classList.remove('active');
+            
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (lang === 'english') {
+                document.getElementById('english-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[0].classList.add('active');
+            } else {
+                document.getElementById('vietnamese-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[1].classList.add('active');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === 'e') {
+                switchLanguage('english');
+            } else if (e.altKey && e.key === 'v') {
+                switchLanguage('vietnamese');
+            }
+        });
+    </script>
+</body>
+</html>

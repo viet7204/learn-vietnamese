@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Sentence Structure - Viet Le</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lecture.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>                <li><a href="../lectures.html" class="active">Lectures</a></li>                <li><a href="../practice.html">Practice</a></li>                <li><a href="../visual.html">Visual Learning</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="../index.html">Home</a> / 
+            <a href="../lectures.html">Lectures</a> / 
+            <span>Sentence Structure</span>
+        </div>
+    </div>
+
+    <section class="lecture-content">
+        <div class="container">
+            <div class="lecture-layout">
+                <main class="lecture-main">
+                    <div class="lecture-header">
+                        <span class="lecture-level intermediate">Intermediate</span>
+                        <h1>Vietnamese Sentence Structure</h1>
+                        <div class="lecture-meta">
+                            <span><i class="fas fa-clock"></i> 25 minutes</span>
+                            <span><i class="fas fa-user"></i> Intermediate Level</span>
+                            <span><i class="fas fa-calendar"></i> Updated Feb 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="lecture-body">
+                        <h2>Introduction</h2>
+                        <p>Vietnamese sentence structure follows a Subject-Verb-Object (SVO) pattern, similar to English. However, understanding Vietnamese grammar requires learning about word order, classifiers, and question formation.</p>
+
+                        <h2>Basic Sentence Pattern (SVO)</h2>
+                        
+                        <div class="example-box">
+                            <h3><i class="fas fa-language"></i> Subject + Verb + Object</h3>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Tôi ăn cơm</div>
+                                <div class="phrase-pronunciation">[toy an gum]</div>
+                                <div class="phrase-english">I eat rice (Subject-Verb-Object)</div>
+                                <button class="play-audio-btn" onclick="speak('Tôi ăn cơm')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Anh học tiếng Việt</div>
+                                <div class="phrase-pronunciation">[ang hock tee-eng vee-et]</div>
+                                <div class="phrase-english">You study Vietnamese</div>
+                                <button class="play-audio-btn" onclick="speak('Anh học tiếng Việt')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Chị đọc sách</div>
+                                <div class="phrase-pronunciation">[chee dawk sahk]</div>
+                                <div class="phrase-english">She reads books</div>
+                                <button class="play-audio-btn" onclick="speak('Chị đọc sách')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <h2>Question Formation</h2>
+                        
+                        <div class="example-box">
+                            <h3><i class="fas fa-question-circle"></i> Yes/No Questions</h3>
+                            <p>Add "không" at the end to form yes/no questions:</p>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Anh ăn cơm không?</div>
+                                <div class="phrase-pronunciation">[ang an gum khome]</div>
+                                <div class="phrase-english">Do you eat rice? (statement + không)</div>
+                                <button class="play-audio-btn" onclick="speak('Anh ăn cơm không')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Chị thích cà phê không?</div>
+                                <div class="phrase-pronunciation">[chee tick gah feh khome]</div>
+                                <div class="phrase-english">Do you like coffee?</div>
+                                <button class="play-audio-btn" onclick="speak('Chị thích cà phê không')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="example-box">
+                            <h3><i class="fas fa-question"></i> Wh-Questions</h3>
+                            <p>Question words in Vietnamese:</p>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Anh tên là gì?</div>
+                                <div class="phrase-pronunciation">[ang ten lah zee]</div>
+                                <div class="phrase-english">What is your name? (gì = what)</div>
+                                <button class="play-audio-btn" onclick="speak('Anh tên là gì')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Anh ở đâu?</div>
+                                <div class="phrase-pronunciation">[ang uh doh]</div>
+                                <div class="phrase-english">Where are you? (đâu = where)</div>
+                                <button class="play-audio-btn" onclick="speak('Anh ở đâu')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Bây giờ là mấy giờ?</div>
+                                <div class="phrase-pronunciation">[bay zuh lah may zuh]</div>
+                                <div class="phrase-english">What time is it? (mấy = how many/what)</div>
+                                <button class="play-audio-btn" onclick="speak('Bây giờ là mấy giờ')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Tại sao anh học tiếng Việt?</div>
+                                <div class="phrase-pronunciation">[tie sow ang hock tee-eng vee-et]</div>
+                                <div class="phrase-english">Why do you study Vietnamese? (tại sao = why)</div>
+                                <button class="play-audio-btn" onclick="speak('Tại sao anh học tiếng Việt')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <h2>Negation</h2>
+                        
+                        <div class="example-box">
+                            <h3><i class="fas fa-times-circle"></i> Using "không" for Negation</h3>
+                            <p>Place "không" before the verb to make negative statements:</p>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Tôi không ăn thịt</div>
+                                <div class="phrase-pronunciation">[toy khome an tit]</div>
+                                <div class="phrase-english">I don't eat meat</div>
+                                <button class="play-audio-btn" onclick="speak('Tôi không ăn thịt')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Anh không thích cà phê</div>
+                                <div class="phrase-pronunciation">[ang khome tick gah feh]</div>
+                                <div class="phrase-english">You don't like coffee</div>
+                                <button class="play-audio-btn" onclick="speak('Anh không thích cà phê')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Tôi không hiểu</div>
+                                <div class="phrase-pronunciation">[toy khome hee-ew]</div>
+                                <div class="phrase-english">I don't understand</div>
+                                <button class="play-audio-btn" onclick="speak('Tôi không hiểu')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <h2>Adjectives and Descriptive Phrases</h2>
+                        
+                        <div class="example-box">
+                            <h3><i class="fas fa-palette"></i> Adjective Placement</h3>
+                            <p>Adjectives come AFTER the noun in Vietnamese:</p>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Một cái áo đẹp</div>
+                                <div class="phrase-pronunciation">[moat kai ao dep]</div>
+                                <div class="phrase-english">A beautiful shirt (lit. "one shirt beautiful")</div>
+                                <button class="play-audio-btn" onclick="speak('Một cái áo đẹp')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Quả táo đỏ</div>
+                                <div class="phrase-pronunciation">[gwah tow daw]</div>
+                                <div class="phrase-english">Red apple (apple red)</div>
+                                <button class="play-audio-btn" onclick="speak('Quả táo đỏ')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Người phụ nữ cao</div>
+                                <div class="phrase-pronunciation">[nguh-oy foo noo gow]</div>
+                                <div class="phrase-english">Tall woman (woman tall)</div>
+                                <button class="play-audio-btn" onclick="speak('Người phụ nữ cao')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <h2>Common Classifiers</h2>
+                        
+                        <div class="example-box">
+                            <h3><i class="fas fa-list"></i> Noun Classifiers</h3>
+                            <p>Classifiers are used between numbers and nouns:</p>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Một con chó</div>
+                                <div class="phrase-pronunciation">[moat gon chaw]</div>
+                                <div class="phrase-english">One dog (con = classifier for animals)</div>
+                                <button class="play-audio-btn" onclick="speak('Một con chó')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Hai cái bàn</div>
+                                <div class="phrase-pronunciation">[hai kai ban]</div>
+                                <div class="phrase-english">Two tables (cái = general classifier for objects)</div>
+                                <button class="play-audio-btn" onclick="speak('Hai cái bàn')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                            <div class="phrase-item">
+                                <div class="phrase-vietnamese">Ba người bạn</div>
+                                <div class="phrase-pronunciation">[bah nguh-oy ban]</div>
+                                <div class="phrase-english">Three friends (người = classifier for people)</div>
+                                <button class="play-audio-btn" onclick="speak('Ba người bạn')">
+                                    <i class="fas fa-volume-up"></i> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <h2>Practice Tips</h2>
+                        <div class="tips-box">
+                            <p><strong>SVO Pattern:</strong> Start with simple SVO sentences and gradually add more details.</p>
+                            <p><strong>Question Words:</strong> Memorize common question words: gì (what), đâu (where), ai (who), bao giờ (when), tại sao (why), như thế nào (how).</p>
+                            <p><strong>Adjective Order:</strong> Remember that adjectives always come AFTER the noun, opposite to English.</p>
+                            <p><strong>Classifiers:</strong> Learn common classifiers: con (animals), cái (objects), người (people), quả (round objects), cuốn (books).</p>
+                        </div>
+
+                        <div class="navigation-buttons">
+                            <a href="numbers-time.html" class="btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Previous Lecture
+                            </a>
+                            <a href="daily-conversations.html" class="btn-primary">
+                                Next Lecture <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+
+                <aside class="lecture-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Progress</h3>
+                        <button class="btn-complete" onclick="markComplete()">
+                            <i class="fas fa-check"></i> Mark as Complete
+                        </button>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Related Lectures</h3>
+                        <ul class="related-list">
+                            <li><a href="vietnamese-tones.html">Vietnamese Tones</a></li>
+                            <li><a href="numbers-time.html">Numbers & Time</a></li>
+                            <li><a href="daily-conversations.html">Daily Conversations</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Quick Links</h3>
+                        <ul class="quick-links">
+                            <li><a href="../vietnamese-practice.html"><i class="fas fa-microphone"></i> Practice Tool</a></li>
+                            <li><a href="../teaching.html"><i class="fas fa-home"></i> Teaching Home</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Viet Le. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function speak(text) {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.7;
+            
+            const voices = window.speechSynthesis.getVoices();
+            const vietnameseVoice = voices.find(voice => voice.lang.startsWith('vi'));
+            if (vietnameseVoice) {
+                utterance.voice = vietnameseVoice;
+            }
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        window.speechSynthesis.onvoiceschanged = () => {
+            window.speechSynthesis.getVoices();
+        };
+
+        function markComplete() {
+            alert('Great job! This lecture has been marked as complete.');
+        }
+    </script>
+</body>
+</html>

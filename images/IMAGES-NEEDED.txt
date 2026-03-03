@@ -1,0 +1,41 @@
+IMAGES NEEDED FOR VIETNAMESE COURSE
+=====================================
+
+Add these image files to display custom photos instead of emoji icons.
+All images are optional - emoji fallback will show if image is missing.
+
+FOOD (images/food/)
+-------------------
+□ com.jpg          - Bowl of cooked white rice
+□ pho.jpg          - Bowl of pho noodle soup
+□ water.jpg        - Glass of water
+□ coffee.jpg       - Vietnamese coffee (phin style preferred)
+
+PLACES (images/places/)
+-----------------------
+□ market.jpg       - Vietnamese market scene
+
+TRANSPORTATION (images/transportation/)
+---------------------------------------
+□ bus.jpg          - Vietnamese city bus
+□ taxi.jpg         - Taxi or Grab vehicle  
+□ motorbike.jpg    - Motorbike/scooter (xe máy)
+
+IMAGE SPECS
+-----------
+Format: JPG or WebP
+Size: 600-800px wide × 400-500px tall
+File size: Under 200KB recommended
+Style: Clear, bright, culturally appropriate
+
+HOW TO ADD
+----------
+1. Save image with exact filename shown above
+2. Place in the correct folder
+3. Refresh the page - done!
+
+FALLBACK SYSTEM
+---------------
+✓ Image found → Shows your photo
+✗ Image missing → Shows emoji icon
+No broken images ever displayed!

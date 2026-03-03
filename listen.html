@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listen & Practice - Vietnamese Audio Pronunciation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .audio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .audio-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .audio-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .audio-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .back-nav {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .back-nav:hover {
+            background: #764ba2;
+            transform: translateX(-5px);
+        }
+        
+        .week-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .week-btn {
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid #677eea;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .week-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .week-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .audio-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .audio-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .audio-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+        
+        .audio-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .audio-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .image-emoji {
+            font-size: 5rem;
+            text-align: center;
+            margin: 20px 0;
+            line-height: 1;
+        }
+        
+        .vietnamese-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin: 15px 0;
+        }
+        
+        .english-text {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .play-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .play-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .pronunciation-tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .tone-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #764ba2;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .info-box h3 {
+            color: #17a2b8;
+            margin-top: 0;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .control-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .control-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .voice-controls {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .voice-controls h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .control-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .control-group select,
+        .control-group input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .control-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .control-group input[type="range"] {
+            padding: 0;
+            height: 8px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .control-group input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .range-value {
+            display: inline-block;
+            margin-left: 10px;
+            color: #667eea;
+            font-weight: 600;
+            min-width: 40px;
+        }
+        
+        .control-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .test-voice-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 15px;
+        }
+        
+        .test-voice-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .voice-info {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .audio-header h1 {
+                font-size: 2rem;
+            }
+            
+            .voice-controls {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-container">
+        <a href="course.html" class="back-nav"><i class="fas fa-arrow-left"></i> Back to Course</a>
+        
+        <div class="audio-header">
+            <h1><i class="fas fa-headphones"></i> Listen & Practice</h1>
+            <p>Practice Vietnamese pronunciation with audio playback</p>
+        </div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> How to Use</h3>
+            <ol>
+                <li>Select a week to practice vocabulary from that lesson</li>
+                <li>Click the play button to hear the Vietnamese pronunciation</li>
+                <li>Listen carefully to the tones and pronunciation</li>
+                <li>Try to repeat what you hear</li>
+                <li>Practice multiple times until you feel confident</li>
+            </ol>
+        </div>
+
+        <div class="info-box" style="background: #fff3cd; border-left-color: #f0ad4e;">
+            <h3><i class="fas fa-map-marker-alt"></i> Regional Accents</h3>
+            <p style="margin-bottom: 10px;">Vietnamese has three main regional accents:</p>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li><strong>Northern (Hà Nội)</strong> - Standard Vietnamese, 6 distinct tones, keeps 'd' and 'gi' sounds separate</li>
+                <li><strong>Central (Huế)</strong> - More melodic, some tone merging, unique vocabulary</li>
+                <li><strong>Southern (Sài Gòn)</strong> - 5 tones (merges some tones), 'd' and 'gi' both sound like 'y', softer pronunciation</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>Note:</strong> Most TTS voices use Northern pronunciation. If multiple Vietnamese voices are available, try different ones to hear variations.</p>
+        </div>
+
+        <div class="voice-controls">
+            <h3><i class="fas fa-microphone-alt"></i> Voice Settings</h3>
+            
+            <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #f0ad4e;">
+                <strong>📢 Only 1 Vietnamese voice?</strong> 
+                <a href="add-more-voices.html" target="_blank" style="color: #667eea; font-weight: 600; text-decoration: underline;">
+                    Click here to learn how to add more voices (including Southern accent!)
+                </a>
+            </div>
+            
+            <div class="control-group">
+                <label for="voice-select"><i class="fas fa-user"></i> Select Voice (Accent):</label>
+                <select id="voice-select">
+                    <option value="">Loading voices...</option>
+                </select>
+                <div class="voice-info" id="voice-info">
+                    Select a Vietnamese voice from the list | 
+                    <a href="test-voices.html" target="_blank" style="color: #667eea; font-weight: 600;">
+                        <i class="fas fa-external-link-alt"></i> View all available voices
+                    </a>
+                </div>
+                <div id="accent-hint" style="margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 6px; font-size: 0.9rem; display: none;">
+                    <strong>💡 Accent Tip:</strong> <span id="accent-text"></span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="speed-control"><i class="fas fa-tachometer-alt"></i> Speech Speed:</label>
+                <div class="control-row">
+                    <input type="range" id="speed-control" min="0.5" max="1.5" step="0.1" value="0.8">
+                    <span class="range-value" id="speed-value">0.8x</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="pitch-control"><i class="fas fa-music"></i> Pitch:</label>
+                <div class="control-row">
+                    <input type="range" id="pitch-control" min="0.5" max="2" step="0.1" value="1">
+                    <span class="range-value" id="pitch-value">1.0x</span>
+                </div>
+            </div>
+            
+            <button class="test-voice-btn" onclick="testVoice()">
+                <i class="fas fa-volume-up"></i> Test Voice Settings
+            </button>
+        </div>
+
+        <div class="week-selector">
+            <button class="week-btn active" data-week="1">Week 1</button>
+            <button class="week-btn" data-week="2">Week 2</button>
+            <button class="week-btn" data-week="3">Week 3</button>
+            <button class="week-btn" data-week="4">Week 4</button>
+            <button class="week-btn" data-week="5">Week 5</button>
+            <button class="week-btn" data-week="6">Week 6</button>
+            <button class="week-btn" data-week="7">Week 7</button>
+            <button class="week-btn" data-week="8">Week 8</button>
+            <button class="week-btn" data-week="9">Week 9</button>
+            <button class="week-btn" data-week="10">Week 10</button>
+            <button class="week-btn" data-week="11">Week 11</button>
+            <button class="week-btn" data-week="12">Week 12</button>
+        </div>
+
+        <!-- Week 1 Content -->
+        <div class="audio-section active" data-week-content="1">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-music"></i> Week 1: Tones & Basic Greetings
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-hand-wave"></i> Greeting</h3>
+                    <div class="image-emoji">👋</div>
+                    <div class="vietnamese-text">Xin chào</div>
+                    <div class="english-text">Hello</div>
+                    <button class="play-btn" onclick="speak('Xin chào', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Xin" has mid-level tone, "chào" has low falling tone</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-hand-wave"></i> Farewell</h3>
+                    <div class="image-emoji">👋😊</div>
+                    <div class="vietnamese-text">Tạm biệt</div>
+                    <div class="english-text">Goodbye</div>
+                    <button class="play-btn" onclick="speak('Tạm biệt', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> Both syllables have question/rising tone</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-heart"></i> Gratitude</h3>
+                    <div class="image-emoji">🙏</div>
+                    <div class="vietnamese-text">Cảm ơn</div>
+                    <div class="english-text">Thank you</div>
+                    <button class="play-btn" onclick="speak('Cảm ơn', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Cảm" has rising tone, "ơn" has mid-level tone</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-praying-hands"></i> Apology</h3>
+                    <div class="vietnamese-text">Xin lỗi</div>
+                    <div class="english-text">Sorry / Excuse me</div>
+                    <button class="play-btn" onclick="speak('Xin lỗi', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Xin" is mid-level, "lỗi" has creaky/wavy rising tone</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-check-circle"></i> Yes</h3>
+                    <div class="image-emoji">✅</div>
+                    <div class="vietnamese-text">Có</div>
+                    <div class="english-text">Yes</div>
+                    <button class="play-btn" onclick="speak('Có', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <span class="tone-badge">High Rising Tone</span>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-times-circle"></i> No</h3>
+                    <div class="image-emoji">❌</div>
+                    <div class="vietnamese-text">Không</div>
+                    <div class="english-text">No</div>
+                    <button class="play-btn" onclick="speak('Không', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <span class="tone-badge">Mid-Level Tone</span>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-sort-numeric-up"></i> Number Practice</h3>
+                    <div class="vietnamese-text">Một, hai, ba</div>
+                    <div class="english-text">One, two, three</div>
+                    <button class="play-btn" onclick="speak('Một, hai, ba', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> Listen to the different tones for each number</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-sort-numeric-up"></i> More Numbers</h3>
+                    <div class="vietnamese-text">Bốn, năm, sáu</div>
+                    <div class="english-text">Four, five, six</div>
+                    <button class="play-btn" onclick="speak('Bốn, năm, sáu', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> Practice counting slowly to master tones</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-sort-numeric-up"></i> Numbers 7-10</h3>
+                    <div class="vietnamese-text">Bảy, tám, chín, mười</div>
+                    <div class="english-text">Seven, eight, nine, ten</div>
+                    <button class="play-btn" onclick="speak('Bảy, tám, chín, mười', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Bảy" has rising tone, "tám" has high rising tone</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 2 Content -->
+        <div class="audio-section" data-week-content="2">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-user"></i> Week 2: Greetings & Self-Introduction
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-id-card"></i> Introduce Name</h3>
+                    <div class="vietnamese-text">Tôi tên là...</div>
+                    <div class="english-text">My name is...</div>
+                    <button class="play-btn" onclick="speak('Tôi tên là', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Tôi" (mid-level), "tên" (mid-level), "là" (low falling)</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-flag"></i> Nationality</h3>
+                    <div class="vietnamese-text">Tôi là người Mỹ</div>
+                    <div class="english-text">I am American</div>
+                    <button class="play-btn" onclick="speak('Tôi là người Mỹ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Mỹ" (high rising tone) - pronunciation is key</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-question"></i> What's your name?</h3>
+                    <div class="vietnamese-text">Bạn tên là gì?</div>
+                    <div class="english-text">What is your name?</div>
+                    <button class="play-btn" onclick="speak('Bạn tên là gì?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Gì" has low falling tone and is used for "what"</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-smile"></i> Nice to meet you</h3>
+                    <div class="image-emoji">🤝</div>
+                    <div class="vietnamese-text">Rất vui được gặp bạn</div>
+                    <div class="english-text">Nice to meet you</div>
+                    <button class="play-btn" onclick="speak('Rất vui được gặp bạn', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> Common phrase for first meetings</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-question-circle"></i> How are you?</h3>
+                    <div class="vietnamese-text">Bạn khỏe không?</div>
+                    <div class="english-text">How are you?</div>
+                    <button class="play-btn" onclick="speak('Bạn khỏe không?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Khỏe" has rising tone</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-thumbs-up"></i> I'm fine</h3>
+                    <div class="image-emoji">😊👍</div>
+                    <div class="vietnamese-text">Tôi khỏe, cảm ơn</div>
+                    <div class="english-text">I'm fine, thank you</div>
+                    <button class="play-btn" onclick="speak('Tôi khỏe, cảm ơn', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> Standard response to greetings</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 3 Content -->
+        <div class="audio-section" data-week-content="3">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-users"></i> Week 3: Family & Relationships
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-home"></i> Family</h3>
+                    <div class="image-emoji">👨‍👩‍👧‍👦</div>
+                    <div class="vietnamese-text">Gia đình</div>
+                    <div class="english-text">Family</div>
+                    <button class="play-btn" onclick="speak('Gia đình', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-male"></i> Father</h3>
+                    <div class="vietnamese-text">Bố / Cha</div>
+                    <div class="english-text">Father (casual / formal)</div>
+                    <button class="play-btn" onclick="speak('Bố', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio (Casual)
+                    </button>
+                    <button class="play-btn" onclick="speak('Cha', 'vi-VN')" style="margin-top: 10px;">
+                        <i class="fas fa-play"></i> Play Audio (Formal)
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-female"></i> Mother</h3>
+                    <div class="vietnamese-text">Mẹ / Má</div>
+                    <div class="english-text">Mother (casual / affectionate)</div>
+                    <button class="play-btn" onclick="speak('Mẹ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio (Casual)
+                    </button>
+                    <button class="play-btn" onclick="speak('Má', 'vi-VN')" style="margin-top: 10px;">
+                        <i class="fas fa-play"></i> Play Audio (Affectionate)
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-male"></i> Older Brother</h3>
+                    <div class="vietnamese-text">Anh trai</div>
+                    <div class="english-text">Older brother</div>
+                    <button class="play-btn" onclick="speak('Anh trai', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-female"></i> Older Sister</h3>
+                    <div class="vietnamese-text">Chị gái</div>
+                    <div class="english-text">Older sister</div>
+                    <button class="play-btn" onclick="speak('Chị gái', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-child"></i> Younger Sibling</h3>
+                    <div class="vietnamese-text">Em</div>
+                    <div class="english-text">Younger brother/sister</div>
+                    <button class="play-btn" onclick="speak('Em', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> "Em" is used for both genders</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placeholder sections for other weeks -->
+        <div class="audio-section" data-week-content="4">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-clock"></i> Week 4: Numbers, Time & Calendar
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-sort-numeric-up"></i> Numbers 11-20</h3>
+                    <div class="vietnamese-text">Mười một, mười hai, mười ba</div>
+                    <div class="english-text">Eleven, twelve, thirteen</div>
+                    <button class="play-btn" onclick="speak('Mười một, mười hai, mười ba', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-calendar-day"></i> Monday</h3>
+                    <div class="image-emoji">📅</div>
+                    <div class="vietnamese-text">Thứ hai</div>
+                    <div class="english-text">Monday</div>
+                    <button class="play-btn" onclick="speak('Thứ hai', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> Literally means "second day"</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Days of Week</h3>
+                    <div class="vietnamese-text">Thứ ba, thứ tư, thứ năm</div>
+                    <div class="english-text">Tuesday, Wednesday, Thursday</div>
+                    <button class="play-btn" onclick="speak('Thứ ba, thứ tư, thứ năm', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-clock"></i> What time is it?</h3>
+                    <div class="image-emoji">⏰</div>
+                    <div class="vietnamese-text">Mấy giờ rồi?</div>
+                    <div class="english-text">What time is it?</div>
+                    <button class="play-btn" onclick="speak('Mấy giờ rồi?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-hourglass-half"></i> One o'clock</h3>
+                    <div class="vietnamese-text">Một giờ</div>
+                    <div class="english-text">One o'clock</div>
+                    <button class="play-btn" onclick="speak('Một giờ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-sun"></i> Today</h3>
+                    <div class="vietnamese-text">Hôm nay</div>
+                    <div class="english-text">Today</div>
+                    <button class="play-btn" onclick="speak('Hôm nay', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-calendar-minus"></i> Yesterday</h3>
+                    <div class="vietnamese-text">Hôm qua</div>
+                    <div class="english-text">Yesterday</div>
+                    <button class="play-btn" onclick="speak('Hôm qua', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-calendar-plus"></i> Tomorrow</h3>
+                    <div class="vietnamese-text">Ngày mai</div>
+                    <div class="english-text">Tomorrow</div>
+                    <button class="play-btn" onclick="speak('Ngày mai', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="5">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-utensils"></i> Week 5: Food & Dining
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-bowl-rice"></i> Rice</h3>
+                    <img src="images/food/com.jpg" alt="Bowl of rice" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">🍚</div>
+                    <div class="vietnamese-text">Cơm</div>
+                    <div class="english-text">Cooked rice</div>
+                    <button class="play-btn" onclick="speak('Cơm', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <span class="tone-badge">Mid-Level Tone</span>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-hamburger"></i> Pho</h3>
+                    <img src="images/food/pho.jpg" alt="Bowl of pho" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">🍜</div>
+                    <div class="vietnamese-text">Phở</div>
+                    <div class="english-text">Vietnamese noodle soup</div>
+                    <button class="play-btn" onclick="speak('Phở', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <div class="pronunciation-tip"><strong>Tip:</strong> Rising tone, not like English "fuh"</div>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-glass-whiskey"></i> Water</h3>
+                    <img src="images/food/water.jpg" alt="Glass of water" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">💧</div>
+                    <div class="vietnamese-text">Nước</div>
+                    <div class="english-text">Water</div>
+                    <button class="play-btn" onclick="speak('Nước', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-coffee"></i> Coffee</h3>
+                    <img src="images/food/coffee.jpg" alt="Vietnamese coffee" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">☕</div>
+                    <div class="vietnamese-text">Cà phê</div>
+                    <div class="english-text">Coffee</div>
+                    <button class="play-btn" onclick="speak('Cà phê', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-concierge-bell"></i> I want to order</h3>
+                    <div class="vietnamese-text">Tôi muốn gọi món</div>
+                    <div class="english-text">I want to order</div>
+                    <button class="play-btn" onclick="speak('Tôi muốn gọi món', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-pepper-hot"></i> Spicy</h3>
+                    <div class="image-emoji">🌶️</div>
+                    <div class="vietnamese-text">Cay</div>
+                    <div class="english-text">Spicy</div>
+                    <button class="play-btn" onclick="speak('Cay', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-smile"></i> Delicious</h3>
+                    <div class="image-emoji">😋</div>
+                    <div class="vietnamese-text">Ngon</div>
+                    <div class="english-text">Delicious</div>
+                    <button class="play-btn" onclick="speak('Ngon', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-receipt"></i> The bill please</h3>
+                    <div class="vietnamese-text">Tính tiền</div>
+                    <div class="english-text">Check/bill please</div>
+                    <button class="play-btn" onclick="speak('Tính tiền', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="6">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-shopping-cart"></i> Week 6: Shopping & Money
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-dollar-sign"></i> How much?</h3>
+                    <div class="image-emoji">💰</div>
+                    <div class="vietnamese-text">Bao nhiêu tiền?</div>
+                    <div class="english-text">How much (money)?</div>
+                    <button class="play-btn" onclick="speak('Bao nhiêu tiền?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-money-bill"></i> Money</h3>
+                    <div class="vietnamese-text">Tiền</div>
+                    <div class="english-text">Money</div>
+                    <button class="play-btn" onclick="speak('Tiền', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-tags"></i> Expensive</h3>
+                    <div class="vietnamese-text">Đắt</div>
+                    <div class="english-text">Expensive</div>
+                    <button class="play-btn" onclick="speak('Đắt', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                    <span class="tone-badge">Heavy Tone</span>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Cheap</h3>
+                    <div class="vietnamese-text">Rẻ</div>
+                    <div class="english-text">Cheap</div>
+                    <button class="play-btn" onclick="speak('Rẻ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-shopping-bag"></i> To buy</h3>
+                    <div class="image-emoji">🛍️</div>
+                    <div class="vietnamese-text">Mua</div>
+                    <div class="english-text">To buy</div>
+                    <button class="play-btn" onclick="speak('Mua', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-store"></i> Market</h3>
+                    <img src="images/places/market.jpg" alt="Vietnamese market" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">🏪</div>
+                    <div class="vietnamese-text">Chợ</div>
+                    <div class="english-text">Market</div>
+                    <button class="play-btn" onclick="speak('Chợ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-percentage"></i> Discount</h3>
+                    <div class="vietnamese-text">Giảm giá</div>
+                    <div class="english-text">Discount/sale</div>
+                    <button class="play-btn" onclick="speak('Giảm giá', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-question-circle"></i> Do you have...?</h3>
+                    <div class="vietnamese-text">Có ... không?</div>
+                    <div class="english-text">Do you have...?</div>
+                    <button class="play-btn" onclick="speak('Có không?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="7">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-map-marked-alt"></i> Week 7: Directions & Transportation
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-map-signs"></i> Where is...?</h3>
+                    <div class="vietnamese-text">... ở đâu?</div>
+                    <div class="english-text">Where is...?</div>
+                    <button class="play-btn" onclick="speak('ở đâu?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-arrow-left"></i> Turn left</h3>
+                    <div class="vietnamese-text">Rẽ trái</div>
+                    <div class="english-text">Turn left</div>
+                    <button class="play-btn" onclick="speak('Rẽ trái', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-arrow-right"></i> Turn right</h3>
+                    <div class="vietnamese-text">Rẽ phải</div>
+                    <div class="english-text">Turn right</div>
+                    <button class="play-btn" onclick="speak('Rẽ phải', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-arrows-alt-v"></i> Go straight</h3>
+                    <div class="vietnamese-text">Đi thẳng</div>
+                    <div class="english-text">Go straight</div>
+                    <button class="play-btn" onclick="speak('Đi thẳng', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-bus"></i> Bus</h3>
+                    <img src="images/transportation/bus.jpg" alt="Vietnamese bus" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">🚌</div>
+                    <div class="vietnamese-text">Xe buýt</div>
+                    <div class="english-text">Bus</div>
+                    <button class="play-btn" onclick="speak('Xe buýt', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-taxi"></i> Taxi</h3>
+                    <img src="images/transportation/taxi.jpg" alt="Vietnamese taxi" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">🚕</div>
+                    <div class="vietnamese-text">Taxi / Xe taxi</div>
+                    <div class="english-text">Taxi</div>
+                    <button class="play-btn" onclick="speak('Xe taxi', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-motorcycle"></i> Motorbike</h3>
+                    <img src="images/transportation/motorbike.jpg" alt="Vietnamese motorbike" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-emoji" style="display:none;">🏍️</div>
+                    <div class="vietnamese-text">Xe máy</div>
+                    <div class="english-text">Motorbike</div>
+                    <button class="play-btn" onclick="speak('Xe máy', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Near/Close</h3>
+                    <div class="vietnamese-text">Gần</div>
+                    <div class="english-text">Near/close</div>
+                    <button class="play-btn" onclick="speak('Gần', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-road"></i> Far</h3>
+                    <div class="vietnamese-text">Xa</div>
+                    <div class="english-text">Far</div>
+                    <button class="play-btn" onclick="speak('Xa', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="8">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-tasks"></i> Week 8: Daily Routines & Activities
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-bed"></i> To sleep</h3>
+                    <div class="image-emoji">😴</div>
+                    <div class="vietnamese-text">Ngủ</div>
+                    <div class="english-text">To sleep</div>
+                    <button class="play-btn" onclick="speak('Ngủ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-mug-hot"></i> To wake up</h3>
+                    <div class="vietnamese-text">Thức dậy</div>
+                    <div class="english-text">To wake up</div>
+                    <button class="play-btn" onclick="speak('Thức dậy', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-utensils"></i> To eat</h3>
+                    <div class="image-emoji">🍽️</div>
+                    <div class="vietnamese-text">Ăn</div>
+                    <div class="english-text">To eat</div>
+                    <button class="play-btn" onclick="speak('Ăn', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-glass-whiskey"></i> To drink</h3>
+                    <div class="vietnamese-text">Uống</div>
+                    <div class="english-text">To drink</div>
+                    <button class="play-btn" onclick="speak('Uống', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-briefcase"></i> To work</h3>
+                    <div class="image-emoji">💼</div>
+                    <div class="vietnamese-text">Làm việc</div>
+                    <div class="english-text">To work</div>
+                    <button class="play-btn" onclick="speak('Làm việc', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-book-reader"></i> To study</h3>
+                    <div class="image-emoji">📝</div>
+                    <div class="vietnamese-text">Học</div>
+                    <div class="english-text">To study/learn</div>
+                    <button class="play-btn" onclick="speak('Học', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-tv"></i> To watch</h3>
+                    <div class="vietnamese-text">Xem</div>
+                    <div class="english-text">To watch</div>
+                    <button class="play-btn" onclick="speak('Xem', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-walking"></i> To go</h3>
+                    <div class="vietnamese-text">Đi</div>
+                    <div class="english-text">To go</div>
+                    <button class="play-btn" onclick="speak('Đi', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-home"></i> To return home</h3>
+                    <div class="image-emoji">🏠</div>
+                    <div class="vietnamese-text">Về nhà</div>
+                    <div class="english-text">To go home</div>
+                    <button class="play-btn" onclick="speak('Về nhà', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="9">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-heartbeat"></i> Week 9: Health & Body Parts
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-head-side"></i> Head</h3>
+                    <div class="vietnamese-text">Đầu</div>
+                    <div class="english-text">Head</div>
+                    <button class="play-btn" onclick="speak('Đầu', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-eye"></i> Eye</h3>
+                    <div class="image-emoji">👁️</div>
+                    <div class="vietnamese-text">Mắt</div>
+                    <div class="english-text">Eye</div>
+                    <button class="play-btn" onclick="speak('Mắt', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-hand-paper"></i> Hand</h3>
+                    <div class="image-emoji">✋</div>
+                    <div class="vietnamese-text">Tay</div>
+                    <div class="english-text">Hand/arm</div>
+                    <button class="play-btn" onclick="speak('Tay', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-heartbeat"></i> Heart</h3>
+                    <div class="image-emoji">❤️</div>
+                    <div class="vietnamese-text">Tim</div>
+                    <div class="english-text">Heart</div>
+                    <button class="play-btn" onclick="speak('Tim', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-user-injured"></i> I'm sick</h3>
+                    <div class="image-emoji">🤒</div>
+                    <div class="vietnamese-text">Tôi bị ốm</div>
+                    <div class="english-text">I am sick</div>
+                    <button class="play-btn" onclick="speak('Tôi bị ốm', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-sad-tear"></i> It hurts</h3>
+                    <div class="vietnamese-text">Đau</div>
+                    <div class="english-text">Pain/hurt</div>
+                    <button class="play-btn" onclick="speak('Đau', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-hospital"></i> Hospital</h3>
+                    <div class="image-emoji">🏥</div>
+                    <div class="vietnamese-text">Bệnh viện</div>
+                    <div class="english-text">Hospital</div>
+                    <button class="play-btn" onclick="speak('Bệnh viện', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-user-md"></i> Doctor</h3>
+                    <div class="image-emoji">👨‍⚕️</div>
+                    <div class="vietnamese-text">Bác sĩ</div>
+                    <div class="english-text">Doctor</div>
+                    <button class="play-btn" onclick="speak('Bác sĩ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-pills"></i> Medicine</h3>
+                    <div class="image-emoji">💊</div>
+                    <div class="vietnamese-text">Thuốc</div>
+                    <div class="english-text">Medicine</div>
+                    <button class="play-btn" onclick="speak('Thuốc', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="10">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-cloud-sun"></i> Week 10: Weather & Seasons
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-sun"></i> Sunny</h3>
+                    <div class="image-emoji">☀️</div>
+                    <div class="vietnamese-text">Nắng</div>
+                    <div class="english-text">Sunny</div>
+                    <button class="play-btn" onclick="speak('Nắng', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-cloud-rain"></i> Rainy</h3>
+                    <div class="image-emoji">🌧️</div>
+                    <div class="vietnamese-text">Mưa</div>
+                    <div class="english-text">Rain</div>
+                    <button class="play-btn" onclick="speak('Mưa', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-wind"></i> Windy</h3>
+                    <div class="image-emoji">💨</div>
+                    <div class="vietnamese-text">Gió</div>
+                    <div class="english-text">Wind</div>
+                    <button class="play-btn" onclick="speak('Gió', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-temperature-high"></i> Hot</h3>
+                    <div class="vietnamese-text">Nóng</div>
+                    <div class="english-text">Hot</div>
+                    <button class="play-btn" onclick="speak('Nóng', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-temperature-low"></i> Cold</h3>
+                    <div class="vietnamese-text">Lạnh</div>
+                    <div class="english-text">Cold</div>
+                    <button class="play-btn" onclick="speak('Lạnh', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-seedling"></i> Spring</h3>
+                    <div class="image-emoji">🌸</div>
+                    <div class="vietnamese-text">Mùa xuân</div>
+                    <div class="english-text">Spring</div>
+                    <button class="play-btn" onclick="speak('Mùa xuân', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-umbrella-beach"></i> Summer</h3>
+                    <div class="image-emoji">☀️🏖️</div>
+                    <div class="vietnamese-text">Mùa hè</div>
+                    <div class="english-text">Summer</div>
+                    <button class="play-btn" onclick="speak('Mùa hè', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-cloud"></i> Weather</h3>
+                    <div class="vietnamese-text">Thời tiết</div>
+                    <div class="english-text">Weather</div>
+                    <button class="play-btn" onclick="speak('Thời tiết', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-question"></i> How's the weather?</h3>
+                    <div class="vietnamese-text">Thời tiết thế nào?</div>
+                    <div class="english-text">How is the weather?</div>
+                    <button class="play-btn" onclick="speak('Thời tiết thế nào?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="11">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-gamepad"></i> Week 11: Hobbies & Interests
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-heart"></i> To like</h3>
+                    <div class="vietnamese-text">Thích</div>
+                    <div class="english-text">To like</div>
+                    <button class="play-btn" onclick="speak('Thích', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-music"></i> Music</h3>
+                    <div class="image-emoji">🎵</div>
+                    <div class="vietnamese-text">Âm nhạc</div>
+                    <div class="english-text">Music</div>
+                    <button class="play-btn" onclick="speak('Âm nhạc', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-book"></i> Reading</h3>
+                    <div class="image-emoji">📚</div>
+                    <div class="vietnamese-text">Đọc sách</div>
+                    <div class="english-text">Reading (books)</div>
+                    <button class="play-btn" onclick="speak('Đọc sách', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-film"></i> Movies</h3>
+                    <div class="image-emoji">🎬</div>
+                    <div class="vietnamese-text">Phim</div>
+                    <div class="english-text">Movie/film</div>
+                    <button class="play-btn" onclick="speak('Phim', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-futbol"></i> Sports</h3>
+                    <div class="image-emoji">⚽</div>
+                    <div class="vietnamese-text">Thể thao</div>
+                    <div class="english-text">Sports</div>
+                    <button class="play-btn" onclick="speak('Thể thao', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-paint-brush"></i> Drawing</h3>
+                    <div class="vietnamese-text">Vẽ</div>
+                    <div class="english-text">To draw</div>
+                    <button class="play-btn" onclick="speak('Vẽ', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-plane"></i> Travel</h3>
+                    <div class="image-emoji">✈️</div>
+                    <div class="vietnamese-text">Du lịch</div>
+                    <div class="english-text">Travel</div>
+                    <button class="play-btn" onclick="speak('Du lịch', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-camera"></i> Photography</h3>
+                    <div class="image-emoji">📷</div>
+                    <div class="vietnamese-text">Chụp ảnh</div>
+                    <div class="english-text">Photography</div>
+                    <button class="play-btn" onclick="speak('Chụp ảnh', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-swimmer"></i> Swimming</h3>
+                    <div class="image-emoji">🏊</div>
+                    <div class="vietnamese-text">Bơi</div>
+                    <div class="english-text">To swim</div>
+                    <button class="play-btn" onclick="speak('Bơi', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio-section" data-week-content="12">
+            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-graduation-cap"></i> Week 12: Review & Final Project
+            </h2>
+            
+            <div class="practice-grid">
+                <div class="audio-card">
+                    <h3><i class="fas fa-star"></i> Congratulations</h3>
+                    <div class="image-emoji">🎉</div>
+                    <div class="vietnamese-text">Chúc mừng</div>
+                    <div class="english-text">Congratulations</div>
+                    <button class="play-btn" onclick="speak('Chúc mừng', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-brain"></i> I understand</h3>
+                    <div class="vietnamese-text">Tôi hiểu</div>
+                    <div class="english-text">I understand</div>
+                    <button class="play-btn" onclick="speak('Tôi hiểu', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-comments"></i> Can you speak Vietnamese?</h3>
+                    <div class="vietnamese-text">Bạn có nói tiếng Việt không?</div>
+                    <div class="english-text">Can you speak Vietnamese?</div>
+                    <button class="play-btn" onclick="speak('Bạn có nói tiếng Việt không?', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-language"></i> A little</h3>
+                    <div class="vietnamese-text">Một chút</div>
+                    <div class="english-text">A little</div>
+                    <button class="play-btn" onclick="speak('Một chút', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-graduation-cap"></i> You did it!</h3>
+                    <div class="vietnamese-text">Bạn đã làm được!</div>
+                    <div class="english-text">You did it!</div>
+                    <button class="play-btn" onclick="speak('Bạn đã làm được!', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-book-reader"></i> Keep learning</h3>
+                    <div class="vietnamese-text">Tiếp tục học</div>
+                    <div class="english-text">Keep learning</div>
+                    <button class="play-btn" onclick="speak('Tiếp tục học', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-globe-asia"></i> Vietnam</h3>
+                    <div class="vietnamese-text">Việt Nam</div>
+                    <div class="english-text">Vietnam</div>
+                    <button class="play-btn" onclick="speak('Việt Nam', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-hands-helping"></i> Good luck!</h3>
+                    <div class="vietnamese-text">Chúc may mắn!</div>
+                    <div class="english-text">Good luck!</div>
+                    <button class="play-btn" onclick="speak('Chúc may mắn!', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+
+                <div class="audio-card">
+                    <h3><i class="fas fa-heart"></i> Thank you for learning</h3>
+                    <div class="vietnamese-text">Cảm ơn bạn đã học</div>
+                    <div class="english-text">Thank you for learning</div>
+                    <button class="play-btn" onclick="speak('Cảm ơn bạn đã học', 'vi-VN')">
+                        <i class="fas fa-play"></i> Play Audio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Week selector functionality
+        const weekButtons = document.querySelectorAll('.week-btn');
+        const audioSections = document.querySelectorAll('.audio-section');
+
+        weekButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const weekNum = this.getAttribute('data-week');
+                
+                // Update active button
+                weekButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding content
+                audioSections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.getAttribute('data-week-content') === weekNum) {
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Voice settings
+        let selectedVoice = null;
+        let speechRate = 0.8;
+        let speechPitch = 1.0;
+
+        // Load saved preferences
+        function loadPreferences() {
+            const savedVoice = localStorage.getItem('vietnameseVoice');
+            const savedRate = localStorage.getItem('speechRate');
+            const savedPitch = localStorage.getItem('speechPitch');
+            
+            if (savedRate) {
+                speechRate = parseFloat(savedRate);
+                document.getElementById('speed-control').value = speechRate;
+                document.getElementById('speed-value').textContent = speechRate + 'x';
+            }
+            
+            if (savedPitch) {
+                speechPitch = parseFloat(savedPitch);
+                document.getElementById('pitch-control').value = speechPitch;
+                document.getElementById('pitch-value').textContent = speechPitch + 'x';
+            }
+            
+            return savedVoice;
+        }
+
+        // Detect regional accent from voice name/properties
+        function detectAccent(voice) {
+            const nameLower = voice.name.toLowerCase();
+            const langLower = voice.lang.toLowerCase();
+            
+            // Southern indicators
+            if (nameLower.includes('south') || nameLower.includes('saigon') || 
+                nameLower.includes('sài gòn') || nameLower.includes('nam bộ') ||
+                langLower.includes('vn-south')) {
+                return { region: 'Southern', emoji: '🌴', description: 'Southern Vietnamese (Sài Gòn accent)' };
+            }
+            
+            // Central indicators
+            if (nameLower.includes('central') || nameLower.includes('hue') || 
+                nameLower.includes('huế') || nameLower.includes('trung bộ')) {
+                return { region: 'Central', emoji: '🏯', description: 'Central Vietnamese (Huế accent)' };
+            }
+            
+            // Northern indicators (or default)
+            if (nameLower.includes('north') || nameLower.includes('hanoi') || 
+                nameLower.includes('hà nội') || nameLower.includes('bắc bộ')) {
+                return { region: 'Northern', emoji: '🏛️', description: 'Northern Vietnamese (Hà Nội accent)' };
+            }
+            
+            // Default assumption for vi-VN voices
+            if (voice.lang.startsWith('vi')) {
+                return { region: 'Northern', emoji: '🎙️', description: 'Standard Vietnamese (likely Northern accent)' };
+            }
+            
+            return { region: 'Unknown', emoji: '🔊', description: 'Non-Vietnamese voice' };
+        }
+
+        // Populate voice selector
+        function populateVoiceList() {
+            const voices = window.speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voice-select');
+            const savedVoiceName = loadPreferences();
+            
+            // Filter for Vietnamese voices, or show all if no Vietnamese found
+            let vietnameseVoices = voices.filter(voice => 
+                voice.lang.startsWith('vi') || 
+                voice.lang.includes('VN') ||
+                voice.name.toLowerCase().includes('vietnam')
+            );
+            
+            // If no Vietnamese voices found, show all voices
+            if (vietnameseVoices.length === 0) {
+                vietnameseVoices = voices;
+            }
+            
+            voiceSelect.innerHTML = '';
+            
+            if (vietnameseVoices.length === 0) {
+                voiceSelect.innerHTML = '<option value="">No voices available</option>';
+                document.getElementById('voice-info').textContent = 'No voices found. Using system default.';
+                return;
+            }
+            
+            vietnameseVoices.forEach((voice, index) => {
+                const accent = detectAccent(voice);
+                const option = document.createElement('option');
+                option.value = voice.name;
+                option.dataset.accent = accent.region;
+                option.textContent = `${accent.emoji} ${voice.name} (${voice.lang})`;
+                
+                // Add accent info if detected
+                if (accent.region !== 'Unknown') {
+                    option.textContent += ` - ${accent.region}`;
+                }
+                
+                // Select saved voice or first Vietnamese voice
+                if ((savedVoiceName && voice.name === savedVoiceName) || 
+                    (!savedVoiceName && index === 0)) {
+                    option.selected = true;
+                    selectedVoice = voice;
+                    updateVoiceInfo(voice);
+                    updateAccentHint(voice);
+                }
+                
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        // Update voice info display
+        function updateVoiceInfo(voice) {
+            const infoDiv = document.getElementById('voice-info');
+            if (voice) {
+                const accent = detectAccent(voice);
+                infoDiv.innerHTML = `
+                    <strong>${voice.name}</strong><br>
+                    Language: ${voice.lang} | 
+                    ${voice.localService ? 'Local' : 'Network'} | 
+                    ${voice.default ? 'System Default' : 'Alternative'} |
+                    <a href="test-voices.html" target="_blank" style="color: #667eea; font-weight: 600;">
+                        <i class="fas fa-external-link-alt"></i> View all voices
+                    </a>
+                `;
+            }
+        }
+
+        // Update accent hint
+        function updateAccentHint(voice) {
+            const accent = detectAccent(voice);
+            const hintDiv = document.getElementById('accent-hint');
+            const hintText = document.getElementById('accent-text');
+            
+            if (accent.region === 'Southern') {
+                hintDiv.style.display = 'block';
+                hintText.innerHTML = `This voice uses <strong>Southern Vietnamese</strong> pronunciation (Sài Gòn). Expect 5 tones, 'd' and 'gi' as 'y' sound, softer consonants.`;
+            } else if (accent.region === 'Central') {
+                hintDiv.style.display = 'block';
+                hintText.innerHTML = `This voice uses <strong>Central Vietnamese</strong> pronunciation (Huế). More melodic with unique characteristics.`;
+            } else if (accent.region === 'Northern') {
+                hintDiv.style.display = 'block';
+                hintText.innerHTML = `This voice uses <strong>Northern Vietnamese</strong> pronunciation (Hà Nội). Standard pronunciation with 6 distinct tones.`;
+            } else if (voice.lang.startsWith('vi')) {
+                hintDiv.style.display = 'block';
+                hintText.innerHTML = `This voice likely uses <strong>Northern Vietnamese</strong> pronunciation (standard). Most TTS systems default to Northern accent.`;
+            } else {
+                hintDiv.style.display = 'none';
+            }
+        }
+
+        // Voice selection change
+        document.getElementById('voice-select').addEventListener('change', function() {
+            const voices = window.speechSynthesis.getVoices();
+            selectedVoice = voices.find(voice => voice.name === this.value);
+            
+            if (selectedVoice) {
+                localStorage.setItem('vietnameseVoice', selectedVoice.name);
+                updateVoiceInfo(selectedVoice);
+                updateAccentHint(selectedVoice);
+            }
+        });
+
+        // Speed control
+        document.getElementById('speed-control').addEventListener('input', function() {
+            speechRate = parseFloat(this.value);
+            document.getElementById('speed-value').textContent = speechRate + 'x';
+            localStorage.setItem('speechRate', speechRate);
+        });
+
+        // Pitch control
+        document.getElementById('pitch-control').addEventListener('input', function() {
+            speechPitch = parseFloat(this.value);
+            document.getElementById('pitch-value').textContent = speechPitch + 'x';
+            localStorage.setItem('speechPitch', speechPitch);
+        });
+
+        // Test voice function
+        function testVoice() {
+            speak('Xin chào! Tôi đang học tiếng Việt.', 'vi-VN');
+        }
+
+        // Text-to-speech functionality
+        function speak(text, lang) {
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = lang || 'vi-VN';
+            utterance.rate = speechRate;
+            utterance.pitch = speechPitch;
+            utterance.volume = 1;
+            
+            // Use selected voice or find Vietnamese voice
+            if (selectedVoice) {
+                utterance.voice = selectedVoice;
+            } else {
+                const voices = window.speechSynthesis.getVoices();
+                const vietnameseVoice = voices.find(voice => voice.lang.startsWith('vi'));
+                if (vietnameseVoice) {
+                    utterance.voice = vietnameseVoice;
+                    selectedVoice = vietnameseVoice;
+                }
+            }
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Load voices (needed for some browsers)
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+
+        // Initial voice loading
+        window.addEventListener('load', () => {
+            populateVoiceList();
+            // Try again after a delay for some browsers
+            setTimeout(populateVoiceList, 100);
+        });
+    </script>
+</body>
+</html>

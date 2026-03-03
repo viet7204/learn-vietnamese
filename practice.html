@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Speaking Practice | Luyện Nói Tiếng Việt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teaching.css">
+    <link rel="stylesheet" href="css/practice.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+        <button id="lang-vi" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html" data-en="Learn Vietnamese" data-vi="Học Tiếng Việt">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-vi="Trang Chủ">Home</a></li>
+                <li><a href="courses.html" data-en="Courses" data-vi="Khóa Học">Courses</a></li>
+                <li><a href="lectures.html" data-en="Lectures" data-vi="Bài Giảng">Lectures</a></li>
+                <li><a href="practice.html" class="active" data-en="Practice" data-vi="Luyện Tập">Practice</a></li>
+                <li><a href="visual.html" data-en="Visual Learning" data-vi="Học Bằng Hình Ảnh">Visual Learning</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-en="Speaking Practice" data-vi="Luyện Nói">Speaking Practice</h1>
+            <p data-en="Practice your Vietnamese pronunciation with interactive exercises" 
+               data-vi="Luyện phát âm tiếng Việt với bài tập tương tác">
+               Practice your Vietnamese pronunciation with interactive exercises
+            </p>
+        </div>
+    </section>
+
+    <!-- Browser Compatibility Notice -->
+    <div id="browser-notice" class="notice-box hidden">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p data-en="Your browser may not support speech recognition. Please use Chrome, Edge, or Safari with Vietnamese voice pack for the best tone quality." 
+           data-vi="Trình duyệt của bạn có thể không hỗ trợ nhận diện giọng nói. Vui lòng sử dụng Chrome, Edge hoặc Safari với gói giọng tiếng Việt.">
+           Your browser may not support speech recognition. Please use Chrome, Edge, or Safari with Vietnamese voice pack for the best tone quality.
+        </p>
+    </div>
+
+    <!-- Practice Tool -->
+    <section class="practice-section">
+        <div class="container">
+            <!-- Level Selection -->
+            <div class="practice-controls">
+                <div class="control-group">
+                    <label data-en="Select Difficulty:" data-vi="Chọn Độ Khó:">Select Difficulty:</label>
+                    <div class="btn-group">
+                        <button class="level-select-btn active" data-level="beginner" data-en="Beginner" data-vi="Sơ Cấp">Beginner</button>
+                        <button class="level-select-btn" data-level="intermediate" data-en="Intermediate" data-vi="Trung Cấp">Intermediate</button>
+                        <button class="level-select-btn" data-level="advanced" data-en="Advanced" data-vi="Nâng Cao">Advanced</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label data-en="Practice Mode:" data-vi="Chế Độ Luyện:">Practice Mode:</label>
+                    <div class="btn-group">
+                        <button class="mode-select-btn active" data-mode="words" data-en="Words" data-vi="Từ Vựng">Words</button>
+                        <button class="mode-select-btn" data-mode="phrases" data-en="Phrases" data-vi="Câu">Phrases</button>
+                        <button class="mode-select-btn" data-mode="tones" data-en="Tones" data-vi="Thanh Điệu">Tones</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label data-en="Voice:" data-vi="Giọng Nói:">Voice:</label>
+                    <select id="voice-select" class="voice-select">
+                        <option value="">Loading voices...</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Practice Tips -->
+            <div class="tips-box">
+                <h3>
+                    <i class="fas fa-lightbulb"></i>
+                    <span data-en="Practice Tips" data-vi="Mẹo Luyện Tập">Practice Tips</span>
+                </h3>
+                <ul>
+                    <li data-en="🎵 Tone Practice: Each tone plays 3 times slowly (0.5x speed) for better learning. Vietnamese tones are crucial for meaning!" 
+                        data-vi="🎵 Luyện Thanh Điệu: Mỗi thanh được phát 3 lần chậm (0.5x tốc độ) để học tốt hơn. Thanh điệu tiếng Việt rất quan trọng!">
+                        🎵 <strong>Tone Practice:</strong> Each tone plays 3 times slowly (0.5x speed) for better learning. Vietnamese tones are crucial for meaning!
+                    </li>
+                    <li data-en="🗣️ Best Voice: Select 'Microsoft An (vi-VN)' or 'Google Vietnamese' from the voice dropdown for clearest tones"
+                        data-vi="🗣️ Giọng Tốt Nhất: Chọn 'Microsoft An (vi-VN)' hoặc 'Google Vietnamese' từ menu giọng nói cho thanh rõ nhất">
+                        🗣️ <strong>Best Voice:</strong> Select 'Microsoft An (vi-VN)' or 'Google Vietnamese' from the voice dropdown for clearest tones
+                    </li>
+                    <li data-en="🎧 Use headphones for better audio quality and tone recognition"
+                        data-vi="🎧 Dùng tai nghe để chất lượng âm thanh và nhận diện thanh tốt hơn">
+                        🎧 Use headphones for better audio quality and tone recognition
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Practice Card -->
+            <div class="practice-card">
+                <div class="word-display">
+                    <h2 id="target-word" class="vietnamese-text">Xin chào</h2>
+                    <p id="word-meaning" class="word-meaning">Hello</p>
+                    <p id="word-pronunciation" class="pronunciation">/sin chao/</p>
+                </div>
+
+                <div class="audio-controls">
+                    <button id="listen-btn" class="btn-primary">
+                        <i class="fas fa-volume-up"></i>
+                        <span data-en="Listen" data-vi="Nghe">Listen</span>
+                    </button>
+                    <button id="record-btn" class="btn-record">
+                        <i class="fas fa-microphone"></i>
+                        <span data-en="Record" data-vi="Thu Âm">Record</span>
+                    </button>
+                    <button id="next-btn" class="btn-secondary">
+                        <i class="fas fa-forward"></i>
+                        <span data-en="Next" data-vi="Tiếp Theo">Next</span>
+                    </button>
+                </div>
+
+                <div id="recognition-result" class="recognition-result hidden">
+                    <div class="result-header">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-en="You said:" data-vi="Bạn đã nói:">You said:</span>
+                    </div>
+                    <p id="recognized-text" class="recognized-text"></p>
+                    <div id="match-indicator" class="match-indicator"></div>
+                </div>
+
+                <!-- Progress -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text">
+                        <span data-en="Practice:" data-vi="Luyện tập:">Practice:</span>
+                        <span id="practice-count">0</span>/10
+                    </p>
+                </div>
+            </div>
+
+            <!-- Score Card -->
+            <div class="score-card">
+                <div class="score-item">
+                    <i class="fas fa-bullseye"></i>
+                    <div>
+                        <p class="score-label" data-en="Accuracy" data-vi="Độ Chính Xác">Accuracy</p>
+                        <p class="score-value" id="accuracy-score">0%</p>
+                    </div>
+                </div>
+                <div class="score-item">
+                    <i class="fas fa-fire"></i>
+                    <div>
+                        <p class="score-label" data-en="Streak" data-vi="Chuỗi Đúng">Streak</p>
+                        <p class="score-value" id="streak-count">0</p>
+                    </div>
+                </div>
+                <div class="score-item">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <p class="score-label" data-en="Total Correct" data-vi="Tổng Đúng">Total Correct</p>
+                        <p class="score-value" id="total-correct">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips Section -->
+            <div class="tips-section">
+                <h3 data-en="Pronunciation Tips" data-vi="Mẹo Phát Âm">Pronunciation Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-music"></i>
+                        <h4 data-en="Master the Tones" data-vi="Làm Chủ Thanh Điệu">Master the Tones</h4>
+                        <p data-en="Vietnamese has 6 tones. Practice each tone separately before combining words." 
+                           data-vi="Tiếng Việt có 6 thanh. Luyện từng thanh riêng trước khi kết hợp từ.">
+                           Vietnamese has 6 tones. Practice each tone separately before combining words.
+                        </p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-headphones"></i>
+                        <h4 data-en="Listen Actively" data-vi="Nghe Tích Cực">Listen Actively</h4>
+                        <p data-en="Listen to native speakers and pay attention to tone changes in context." 
+                           data-vi="Nghe người bản ngữ và chú ý thay đổi thanh trong ngữ cảnh.">
+                           Listen to native speakers and pay attention to tone changes in context.
+                        </p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-repeat"></i>
+                        <h4 data-en="Practice Daily" data-vi="Luyện Hàng Ngày">Practice Daily</h4>
+                        <p data-en="Consistent practice is key. Spend 15 minutes daily for best results." 
+                           data-vi="Luyện đều đặn là chìa khóa. Dành 15 phút mỗi ngày để đạt kết quả tốt.">
+                           Consistent practice is key. Spend 15 minutes daily for best results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Resources Section -->
+    <section class="section" style="background: #f8f9fa; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">
+                <i class="fas fa-folder-open"></i> 
+                <span data-en="Course Resources" data-vi="Tài Nguyên Khóa Học">Course Resources</span>
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <a href="listen.html" style="text-decoration: none; background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-headphones"></i></div>
+                    <h3 style="margin-bottom: 10px; color: white;" data-en="Listen & Practice" data-vi="Nghe & Luyện Tập">Listen & Practice</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;" data-en="Audio pronunciation for all weeks" data-vi="Phát âm cho tất cả các tuần">Audio pronunciation for all weeks</p>
+                </a>
+                <a href="course-materials/course-syllabus.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-file-alt"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Course Syllabus" data-vi="Chương Trình">Course Syllabus</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="12-week overview" data-vi="Tổng quan 12 tuần">12-week overview</p>
+                </a>
+                <a href="course-materials/teacher-resources/Teachers-Guide.html" target="_blank" class="teacher-only" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; position: relative; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <span style="position: absolute; top: 10px; right: 10px; background: #e74c3c; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Teacher Only</span>
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Teacher's Guide" data-vi="Hướng Dẫn GV">Teacher's Guide</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Teaching resource" data-vi="Tài liệu giảng dạy">Teaching resource</p>
+                </a>
+                <a href="course-materials/worksheets/Student-Workbook-Sample.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-book"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Student Workbook" data-vi="Sách Bài Tập">Student Workbook</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Practice exercises" data-vi="Bài tập thực hành">Practice exercises</p>
+                </a>
+                <a href="course-materials/assessment-rubrics.html" target="_blank" style="text-decoration: none; background: white; border: 2px solid #e9ecef; padding: 30px; border-radius: 12px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px; color: #667eea;"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 style="margin-bottom: 10px; color: #333;" data-en="Assessment Rubrics" data-vi="Tiêu Chí Đánh Giá">Assessment Rubrics</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-en="Grading criteria" data-vi="Tiêu chí chấm điểm">Grading criteria</p>
+                </a>
+                <a href="course.html" style="text-decoration: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 style="margin-bottom: 10px; color: white;" data-en="Full Course" data-vi="Khóa Học Đầy Đủ">Full Course</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;" data-en="12-week program" data-vi="Chương trình 12 tuần">12-week program</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-en="&copy; 2026 Vietnamese Learning Platform. Built with ❤️" 
+               data-vi="&copy; 2026 Nền Tảng Học Tiếng Việt. Được xây dựng với ❤️">
+               &copy; 2026 Vietnamese Learning Platform. Built with ❤️
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/practice.js"></script>
+</body>
+</html>

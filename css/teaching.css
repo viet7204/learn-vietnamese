@@ -1,0 +1,435 @@
+/* Teaching Page Styles */
+
+.page-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #FFD700 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 20px 80px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.learning-levels {
+    padding: 80px 20px;
+    background: var(--white);
+}
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.level-card {
+    background: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition);
+    border: 3px solid transparent;
+}
+
+.level-card.beginner {
+    border-color: #4ecdc4;
+}
+
+.level-card.intermediate {
+    border-color: #f7b731;
+}
+
+.level-card.advanced {
+    border-color: #fc5c65;
+}
+
+.level-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.level-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.level-card.beginner .level-icon {
+    color: #4ecdc4;
+}
+
+.level-card.intermediate .level-icon {
+    color: #f7b731;
+}
+
+.level-card.advanced .level-icon {
+    color: #fc5c65;
+}
+
+.level-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.level-card > p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.level-topics {
+    list-style: none;
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.level-topics li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #ddd;
+    color: var(--text-color);
+}
+
+.level-topics li:last-child {
+    border-bottom: none;
+}
+
+.level-topics li::before {
+    content: '✓';
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.level-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 12px 30px;
+    background: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.level-btn:hover {
+    background: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Featured Lessons */
+.featured-lessons {
+    padding: 80px 20px;
+    background: var(--light-bg);
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.lesson-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-level {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.beginner-badge {
+    background: #4ecdc4;
+}
+
+.intermediate-badge {
+    background: #f7b731;
+}
+
+.advanced-badge {
+    background: #fc5c65;
+}
+
+.lesson-duration {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.lesson-duration i {
+    margin-right: 5px;
+}
+
+.lesson-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.lesson-card > p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-meta {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.lesson-meta i {
+    margin-right: 5px;
+}
+
+/* Learning Tips */
+.learning-tips {
+    padding: 80px 20px;
+    background: var(--white);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 100%);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.tip-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.tip-card p {
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .levels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lessons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .level-card {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .level-icon {
+        font-size: 2.5rem;
+    }
+
+    .level-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .lesson-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+}
+
+/* Interactive Tools Section */
+.tools-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.tool-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.tool-card.practice-card::before {
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+}
+
+.tool-card.lectures-card::before {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.tool-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.practice-card .tool-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.lectures-card .tool-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.tool-icon i {
+    font-size: 36px;
+    color: white;
+}
+
+.tool-card h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.tool-card p {
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.tool-features {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.tool-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    color: #4b5563;
+    font-size: 15px;
+}
+
+.tool-features i {
+    color: #10b981;
+    font-size: 18px;
+}
+
+.tool-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.practice-card .tool-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.lectures-card .tool-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.tool-btn:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.tool-btn:hover i {
+    transform: translateX(5px);
+}
+
+.tool-btn i {
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 900px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}

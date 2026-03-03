@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add More Vietnamese Voices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #f0ad4e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .method-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .method-card h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        .rating {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .steps li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .cmd {
+            background: #2d3748;
+            color: #a0d911;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .pros, .cons {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .pros {
+            background: #d4edda;
+            border-left: 3px solid #28a745;
+        }
+        
+        .cons {
+            background: #f8d7da;
+            border-left: 3px solid #dc3545;
+        }
+        
+        .pros h4, .cons h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+            line-height: 1.8;
+        }
+        
+        code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="listen.html" class="back-btn">← Back to Listen & Practice</a>
+        
+        <h1>🎙️ How to Add More Vietnamese Voices</h1>
+        <p class="subtitle">Expand your TTS options for better pronunciation practice</p>
+        
+        <div class="alert">
+            <strong>⚠️ Current Limitation:</strong> Most operating systems only include one Vietnamese TTS voice (or none at all). 
+            This is because Vietnamese is not as widely supported as major languages like English or Spanish in TTS systems.
+        </div>
+
+        <h2>Quick Solutions</h2>
+
+        <!-- Method 1: Online TTS Services -->
+        <div class="method-card">
+            <h3>🌐 Method 1: FPT.AI Vietnamese TTS <span class="rating">⭐ BEST</span></h3>
+            <p><strong>FPT.AI</strong> is a Vietnamese company offering high-quality Vietnamese text-to-speech with multiple voices including Northern and Southern accents!</p>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Pros</h4>
+                    <ul>
+                        <li>Multiple Vietnamese voices</li>
+                        <li>Both Northern & Southern accents</li>
+                        <li>High quality, natural-sounding</li>
+                        <li>Made by Vietnamese speakers</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Cons</h4>
+                    <ul>
+                        <li>Requires API key (free tier available)</li>
+                        <li>Needs internet connection</li>
+                        <li>More complex setup</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <ol class="steps">
+                <li>Visit <a href="https://fpt.ai/" target="_blank">https://fpt.ai/</a></li>
+                <li>Sign up for a free account</li>
+                <li>Go to AI Studio → Text to Speech</li>
+                <li>Get your API key from the dashboard</li>
+                <li>Try their demo voices (Minh, Linh, Hà for Northern; Lệ, Lan for Southern)</li>
+            </ol>
+            
+            <div class="info-box">
+                <strong>💡 Note:</strong> If you want me to integrate FPT.AI TTS into the Listen & Practice page, 
+                let me know! I can add it as an alternative to the browser's built-in TTS.
+            </div>
+        </div>
+
+        <!-- Method 2: Google Cloud -->
+        <div class="method-card">
+            <h3>☁️ Method 2: Google Cloud Text-to-Speech <span class="rating">⭐ EXCELLENT</span></h3>
+            <p>Google Cloud offers high-quality Vietnamese voices including Southern Vietnamese!</p>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Pros</h4>
+                    <ul>
+                        <li>Multiple Vietnamese voices</li>
+                        <li>Southern Vietnamese available</li>
+                        <li>WaveNet quality (very natural)</li>
+                        <li>Free tier: 1M chars/month</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Cons</h4>
+                    <ul>
+                        <li>Requires Google Cloud account</li>
+                        <li>Credit card needed (not charged on free tier)</li>
+                        <li>More complex setup</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <ol class="steps">
+                <li>Go to <a href="https://cloud.google.com/text-to-speech" target="_blank">Google Cloud TTS</a></li>
+                <li>Click "Try TTS free" and sign up</li>
+                <li>Enable the Text-to-Speech API</li>
+                <li>Create credentials (API key or service account)</li>
+                <li>Test available voices:
+                    <ul>
+                        <li><code>vi-VN-Standard-A</code> - Female, Northern</li>
+                        <li><code>vi-VN-Standard-B</code> - Male, Northern</li>
+                        <li><code>vi-VN-Wavenet-A</code> - Female, high quality</li>
+                        <li>Check for Southern variants</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Method 3: System Voices -->
+        <div class="method-card">
+            <h3>💻 Method 3: Install System TTS Voices</h3>
+            <p>Add more voices directly to your operating system</p>
+            
+            <h4>🪟 Windows 10/11</h4>
+            <ol class="steps">
+                <li>Open <strong>Settings</strong> → <strong>Time & Language</strong> → <strong>Language & Region</strong></li>
+                <li>Click <strong>Add a language</strong></li>
+                <li>Search for <strong>Vietnamese</strong> and add it</li>
+                <li>Click on Vietnamese → <strong>Options</strong> → <strong>Speech</strong></li>
+                <li>Download any available speech packs</li>
+                <li>Go to <strong>Settings</strong> → <strong>Accessibility</strong> → <strong>Narrator</strong> → <strong>Choose voice</strong></li>
+                <li>Check if new voices appear</li>
+            </ol>
+            
+            <div class="info-box">
+                <strong>Note:</strong> Windows typically only has 1-2 Vietnamese voices. Microsoft's Vietnamese TTS support is limited.
+            </div>
+            
+            <h4>🍎 macOS</h4>
+            <ol class="steps">
+                <li>Open <strong>System Preferences</strong> → <strong>Accessibility</strong></li>
+                <li>Click <strong>Spoken Content</strong> → <strong>System Voice</strong> → <strong>Manage Voices</strong></li>
+                <li>Look for Vietnamese voices and download</li>
+                <li>Available voices may include:
+                    <ul>
+                        <li>Linh (Vietnamese female)</li>
+                        <li>Enhanced voices if available</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h4>🐧 Linux</h4>
+            <ol class="steps">
+                <li>Install espeak-ng with Vietnamese support:
+                    <div class="cmd">sudo apt-get install espeak-ng</div>
+                </li>
+                <li>Or install festival:
+                    <div class="cmd">sudo apt-get install festival festvox-vi</div>
+                </li>
+                <li>For better quality, try eSpeak-NG with MBROLA:
+                    <div class="cmd">sudo apt-get install espeak-ng-espeak mbrola mbrola-vn1</div>
+                </li>
+            </ol>
+            
+            <div class="alert">
+                <strong>Reality check:</strong> Linux TTS for Vietnamese is limited. espeak sounds robotic, and high-quality voices are rare.
+            </div>
+            
+            <h4>📱 Android</h4>
+            <ol class="steps">
+                <li>Go to <strong>Settings</strong> → <strong>Language & Input</strong></li>
+                <li>Tap <strong>Text-to-Speech Output</strong></li>
+                <li>Tap settings icon next to your TTS engine</li>
+                <li>Tap <strong>Install voice data</strong></li>
+                <li>Download Vietnamese voices if available</li>
+                <li>Try alternative TTS engines from Play Store:
+                    <ul>
+                        <li>Google Text-to-Speech</li>
+                        <li>Samsung TTS</li>
+                        <li>Vbee Vietnamese TTS</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Method 4: Use Native Recordings -->
+        <div class="method-card">
+            <h3>🎤 Method 4: Use Native Speaker Recordings <span class="rating">⭐ MOST AUTHENTIC</span></h3>
+            <p>The best way to hear authentic Vietnamese pronunciation - real people!</p>
+            
+            <div class="success-box">
+                <strong>✅ Recommended:</strong> This is actually better than TTS for learning authentic pronunciation!
+            </div>
+            
+            <h4>Free Resources:</h4>
+            <ul>
+                <li><strong>Forvo</strong> (<a href="https://forvo.com/languages/vi/" target="_blank">forvo.com</a>) 
+                    - Largest pronunciation database, real Vietnamese speakers by region</li>
+                <li><strong>Google Translate</strong> - Has decent Vietnamese audio (Northern accent)</li>
+                <li><strong>YouTube Channels:</strong>
+                    <ul>
+                        <li>Learn Vietnamese with Annie (Southern accent)</li>
+                        <li>Northern Vietnamese channels (Hanoi accent)</li>
+                        <li>Tieng Viet Oi</li>
+                    </ul>
+                </li>
+                <li><strong>Language Learning Apps:</strong>
+                    <ul>
+                        <li>Drops (has audio)</li>
+                        <li>Mondly Vietnamese</li>
+                        <li>Pimsleur Vietnamese</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Method 5: Alternative TTS Engines -->
+        <div class="method-card">
+            <h3>🔧 Method 5: Alternative TTS Engines for Browser</h3>
+            
+            <h4>ResponsiveVoice</h4>
+            <p>Web-based TTS service with Vietnamese support</p>
+            <ul>
+                <li>Website: <a href="https://responsivevoice.org/" target="_blank">responsivevoice.org</a></li>
+                <li>Free tier available</li>
+                <li>Easy to integrate</li>
+                <li>Vietnamese voice available</li>
+            </ul>
+            
+            <h4>Amazon Polly</h4>
+            <ul>
+                <li>Currently has limited Vietnamese support</li>
+                <li>Check their language list for updates</li>
+            </ul>
+            
+            <h4>Microsoft Azure Speech</h4>
+            <ul>
+                <li>Has Vietnamese voices</li>
+                <li>Free tier: 500k chars/month</li>
+                <li>Neural voices available</li>
+            </ul>
+        </div>
+
+        <h2>🎯 My Recommendations</h2>
+        
+        <div class="success-box">
+            <h3>Best Approach (Hybrid):</h3>
+            <ol style="line-height: 2;">
+                <li><strong>For quick practice:</strong> Use the built-in browser TTS (what we have now)</li>
+                <li><strong>For quality:</strong> Use Forvo.com for individual word pronunciations</li>
+                <li><strong>For authentic accents:</strong> Watch YouTube videos by region</li>
+                <li><strong>For advanced:</strong> I can integrate FPT.AI or Google Cloud TTS into this course</li>
+            </ol>
+        </div>
+
+        <h2>🚀 Want Me to Add Cloud TTS?</h2>
+        
+        <div class="info-box">
+            <p><strong>I can integrate external TTS services into the Listen & Practice page!</strong></p>
+            
+            <p>Options I can implement:</p>
+            <ul>
+                <li>✅ FPT.AI Vietnamese TTS (best for Vietnamese, multiple voices)</li>
+                <li>✅ Google Cloud TTS (requires API key)</li>
+                <li>✅ ResponsiveVoice (easiest to set up)</li>
+                <li>✅ Voice selector with multiple cloud providers</li>
+            </ul>
+            
+            <p><strong>Just let me know which one you prefer!</strong> I'll add it as an alternative voice option alongside your system voices.</p>
+        </div>
+
+        <h2>📊 Voice Quality Ranking</h2>
+        
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #667eea; color: white;">
+                <th style="padding: 12px; text-align: left;">Source</th>
+                <th style="padding: 12px; text-align: left;">Quality</th>
+                <th style="padding: 12px; text-align: left;">Accents</th>
+                <th style="padding: 12px; text-align: left;">Cost</th>
+            </tr>
+            <tr style="background: #f8f9fa;">
+                <td style="padding: 12px;">Native Speakers (Forvo)</td>
+                <td style="padding: 12px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding: 12px;">All regions</td>
+                <td style="padding: 12px;">Free</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px;">FPT.AI</td>
+                <td style="padding: 12px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding: 12px;">Northern & Southern</td>
+                <td style="padding: 12px;">Free tier</td>
+            </tr>
+            <tr style="background: #f8f9fa;">
+                <td style="padding: 12px;">Google Cloud TTS</td>
+                <td style="padding: 12px;">⭐⭐⭐⭐</td>
+                <td style="padding: 12px;">Northern (+ Southern)</td>
+                <td style="padding: 12px;">Free tier</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px;">System TTS (Browser)</td>
+                <td style="padding: 12px;">⭐⭐⭐</td>
+                <td style="padding: 12px;">Usually Northern only</td>
+                <td style="padding: 12px;">Free</td>
+            </tr>
+            <tr style="background: #f8f9fa;">
+                <td style="padding: 12px;">Microsoft Azure</td>
+                <td style="padding: 12px;">⭐⭐⭐⭐</td>
+                <td style="padding: 12px;">Northern</td>
+                <td style="padding: 12px;">Free tier</td>
+            </tr>
+        </table>
+
+        <h2>❓ FAQ</h2>
+        
+        <div class="method-card">
+            <h4>Q: Why doesn't my system have multiple Vietnamese voices?</h4>
+            <p>Vietnamese is a "smaller" language in the tech world compared to English, Spanish, or Mandarin. Most OS vendors prioritize major languages and only include 1-2 voices for Vietnamese.</p>
+        </div>
+        
+        <div class="method-card">
+            <h4>Q: Will cloud TTS cost money?</h4>
+            <p>Most services have generous free tiers that are more than enough for language learning:
+                <ul>
+                    <li>Google Cloud: 1 million characters/month free</li>
+                    <li>FPT.AI: Free tier available</li>
+                    <li>Azure: 500k characters/month free</li>
+                </ul>
+            </p>
+        </div>
+        
+        <div class="method-card">
+            <h4>Q: Which accent should I focus on?</h4>
+            <p>If you're learning for general use or formal contexts, start with Northern (standard). If you have family/friends in Southern Vietnam or plan to live there, focus on Southern. Either way, Vietnamese speakers understand both!</p>
+        </div>
+
+        <div class="alert" style="margin-top: 40px;">
+            <strong>💬 Next Steps:</strong> Let me know if you'd like me to:
+            <ul style="margin-top: 10px;">
+                <li>✅ Integrate FPT.AI TTS for multiple Vietnamese voices</li>
+                <li>✅ Add Google Cloud TTS integration</li>
+                <li>✅ Add links to Forvo for each vocabulary word</li>
+                <li>✅ Create a native speaker recording template</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Just say the word and I'll implement it!</strong></p>
+        </div>
+    </div>
+</body>
+</html>

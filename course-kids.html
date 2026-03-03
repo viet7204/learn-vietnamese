@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese for Kids - 12 Weeks | Tiếng Việt Cho Trẻ Em</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teaching.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .kids-theme {
+            background: linear-gradient(135deg, #FF6B9D 0%, #FEC163 50%, #C371F3 100%);
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #FF6B9D 0%, #FEC163 50%, #C371F3 100%);
+        }
+        
+        .week-card {
+            border: 3px solid transparent;
+            background: white;
+            background-clip: padding-box;
+            position: relative;
+        }
+        
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #FF6B9D, #FEC163, #C371F3);
+            border-radius: 12px;
+            z-index: -1;
+        }
+        
+        .activity-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 5px;
+        }
+        
+        .game-badge {
+            background: #FF6B9D;
+            color: white;
+        }
+        
+        .song-badge {
+            background: #FEC163;
+            color: #333;
+        }
+        
+        .story-badge {
+            background: #C371F3;
+            color: white;
+        }
+        
+        .craft-badge {
+            background: #4ECDC4;
+            color: white;
+        }
+        
+        .fun-box {
+            background: linear-gradient(135deg, #FFE5F0 0%, #FFF4E6 50%, #F5E6FF 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px dashed #FF6B9D;
+        }
+        
+        .parent-tip {
+            background: #E8F4F8;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .emoji-large {
+            font-size: 3rem;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .reward-star {
+            display: inline-block;
+            color: #FFD700;
+            font-size: 1.5rem;
+            animation: twinkle 1s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        .progress-tracker {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        
+        .achievement-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 25px;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+        <button id="lang-vi" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="lectures.html">Lectures</a></li>
+                <li><a href="practice.html">Practice</a></li>
+                <li><a href="visual.html">Visual Learning</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header kids-theme">
+        <div class="container">
+            <div style="display: inline-block; background: rgba(255, 255, 255, 0.9); padding: 8px 20px; border-radius: 25px; margin-bottom: 15px;">
+                <span style="font-size: 1.5rem;">🎨</span> <strong style="color: #FF6B9D;">KIDS COURSE</strong> <span style="font-size: 1.5rem;">🎮</span>
+            </div>
+            <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Vietnamese for Kids!</h1>
+            <p style="color: white; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                Fun, interactive 12-week program for children ages 5-12
+            </p>
+            <div class="emoji-large">
+                🌟 🎵 📚 🎨 🎮 🌈
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <div class="course-content">
+        <!-- Course Overview -->
+        <section class="container" style="margin-top: 40px;">
+            <div class="course-overview">
+                <h2><i class="fas fa-child"></i> Course Overview</h2>
+                <p>A fun and engaging 12-week program specifically designed for children! Through games, songs, stories, and creative activities, kids will learn Vietnamese naturally while having a blast. Perfect for heritage learners, expat families, or any child interested in Vietnamese language and culture!</p>
+                
+                <div class="course-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Weeks</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">36</span>
+                        <span class="stat-label">Lessons</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Fun Words</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">Ages 5-12</span>
+                        <span class="stat-label">Target Age</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent/Teacher Guide -->
+            <div class="fun-box">
+                <h3 style="text-align: center; color: #FF6B9D; margin-bottom: 20px;">
+                    <i class="fas fa-heart"></i> For Parents & Teachers <i class="fas fa-heart"></i>
+                </h3>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 25px;">
+                    This course is designed to make learning Vietnamese FUN! Each week includes:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🎮</div>
+                        <strong>Interactive Games</strong>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Memory cards, matching, role-play</p>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🎵</div>
+                        <strong>Vietnamese Songs</strong>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Catchy tunes kids will love</p>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📖</div>
+                        <strong>Story Time</strong>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Bilingual picture books</p>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🎨</div>
+                        <strong>Arts & Crafts</strong>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Hands-on cultural projects</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Progress Tracker -->
+            <div class="progress-tracker">
+                <h3 style="text-align: center; color: #C371F3; margin-bottom: 20px;">
+                    <i class="fas fa-trophy"></i> Achievement System <i class="fas fa-trophy"></i>
+                </h3>
+                <p style="text-align: center; margin-bottom: 25px;">
+                    Kids earn badges and stars as they complete activities! Celebrate their progress:
+                </p>
+                <div style="text-align: center;">
+                    <span class="achievement-badge">⭐ Week Complete!</span>
+                    <span class="achievement-badge">🎤 Song Master</span>
+                    <span class="achievement-badge">🎮 Game Champion</span>
+                    <span class="achievement-badge">📚 Story Reader</span>
+                    <span class="achievement-badge">🎨 Creative Artist</span>
+                    <span class="achievement-badge">🏆 Course Graduate!</span>
+                </div>
+            </div>
+
+            <!-- Phase 1: Getting Started -->
+            <div class="phase-divider">
+                <span class="phase-label">🌈 Phase 1: Hello Vietnam! (Weeks 1-4)</span>
+            </div>
+
+            <!-- Week 1: Greetings & Introductions -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #FF6B9D;">Week 1</span>
+                            <h3 style="color: #FF6B9D;">👋 Hello! Xin Chào!</h3>
+                            <p class="week-subtitle">Greetings and introducing yourself</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Greetings:</strong> Xin chào (Hello), Tạm biệt (Goodbye), Cảm ơn (Thank you)</li>
+                            <li><strong>Self-introduction:</strong> "My name is..." (Tên tôi là...)</li>
+                            <li><strong>Simple questions:</strong> "What's your name?" (Bạn tên gì?)</li>
+                            <li><strong>Polite words:</strong> Please, Thank you, Sorry</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #FF6B9D; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Hello Musical Chairs</strong>
+                            <p>Kids walk around. When music stops, they greet the nearest person in Vietnamese!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Xin Chào" Song</strong>
+                            <p><em>Tune: "Hello Song"</em><br>
+                            "Xin chào, xin chào, bạn khỏe không?<br>
+                            Tôi khỏe, tôi khỏe, cảm ơn bạn!"</p>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">(Hello, hello, how are you? I'm fine, I'm fine, thank you!)</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Name Tag Decoration</strong>
+                            <p>Kids create colorful name tags with their Vietnamese names and decorate with Vietnamese flag colors!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"My First Day in Vietnam"</strong>
+                            <p>Picture book about a child visiting Vietnam for the first time and learning to say hello!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Practice greetings during daily routines! Say "Xin chào!" in the morning and "Tạm biệt!" at bedtime. Make it a fun family habit!</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Teach the "Xin chào" song to a family member or friend!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">📄 Flashcards (Greetings)</span>
+                            <span class="resource-tag">🎨 Coloring Sheet</span>
+                            <span class="resource-tag">🎵 Song Lyrics + Audio</span>
+                            <span class="resource-tag">📝 Parent Guide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2: Colors & Numbers -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #FEC163;">Week 2</span>
+                            <h3 style="color: #FEC163;">🌈 Colors & Numbers 1-10</h3>
+                            <p class="week-subtitle">Exploring the rainbow and counting</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Colors:</strong> Đỏ (Red), Xanh (Blue/Green), Vàng (Yellow), Hồng (Pink), Trắng (White), Đen (Black)</li>
+                            <li><strong>Numbers 1-10:</strong> Một, Hai, Ba, Bốn, Năm, Sáu, Bảy, Tám, Chín, Mười</li>
+                            <li><strong>Simple phrases:</strong> "I like..." (Tôi thích...)</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #FEC163; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Color Scavenger Hunt</strong>
+                            <p>Kids find objects of different colors around the room and say the color in Vietnamese!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Rainbow Colors" (Cầu Vồng)</strong>
+                            <p><em>Tune: "Twinkle Twinkle Little Star"</em><br>
+                            "Đỏ, vàng, xanh, and hồng too,<br>
+                            Colors in the rainbow, bright and new!"</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Number Finger Puppets</strong>
+                            <p>Create finger puppets numbered 1-10 in Vietnamese. Use them to practice counting!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"The Rainbow Dragon"</strong>
+                            <p>A friendly dragon loses its colors and needs help finding them. Kids help by naming each color in Vietnamese!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Count everything together in Vietnamese! Steps, toys, snacks, fingers... Make it a daily game. Point to objects and ask "What color?" in Vietnamese.</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Count 10 toys at home and say the color of each one in Vietnamese!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🎴 Color Flashcards</span>
+                            <span class="resource-tag">🔢 Number Cards</span>
+                            <span class="resource-tag">🎨 Rainbow Worksheet</span>
+                            <span class="resource-tag">🎵 Counting Song Audio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3: Family Members -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #C371F3;">Week 3</span>
+                            <h3 style="color: #C371F3;">👨‍👩‍👧‍👦 My Family (Gia Đình)</h3>
+                            <p class="week-subtitle">Learning about family members</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Family members:</strong> Bố/Ba (Dad), Mẹ/Má (Mom), Anh (Older brother), Chị (Older sister), Em (Younger sibling)</li>
+                            <li><strong>Grandparents:</strong> Ông (Grandpa), Bà (Grandma)</li>
+                            <li><strong>Phrases:</strong> "This is my..." (Đây là... của tôi)</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #C371F3; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Family Photo Show & Tell</strong>
+                            <p>Kids bring family photos and introduce their family members in Vietnamese!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"My Family Song"</strong>
+                            <p><em>Tune: "The Finger Family"</em><br>
+                            "Bố, bố, where are you? Here I am, here I am!<br>
+                            Mẹ, mẹ, where are you? Here I am, here I am!"</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Family Tree Art Project</strong>
+                            <p>Create a colorful family tree with Vietnamese labels for each family member!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"A Vietnamese Family Dinner"</strong>
+                            <p>Story about a family gathering where each member is introduced. Learn Vietnamese family terms naturally!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Vietnamese has special pronouns for family members! Even if simplified for kids, introduce the concept that Vietnam shows respect through language. Practice with extended family if possible!</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Draw your family and label everyone in Vietnamese!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">👨‍👩‍👧 Family Flashcards</span>
+                            <span class="resource-tag">🌳 Family Tree Template</span>
+                            <span class="resource-tag">🎵 Family Song Audio</span>
+                            <span class="resource-tag">📝 Family Worksheet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4: Animals -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #4ECDC4;">Week 4</span>
+                            <h3 style="color: #4ECDC4;">🐶 Animals (Động Vật)</h3>
+                            <p class="week-subtitle">Exploring the animal kingdom</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Common animals:</strong> Chó (Dog), Mèo (Cat), Chim (Bird), Voi (Elephant), Khỉ (Monkey), Cá (Fish)</li>
+                            <li><strong>Animal sounds:</strong> Vietnamese animal onomatopoeia!</li>
+                            <li><strong>Questions:</strong> "What animal is this?" (Động vật này là gì?)</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #4ECDC4; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Animal Charades</strong>
+                            <p>Kids act out animals while others guess in Vietnamese. Make animal sounds together!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Old MacDonald's Farm" (Vietnamese Version)</strong>
+                            <p>"Old MacDonald had a farm... with a chó chó here..."<br>
+                            Learn animal sounds in Vietnamese - fun fact: They're different from English!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Paper Plate Animal Masks</strong>
+                            <p>Create masks of favorite Vietnamese animals. Wear them while practicing animal names!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"The Water Buffalo and the Tiger"</strong>
+                            <p>Traditional Vietnamese folktale featuring animals. Learn why the water buffalo is so important in Vietnam!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Visit a zoo or watch animal videos together. Practice animal names and sounds. Vietnamese animal sounds are different - dogs say "gâu gâu" not "woof woof"!</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Find pictures of 5 animals and label them in Vietnamese!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🦁 Animal Flashcards</span>
+                            <span class="resource-tag">🎭 Mask Templates</span>
+                            <span class="resource-tag">🎵 Farm Song Audio</span>
+                            <span class="resource-tag">📚 Folktale PDF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Everyday Life -->
+            <div class="phase-divider">
+                <span class="phase-label">🏠 Phase 2: Daily Life (Weeks 5-8)</span>
+            </div>
+
+            <!-- Week 5: Food & Eating -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #FF6B9D;">Week 5</span>
+                            <h3 style="color: #FF6B9D;">🍜 Yummy Food (Đồ Ăn)</h3>
+                            <p class="week-subtitle">Vietnamese food and eating together</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Food words:</strong> Cơm (Rice), Phở (Pho soup), Bánh mì (Bread/Sandwich), Nước (Water), Trái cây (Fruit)</li>
+                            <li><strong>Eating phrases:</strong> "I'm hungry" (Tôi đói bụng), "Delicious!" (Ngon!)</li>
+                            <li><strong>Manners:</strong> Table etiquette in Vietnamese culture</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #FF6B9D; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Vietnamese Restaurant Role-Play</strong>
+                            <p>Set up a pretend Vietnamese restaurant! Kids take turns being customer and waiter, ordering in Vietnamese.</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Eating Song" (Bài Hát Ăn Cơm)</strong>
+                            <p><em>Tune: "Are You Hungry?"</em><br>
+                            "Ăn cơm, ăn cơm, ngon lắm! (Eat rice, eat rice, so yummy!)"</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Paper Vietnamese Food</strong>
+                            <p>Create paper versions of phở, bánh mì, spring rolls using construction paper and cotton balls!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"The Magic Rice Bowl"</strong>
+                            <p>Vietnamese folktale about a magic bowl that never empties. Learn about rice's importance in Vietnamese culture!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Cook simple Vietnamese food together! Try making bánh mì sandwiches or fruit smoothies (sinh tố). Visit a Vietnamese restaurant and practice ordering!</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Try one Vietnamese food this week and describe it in Vietnamese (Ngon! or Không ngon)!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🍱 Food Flashcards</span>
+                            <span class="resource-tag">📋 Menu Template</span>
+                            <span class="resource-tag">🎵 Eating Song Audio</span>
+                            <span class="resource-tag">👨‍🍳 Simple Recipe Cards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 6: Body Parts & Actions -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #FEC163;">Week 6</span>
+                            <h3 style="color: #FEC163;">👋 Body Parts & Actions</h3>
+                            <p class="week-subtitle">Learn body parts and action verbs</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Body parts:</strong> Đầu (Head), Mắt (Eyes), Mũi (Nose), Tai (Ears), Tay (Hand/Arm), Chân (Leg/Foot)</li>
+                            <li><strong>Actions:</strong> Nhảy (Jump), Chạy (Run), Đi (Walk), Ngồi (Sit), Đứng (Stand)</li>
+                            <li><strong>Commands:</strong> Simple action commands</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #FEC163; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Vietnamese Simon Says</strong>
+                            <p>"Simon says: Nhảy! (Jump!)" Kids follow commands in Vietnamese. Great for active learning!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Head, Shoulders, Knees and Toes" (Vietnamese)</strong>
+                            <p>"Đầu, vai, đầu gối, chân..." Touch body parts while singing!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Vietnamese Body Parts Puppet</strong>
+                            <p>Create a puppet with movable parts. Label each body part in Vietnamese!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"The Boy Who Could Run Like the Wind"</strong>
+                            <p>Story about using your body for sports and activities. Learn action verbs naturally!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Make exercise time Vietnamese time! Do stretches and exercises while naming body parts and actions in Vietnamese. Dance to Vietnamese children's music!</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Teach someone the "Head, Shoulders, Knees and Toes" song in Vietnamese!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">👤 Body Parts Flashcards</span>
+                            <span class="resource-tag">🏃 Action Verb Cards</span>
+                            <span class="resource-tag">🎵 Song Lyrics + Audio</span>
+                            <span class="resource-tag">🎭 Puppet Template</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 7: Weather & Seasons -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #C371F3;">Week 7</span>
+                            <h3 style="color: #C371F3;">☀️ Weather & Seasons</h3>
+                            <p class="week-subtitle">Talking about weather and seasons</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Weather:</strong> Nắng (Sunny), Mưa (Rain), Lạnh (Cold), Nóng (Hot)</li>
+                            <li><strong>Seasons:</strong> Xuân (Spring), Hạ (Summer), Thu (Fall), Đông (Winter)</li>
+                            <li><strong>Questions:</strong> "How's the weather?" (Thời tiết thế nào?)</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #C371F3; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Weather Reporter</strong>
+                            <p>Kids pretend to be TV weather reporters! Give daily weather reports in Vietnamese.</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Rain Rain Go Away" (Vietnamese)</strong>
+                            <p>"Mưa mưa đi đi, trở lại ngày khác..."</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Weather Wheel</strong>
+                            <p>Create a spinning weather wheel with different weather conditions labeled in Vietnamese!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"Monsoon Season in Vietnam"</strong>
+                            <p>Learn about Vietnam's unique weather patterns and rainy season!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Check the weather together each morning in Vietnamese! Keep a weather calendar and mark each day with Vietnamese weather words.</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Track the weather for one week using Vietnamese words!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🌤️ Weather Flashcards</span>
+                            <span class="resource-tag">📅 Weather Calendar</span>
+                            <span class="resource-tag">🎵 Weather Song Audio</span>
+                            <span class="resource-tag">🎡 Wheel Template</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 8: Clothes & Getting Dressed -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #4ECDC4;">Week 8</span>
+                            <h3 style="color: #4ECDC4;">👕 Clothes (Quần Áo)</h3>
+                            <p class="week-subtitle">Learning about clothing and traditional Vietnamese dress</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Clothing:</strong> Áo (Shirt), Quần (Pants), Váy (Skirt/Dress), Giày (Shoes)</li>
+                            <li><strong>Special clothing:</strong> Áo dài (Traditional Vietnamese dress)</li>
+                            <li><strong>Phrases:</strong> "I'm wearing..." (Tôi đang mặc...)</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #4ECDC4; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Fashion Show</strong>
+                            <p>Kids dress up and describe their outfits in Vietnamese! Learn about áo dài and traditional clothing.</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Getting Dressed Song"</strong>
+                            <p><em>Tune: "This Is The Way"</em><br>
+                            "This is the way we put on our áo, áo, áo..."</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Design Your Own Áo Dài</strong>
+                            <p>Color and decorate templates of traditional Vietnamese áo dài!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"The Beautiful Áo Dài"</strong>
+                            <p>Story about a special occasion where everyone wears áo dài. Learn about Vietnamese culture!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Practice getting dressed in Vietnamese! As kids put on clothes, name each item. Show pictures or videos of áo dài to teach cultural appreciation.</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Draw yourself wearing your favorite outfit and label the clothes in Vietnamese!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">👗 Clothing Flashcards</span>
+                            <span class="resource-tag">🎨 Áo Dài Coloring Page</span>
+                            <span class="resource-tag">🎵 Dressing Song Audio</span>
+                            <span class="resource-tag">📷 Cultural Photos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Vietnamese Culture -->
+            <div class="phase-divider">
+                <span class="phase-label">🎉 Phase 3: Vietnamese Culture & Fun (Weeks 9-12)</span>
+            </div>
+
+            <!-- Week 9: Tet Festival -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #FF6B9D;">Week 9</span>
+                            <h3 style="color: #FF6B9D;">🎊 Tết - Vietnamese New Year!</h3>
+                            <p class="week-subtitle">Celebrating Vietnam's biggest holiday</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Tết greetings:</strong> Chúc mừng năm mới! (Happy New Year!)</li>
+                            <li><strong>Traditions:</strong> Lucky money (lì xì), Bánh chưng (special cake), Fireworks (pháo hoa)</li>
+                            <li><strong>Zodiac animals:</strong> Vietnamese zodiac signs</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #FF6B9D; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Tết Celebration Party</strong>
+                            <p>Host a mini Tết celebration! Give lucky red envelopes, eat special treats, and practice greetings!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Tết Đến Tết Đến"</strong>
+                            <p>Traditional Vietnamese New Year song for children!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Make Red Envelopes & Peach Blossoms</strong>
+                            <p>Create traditional Tết decorations: red envelopes (bao lì xì) and paper peach blossoms!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"The Legend of Bánh Chưng"</strong>
+                            <p>Traditional story about why Vietnamese people eat bánh chưng during Tết!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>This is a great week to involve Vietnamese community members! Invite families to share Tết traditions. Try making bánh chưng or bánh tét if possible.</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Learn which Vietnamese zodiac animal represents your birth year!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🎊 Tết Flashcards</span>
+                            <span class="resource-tag">🧧 Red Envelope Template</span>
+                            <span class="resource-tag">🎵 Tết Songs Audio</span>
+                            <span class="resource-tag">📖 Zodiac Poster</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 10: Vietnamese Games & Toys -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #FEC163;">Week 10</span>
+                            <h3 style="color: #FEC163;">🎮 Vietnamese Games & Toys</h3>
+                            <p class="week-subtitle">Traditional games Vietnamese kids play</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Toys:</strong> Đồ chơi (Toy), Búp bê (Doll), Bóng (Ball), Diều (Kite)</li>
+                            <li><strong>Games:</strong> Traditional Vietnamese children's games</li>
+                            <li><strong>Phrases:</strong> "Let's play!" (Chơi nào!), "My turn!" (Đến lượt tôi!)</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #FEC163; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Play "Ô Ăn Quan" (Mandarin Square Capturing)</strong>
+                            <p>Traditional Vietnamese board game using stones! Learn to count and strategize in Vietnamese.</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>"Nhảy Dây" (Jump Rope)</strong>
+                            <p>Vietnamese jump rope songs and rhymes! Physical activity + language learning.</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Make Vietnamese Kites (Diều)</strong>
+                            <p>Create simple paper kites inspired by traditional Vietnamese designs!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"The Kite Festival"</strong>
+                            <p>Story about children flying kites during a Vietnamese festival!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Many traditional games don't need fancy equipment! Teach kids that Vietnamese children play with simple, creative toys. It's a great cultural lesson!</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Teach a friend or family member one Vietnamese game!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🎲 Game Instructions</span>
+                            <span class="resource-tag">🪁 Kite Template</span>
+                            <span class="resource-tag">🎵 Jump Rope Rhymes</span>
+                            <span class="resource-tag">📝 Toy Vocabulary</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 11: Around Vietnam -->
+            <div class="week-card">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: #C371F3;">Week 11</span>
+                            <h3 style="color: #C371F3;">🗺️ Traveling Vietnam</h3>
+                            <p class="week-subtitle">Exploring Vietnamese geography and landmarks</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-star"></i> What Kids Will Learn:</h4>
+                        <ul>
+                            <li><strong>Places:</strong> Hà Nội (Hanoi), Sài Gòn (Saigon), Biển (Beach), Núi (Mountain)</li>
+                            <li><strong>Landmarks:</strong> Vịnh Hạ Long (Ha Long Bay), Hội An (Ancient town)</li>
+                            <li><strong>Transportation:</strong> Xe máy (Motorbike), Xe đạp (Bicycle), Thuyền (Boat)</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box">
+                        <h4 style="color: #C371F3; margin-bottom: 15px;"><i class="fas fa-gamepad"></i> Fun Activities This Week:</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Vietnam Map Quiz</strong>
+                            <p>Interactive game identifying Vietnamese cities and landmarks on a map!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 SONG</span>
+                            <strong>"Travel Around Vietnam"</strong>
+                            <p>Song about traveling from North to South Vietnam, naming cities and foods along the way!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 CRAFT</span>
+                            <strong>Vietnamese Postcard</strong>
+                            <p>Create postcards from famous Vietnamese locations. Write greetings in Vietnamese!</p>
+                        </div>
+
+                        <div>
+                            <span class="activity-badge story-badge">📖 STORY</span>
+                            <strong>"Journey Through Vietnam"</strong>
+                            <p>Picture book touring Vietnam's beautiful landscapes and cities!</p>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>Show videos or photos of Vietnam! Many kids (especially heritage learners) may have family connections. Let them share stories about visiting Vietnam!</p>
+                        <p style="margin-top: 10px;"><strong>Homework:</strong> Find one interesting fact about Vietnam to share with the class!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🗺️ Vietnam Map</span>
+                            <span class="resource-tag">🏛️ Landmark Cards</span>
+                            <span class="resource-tag">🎵 Travel Song Audio</span>
+                            <span class="resource-tag">📮 Postcard Template</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 12: Celebration & Review -->
+            <div class="week-card" style="border: 5px solid gold;">
+                <div class="week-content">
+                    <div class="week-header">
+                        <div>
+                            <span class="week-number" style="background: linear-gradient(135deg, #FFD700, #FFA500);">Week 12</span>
+                            <h3 style="color: #FF6B9D;">🎓 Celebration Week!</h3>
+                            <p class="week-subtitle">Review everything & graduation party!</p>
+                        </div>
+                    </div>
+
+                    <div class="week-objectives">
+                        <h4><i class="fas fa-trophy"></i> Final Week Goals:</h4>
+                        <ul>
+                            <li><strong>Review:</strong> All vocabulary and phrases from weeks 1-11</li>
+                            <li><strong>Show what you learned:</strong> Student presentations</li>
+                            <li><strong>Celebrate:</strong> Graduation ceremony with certificates!</li>
+                            <li><strong>Plan ahead:</strong> How to keep learning Vietnamese</li>
+                        </ul>
+                    </div>
+
+                    <div class="fun-box" style="border-color: gold;">
+                        <h4 style="color: #FFD700; margin-bottom: 15px; text-align: center;">
+                            <span class="reward-star">⭐</span> GRADUATION CELEBRATION! <span class="reward-star">⭐</span>
+                        </h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge game-badge">🎮 GAME</span>
+                            <strong>Vietnamese Kahoot Quiz</strong>
+                            <p>Fun, interactive review game covering all 11 weeks! Teams compete for prizes!</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge song-badge">🎵 PERFORMANCE</span>
+                            <strong>Class Performance</strong>
+                            <p>Kids perform their favorite Vietnamese songs for families! Choose from weeks 1-11.</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge craft-badge">🎨 SHOWCASE</span>
+                            <strong>Art Gallery Walk</strong>
+                            <p>Display all artwork and crafts from the 12 weeks! Kids give tours in Vietnamese.</p>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <span class="activity-badge story-badge">📖 SHARING</span>
+                            <strong>"What I Learned" Presentations</strong>
+                            <p>Each child presents their favorite memory from the course in Vietnamese!</p>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 25px; text-align: center;">
+                            <h4 style="color: #FF6B9D; margin-bottom: 15px;">🎓 Graduation Ceremony 🎓</h4>
+                            <p><strong>Each child receives:</strong></p>
+                            <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                                <li style="margin: 10px 0;">🏅 Personalized Vietnamese name certificate</li>
+                                <li style="margin: 10px 0;">⭐ Achievement badges for all completed activities</li>
+                                <li style="margin: 10px 0;">📚 Resource booklet for continued learning</li>
+                                <li style="margin: 10px 0;">🎁 Small graduation gift (Vietnamese flag sticker, bookmark, etc.)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="parent-tip">
+                        <h4><i class="fas fa-lightbulb"></i> Parent/Teacher Tip:</h4>
+                        <p>This is a celebration of their incredible progress! Invite families to attend. Take lots of photos and videos. Consider having simple Vietnamese snacks (bánh mì, spring rolls, fruit).</p>
+                        <p style="margin-top: 10px;"><strong>Beyond Week 12:</strong> Provide families with resources to continue learning - apps, websites, books, local Vietnamese cultural events!</p>
+                    </div>
+
+                    <div class="week-resources">
+                        <h4><i class="fas fa-download"></i> Downloadable Materials:</h4>
+                        <div class="resource-tags">
+                            <span class="resource-tag">🎓 Certificate Templates</span>
+                            <span class="resource-tag">📊 Review Quiz</span>
+                            <span class="resource-tag">📋 Continued Learning Guide</span>
+                            <span class="resource-tag">🎉 Party Planning Checklist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supplementary Materials -->
+            <div class="resources-section" style="margin-top: 50px;">
+                <h2><i class="fas fa-gift"></i> Bonus Materials & Resources</h2>
+                <p style="text-align: center; margin-bottom: 30px;">Additional resources to enhance your Kids Vietnamese program</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>Recommended Books</h3>
+                        <p>Bilingual picture books and Vietnamese children's literature</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Learning Apps</h3>
+                        <p>Kid-friendly Vietnamese language apps and games</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-youtube"></i></div>
+                        <h3>Video Resources</h3>
+                        <p>Vietnamese cartoons, songs, and educational videos</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-users"></i></div>
+                        <h3>Community Groups</h3>
+                        <p>Connect with local Vietnamese cultural centers and playgroups</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Cultural Events</h3>
+                        <p>Tết celebrations, lantern festivals, and community gatherings</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-headphones"></i></div>
+                        <h3>Audio Practice</h3>
+                        <p>Access our Listen & Practice section with kid-friendly vocabulary</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent/Teacher Resources -->
+            <div class="fun-box" style="margin-top: 40px;">
+                <h3 style="text-align: center; color: #4ECDC4; margin-bottom: 25px;">
+                    <i class="fas fa-users"></i> Resources for Parents & Teachers <i class="fas fa-users"></i>
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #FF6B9D; margin-bottom: 10px;">📋 Complete Lesson Plans</h4>
+                        <p>Detailed weekly lesson plans with timing, objectives, and step-by-step instructions for each activity.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #FEC163; margin-bottom: 10px;">🎨 Printable Materials</h4>
+                        <p>All flashcards, worksheets, coloring pages, and craft templates ready to download and print.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #C371F3; margin-bottom: 10px;">🎵 Audio Files</h4>
+                        <p>MP3 files of all songs, pronunciation guides, and story recordings with native Vietnamese speakers.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #4ECDC4; margin-bottom: 10px;">📊 Assessment Tools</h4>
+                        <p>Simple, age-appropriate progress tracking sheets and fun assessment activities.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #FF6B9D; margin-bottom: 10px;">💬 Parent Communication</h4>
+                        <p>Weekly newsletters templates to keep parents informed and engaged in their child's learning.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #FEC163; margin-bottom: 10px;">🎯 Differentiation Ideas</h4>
+                        <p>Tips for adapting activities for different age groups (5-7, 8-10, 11-12) and learning styles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips for Success -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 15px; margin-top: 40px;">
+                <h3 style="text-align: center; color: white; margin-bottom: 30px; font-size: 2rem;">
+                    🌟 Tips for Success! 🌟
+                </h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: white; margin-bottom: 10px;">✨ Keep It Fun!</h4>
+                        <p>Children learn best through play. If they're having fun, they're learning!</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: white; margin-bottom: 10px;">🔄 Repetition Is Key</h4>
+                        <p>Review previous weeks regularly. Kids need lots of repetition to retain new vocabulary.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: white; margin-bottom: 10px;">🎨 Multiple Modalities</h4>
+                        <p>Use visual, auditory, and kinesthetic activities. Different kids learn in different ways!</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: white; margin-bottom: 10px;">👨‍👩‍👧 Family Involvement</h4>
+                        <p>Encourage practice at home. Share weekly homework that families can do together!</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: white; margin-bottom: 10px;">🎉 Celebrate Progress</h4>
+                        <p>Praise effort, not just perfection. Every word learned is an achievement!</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: white; margin-bottom: 10px;">🌍 Cultural Connection</h4>
+                        <p>Connect language to culture. Help kids understand WHY they're learning Vietnamese!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Learn Vietnamese. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/language.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

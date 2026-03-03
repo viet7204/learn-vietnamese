@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Rubrics - Vietnamese for Adult Beginners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .rubrics-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .rubrics-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .rubrics-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+            justify-content: center;
+            position: sticky;
+            top: 70px;
+            background: white;
+            padding: 15px 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        .nav-pill {
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .nav-pill:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .rubric-section {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .rubric-section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .rubric-section h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .points-badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .rubric-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .rubric-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+        
+        .rubric-table td:first-child {
+            font-weight: bold;
+            color: #495057;
+            background: #f8f9fa;
+            width: 120px;
+        }
+        
+        .rubric-table td:nth-child(2) {
+            width: 80px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .rubric-table tr:hover {
+            background: #f0f9ff;
+        }
+        
+        .excellent { color: #28a745; }
+        .good { color: #17a2b8; }
+        .developing { color: #ffc107; }
+        .needs-work { color: #dc3545; }
+        
+        .grading-scale {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .grading-scale h3 {
+            color: white !important;
+            border-bottom-color: rgba(255,255,255,0.3) !important;
+        }
+        
+        .grade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .grade-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .grade-item .percentage {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .grade-item .letter {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        
+        .grade-item .description {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .breakdown-box {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .breakdown-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding-top: 15px;
+            border-top: 2px solid rgba(0,0,0,0.2);
+        }
+        
+        .breakdown-points {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .tracker-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .tracker-table th {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .tracker-table td {
+            padding: 8px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        
+        @media print {
+            .nav-pills, .print-button { display: none; }
+            .rubric-section { page-break-inside: avoid; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-pills {
+                flex-direction: column;
+            }
+            
+            .rubric-section {
+                padding: 20px;
+            }
+            
+            .rubric-table {
+                font-size: 0.85rem;
+            }
+            
+            .grade-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../lectures.html">Lectures</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+                <li><a href="../visual.html">Visual Learning</a></li>
+                <li><a href="../course.html" class="active">12-Week Course</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="../index.html">Home</a> / 
+            <a href="../course.html">12-Week Course</a> / 
+            <span>Assessment Rubrics</span>
+        </div>
+    </div>
+
+    <div class="rubrics-container">
+        <div class="rubrics-header">
+            <h1><i class="fas fa-clipboard-check"></i> Assessment Rubrics</h1>
+            <p style="font-size: 1.2rem; color: #666; margin-top: 10px;">Vietnamese for Adult Beginners Course</p>
+        </div>
+
+        <div class="nav-pills">
+            <a href="#rubric1" class="nav-pill">Oral Presentation</a>
+            <a href="#rubric2" class="nav-pill">Conversation</a>
+            <a href="#rubric3" class="nav-pill">Written Work</a>
+            <a href="#rubric4" class="nav-pill">Listening</a>
+            <a href="#rubric5" class="nav-pill">Participation</a>
+            <a href="#rubric6" class="nav-pill">Homework & Quizzes</a>
+            <a href="#rubric7" class="nav-pill">Mid-term</a>
+            <a href="#rubric8" class="nav-pill">Week 8</a>
+            <a href="#grading" class="nav-pill">Grading Scale</a>
+        </div>
+
+        <div id="rubric1" class="rubric-section">
+            <h2><i class="fas fa-microphone"></i> 1. Oral Presentation Rubric <span class="points-badge">20 points</span></h2>
+            <p><strong>Assessment:</strong> Week 12 Final Project</p>
+
+            <h3>Pronunciation & Tones (6 points)</h3>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Points</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="excellent">Excellent</td>
+                        <td>5-6</td>
+                        <td>Tones are consistently accurate; pronunciation is clear and understandable; minimal errors that don't impede communication</td>
+                    </tr>
+                    <tr>
+                        <td class="good">Good</td>
+                        <td>3-4</td>
+                        <td>Tones are generally accurate with occasional errors; pronunciation is mostly clear; some errors but meaning is still conveyed</td>
+                    </tr>
+                    <tr>
+                        <td class="developing">Developing</td>
+                        <td>1-2</td>
+                        <td>Frequent tone errors that sometimes impede understanding; pronunciation needs improvement; communicates basic ideas despite errors</td>
+                    </tr>
+                    <tr>
+                        <td class="needs-work">Needs Work</td>
+                        <td>0</td>
+                        <td>Tone accuracy is lacking; pronunciation unclear; difficult to understand even with context</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Vocabulary & Grammar (5 points)</h3>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Points</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="excellent">Excellent</td>
+                        <td>4-5</td>
+                        <td>Uses rich, varied vocabulary; grammatical structures are accurate and varied; minimal errors</td>
+                    </tr>
+                    <tr>
+                        <td class="good">Good</td>
+                        <td>3</td>
+                        <td>Uses adequate vocabulary; basic grammatical structures are used correctly; some errors that don't impede communication</td>
+                    </tr>
+                    <tr>
+                        <td class="developing">Developing</td>
+                        <td>1-2</td>
+                        <td>Limited vocabulary; simple structures with frequent errors; meaning is conveyed with difficulty</td>
+                    </tr>
+                    <tr>
+                        <td class="needs-work">Needs Work</td>
+                        <td>0</td>
+                        <td>Very limited vocabulary; many grammatical errors; unable to convey meaning effectively</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Fluency & Confidence (4 points)</h3>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Points</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="excellent">Excellent</td>
+                        <td>4</td>
+                        <td>Speaks smoothly with natural pauses; confident delivery; good eye contact; minimal reliance on notes</td>
+                    </tr>
+                    <tr>
+                        <td class="good">Good</td>
+                        <td>3</td>
+                        <td>Generally fluent with some hesitation; reasonably confident; some reliance on notes</td>
+                    </tr>
+                    <tr>
+                        <td class="developing">Developing</td>
+                        <td>2</td>
+                        <td>Frequent pauses and hesitation; appears nervous; heavy reliance on notes</td>
+                    </tr>
+                    <tr>
+                        <td class="needs-work">Needs Work</td>
+                        <td>0-1</td>
+                        <td>Very halting delivery; lacks confidence; reads entirely from notes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Content & Organization (3 points) + Time Management (2 points)</h3>
+            <ul>
+                <li><strong>Content (3 pts):</strong> Well-organized with all required elements = 3 | Organized, most elements = 2 | Some missing = 1 | Many missing = 0</li>
+                <li><strong>Time (2 pts):</strong> 4-6 minutes = 2 | 3-4 or 6-7 minutes = 1 | Under 3 or over 7 = 0</li>
+            </ul>
+        </div>
+
+        <div id="rubric2" class="rubric-section">
+            <h2><i class="fas fa-comments"></i> 2. Conversation Assessment Rubric <span class="points-badge">20 points</span></h2>
+            <p><strong>Assessment:</strong> Week 12</p>
+
+            <h3>Comprehension (6 points)</h3>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Points</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="excellent">Excellent</td>
+                        <td>5-6</td>
+                        <td>Understands all questions without repetition; responds appropriately; can follow topic changes</td>
+                    </tr>
+                    <tr>
+                        <td class="good">Good</td>
+                        <td>3-4</td>
+                        <td>Understands most questions; occasionally needs repetition; generally follows conversation</td>
+                    </tr>
+                    <tr>
+                        <td class="developing">Developing</td>
+                        <td>1-2</td>
+                        <td>Understanding is limited; frequently needs repetition; struggles to follow conversation</td>
+                    </tr>
+                    <tr>
+                        <td class="needs-work">Needs Work</td>
+                        <td>0</td>
+                        <td>Little to no comprehension; cannot respond appropriately even with repetition</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Response Quality (6 points) + Pronunciation (4 points) + Interactive Communication (4 points)</h3>
+            <p>Similar detailed rubrics apply for each category. See full guide for details.</p>
+        </div>
+
+        <div id="rubric3" class="rubric-section">
+            <h2><i class="fas fa-pen"></i> 3. Written Work Rubric <span class="points-badge">15 points</span></h2>
+            <p><strong>Assessment:</strong> Week 8 & 12 Portfolio</p>
+            
+            <ul>
+                <li><strong>Content & Completeness (5 pts):</strong> All elements + rich detail = 4-5 | All elements, adequate = 3 | Some missing = 1-2 | Many missing = 0</li>
+                <li><strong>Vocabulary & Grammar (5 pts):</strong> Varied vocabulary, correct grammar = 4-5 | Adequate, mostly correct = 3 | Limited, frequent errors = 1-2 | Very limited, many errors = 0</li>
+                <li><strong>Tones & Orthography (3 pts):</strong> Consistently correct = 3 | Mostly correct = 2 | Frequent errors = 1 | Many errors = 0</li>
+                <li><strong>Organization (2 pts):</strong> Well-organized = 2 | Somewhat = 1 | Disorganized = 0</li>
+            </ul>
+        </div>
+
+        <div id="rubric4" class="rubric-section">
+            <h2><i class="fas fa-headphones"></i> 4. Listening Comprehension Rubric <span class="points-badge">15 points</span></h2>
+            <p><strong>Assessment:</strong> Week 12</p>
+            
+            <h3>Question Responses (12 points)</h3>
+            <ul>
+                <li>Multiple choice (6 questions): 6 points</li>
+                <li>Short answer (4 questions): 4 points</li>
+                <li>True/False (2 questions): 2 points</li>
+            </ul>
+
+            <h3>Following Directions (3 points)</h3>
+            <ul>
+                <li>3 pts: Answered all questions, followed all instructions</li>
+                <li>2 pts: Answered most, minor errors</li>
+                <li>1 pt: Missing several answers</li>
+                <li>0 pts: Many unanswered, didn't follow instructions</li>
+            </ul>
+        </div>
+
+        <div id="rubric5" class="rubric-section">
+            <h2><i class="fas fa-user-check"></i> 5. Class Participation Rubric <span class="points-badge">20 points</span></h2>
+            <p><strong>Assessment:</strong> Ongoing Throughout Course</p>
+
+            <div class="breakdown-box">
+                <h3 style="margin-top: 0;">Participation Breakdown</h3>
+                <div class="breakdown-item">
+                    <span>Attendance</span>
+                    <span class="breakdown-points">5 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Active Participation</span>
+                    <span class="breakdown-points">8 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Preparation & Homework</span>
+                    <span class="breakdown-points">5 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Attitude & Effort</span>
+                    <span class="breakdown-points">2 pts</span>
+                </div>
+            </div>
+
+            <h3>Attendance Scoring</h3>
+            <ul>
+                <li>5 pts: Perfect or near-perfect (0-1 absences)</li>
+                <li>4 pts: Very good (2 absences)</li>
+                <li>3 pts: Good (3 absences)</li>
+                <li>2 pts: Moderate (4-5 absences)</li>
+                <li>0-1 pts: Poor (6+ absences)</li>
+            </ul>
+
+            <h3>Active Participation Levels</h3>
+            <table class="rubric-table">
+                <tbody>
+                    <tr>
+                        <td class="excellent">Excellent</td>
+                        <td>7-8</td>
+                        <td>Consistently volunteers; actively participates in all activities; engages with pairs/groups; takes risks speaking Vietnamese</td>
+                    </tr>
+                    <tr>
+                        <td class="good">Good</td>
+                        <td>5-6</td>
+                        <td>Frequently participates; engages in most activities; contributes to pair/group work</td>
+                    </tr>
+                    <tr>
+                        <td class="developing">Developing</td>
+                        <td>3-4</td>
+                        <td>Sometimes participates when called on; minimal voluntary contributions; adequate group work</td>
+                    </tr>
+                    <tr>
+                        <td class="needs-work">Needs Work</td>
+                        <td>0-2</td>
+                        <td>Rarely participates; passive in activities; does not contribute to pair/group work</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="rubric6" class="rubric-section">
+            <h2><i class="fas fa-tasks"></i> 6. Homework & Weekly Quiz Rubric <span class="points-badge">25 points</span></h2>
+            <p><strong>Assessment:</strong> Ongoing</p>
+
+            <h3>Weekly Quiz Performance (15 points total)</h3>
+            <p>Average of all weekly quizzes (typically 10-12 quizzes)</p>
+            <ul>
+                <li>Convert quiz scores to percentage</li>
+                <li>Percentage × 15 = points earned</li>
+                <li><strong>Example:</strong> Average quiz score 85% → 0.85 × 15 = 12.75 points</li>
+            </ul>
+
+            <h3>Homework Completion & Quality (10 points total)</h3>
+            <table class="rubric-table">
+                <tbody>
+                    <tr>
+                        <td class="excellent">Excellent</td>
+                        <td>2</td>
+                        <td>Complete, thorough, on time; demonstrates effort and understanding</td>
+                    </tr>
+                    <tr>
+                        <td class="good">Good</td>
+                        <td>1.5</td>
+                        <td>Complete, on time; adequate effort</td>
+                    </tr>
+                    <tr>
+                        <td class="developing">Developing</td>
+                        <td>1</td>
+                        <td>Incomplete or late; minimal effort</td>
+                    </tr>
+                    <tr>
+                        <td class="needs-work">Needs Work</td>
+                        <td>0-0.5</td>
+                        <td>Missing, very late, or insufficient effort</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Calculate:</strong> Average homework score × 5 = final homework points</p>
+        </div>
+
+        <div id="rubric7" class="rubric-section">
+            <h2><i class="fas fa-check-circle"></i> 7. Mid-term Progress Check <span class="points-badge">15 points</span></h2>
+            <p><strong>Assessment:</strong> Week 4</p>
+
+            <div class="breakdown-box">
+                <h3 style="margin-top: 0;">Mid-term Components</h3>
+                <div class="breakdown-item">
+                    <span>Oral Interview (Introduction, Greetings, Q&A, Tones)</span>
+                    <span class="breakdown-points">8 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Written Vocabulary Test (25 items)</span>
+                    <span class="breakdown-points">5 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Listening Exercise (4 questions)</span>
+                    <span class="breakdown-points">2 pts</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="rubric8" class="rubric-section">
+            <h2><i class="fas fa-chart-line"></i> 8. Week 8 Progress Evaluation <span class="points-badge">15 points</span></h2>
+            <p><strong>Assessment:</strong> Week 8</p>
+
+            <h3>Conversation Simulation (6 points)</h3>
+            <p><strong>Scenario:</strong> Order food, ask for directions, describe daily routine</p>
+            <ul>
+                <li><strong>Task Completion (2 pts):</strong> Completes all three scenarios</li>
+                <li><strong>Communication (2 pts):</strong> Conveys meaning effectively</li>
+                <li><strong>Pronunciation (2 pts):</strong> Tones and pronunciation are understandable</li>
+            </ul>
+
+            <h3>Reading Comprehension (4 points)</h3>
+            <p>Short passage (8-10 sentences) with 4 comprehension questions @ 1 point each</p>
+
+            <h3>Writing Task (5 points)</h3>
+            <p><strong>Task:</strong> Describe your daily routine (8-10 sentences)</p>
+            <ul>
+                <li>Vocabulary (2 pts) + Grammar (2 pts) + Tones (1 pt)</li>
+            </ul>
+        </div>
+
+        <div id="grading" class="grading-scale">
+            <h3><i class="fas fa-graduation-cap"></i> Overall Course Grading</h3>
+            
+            <div class="breakdown-box" style="background: rgba(255,255,255,0.95); border: none;">
+                <h4 style="color: #333; margin-top: 0;">Total Possible Points: 100</h4>
+                <div class="breakdown-item">
+                    <span style="color: #333;">Class Participation & Engagement</span>
+                    <span class="breakdown-points">20 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span style="color: #333;">Weekly Homework & Quizzes</span>
+                    <span class="breakdown-points">25 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span style="color: #333;">Mid-term Assessment (Week 4)</span>
+                    <span class="breakdown-points">15 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span style="color: #333;">Progress Evaluation (Week 8)</span>
+                    <span class="breakdown-points">15 pts</span>
+                </div>
+                <div class="breakdown-item">
+                    <span style="color: #333;">Final Project & Assessment (Week 12)</span>
+                    <span class="breakdown-points">25 pts</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;"><i class="fas fa-award"></i> Letter Grade Conversion</h3>
+            <div class="grade-grid">
+                <div class="grade-item">
+                    <div class="percentage">93-100%</div>
+                    <div class="letter">A</div>
+                    <div class="description">Excellent</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">90-92%</div>
+                    <div class="letter">A-</div>
+                    <div class="description">Excellent</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">87-89%</div>
+                    <div class="letter">B+</div>
+                    <div class="description">Very Good</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">83-86%</div>
+                    <div class="letter">B</div>
+                    <div class="description">Good</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">80-82%</div>
+                    <div class="letter">B-</div>
+                    <div class="description">Good</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">77-79%</div>
+                    <div class="letter">C+</div>
+                    <div class="description">Satisfactory</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">73-76%</div>
+                    <div class="letter">C</div>
+                    <div class="description">Satisfactory</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">70-72%</div>
+                    <div class="letter">C-</div>
+                    <div class="description">Satisfactory</div>
+                </div>
+                <div class="grade-item">
+                    <div class="percentage">Below 70%</div>
+                    <div class="letter">D/F</div>
+                    <div class="description">Needs Improvement</div>
+                </div>
+            </div>
+
+            <p style="margin-top: 20px; font-size: 1.1rem;"><strong>Note for Adult Learners:</strong> This course emphasizes growth and effort. If you attend regularly, complete assignments, and participate actively, you will succeed!</p>
+        </div>
+
+        <div class="rubric-section">
+            <h2><i class="fas fa-chart-bar"></i> Student Self-Assessment Tracker</h2>
+            <p>Use this chart to track your own progress throughout the course:</p>
+
+            <table class="tracker-table">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Vocabulary Mastery</th>
+                        <th>Tone Accuracy</th>
+                        <th>Confidence Level</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>2</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>3</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>4</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>5</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>6</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>7</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>8</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>9</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>10</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>11</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                    <tr><td>12</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td>☐ Low ☐ Med ☐ High</td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align: center; padding: 20px; color: #666;">
+            <p><strong>Assessment Package Version:</strong> 1.0 | <strong>Last Updated:</strong> March 2026</p>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Rubrics
+    </button>
+
+    <script>
+        // Smooth scroll for navigation pills
+        document.querySelectorAll('.nav-pill').forEach(pill => {
+            pill.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 150;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

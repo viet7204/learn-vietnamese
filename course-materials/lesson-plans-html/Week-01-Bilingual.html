@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1: Vietnamese Tones & Introduction | Tuần 1: Thanh Điệu & Giới Thiệu</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .language-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e74c3c;
+            background: white;
+            padding: 0;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            background: white;
+            color: #555;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tab-button:hover {
+            background: #f8f9fa;
+        }
+        
+        .tab-button.active {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #e74c3c;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .objectives-list, .vocab-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .objectives-list li {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .objectives-list li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .vocab-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .vocab-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .vocab-item strong {
+            color: #e74c3c;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .activity-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .activity-box h4 {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+        }
+        
+        .time-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .lesson-structure {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .lesson-step {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .lesson-step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .note-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .note-box strong {
+            color: #856404;
+        }
+        
+        .materials-checklist {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .materials-checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .materials-checklist li {
+            padding: 8px 0;
+        }
+        
+        .materials-checklist li:before {
+            content: "☐ ";
+            margin-right: 10px;
+            font-size: 18px;
+            color: #667eea;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .print-button:hover {
+            transform: scale(1.05);
+        }
+        
+        @media print {
+            .language-tabs, .print-button { display: none; }
+            .tab-content { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Week 1: Vietnamese Tones & Introduction</h1>
+        <p>Tuần 1: Thanh Điệu Tiếng Việt & Giới Thiệu</p>
+        <p style="margin-top: 10px; font-size: 14px;">Adult Beginners Course | Khóa Học Cho Người Lớn Bắt Đầu</p>
+    </div>
+
+    <div class="container">
+        <div class="language-tabs">
+            <button class="tab-button active" onclick="switchLanguage('english')">
+                <i class="fas fa-language"></i> English
+            </button>
+            <button class="tab-button" onclick="switchLanguage('vietnamese')">
+                <i class="fas fa-language"></i> Tiếng Việt
+            </button>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <div id="english-content" class="tab-content active">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
+                <p>By the end of this lesson, students will be able to:</p>
+                <ul class="objectives-list">
+                    <li>Recognize and produce all six Vietnamese tones</li>
+                    <li>Understand the importance of tones in Vietnamese</li>
+                    <li>Pronounce basic Vietnamese consonants and vowels</li>
+                    <li>Say simple greetings: Xin chào (Hello), Tạm biệt (Goodbye)</li>
+                    <li>Count from 0-10 in Vietnamese</li>
+                    <li>Introduce the concept of personal pronouns (basic)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Vocabulary (20-30 words)</h2>
+                
+                <h3>Core Vocabulary</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item">
+                        <strong>Xin chào</strong>
+                        <p>Hello</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Tạm biệt</strong>
+                        <p>Goodbye</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Cảm ơn</strong>
+                        <p>Thank you</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Không</strong>
+                        <p>No</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Có</strong>
+                        <p>Yes</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Vâng / Dạ</strong>
+                        <p>Yes (polite)</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Xin lỗi</strong>
+                        <p>Sorry / Excuse me</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Chào buổi sáng</strong>
+                        <p>Good morning</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Chào buổi chiều</strong>
+                        <p>Good afternoon</p>
+                    </div>
+                </div>
+
+                <h3>Numbers 0-10</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Không / Zéro</strong><p>0</p></div>
+                    <div class="vocab-item"><strong>Một</strong><p>1</p></div>
+                    <div class="vocab-item"><strong>Hai</strong><p>2</p></div>
+                    <div class="vocab-item"><strong>Ba</strong><p>3</p></div>
+                    <div class="vocab-item"><strong>Bốn</strong><p>4</p></div>
+                    <div class="vocab-item"><strong>Năm</strong><p>5</p></div>
+                    <div class="vocab-item"><strong>Sáu</strong><p>6</p></div>
+                    <div class="vocab-item"><strong>Bảy</strong><p>7</p></div>
+                    <div class="vocab-item"><strong>Tám</strong><p>8</p></div>
+                    <div class="vocab-item"><strong>Chín</strong><p>9</p></div>
+                    <div class="vocab-item"><strong>Mười</strong><p>10</p></div>
+                </div>
+
+                <h3>Classroom Language</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Giáo viên</strong><p>Teacher</p></div>
+                    <div class="vocab-item"><strong>Học sinh</strong><p>Student</p></div>
+                    <div class="vocab-item"><strong>Lớp học</strong><p>Class</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Grammar Focus</h2>
+                <ul>
+                    <li>Introduction to word order (Subject-Verb-Object, similar to English)</li>
+                    <li>No verb conjugation in Vietnamese</li>
+                    <li>Tones change meaning completely</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Lesson Plan (120 minutes)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Warm-up & Introduction</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-users"></i> Activity: "Hello in Many Languages"</h4>
+                            <ul>
+                                <li>Ask students to share "hello" in languages they know</li>
+                                <li>Introduce Vietnamese: "Xin chào" (pronounced: sin chow)</li>
+                                <li>Brief introduction: Why learn Vietnamese? Student motivations</li>
+                                <li>Course overview and expectations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Presentation: The Six Tones</h3>
+                            </div>
+                            <span class="time-badge">20 min</span>
+                        </div>
+                        <p><strong>Explain why tones matter:</strong></p>
+                        <ul>
+                            <li>Vietnamese is a <strong>tonal language</strong></li>
+                            <li>Same sound + different tone = different meaning</li>
+                            <li>Example: <strong>ma</strong> can mean ghost, mother, horse, tomb, rice seedling, or "but" depending on tone!</li>
+                        </ul>
+                        
+                        <h4>The 6 Tones:</h4>
+                        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                            <tr style="background: #667eea; color: white;">
+                                <th style="padding: 12px; border: 1px solid #ddd;">Tone</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Mark</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Example</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Description</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Level (ngang)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">ma</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">ma (ghost)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Mid-level, steady</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Rising (sắc)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">má</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">má (mother/cheek)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">High rising</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Falling (huyền)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mà</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mà (but/which)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Low falling</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Question (hỏi)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mả</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mả (tomb)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Dipping (down-up)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Tumbling (ngã)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mã</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mã (horse/code)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Rising broken</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Heavy (nặng)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mạ</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mạ (rice seedling)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Short, abrupt drop</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Pronunciation Practice</h3>
+                            </div>
+                            <span class="time-badge">15 min</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-microphone"></i> Tone Drills</h4>
+                            <ul>
+                                <li><strong>Echo Practice:</strong> Teacher says each tone, students repeat</li>
+                                <li><strong>Hand Gestures:</strong> Use hand movements to show tone direction</li>
+                                <li><strong>Tone Recognition:</strong> Teacher says word, students identify which tone</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Guided Practice</h3>
+                            </div>
+                            <span class="time-badge">25 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: Greeting Circle (10 min)</h4>
+                            <p>Students stand in circle, practice saying "Xin chào" + their name to person next to them</p>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 2: Number Chain (8 min)</h4>
+                            <p>Count around the room 1-10, then backwards. Speed up gradually.</p>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 3: Tone Listening (7 min)</h4>
+                            <p>Play audio recordings, students identify tones on worksheet</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Communicative Practice</h3>
+                            </div>
+                            <span class="time-badge">30 min</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 1: Pair Greetings (12 min)</h4>
+                            <ul>
+                                <li>Pairs practice full greeting exchange</li>
+                                <li>A: "Xin chào! Tôi là [name]" (Hello! I'm [name])</li>
+                                <li>B: "Xin chào! Tôi là [name]. Rất vui được gặp bạn" (Nice to meet you)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 2: Telephone Numbers (10 min)</h4>
+                            <p>Students create fake Vietnamese phone numbers, dictate to partners using Vietnamese numbers</p>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Activity 3: Tone Bingo (8 min)</h4>
+                            <p>Bingo cards with Vietnamese words. Teacher calls out words, students mark if they hear correctly.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Application Activity</h3>
+                            </div>
+                            <span class="time-badge">10 min</span>
+                        </div>
+                        <p><strong>Mini-Presentations:</strong> "Introduce Yourself"</p>
+                        <ul>
+                            <li>Each student stands and introduces themselves in Vietnamese</li>
+                            <li>"Xin chào! Tôi là [name]."</li>
+                            <li>Simple, confidence-building</li>
+                        </ul>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Wrap-up & Homework</h3>
+                            </div>
+                            <span class="time-badge">5 min</span>
+                        </div>
+                        <ul>
+                            <li>Review the 6 tones briefly</li>
+                            <li>Preview next week's topic</li>
+                            <li>Assign homework</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Assessment</h2>
+                <ul>
+                    <li><strong>Formative:</strong> Observation during pair work and tone drills</li>
+                    <li><strong>Participation:</strong> Engagement in activities</li>
+                    <li><strong>Exit Ticket:</strong> Say all 6 tones of "ma" correctly before leaving</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Materials Needed</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>Vietnamese tone chart (large, visible to all)</li>
+                        <li>Audio files of each tone (from native speakers)</li>
+                        <li>Flashcards with numbers 0-10</li>
+                        <li>Bingo cards (pre-made with Vietnamese words)</li>
+                        <li>Whiteboard and markers</li>
+                        <li>Handout: Tone chart for students to take home</li>
+                        <li>Practice worksheet (tone identification)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Homework</h2>
+                <ol>
+                    <li>Practice the six tones with the word "ma" - 10 times each</li>
+                    <li>Listen to provided audio file and repeat</li>
+                    <li>Memorize numbers 0-10</li>
+                    <li>Practice introducing yourself: "Xin chào! Tôi là [your name]"</li>
+                    <li>Complete tone identification worksheet (provided)</li>
+                </ol>
+                
+                <div class="note-box">
+                    <strong><i class="fas fa-lightbulb"></i> Teacher Note:</strong> 
+                    Encourage students to practice tones in front of a mirror. Recording themselves can also help them hear their progress!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Success Indicators</h2>
+                <p>Students successfully complete this lesson when they can:</p>
+                <ul>
+                    <li>Distinguish between at least 4 of the 6 tones when listening</li>
+                    <li>Produce approximations of all 6 tones (perfection not expected)</li>
+                    <li>Greet someone in Vietnamese with correct pronunciation</li>
+                    <li>Count from 0-10 with recognizable tones</li>
+                    <li>Show enthusiasm and willingness to practice (most important!)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VIETNAMESE CONTENT -->
+        <div id="vietnamese-content" class="tab-content">
+            <div class="section">
+                <h2><i class="fas fa-bullseye"></i> Mục Tiêu Học Tập</h2>
+                <p>Sau bài học này, học viên sẽ có thể:</p>
+                <ul class="objectives-list">
+                    <li>Nhận biết và phát âm cả sáu thanh điệu tiếng Việt</li>
+                    <li>Hiểu tầm quan trọng của thanh điệu trong tiếng Việt</li>
+                    <li>Phát âm các phụ âm và nguyên âm cơ bản</li>
+                    <li>Nói các lời chào đơn giản: Xin chào (Hello), Tạm biệt (Goodbye)</li>
+                    <li>Đếm từ 0-10 bằng tiếng Việt</li>
+                    <li>Giới thiệu khái niệm về đại từ nhân xưng (cơ bản)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-book"></i> Từ Vựng (20-30 từ)</h2>
+                
+                <h3>Từ Vựng Cốt Lõi</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item">
+                        <strong>Xin chào</strong>
+                        <p>Lời chào hỏi</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Tạm biệt</strong>
+                        <p>Lời chia tay</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Cảm ơn</strong>
+                        <p>Lời cảm ơn</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Không</strong>
+                        <p>Phủ định</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Có</strong>
+                        <p>Khẳng định</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Vâng / Dạ</strong>
+                        <p>Đồng ý (lịch sự)</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Xin lỗi</strong>
+                        <p>Lời xin lỗi</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Chào buổi sáng</strong>
+                        <p>Lời chào buổi sáng</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Chào buổi chiều</strong>
+                        <p>Lời chào buổi chiều</p>
+                    </div>
+                </div>
+
+                <h3>Số Đếm 0-10</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Không / Zéro</strong><p>Số 0</p></div>
+                    <div class="vocab-item"><strong>Một</strong><p>Số 1</p></div>
+                    <div class="vocab-item"><strong>Hai</strong><p>Số 2</p></div>
+                    <div class="vocab-item"><strong>Ba</strong><p>Số 3</p></div>
+                    <div class="vocab-item"><strong>Bốn</strong><p>Số 4</p></div>
+                    <div class="vocab-item"><strong>Năm</strong><p>Số 5</p></div>
+                    <div class="vocab-item"><strong>Sáu</strong><p>Số 6</p></div>
+                    <div class="vocab-item"><strong>Bảy</strong><p>Số 7</p></div>
+                    <div class="vocab-item"><strong>Tám</strong><p>Số 8</p></div>
+                    <div class="vocab-item"><strong>Chín</strong><p>Số 9</p></div>
+                    <div class="vocab-item"><strong>Mười</strong><p>Số 10</p></div>
+                </div>
+
+                <h3>Ngôn Ngữ Lớp Học</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item"><strong>Giáo viên</strong><p>Người dạy</p></div>
+                    <div class="vocab-item"><strong>Học sinh</strong><p>Người học</p></div>
+                    <div class="vocab-item"><strong>Lớp học</strong><p>Nơi học tập</p></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Trọng Tâm Ngữ Pháp</h2>
+                <ul>
+                    <li>Giới thiệu trật tự từ (Chủ ngữ-Động từ-Tân ngữ, tương tự tiếng Anh)</li>
+                    <li>Không có biến đổi động từ trong tiếng Việt</li>
+                    <li>Thanh điệu thay đổi hoàn toàn ý nghĩa</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> Kế Hoạch Bài Học (120 phút)</h2>
+                
+                <div class="lesson-structure">
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">1</div>
+                                <h3 style="margin: 0;">Khởi Động & Giới Thiệu</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-users"></i> Hoạt Động: "Xin chào bằng Nhiều Ngôn Ngữ"</h4>
+                            <ul>
+                                <li>Yêu cầu học viên chia sẻ cách nói "xin chào" trong các ngôn ngữ họ biết</li>
+                                <li>Giới thiệu tiếng Việt: "Xin chào"</li>
+                                <li>Giới thiệu ngắn gọn: Tại sao học tiếng Việt? Động lực của học viên</li>
+                                <li>Tổng quan khóa học và kỳ vọng</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">2</div>
+                                <h3 style="margin: 0;">Trình Bày: Sáu Thanh Điệu</h3>
+                            </div>
+                            <span class="time-badge">20 phút</span>
+                        </div>
+                        <p><strong>Giải thích tại sao thanh điệu quan trọng:</strong></p>
+                        <ul>
+                            <li>Tiếng Việt là <strong>ngôn ngữ có thanh điệu</strong></li>
+                            <li>Cùng âm + thanh điệu khác = nghĩa khác</li>
+                            <li>Ví dụ: <strong>ma</strong> có thể có nghĩa là ma, má, mà, mả, mã, hoặc mạ tùy theo thanh!</li>
+                        </ul>
+                        
+                        <h4>6 Thanh Điệu:</h4>
+                        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                            <tr style="background: #667eea; color: white;">
+                                <th style="padding: 12px; border: 1px solid #ddd;">Thanh</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Dấu</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Ví dụ</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Mô tả</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Thanh ngang</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">ma</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">ma (con ma)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Ngang, đều</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Thanh sắc</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">má</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">má (mẹ/má)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Lên cao</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Thanh huyền</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mà</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mà (nhưng mà)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Xuống thấp</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Thanh hỏi</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mả</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mả (mộ mả)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Xuống rồi lên</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Thanh ngã</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mã</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mã (con ngựa/mã số)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Lên gãy</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Thanh nặng</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mạ</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">mạ (mạ lúa)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">Ngắn, xuống đột ngột</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">3</div>
+                                <h3 style="margin: 0;">Thực Hành Phát Âm</h3>
+                            </div>
+                            <span class="time-badge">15 phút</span>
+                        </div>
+                        <div class="activity-box">
+                            <h4><i class="fas fa-microphone"></i> Luyện Thanh Điệu</h4>
+                            <ul>
+                                <li><strong>Luyện Nhắc Lại:</strong> Giáo viên nói từng thanh, học viên nhắc lại</li>
+                                <li><strong>Cử Chỉ Tay:</strong> Dùng động tác tay để thể hiện hướng thanh</li>
+                                <li><strong>Nhận Biết Thanh:</strong> Giáo viên nói từ, học viên xác định thanh nào</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">4</div>
+                                <h3 style="margin: 0;">Thực Hành Có Hướng Dẫn</h3>
+                            </div>
+                            <span class="time-badge">25 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: Vòng Tròn Chào Hỏi (10 phút)</h4>
+                            <p>Học viên đứng thành vòng tròn, thực hành nói "Xin chào" + tên của mình với người bên cạnh</p>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: Chuỗi Số Đếm (8 phút)</h4>
+                            <p>Đếm vòng quanh lớp từ 1-10, sau đó đếm ngược. Tăng tốc độ dần.</p>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: Nghe và Nhận Biết Thanh (7 phút)</h4>
+                            <p>Phát file âm thanh, học viên xác định thanh điệu trên bảng tập</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">5</div>
+                                <h3 style="margin: 0;">Thực Hành Giao Tiếp</h3>
+                            </div>
+                            <span class="time-badge">30 phút</span>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 1: Chào Hỏi Theo Cặp (12 phút)</h4>
+                            <ul>
+                                <li>Các cặp thực hành trao đổi chào hỏi đầy đủ</li>
+                                <li>A: "Xin chào! Tôi là [tên]"</li>
+                                <li>B: "Xin chào! Tôi là [tên]. Rất vui được gặp bạn"</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 2: Số Điện Thoại (10 phút)</h4>
+                            <p>Học viên tạo số điện thoại giả định, đọc cho bạn bằng tiếng Việt</p>
+                        </div>
+                        
+                        <div class="activity-box">
+                            <h4>Hoạt Động 3: Bingo Thanh Điệu (8 phút)</h4>
+                            <p>Thẻ bingo với từ tiếng Việt. Giáo viên đọc từ, học viên đánh dấu nếu nghe đúng.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">6</div>
+                                <h3 style="margin: 0;">Hoạt Động Ứng Dụng</h3>
+                            </div>
+                            <span class="time-badge">10 phút</span>
+                        </div>
+                        <p><strong>Thuyết Trình Ngắn:</strong> "Giới Thiệu Bản Thân"</p>
+                        <ul>
+                            <li>Mỗi học viên đứng lên giới thiệu bản thân bằng tiếng Việt</li>
+                            <li>"Xin chào! Tôi là [tên]."</li>
+                            <li>Đơn giản, xây dựng sự tự tin</li>
+                        </ul>
+                    </div>
+
+                    <div class="lesson-step">
+                        <div class="lesson-step-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div class="step-number">7</div>
+                                <h3 style="margin: 0;">Tổng Kết & Bài Tập Về Nhà</h3>
+                            </div>
+                            <span class="time-badge">5 phút</span>
+                        </div>
+                        <ul>
+                            <li>Xem lại nhanh 6 thanh điệu</li>
+                            <li>Giới thiệu chủ đề tuần sau</li>
+                            <li>Giao bài tập về nhà</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-tasks"></i> Đánh Giá</h2>
+                <ul>
+                    <li><strong>Đánh giá quá trình:</strong> Quan sát trong hoạt động nhóm và luyện thanh</li>
+                    <li><strong>Tham gia:</strong> Mức độ tham gia vào các hoạt động</li>
+                    <li><strong>Phiếu ra cửa:</strong> Nói đúng cả 6 thanh của từ "ma" trước khi về</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-box"></i> Vật Liệu Cần Thiết</h2>
+                <div class="materials-checklist">
+                    <ul>
+                        <li>Bảng thanh điệu tiếng Việt (lớn, mọi người nhìn thấy được)</li>
+                        <li>File âm thanh của từng thanh (từ người bản ngữ)</li>
+                        <li>Thẻ từ với số 0-10</li>
+                        <li>Thẻ bingo (đã làm sẵn với từ tiếng Việt)</li>
+                        <li>Bảng trắng và bút lông</li>
+                        <li>Tài liệu phát tay: Bảng thanh điệu cho học viên mang về</li>
+                        <li>Bảng tập luyện (nhận biết thanh điệu)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-pencil-alt"></i> Bài Tập Về Nhà</h2>
+                <ol>
+                    <li>Luyện sáu thanh với từ "ma" - mỗi thanh 10 lần</li>
+                    <li>Nghe file âm thanh được cung cấp và nhắc lại</li>
+                    <li>Học thuộc số đếm 0-10</li>
+                    <li>Thực hành tự giới thiệu: "Xin chào! Tôi là [tên bạn]"</li>
+                    <li>Hoàn thành bảng tập nhận biết thanh (đã được cung cấp)</li>
+                </ol>
+                
+                <div class="note-box">
+                    <strong><i class="fas fa-lightbulb"></i> Ghi Chú Cho Giáo Viên:</strong> 
+                    Khuyến khích học viên thực hành thanh điệu trước gương. Tự ghi âm cũng giúp họ nghe được sự tiến bộ của mình!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-star"></i> Chỉ Số Thành Công</h2>
+                <p>Học viên hoàn thành tốt bài học khi có thể:</p>
+                <ul>
+                    <li>Phân biệt được ít nhất 4 trong 6 thanh khi nghe</li>
+                    <li>Phát âm gần đúng cả 6 thanh (không yêu cầu hoàn hảo)</li>
+                    <li>Chào hỏi người khác bằng tiếng Việt với phát âm đúng</li>
+                    <li>Đếm từ 0-10 với thanh điệu có thể nhận biết</li>
+                    <li>Thể hiện sự nhiệt tình và sẵn sàng thực hành (quan trọng nhất!)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Lesson Plan
+    </button>
+
+    <script>
+        function switchLanguage(lang) {
+            // Hide all content
+            document.getElementById('english-content').classList.remove('active');
+            document.getElementById('vietnamese-content').classList.remove('active');
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected content
+            if (lang === 'english') {
+                document.getElementById('english-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[0].classList.add('active');
+            } else {
+                document.getElementById('vietnamese-content').classList.add('active');
+                document.querySelectorAll('.tab-button')[1].classList.add('active');
+            }
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Keyboard shortcut: Alt+E for English, Alt+V for Vietnamese
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === 'e') {
+                switchLanguage('english');
+            } else if (e.altKey && e.key === 'v') {
+                switchLanguage('vietnamese');
+            }
+        });
+    </script>
+</body>
+</html>
