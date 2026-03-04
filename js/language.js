@@ -1,5 +1,5 @@
 // Language switching functionality
-let currentLang = 'vi'; // Default language is Vietnamese
+let currentLang = 'en'; // Default language is English
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get language buttons
@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
         currentLang = savedLang;
         switchLanguage(currentLang);
     } else {
-        // Set Vietnamese as default on first visit
-        switchLanguage('vi');
+        // Set English as default on first visit
+        switchLanguage('en');
     }
     // Add click event listeners to language buttons
     langButtons.forEach(btn => {
