@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beginner Vietnamese Course - 12 Weeks | Khóa Học Sơ Cấp</title>
+    <title>Vietnamese Courses - Beginner, Intermediate & Advanced | Các Khóa Học</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/teaching.css">
     <link rel="stylesheet" href="css/comments.css">
@@ -449,6 +449,135 @@
             position: relative;
             z-index: 1;
         }
+        
+        /* Course Level Tabs */
+        .course-level-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .level-tab {
+            flex: 1;
+            max-width: 300px;
+            min-width: 200px;
+            padding: 30px 20px;
+            border: 3px solid #ddd;
+            border-radius: 15px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .level-tab i {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .level-tab span:first-of-type {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+        
+        .level-tab span:last-of-type {
+            display: block;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .level-tab:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .level-tab.active {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .level-tab[data-level="beginner"] {
+            color: #555;
+        }
+        
+        .level-tab[data-level="beginner"].active {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: white;
+            border-color: #84fab0;
+        }
+        
+        .level-tab[data-level="intermediate"] {
+            color: #555;
+        }
+        
+        .level-tab[data-level="intermediate"].active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-color: #f093fb;
+        }
+        
+        .level-tab[data-level="advanced"] {
+            color: #555;
+        }
+        
+        .level-tab[data-level="advanced"].active {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            border-color: #fa709a;
+        }
+        
+        /* Course Level Content */
+        .course-level-content {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        /* Level Badges */
+        .intermediate-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .advanced-badge {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .course-level-tabs {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .level-tab {
+                max-width: 100%;
+                padding: 20px 15px;
+            }
+            
+            .level-tab i {
+                font-size: 28px;
+            }
+            
+            .level-tab span:first-of-type {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -520,15 +649,46 @@
         <!-- Page Header -->
         <section class="page-header">
             <div class="container">
-                <div style="display: inline-block; background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); padding: 8px 20px; border-radius: 25px; margin-bottom: 15px;">
-                    <i class="fas fa-seedling"></i> <strong>BEGINNER LEVEL</strong>
-                </div>
-                <h1 data-en="Complete Beginner Course" data-vi="Khóa Học Sơ Cấp Toàn Diện">Complete Beginner Course</h1>
-                <p data-en="12-week structured program for adult learners starting from scratch" 
-                   data-vi="Chương trình 12 tuần có cấu trúc cho người lớn bắt đầu từ con số không">
-                   12-week structured program for adult learners starting from scratch
+                <h1 data-en="Vietnamese Language Courses" data-vi="Các Khóa Học Tiếng Việt">Vietnamese Language Courses</h1>
+                <p data-en="Comprehensive programs for all proficiency levels" 
+                   data-vi="Chương trình toàn diện cho mọi trình độ">
+                   Comprehensive programs for all proficiency levels
                 </p>
             </div>
+        </section>
+
+        <!-- Course Level Selector -->
+        <section class="container" style="margin-top: 30px;">
+            <div class="course-level-tabs" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+                <button class="level-tab active" data-level="beginner" onclick="switchCourseLevel('beginner')" style="flex: 1; min-width: 200px; max-width: 300px; padding: 20px; border: 3px solid #84fab0; background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); color: white; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s;">
+                    <i class="fas fa-seedling"></i><br>
+                    <span style="font-size: 24px;">BEGINNER</span><br>
+                    <span style="font-size: 14px; opacity: 0.9;">A1 Level • 12 Weeks</span>
+                </button>
+                <button class="level-tab" data-level="intermediate" onclick="switchCourseLevel('intermediate')" style="flex: 1; min-width: 200px; max-width: 300px; padding: 20px; border: 3px solid #ddd; background: white; color: #555; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s;">
+                    <i class="fas fa-mountain"></i><br>
+                    <span style="font-size: 24px;">INTERMEDIATE</span><br>
+                    <span style="font-size: 14px; opacity: 0.7;">A2-B1 Level • 12 Weeks</span>
+                </button>
+                <button class="level-tab" data-level="advanced" onclick="switchCourseLevel('advanced')" style="flex: 1; min-width: 200px; max-width: 300px; padding: 20px; border: 3px solid #ddd; background: white; color: #555; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s;">
+                    <i class="fas fa-trophy"></i><br>
+                    <span style="font-size: 24px;">ADVANCED</span><br>
+                    <span style="font-size: 14px; opacity: 0.7;">B2-C1 Level • 12 Weeks</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- BEGINNER COURSE -->
+        <div id="beginner-course" class="course-level-content">
+        <section class="container">
+            <div style="display: inline-block; background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); padding: 8px 20px; border-radius: 25px; margin-bottom: 15px;">
+                <i class="fas fa-seedling"></i> <strong>BEGINNER LEVEL</strong>
+            </div>
+            <h2 data-en="Complete Beginner Course" data-vi="Khóa Học Sơ Cấp Toàn Diện">Complete Beginner Course</h2>
+            <p data-en="12-week structured program for adult learners starting from scratch" 
+               data-vi="Chương trình 12 tuần có cấu trúc cho người lớn bắt đầu từ con số không">
+               12-week structured program for adult learners starting from scratch
+            </p>
         </section>
 
         <!-- Course Overview -->
@@ -1102,11 +1262,914 @@
             <!-- Download All Section -->
             <div style="text-align: center; margin: 50px 0 30px;" class="teacher-only">
                 <a href="course-materials/README-COURSE-PACKAGE.md" download class="action-btn btn-primary" style="font-size: 18px; padding: 15px 40px;">
-                    <i class="fas fa-download"></i> Download Complete Course Package
+                    <i class="fas fa-download"></i> Download Complete Beginner Course Package
                 </a>
             </div>
         </section>
-    </div>
+        </div>
+        <!-- END BEGINNER COURSE -->
+
+        <!-- INTERMEDIATE COURSE -->
+        <div id="intermediate-course" class="course-level-content" style="display: none;">
+        <section class="container">
+            <div style="display: inline-block; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 8px 20px; border-radius: 25px; margin-bottom: 15px;">
+                <i class="fas fa-mountain"></i> <strong>INTERMEDIATE LEVEL</strong>
+            </div>
+            <h2 data-en="Intermediate Vietnamese Course" data-vi="Khóa Học Trung Cấp">Intermediate Vietnamese Course</h2>
+            <p data-en="12-week program advancing from A1 to B1 level with complex grammar and expanded vocabulary" 
+               data-vi="Chương trình 12 tuần nâng cao từ A1 lên B1">
+               12-week program advancing from A1 to B1 level with complex grammar and expanded vocabulary
+            </p>
+
+            <!-- Course Overview -->
+            <div class="course-overview">
+                <h2><i class="fas fa-graduation-cap"></i> Course Overview</h2>
+                <p>Building upon beginner foundations, this 12-week intermediate course develops fluency in everyday conversations, introduces complex grammatical structures, and expands vocabulary to 1,500+ words. Students will engage with authentic Vietnamese media and cultural topics.</p>
+                
+                <div class="course-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Weeks</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Class Hours</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">1500+</span>
+                        <span class="stat-label">Vocabulary Words</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">A2-B1</span>
+                        <span class="stat-label">Target Level</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 1: Practical Communication -->
+            <div class="phase-divider">
+                <span class="phase-label">📚 Phase 1: Practical Communication (Weeks 1-4)</span>
+            </div>
+
+            <!-- Week 1 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800" alt="Travel">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">1</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Travel & Tourism</h3>
+                    </div>
+                    <p class="week-description">
+                        Plan trips, book accommodations, navigate airports, discuss tourist attractions, and handle travel emergencies.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 60-70 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800" alt="Work">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">2</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Work & Professional Life</h3>
+                    </div>
+                    <p class="week-description">
+                        Discuss jobs, write professional emails, conduct meetings, talk about career goals and workplace culture.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 60-70 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800" alt="Doctor">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">3</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Health & Medical Situations</h3>
+                    </div>
+                    <p class="week-description">
+                        Describe symptoms, understand medical advice, discuss health conditions, pharmacy visits, and insurance.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 70-80 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800" alt="Hobbies">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">4</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Hobbies & Leisure Activities</h3>
+                    </div>
+                    <p class="week-description">
+                        Discuss sports, music, arts, entertainment, and cultural activities. Express preferences and opinions.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 60-70 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Grammar Mastery -->
+            <div class="phase-divider">
+                <span class="phase-label">📖 Phase 2: Grammar Mastery (Weeks 5-8)</span>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800" alt="Grammar">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">5</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Complex Sentence Structures</h3>
+                    </div>
+                    <p class="week-description">
+                        Compound sentences, subordinate clauses, conditional statements, and cause-effect relationships.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 50-60 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/sentence-structure.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800" alt="Time">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">6</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Tenses & Time Expressions</h3>
+                    </div>
+                    <p class="week-description">
+                        Master past, present, future markers. Duration, frequency, and sequence of events in narratives.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 50-60 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 7 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=800" alt="Idioms">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">7</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Idioms & Figurative Language</h3>
+                    </div>
+                    <p class="week-description">
+                        Common Vietnamese idioms, proverbs, colloquial expressions, and cultural references in daily speech.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 60-70 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/idioms-proverbs.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 8 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800" alt="Assessment">
+                    <span class="week-badge assessment-badge">Mid-term</span>
+                    <span class="week-number-overlay">8</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Mid-term Review & Assessment</h3>
+                    </div>
+                    <p class="week-description">
+                        Comprehensive review of Weeks 1-7. <strong>Mid-term Assessment (20% of grade) - writing, listening, speaking</strong>
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-clipboard-check"></i> Assessment</span>
+                        <span class="stat-item"><i class="fas fa-chart-line"></i> Review</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Review Exercises
+                        </a>
+                        <a href="course-materials/assessment-rubrics.html" target="_blank" class="action-btn btn-primary">
+                            <i class="fas fa-clipboard-check"></i> Assessment Info
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Cultural Fluency -->
+            <div class="phase-divider">
+                <span class="phase-label">🌏 Phase 3: Cultural Fluency (Weeks 9-12)</span>
+            </div>
+
+            <!-- Week 9 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=800" alt="Vietnamese Culture">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">9</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Vietnamese History & Society</h3>
+                    </div>
+                    <p class="week-description">
+                        Key historical events, modern Vietnamese society, regional differences, and generational perspectives.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 70-80 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 10 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800" alt="Media">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">10</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Media & Entertainment</h3>
+                    </div>
+                    <p class="week-description">
+                        Watch Vietnamese films, read news articles, discuss music and pop culture, social media language.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 60-70 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 11 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800" alt="Business">
+                    <span class="week-badge intermediate-badge">Intermediate</span>
+                    <span class="week-number-overlay">11</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Business Vietnamese</h3>
+                    </div>
+                    <p class="week-description">
+                        Professional communication, negotiations, presentations, business correspondence, and etiquette.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 70-80 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Intermediate</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 12 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800" alt="Graduation">
+                    <span class="week-badge assessment-badge">Final Project</span>
+                    <span class="week-number-overlay">12</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Final Project & Presentation</h3>
+                    </div>
+                    <p class="week-description">
+                        Comprehensive review and final project. <strong>Final Assessment (25% of grade) - 10-minute presentation on cultural topic</strong>
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-trophy"></i> Final Project</span>
+                        <span class="stat-item"><i class="fas fa-chart-line"></i> Assessment</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="course-materials/assessment-rubrics.html" target="_blank" class="action-btn btn-primary">
+                            <i class="fas fa-clipboard-check"></i> Assessment Info
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Review Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 50px 0 30px;">
+                <a href="#" class="action-btn btn-primary" style="font-size: 18px; padding: 15px 40px;">
+                    <i class="fas fa-download"></i> Download Complete Intermediate Course Package
+                </a>
+            </div>
+        </section>
+        </div>
+        <!-- END INTERMEDIATE COURSE -->
+
+        <!-- ADVANCED COURSE -->
+        <div id="advanced-course" class="course-level-content" style="display: none;">
+        <section class="container">
+            <div style="display: inline-block; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 8px 20px; border-radius: 25px; margin-bottom: 15px;">
+                <i class="fas fa-trophy"></i> <strong>ADVANCED LEVEL</strong>
+            </div>
+            <h2 data-en="Advanced Vietnamese Course" data-vi="Khóa Học Nâng Cao">Advanced Vietnamese Course</h2>
+            <p data-en="12-week intensive program achieving B2-C1 proficiency with native-level expression" 
+               data-vi="Chương trình 12 tuần chuyên sâu đạt trình độ B2-C1">
+               12-week intensive program achieving B2-C1 proficiency with native-level expression
+            </p>
+
+            <!-- Course Overview -->
+            <div class="course-overview">
+                <h2><i class="fas fa-graduation-cap"></i> Course Overview</h2>
+                <p>This advanced course refines fluency to near-native level. Students will master nuanced expressions, regional dialects, literary Vietnamese, and specialized vocabulary. Focus on reading newspapers, literature, academic writing, and professional communication.</p>
+                
+                <div class="course-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Weeks</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Class Hours</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">3000+</span>
+                        <span class="stat-label">Vocabulary Words</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">B2-C1</span>
+                        <span class="stat-label">Target Level</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 1: Literary & Academic -->
+            <div class="phase-divider">
+                <span class="phase-label">📚 Phase 1: Literary & Academic (Weeks 1-4)</span>
+            </div>
+
+            <!-- Week 1 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800" alt="Literature">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">1</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Vietnamese Literature & Poetry</h3>
+                    </div>
+                    <p class="week-description">
+                        Read classical poetry (Truyện Kiều), modern literature, analyze literary devices, discuss themes and cultural context.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800" alt="News">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">2</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Media Analysis & Journalism</h3>
+                    </div>
+                    <p class="week-description">
+                        Read Vietnamese newspapers, analyze political discourse, understand media bias, discuss current events.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800" alt="Academic">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">3</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Academic Writing & Research</h3>
+                    </div>
+                    <p class="week-description">
+                        Formal writing styles, research papers, citations, academic presentations, thesis statements.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 80-100 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="Philosophy">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">4</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Philosophy & Abstract Concepts</h3>
+                    </div>
+                    <p class="week-description">
+                        Discuss philosophy, ethics, abstract ideas, debate complex topics, express nuanced opinions.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Specialized Communication -->
+            <div class="phase-divider">
+                <span class="phase-label">💼 Phase 2: Specialized Communication (Weeks 5-8)</span>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800" alt="Legal">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">5</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Legal & Administrative Vietnamese</h3>
+                    </div>
+                    <p class="week-description">
+                        Legal documents, contracts, administrative procedures, government terminology, formal correspondence.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800" alt="Medical">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">6</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Medical & Scientific Terminology</h3>
+                    </div>
+                    <p class="week-description">
+                        Medical vocabulary, scientific concepts, research terminology, technical translations.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 7 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800" alt="Business">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">7</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">High-Level Business Communication</h3>
+                    </div>
+                    <p class="week-description">
+                        Executive communication, negotiations, strategy discussions, market analysis, financial terminology.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 8 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800" alt="Assessment">
+                    <span class="week-badge assessment-badge">Mid-term</span>
+                    <span class="week-number-overlay">8</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Mid-term Review & Assessment</h3>
+                    </div>
+                    <p class="week-description">
+                        Comprehensive review. <strong>Mid-term Assessment (20% of grade) - research paper, presentation, translation</strong>
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-clipboard-check"></i> Assessment</span>
+                        <span class="stat-item"><i class="fas fa-chart-line"></i> Review</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Review Exercises
+                        </a>
+                        <a href="course-materials/assessment-rubrics.html" target="_blank" class="action-btn btn-primary">
+                            <i class="fas fa-clipboard-check"></i> Assessment Info
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Regional & Cultural Mastery -->
+            <div class="phase-divider">
+                <span class="phase-label">🌏 Phase 3: Regional & Cultural Mastery (Weeks 9-12)</span>
+            </div>
+
+            <!-- Week 9 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800" alt="Dialects">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">9</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Regional Dialects & Variations</h3>
+                    </div>
+                    <p class="week-description">
+                        Northern, Central, Southern dialects. Regional vocabulary, pronunciation differences, cultural variations.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 10 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1519155031214-e8d583928bf2?w=800" alt="Translation">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">10</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Translation & Interpretation</h3>
+                    </div>
+                    <p class="week-description">
+                        Translation techniques, interpretation skills, maintaining meaning and cultural context across languages.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 100+ words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 11 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800" alt="Teaching">
+                    <span class="week-badge advanced-badge">Advanced</span>
+                    <span class="week-number-overlay">11</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Teaching Vietnamese as a Foreign Language</h3>
+                    </div>
+                    <p class="week-description">
+                        Pedagogy, curriculum design, explaining grammar concepts, teaching methodologies, assessment strategies.
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-book-open"></i> 80-100 words</span>
+                        <span class="stat-item"><i class="fas fa-chart-simple"></i> Advanced</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="lessons/daily-conversations.html" class="action-btn btn-lecture">
+                            <i class="fas fa-play-circle"></i> Interactive Lecture
+                        </a>
+                        <a href="listen.html" class="action-btn btn-audio">
+                            <i class="fas fa-volume-up"></i> Listen & Practice
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Practice Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 12 -->
+            <div class="week-card">
+                <div class="week-image">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800" alt="Graduation">
+                    <span class="week-badge assessment-badge">Final Project</span>
+                    <span class="week-number-overlay">12</span>
+                </div>
+                <div class="week-content">
+                    <div class="week-header">
+                        <h3 class="week-title">Capstone Project & Certification</h3>
+                    </div>
+                    <p class="week-description">
+                        <strong>Final Assessment (25% of grade) - Major research project or translation portfolio + 20-minute presentation</strong>
+                    </p>
+                    <div class="week-stats">
+                        <span class="stat-item"><i class="fas fa-clock"></i> 120 minutes</span>
+                        <span class="stat-item"><i class="fas fa-trophy"></i> Capstone</span>
+                        <span class="stat-item"><i class="fas fa-certificate"></i> Certification</span>
+                    </div>
+                    <div class="week-actions">
+                        <a href="course-materials/assessment-rubrics.html" target="_blank" class="action-btn btn-primary">
+                            <i class="fas fa-clipboard-check"></i> Assessment Info
+                        </a>
+                        <a href="practice.html" class="action-btn btn-practice">
+                            <i class="fas fa-gamepad"></i> Review Exercises
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 50px 0 30px;">
+                <a href="#" class="action-btn btn-primary" style="font-size: 18px; padding: 15px 40px;">
+                    <i class="fas fa-download"></i> Download Complete Advanced Course Package
+                </a>
+            </div>
+        </section>
+        </div>
+        <!-- END ADVANCED COURSE -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -1258,6 +2321,42 @@
             localStorage.removeItem(ROLE_KEY);
             location.reload();
         }
+        
+        // Course Level Switcher
+        function switchCourseLevel(level) {
+            // Hide all course sections
+            document.querySelectorAll('.course-level-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show selected level
+            const selectedCourse = document.getElementById(level + '-course');
+            if (selectedCourse) {
+                selectedCourse.style.display = 'block';
+            }
+            
+            // Update tab button styles
+            document.querySelectorAll('.level-tab').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.level === level) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Scroll to top of page smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Store selected level in localStorage
+            localStorage.setItem('selectedCourseLevel', level);
+        }
+        
+        // Load saved course level on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLevel = localStorage.getItem('selectedCourseLevel');
+            if (savedLevel && document.getElementById(savedLevel + '-course')) {
+                switchCourseLevel(savedLevel);
+            }
+        });
     </script>
 </body>
 </html>
