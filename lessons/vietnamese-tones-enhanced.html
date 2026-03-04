@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Tones - Interactive Lesson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lecture-enhanced.css">
+    <style>
+        .tone-visual {
+            font-size: 64px;
+            margin: 20px 0;
+            color: var(--primary-color);
+        }
+        .tone-example {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 15px 0;
+        }
+        .tone-meaning {
+            font-size: 18px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../course.html" class="active">Course</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="lecture-hero">
+        <div class="container">
+            <span class="lecture-badge beginner">Beginner - Week 1</span>
+            <h1>Vietnamese Tones Explained</h1>
+            <p class="lecture-subtitle">Master all 6 Vietnamese tones - the key to proper pronunciation</p>
+            <div class="lecture-meta">
+                <span><i class="fas fa-clock"></i> 25 minutes</span>
+                <span><i class="fas fa-music"></i> 6 tones</span>
+                <span><i class="fas fa-microphone"></i> Pronunciation focus</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Mode Toggle -->
+    <div class="study-mode-toggle">
+        <div class="container">
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="learn">
+                    <i class="fas fa-book-open"></i> Learn Mode
+                </button>
+                <button class="mode-btn" data-mode="practice">
+                    <i class="fas fa-brain"></i> Practice Mode
+                </button>
+                <button class="mode-btn" data-mode="quiz">
+                    <i class="fas fa-graduation-cap"></i> Quiz Mode
+                </button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="lecture-content-enhanced">
+        <div class="container">
+            <!-- Tabs Navigation -->
+            <div class="tabs-container">
+                <nav class="tabs-nav">
+                    <button class="tab-btn active" data-tab="intro">
+                        <i class="fas fa-info-circle"></i> Introduction
+                    </button>
+                    <button class="tab-btn" data-tab="tone1">
+                        <i class="fas fa-1"></i> Level (Ngang)
+                    </button>
+                    <button class="tab-btn" data-tab="tone2">
+                        <i class="fas fa-2"></i> Rising (Sắc)
+                    </button>
+                    <button class="tab-btn" data-tab="tone3">
+                        <i class="fas fa-3"></i> Falling (Huyền)
+                    </button>
+                    <button class="tab-btn" data-tab="tone4">
+                        <i class="fas fa-4"></i> Dipping (Hỏi)
+                    </button>
+                    <button class="tab-btn" data-tab="tone5">
+                        <i class="fas fa-5"></i> Broken (Ngã)
+                    </button>
+                    <button class="tab-btn" data-tab="tone6">
+                        <i class="fas fa-6"></i> Heavy (Nặng)
+                    </button>
+                    <button class="tab-btn" data-tab="practice">
+                        <i class="fas fa-gamepad"></i> Practice
+                    </button>
+                </nav>
+
+                <div class="tabs-content">
+                    <!-- Tab 0: Introduction -->
+                    <div class="tab-pane active" id="intro">
+                        <div class="section-intro">
+                            <h2>Why Tones Matter</h2>
+                            <p>Vietnamese is a tonal language - the meaning of a word changes based on its tone. The same syllable pronounced with different tones creates completely different words!</p>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>Important:</strong> Getting tones wrong can change meanings dramatically. "Ma" with different tones means: ghost, mother, but, tomb, horse, or rice seedling!
+                            </div>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card">
+                                <h3>The 6 Tones Overview</h3>
+                                <div class="phrase-vietnamese">ma, má, mà, mả, mã, mạ</div>
+                                <div class="phrase-english">Each has a different meaning!</div>
+                            </div>
+
+                            <div class="phrase-card">
+                                <h3>Northern vs Southern</h3>
+                                <div class="phrase-note">This lesson teaches Northern Vietnamese (Hanoi accent), which has all 6 distinct tones. Southern dialect merges some tones.</div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-chart-line"></i> Tone Marks</h3>
+                            <p class="subsection-desc">Vietnamese uses diacritical marks to indicate tones:</p>
+                            <div class="phrase-grid">
+                                <div class="phrase-card">
+                                    <div class="tone-visual">—</div>
+                                    <div class="phrase-vietnamese">a (no mark)</div>
+                                    <div class="phrase-english">Level tone</div>
+                                </div>
+                                <div class="phrase-card">
+                                    <div class="tone-visual">á</div>
+                                    <div class="phrase-vietnamese">acute accent</div>
+                                    <div class="phrase-english">Rising tone</div>
+                                </div>
+                                <div class="phrase-card">
+                                    <div class="tone-visual">à</div>
+                                    <div class="phrase-vietnamese">grave accent</div>
+                                    <div class="phrase-english">Falling tone</div>
+                                </div>
+                                <div class="phrase-card">
+                                    <div class="tone-visual">ả</div>
+                                    <div class="phrase-vietnamese">hook above</div>
+                                    <div class="phrase-english">Dipping tone</div>
+                                </div>
+                                <div class="phrase-card">
+                                    <div class="tone-visual">ã</div>
+                                    <div class="phrase-vietnamese">tilde</div>
+                                    <div class="phrase-english">Broken tone</div>
+                                </div>
+                                <div class="phrase-card">
+                                    <div class="tone-visual">ạ</div>
+                                    <div class="phrase-vietnamese">dot below</div>
+                                    <div class="phrase-english">Heavy tone</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 1: Level Tone -->
+                    <div class="tab-pane" id="tone1">
+                        <div class="section-intro">
+                            <h2>Tone 1: Level (Ngang)</h2>
+                            <p>The easiest tone - flat and neutral, pronounced at mid-level pitch without rising or falling.</p>
+                        </div>
+
+                        <div style="text-align: center; padding: 40px;">
+                            <div class="tone-visual">— — —</div>
+                            <div class="tone-example">ma</div>
+                            <div class="tone-meaning">ghost / phantom</div>
+                            <button class="phrase-audio-btn" onclick="speakPhrase('ma', this)" style="font-size: 24px; margin-top: 20px; padding: 15px 30px;">
+                                <i class="fas fa-volume-up"></i> Listen
+                            </button>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>How to pronounce:</strong> Speak at a steady, mid-level pitch. Imagine speaking without any emotion - flat and level.
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-list"></i> Common Words with Level Tone</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('ba', this)">
+                                    <div class="phrase-vietnamese">ba</div>
+                                    <div class="phrase-english">three / father</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('xe', this)">
+                                    <div class="phrase-vietnamese">xe</div>
+                                    <div class="phrase-english">vehicle / car</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('ăn', this)">
+                                    <div class="phrase-vietnamese">ăn</div>
+                                    <div class="phrase-english">to eat</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('con', this)">
+                                    <div class="phrase-vietnamese">con</div>
+                                    <div class="phrase-english">child / animal</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Rising Tone -->
+                    <div class="tab-pane" id="tone2">
+                        <div class="section-intro">
+                            <h2>Tone 2: High Rising (Sắc)</h2>
+                            <p>Start at mid-pitch and rise sharply to high pitch, like asking "Really?" with surprise.</p>
+                        </div>
+
+                        <div style="text-align: center; padding: 40px;">
+                            <div class="tone-visual">↗ ↗ ↗</div>
+                            <div class="tone-example">má</div>
+                            <div class="tone-meaning">mother / cheek</div>
+                            <button class="phrase-audio-btn" onclick="speakPhrase('má', this)" style="font-size: 24px; margin-top: 20px; padding: 15px 30px;">
+                                <i class="fas fa-volume-up"></i> Listen
+                            </button>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>How to pronounce:</strong> Start at middle pitch and rise sharply upward. Your voice should go UP in pitch, like expressing surprise.
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-list"></i> Common Words with Rising Tone</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('mẹ', this)">
+                                    <div class="phrase-vietnamese">mẹ</div>
+                                    <div class="phrase-english">mother (informal)</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('bé', this)">
+                                    <div class="phrase-vietnamese">bé</div>
+                                    <div class="phrase-english">small / baby</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('nước', this)">
+                                    <div class="phrase-vietnamese">nước</div>
+                                    <div class="phrase-english">water / country</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('tốt', this)">
+                                    <div class="phrase-vietnamese">tốt</div>
+                                    <div class="phrase-english">good</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Falling Tone -->
+                    <div class="tab-pane" id="tone3">
+                        <div class="section-intro">
+                            <h2>Tone 3: Low Falling (Huyền)</h2>
+                            <p>Start at mid-pitch and fall gradually to low pitch, like sighing.</p>
+                        </div>
+
+                        <div style="text-align: center; padding: 40px;">
+                            <div class="tone-visual">↘ ↘ ↘</div>
+                            <div class="tone-example">mà</div>
+                            <div class="tone-meaning">but / which</div>
+                            <button class="phrase-audio-btn" onclick="speakPhrase('mà', this)" style="font-size: 24px; margin-top: 20px; padding: 15px 30px;">
+                                <i class="fas fa-volume-up"></i> Listen
+                            </button>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>How to pronounce:</strong> Let your voice fall gradually from mid to low pitch, like showing disappointment or resignation.
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-list"></i> Common Words with Falling Tone</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('và', this)">
+                                    <div class="phrase-vietnamese">và</div>
+                                    <div class="phrase-english">and</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('làm', this)">
+                                    <div class="phrase-vietnamese">làm</div>
+                                    <div class="phrase-english">to do / make</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('nhà', this)">
+                                    <div class="phrase-vietnamese">nhà</div>
+                                    <div class="phrase-english">house / home</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('già', this)">
+                                    <div class="phrase-vietnamese">già</div>
+                                    <div class="phrase-english">old</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: Dipping Tone -->
+                    <div class="tab-pane" id="tone4">
+                        <div class="section-intro">
+                            <h2>Tone 4: Dipping (Hỏi)</h2>
+                            <p>Start mid, dip down slightly, then rise back up - creates a questioning sound.</p>
+                        </div>
+
+                        <div style="text-align: center; padding: 40px;">
+                            <div class="tone-visual">↘ ↗</div>
+                            <div class="tone-example">mả</div>
+                            <div class="tone-meaning">tomb / grave</div>
+                            <button class="phrase-audio-btn" onclick="speakPhrase('mả', this)" style="font-size: 24px; margin-top: 20px; padding: 15px 30px;">
+                                <i class="fas fa-volume-up"></i> Listen
+                            </button>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>How to pronounce:</strong> Dip down then come back up, like asking a gentle question: "Really?"
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-list"></i> Common Words with Dipping Tone</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('chị', this)">
+                                    <div class="phrase-vietnamese">chị</div>
+                                    <div class="phrase-english">older sister</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('sở', this)">
+                                    <div class="phrase-vietnamese">sở</div>
+                                    <div class="phrase-english">office / bureau</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('thể', this)">
+                                    <div class="phrase-vietnamese">thể</div>
+                                    <div class="phrase-english">can / able to</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('khỏe', this)">
+                                    <div class="phrase-vietnamese">khỏe</div>
+                                    <div class="phrase-english">healthy / well</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5: Broken Tone -->
+                    <div class="tab-pane" id="tone5">
+                        <div class="section-intro">
+                            <h2>Tone 5: Rising Broken (Ngã)</h2>
+                            <p>Start mid with a glottal stop (voice break), then rise sharply - sounds "choppy".</p>
+                        </div>
+
+                        <div style="text-align: center; padding: 40px;">
+                            <div class="tone-visual">ʔ ↗</div>
+                            <div class="tone-example">mã</div>
+                            <div class="tone-meaning">horse / code</div>
+                            <button class="phrase-audio-btn" onclick="speakPhrase('mã', this)" style="font-size: 24px; margin-top: 20px; padding: 15px 30px;">
+                                <i class="fas fa-volume-up"></i> Listen
+                            </button>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>How to pronounce:</strong> Create a glottal stop (like the pause in "uh-oh"), then rise sharply. Voice should sound "broken" or creaky.
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-list"></i> Common Words with Broken Tone</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('lã', this)">
+                                    <div class="phrase-vietnamese">lã</div>
+                                    <div class="phrase-english">wool</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('tã', this)">
+                                    <div class="phrase-vietnamese">tã</div>
+                                    <div class="phrase-english">diaper</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('bãi', this)">
+                                    <div class="phrase-vietnamese">bãi</div>
+                                    <div class="phrase-english">beach / shore</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Note:</strong> This tone is less common than others. In Southern Vietnamese, it often merges with the rising tone (Sắc).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 6: Heavy Tone -->
+                    <div class="tab-pane" id="tone6">
+                        <div class="section-intro">
+                            <h2>Tone 6: Heavy (Nặng)</h2>
+                            <p>Drop abruptly to very low pitch and cut off sharply - short and clipped.</p>
+                        </div>
+
+                        <div style="text-align: center; padding: 40px;">
+                            <div class="tone-visual">↓ .</div>
+                            <div class="tone-example">mạ</div>
+                            <div class="tone-meaning">rice seedling</div>
+                            <button class="phrase-audio-btn" onclick="speakPhrase('mạ', this)" style="font-size: 24px; margin-top: 20px; padding: 15px 30px;">
+                                <i class="fas fa-volume-up"></i> Listen
+                            </button>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>How to pronounce:</strong> Drop suddenly to lowest pitch and stop abruptly with glottal stop. Very short and heavy.
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-list"></i> Common Words with Heavy Tone</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('học', this)">
+                                    <div class="phrase-vietnamese">học</div>
+                                    <div class="phrase-english">to study / learn</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('một', this)">
+                                    <div class="phrase-vietnamese">một</div>
+                                    <div class="phrase-english">one</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('thịt', this)">
+                                    <div class="phrase-vietnamese">thịt</div>
+                                    <div class="phrase-english">meat</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('đẹp', this)">
+                                    <div class="phrase-vietnamese">đẹp</div>
+                                    <div class="phrase-english">beautiful</div>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 7: Practice -->
+                    <div class="tab-pane" id="practice">
+                        <div class="section-intro">
+                            <h2>Tone Practice</h2>
+                            <p>Test your understanding of Vietnamese tones!</p>
+                        </div>
+
+                        <!-- Exercise: Matching -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-puzzle-piece"></i> Match the Tones</h3>
+                            <div class="matching-game" id="matching-game">
+                                <div class="match-card" data-pair="1">ma (ghost)</div>
+                                <div class="match-card" data-pair="1">Level tone</div>
+                                <div class="match-card" data-pair="2">má (mother)</div>
+                                <div class="match-card" data-pair="2">Rising tone</div>
+                                <div class="match-card" data-pair="3">mà (but)</div>
+                                <div class="match-card" data-pair="3">Falling tone</div>
+                                <div class="match-card" data-pair="4">mả (tomb)</div>
+                                <div class="match-card" data-pair="4">Dipping tone</div>
+                                <div class="match-card" data-pair="5">mã (horse)</div>
+                                <div class="match-card" data-pair="5">Broken tone</div>
+                                <div class="match-card" data-pair="6">mạ (seedling)</div>
+                                <div class="match-card" data-pair="6">Heavy tone</div>
+                            </div>
+                        </div>
+
+                        <!-- Practice Tips -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-lightbulb"></i> Learning Tips</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card">
+                                    <h4>1. Listen Repeatedly</h4>
+                                    <p>Play each tone many times. Your ear needs training!</p>
+                                </div>
+                                <div class="phrase-card">
+                                    <h4>2. Exaggerate at First</h4>
+                                    <p>Make tone changes more dramatic when practicing.</p>
+                                </div>
+                                <div class="phrase-card">
+                                    <h4>3. Use Hand Gestures</h4>
+                                    <p>Move your hand to follow the tone pattern while speaking.</p>
+                                </div>
+                                <div class="phrase-card">
+                                    <h4>4. Practice Daily</h4>
+                                    <p>Even 5 minutes per day helps build muscle memory.</p>
+                                </div>
+                                <div class="phrase-card">
+                                    <h4>5. Record Yourself</h4>
+                                    <p>Compare your pronunciation to native speakers.</p>
+                                </div>
+                                <div class="phrase-card">
+                                    <h4>6. Context Helps</h4>
+                                    <p>Learn tones in words and phrases, not isolation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="enhanced-sidebar">
+                <div class="sidebar-card progress-card">
+                    <h3><i class="fas fa-chart-line"></i> Your Progress</h3>
+                    <div class="progress-circle">
+                        <svg width="120" height="120">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="progress-bg" cx="60" cy="60" r="45"></circle>
+                            <circle class="progress-bar-circle" cx="60" cy="60" r="45" id="progress-circle"></circle>
+                        </svg>
+                        <div class="progress-text">0%</div>
+                    </div>
+                    <button class="btn-complete" onclick="markComplete()">
+                        <i class="fas fa-check-circle"></i> Mark as Complete
+                    </button>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-music"></i> Quick Reference</h3>
+                    <div class="quick-ref-list">
+                        <div class="quick-ref-item">
+                            <strong>Level —</strong>
+                            Flat, mid-pitch (ma = ghost)
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Rising ↗</strong>
+                            Go up sharply (má = mother)
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Falling ↘</strong>
+                            Go down gradually (mà = but)
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Dipping ↘↗</strong>
+                            Down then up (mả = tomb)
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Broken ʔ↗</strong>
+                            Glottal stop + rise (mã = horse)
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Heavy ↓</strong>
+                            Drop low, cut short (mạ = seedling)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-list"></i> Related Lessons</h3>
+                    <div class="related-lessons">
+                        <a href="greetings-basics-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-hand-wave"></i> Greetings & Basics
+                        </a>
+                        <a href="sentence-structure-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-puzzle-piece"></i> Sentence Structure
+                        </a>
+                        <a href="numbers-time-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-clock"></i> Numbers & Time
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <div class="feedback-toast" id="feedback-toast"></div>
+
+    <script src="../js/lecture-enhanced.js"></script>
+</body>
+</html>

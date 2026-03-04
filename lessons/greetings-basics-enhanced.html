@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Greetings & Basic Phrases - Interactive Lesson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lecture-enhanced.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../course.html" class="active">Course</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="lecture-hero">
+        <div class="container">
+            <span class="lecture-badge beginner">Beginner - Week 2</span>
+            <h1>Greetings & Basic Phrases</h1>
+            <p class="lecture-subtitle">Master essential greetings and courtesy expressions for everyday conversations</p>
+            <div class="lecture-meta">
+                <span><i class="fas fa-clock"></i> 25 minutes</span>
+                <span><i class="fas fa-book"></i> 30+ phrases</span>
+                <span><i class="fas fa-comments"></i> Social interaction</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Mode Toggle -->
+    <div class="study-mode-toggle">
+        <div class="container">
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="learn">
+                    <i class="fas fa-book-open"></i> Learn Mode
+                </button>
+                <button class="mode-btn" data-mode="practice">
+                    <i class="fas fa-brain"></i> Practice Mode
+                </button>
+                <button class="mode-btn" data-mode="quiz">
+                    <i class="fas fa-graduation-cap"></i> Quiz Mode
+                </button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="lecture-content-enhanced">
+        <div class="container">
+            <!-- Tabs Navigation -->
+            <div class="tabs-container">
+                <nav class="tabs-nav">
+                    <button class="tab-btn active" data-tab="greetings">
+                        <i class="fas fa-hand-wave"></i> Greetings
+                    </button>
+                    <button class="tab-btn" data-tab="courtesy">
+                        <i class="fas fa-heart"></i> Courtesy
+                    </button>
+                    <button class="tab-btn" data-tab="questions">
+                        <i class="fas fa-question-circle"></i> Questions
+                    </button>
+                    <button class="tab-btn" data-tab="responses">
+                        <i class="fas fa-reply"></i> Responses
+                    </button>
+                    <button class="tab-btn" data-tab="farewells">
+                        <i class="fas fa-hand-peace"></i> Farewells
+                    </button>
+                    <button class="tab-btn" data-tab="practice">
+                        <i class="fas fa-gamepad"></i> Practice
+                    </button>
+                </nav>
+
+                <div class="tabs-content">
+                    <!-- Tab 1: Greetings -->
+                    <div class="tab-pane active" id="greetings">
+                        <div class="section-intro">
+                            <h2>Basic Greetings</h2>
+                            <p>Vietnamese greetings vary based on age, gender, and social relationship. Learn to greet people appropriately in different contexts.</p>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-sun"></i> Universal Greetings</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Xin chào', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">1</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Xin chào</div>
+                                    <div class="phrase-pronunciation">[sin chow]</div>
+                                    <div class="phrase-english">Hello (formal, universal)</div>
+                                    <div class="phrase-note">Most formal and universally acceptable greeting</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chào bạn', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">2</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chào bạn</div>
+                                    <div class="phrase-pronunciation">[chow ban]</div>
+                                    <div class="phrase-english">Hello friend</div>
+                                    <div class="phrase-note">Casual greeting for peers</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-users"></i> Age-Based Greetings</h3>
+                            <p class="subsection-desc">Vietnamese uses different pronouns based on age and gender:</p>
+                            
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chào anh', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">3</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chào anh</div>
+                                    <div class="phrase-pronunciation">[chow ang]</div>
+                                    <div class="phrase-english">Hello (to older male)</div>
+                                    <div class="phrase-grammar">anh = older brother, used for males older than you</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chào chị', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">4</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chào chị</div>
+                                    <div class="phrase-pronunciation">[chow chee]</div>
+                                    <div class="phrase-english">Hello (to older female)</div>
+                                    <div class="phrase-grammar">chị = older sister, used for females older than you</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chào em', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">5</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chào em</div>
+                                    <div class="phrase-pronunciation">[chow em]</div>
+                                    <div class="phrase-english">Hello (to younger person)</div>
+                                    <div class="phrase-grammar">em = younger sibling, used for anyone younger</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chào cô', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">6</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chào cô</div>
+                                    <div class="phrase-pronunciation">[chow ko]</div>
+                                    <div class="phrase-english">Hello (to teacher/aunt)</div>
+                                    <div class="phrase-grammar">cô = aunt/teacher, respectful for professional women</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chào chú', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">7</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chào chú</div>
+                                    <div class="phrase-pronunciation">[chow choo]</div>
+                                    <div class="phrase-english">Hello (to uncle)</div>
+                                    <div class="phrase-grammar">chú = uncle, for men older than your parents</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chào bác', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">8</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chào bác</div>
+                                    <div class="phrase-pronunciation">[chow bahk]</div>
+                                    <div class="phrase-english">Hello (to elderly person)</div>
+                                    <div class="phrase-grammar">bác = aunt/uncle, very respectful for elderly</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Pro Tip:</strong> When unsure which pronoun to use, "Xin chào" is always safe. Vietnamese people appreciate foreigners trying to speak their language!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Courtesy Phrases -->
+                    <div class="tab-pane" id="courtesy">
+                        <div class="section-intro">
+                            <h2>Courtesy Expressions</h2>
+                            <p>Essential polite phrases that show respect and good manners in Vietnamese culture.</p>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-heart"></i> Thank You & Please</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Cảm ơn', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">9</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Cảm ơn</div>
+                                    <div class="phrase-pronunciation">[gahm uhn]</div>
+                                    <div class="phrase-english">Thank you</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Cảm ơn nhiều', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">10</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Cảm ơn nhiều</div>
+                                    <div class="phrase-pronunciation">[gahm uhn nyew]</div>
+                                    <div class="phrase-english">Thank you very much</div>
+                                    <div class="phrase-grammar">nhiều = a lot, many</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Cảm ơn anh', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">11</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Cảm ơn anh</div>
+                                    <div class="phrase-pronunciation">[gahm uhn ang]</div>
+                                    <div class="phrase-english">Thank you (to older male)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Làm ơn', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">12</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Làm ơn</div>
+                                    <div class="phrase-pronunciation">[lahm uhn]</div>
+                                    <div class="phrase-english">Please</div>
+                                    <div class="phrase-note">Used when making a request</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-hands-praying"></i> Apologies & Excuses</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Xin lỗi', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">13</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Xin lỗi</div>
+                                    <div class="phrase-pronunciation">[sin loy]</div>
+                                    <div class="phrase-english">Sorry / Excuse me</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Xin lỗi anh', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">14</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Xin lỗi anh</div>
+                                    <div class="phrase-pronunciation">[sin loy ang]</div>
+                                    <div class="phrase-english">Sorry (to older male)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Không sao', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">15</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Không sao</div>
+                                    <div class="phrase-pronunciation">[khome sow]</div>
+                                    <div class="phrase-english">It's okay / No problem</div>
+                                    <div class="phrase-note">Response to an apology</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Không có gì', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">16</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Không có gì</div>
+                                    <div class="phrase-pronunciation">[khome go zee]</div>
+                                    <div class="phrase-english">You're welcome / No worries</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Common Questions -->
+                    <div class="tab-pane" id="questions">
+                        <div class="section-intro">
+                            <h2>Common Questions</h2>
+                            <p>Essential questions for basic conversations and introductions.</p>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Bạn khỏe không?', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">17</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Bạn khỏe không?</div>
+                                <div class="phrase-pronunciation">[ban khweh khome]</div>
+                                <div class="phrase-english">How are you?</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part subject">Bạn</span>
+                                    <span class="word-part adjective">khỏe</span>
+                                    <span class="word-part">không?</span>
+                                </div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Bạn tên gì?', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">18</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Bạn tên gì?</div>
+                                <div class="phrase-pronunciation">[ban ten zee]</div>
+                                <div class="phrase-english">What's your name?</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part subject">Bạn</span>
+                                    <span class="word-part noun">tên</span>
+                                    <span class="word-part">gì?</span>
+                                </div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Bạn từ đâu?', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">19</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Bạn từ đâu?</div>
+                                <div class="phrase-pronunciation">[ban tuh doh]</div>
+                                <div class="phrase-english">Where are you from?</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Bạn sống ở đâu?', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">20</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Bạn sống ở đâu?</div>
+                                <div class="phrase-pronunciation">[ban sohng uh doh]</div>
+                                <div class="phrase-english">Where do you live?</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Bạn làm gì?', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">21</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Bạn làm gì?</div>
+                                <div class="phrase-pronunciation">[ban lahm zee]</div>
+                                <div class="phrase-english">What do you do?</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Bạn bao nhiêu tuổi?', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">22</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Bạn bao nhiêu tuổi?</div>
+                                <div class="phrase-pronunciation">[ban bow nyew tway]</div>
+                                <div class="phrase-english">How old are you?</div>
+                                <div class="phrase-note">Common in Vietnam, not considered rude</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: Responses -->
+                    <div class="tab-pane" id="responses">
+                        <div class="section-intro">
+                            <h2>Common Responses</h2>
+                            <p>How to answer basic questions about yourself.</p>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tôi khỏe, cảm ơn', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">23</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tôi khỏe, cảm ơn</div>
+                                <div class="phrase-pronunciation">[toy khweh gahm uhn]</div>
+                                <div class="phrase-english">I'm fine, thank you</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tên tôi là...', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">24</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tên tôi là...</div>
+                                <div class="phrase-pronunciation">[ten toy lah]</div>
+                                <div class="phrase-english">My name is...</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tôi đến từ Mỹ', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">25</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tôi đến từ Mỹ</div>
+                                <div class="phrase-pronunciation">[toy den tuh mee]</div>
+                                <div class="phrase-english">I'm from America</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tôi là học sinh', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">26</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tôi là học sinh</div>
+                                <div class="phrase-pronunciation">[toy lah hawk sing]</div>
+                                <div class="phrase-english">I'm a student</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Rất vui được gặp bạn', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">27</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Rất vui được gặp bạn</div>
+                                <div class="phrase-pronunciation">[zuht vwee dook gap ban]</div>
+                                <div class="phrase-english">Nice to meet you</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tôi cũng vui được gặp bạn', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">28</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tôi cũng vui được gặp bạn</div>
+                                <div class="phrase-pronunciation">[toy koong vwee dook gap ban]</div>
+                                <div class="phrase-english">Nice to meet you too</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5: Farewells -->
+                    <div class="tab-pane" id="farewells">
+                        <div class="section-intro">
+                            <h2>Farewells</h2>
+                            <p>Say goodbye politely in different situations.</p>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tạm biệt', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">29</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tạm biệt</div>
+                                <div class="phrase-pronunciation">[tahm byet]</div>
+                                <div class="phrase-english">Goodbye (formal)</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Chào bạn', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">30</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Chào bạn</div>
+                                <div class="phrase-pronunciation">[chow ban]</div>
+                                <div class="phrase-english">Bye friend (casual)</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Hẹn gặp lại', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">31</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Hẹn gặp lại</div>
+                                <div class="phrase-pronunciation">[hen gap lai]</div>
+                                <div class="phrase-english">See you again</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Gặp lại sau', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">32</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Gặp lại sau</div>
+                                <div class="phrase-pronunciation">[gap lai sow]</div>
+                                <div class="phrase-english">See you later</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Chúc ngủ ngon', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">33</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Chúc ngủ ngon</div>
+                                <div class="phrase-pronunciation">[chook ngoo ngawn]</div>
+                                <div class="phrase-english">Good night / Sleep well</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Đi cẩn thận', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">34</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Đi cẩn thận</div>
+                                <div class="phrase-pronunciation">[dee kun tuhn]</div>
+                                <div class="phrase-english">Take care / Be careful</div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <strong>Cultural Note:</strong> Vietnamese people often say "Chào" for both hello and goodbye, with context determining the meaning!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 6: Practice -->
+                    <div class="tab-pane" id="practice">
+                        <div class="section-intro">
+                            <h2>Test Your Knowledge</h2>
+                            <p>Practice what you've learned with interactive exercises!</p>
+                        </div>
+
+                        <!-- Exercise 1: Matching -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-puzzle-piece"></i> Match Vietnamese with English</h3>
+                            <p>Click two cards to match them. Find all pairs!</p>
+                            <div class="matching-game" id="matching-game">
+                                <div class="match-card" data-pair="1">Xin chào</div>
+                                <div class="match-card" data-pair="1">Hello (formal)</div>
+                                <div class="match-card" data-pair="2">Cảm ơn</div>
+                                <div class="match-card" data-pair="2">Thank you</div>
+                                <div class="match-card" data-pair="3">Xin lỗi</div>
+                                <div class="match-card" data-pair="3">Sorry</div>
+                                <div class="match-card" data-pair="4">Tạm biệt</div>
+                                <div class="match-card" data-pair="4">Goodbye</div>
+                                <div class="match-card" data-pair="5">Bạn khỏe không?</div>
+                                <div class="match-card" data-pair="5">How are you?</div>
+                                <div class="match-card" data-pair="6">Rất vui được gặp bạn</div>
+                                <div class="match-card" data-pair="6">Nice to meet you</div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 2: Fill in the Blank -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-pen"></i> Fill in the Blanks</h3>
+                            <div class="fill-blank-exercise">
+                                <div class="fb-question">
+                                    1. To say "Thank you very much" in Vietnamese: Cảm ơn <input type="text" class="fb-input" id="fb1" data-answer="nhiều">
+                                    <div class="fb-hint">Hint: means "a lot" or "very"</div>
+                                </div>
+                                <button class="btn-check-small" onclick="checkFillBlank('fb1', 'nhiều')">Check</button>
+                                <div class="fb-feedback"></div>
+
+                                <div class="fb-question">
+                                    2. To greet an older male: Chào <input type="text" class="fb-input" id="fb2" data-answer="anh">
+                                    <div class="fb-hint">Hint: means "older brother"</div>
+                                </div>
+                                <button class="btn-check-small" onclick="checkFillBlank('fb2', 'anh')">Check</button>
+                                <div class="fb-feedback"></div>
+
+                                <div class="fb-question">
+                                    3. "Nice to meet you" in Vietnamese: Rất vui <input type="text" class="fb-input" id="fb3" data-answer="được gặp bạn">
+                                    <div class="fb-hint">Hint: "to meet you"</div>
+                                </div>
+                                <button class="btn-check-small" onclick="checkFillBlank('fb3', 'được gặp bạn')">Check</button>
+                                <div class="fb-feedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 3: Dialogue Practice -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-comments"></i> Conversation Practice</h3>
+                            <p>Practice this simple dialogue. Click each line to hear it spoken:</p>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Xin chào! Bạn khỏe không?', this)">
+                                    <div class="phrase-vietnamese">Xin chào! Bạn khỏe không?</div>
+                                    <div class="phrase-english">Hello! How are you?</div>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tôi khỏe, cảm ơn. Còn bạn?', this)">
+                                    <div class="phrase-vietnamese">Tôi khỏe, cảm ơn. Còn bạn?</div>
+                                    <div class="phrase-english">I'm fine, thank you. And you?</div>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tôi cũng khỏe. Bạn tên gì?', this)">
+                                    <div class="phrase-vietnamese">Tôi cũng khỏe. Bạn tên gì?</div>
+                                    <div class="phrase-english">I'm fine too. What's your name?</div>
+                                </div>
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tên tôi là Minh. Rất vui được gặp bạn!', this)">
+                                    <div class="phrase-vietnamese">Tên tôi là Minh. Rất vui được gặp bạn!</div>
+                                    <div class="phrase-english">My name is Minh. Nice to meet you!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="enhanced-sidebar">
+                <div class="sidebar-card progress-card">
+                    <h3><i class="fas fa-chart-line"></i> Your Progress</h3>
+                    <div class="progress-circle">
+                        <svg width="120" height="120">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="progress-bg" cx="60" cy="60" r="45"></circle>
+                            <circle class="progress-bar-circle" cx="60" cy="60" r="45" id="progress-circle"></circle>
+                        </svg>
+                        <div class="progress-text">0%</div>
+                    </div>
+                    <button class="btn-complete" onclick="markComplete()">
+                        <i class="fas fa-check-circle"></i> Mark as Complete
+                    </button>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-lightbulb"></i> Quick Tips</h3>
+                    <div class="quick-ref-list">
+                        <div class="quick-ref-item">
+                            <strong>Age matters</strong>
+                            Use appropriate pronouns based on age and gender
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Pronouns = respect</strong>
+                            anh/chị (older), em (younger), bác (elderly)
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>When in doubt</strong>
+                            "Xin chào" works in all situations
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Smile!</strong>
+                            Body language matters as much as words
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-list"></i> Related Lessons</h3>
+                    <div class="related-lessons">
+                        <a href="vietnamese-tones-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-music"></i> Vietnamese Tones
+                        </a>
+                        <a href="sentence-structure-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-puzzle-piece"></i> Sentence Structure
+                        </a>
+                        <a href="numbers-time-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-clock"></i> Numbers & Time
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <div class="feedback-toast" id="feedback-toast"></div>
+
+    <script src="../js/lecture-enhanced.js"></script>
+</body>
+</html>

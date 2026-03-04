@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Sentence Structure - Interactive Lesson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lecture-enhanced.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../lectures.html" class="active">Lectures</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+                <li><a href="../visual.html">Visual Learning</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="../index.html">Home</a> / 
+            <a href="../lectures.html">Lectures</a> / 
+            <span>Sentence Structure</span>
+        </div>
+    </div>
+
+    <section class="lecture-hero">
+        <div class="container">
+            <span class="lecture-badge intermediate">Intermediate</span>
+            <h1>Vietnamese Sentence Structure</h1>
+            <p class="lecture-subtitle">Master Vietnamese grammar with interactive lessons and practice</p>
+            <div class="lecture-meta">
+                <span><i class="fas fa-clock"></i> 25 minutes</span>
+                <span><i class="fas fa-fire"></i> 82% completion rate</span>
+                <span><i class="fas fa-star"></i> 4.9/5 rating</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="study-mode-toggle">
+        <div class="container">
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="learn">
+                    <i class="fas fa-book-open"></i> Learn Mode
+                </button>
+                <button class="mode-btn" data-mode="practice">
+                    <i class="fas fa-pen"></i> Practice Mode
+                </button>
+                <button class="mode-btn" data-mode="quiz">
+                    <i class="fas fa-brain"></i> Quiz Mode
+                </button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="lecture-content-enhanced">
+        <div class="container">
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="basics">
+                        <i class="fas fa-shapes"></i> Basic SVO
+                    </button>
+                    <button class="tab-btn" data-tab="questions">
+                        <i class="fas fa-question-circle"></i> Questions
+                    </button>
+                    <button class="tab-btn" data-tab="negation">
+                        <i class="fas fa-times-circle"></i> Negation
+                    </button>
+                    <button class="tab-btn" data-tab="adjectives">
+                        <i class="fas fa-palette"></i> Adjectives
+                    </button>
+                    <button class="tab-btn" data-tab="classifiers">
+                        <i class="fas fa-list"></i> Classifiers
+                    </button>
+                    <button class="tab-btn" data-tab="practice">
+                        <i class="fas fa-gamepad"></i> Practice
+                    </button>
+                </div>
+
+                <div class="tabs-content">
+                    <!-- Tab 1: Basic SVO -->
+                    <div class="tab-pane active" id="basics">
+                        <div class="section-intro">
+                            <h2>Basic Sentence Pattern (SVO)</h2>
+                            <p>Vietnamese follows a Subject-Verb-Object pattern, similar to English. Click on any phrase card to hear the pronunciation!</p>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tôi ăn cơm', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">1</span>
+                                    <button class="phrase-audio-btn">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                </div>
+                                <div class="phrase-vietnamese">Tôi ăn cơm</div>
+                                <div class="phrase-pronunciation">[toy an gum]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part subject">Tôi</span>
+                                    <span class="word-part verb">ăn</span>
+                                    <span class="word-part object">cơm</span>
+                                </div>
+                                <div class="phrase-english">I eat rice</div>
+                                <div class="phrase-grammar">Subject + Verb + Object</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Anh học tiếng Việt', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">2</span>
+                                    <button class="phrase-audio-btn">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                </div>
+                                <div class="phrase-vietnamese">Anh học tiếng Việt</div>
+                                <div class="phrase-pronunciation">[ang hock tee-eng vee-et]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part subject">Anh</span>
+                                    <span class="word-part verb">học</span>
+                                    <span class="word-part object">tiếng Việt</span>
+                                </div>
+                                <div class="phrase-english">You study Vietnamese</div>
+                                <div class="phrase-grammar">Subject + Verb + Object</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Chị đọc sách', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">3</span>
+                                    <button class="phrase-audio-btn">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                </div>
+                                <div class="phrase-vietnamese">Chị đọc sách</div>
+                                <div class="phrase-pronunciation">[chee dawk sahk]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part subject">Chị</span>
+                                    <span class="word-part verb">đọc</span>
+                                    <span class="word-part object">sách</span>
+                                </div>
+                                <div class="phrase-english">She reads books</div>
+                                <div class="phrase-grammar">Subject + Verb + Object</div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Pro Tip:</strong> The SVO pattern is your foundation. Master these simple sentences before moving to more complex structures!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Questions -->
+                    <div class="tab-pane" id="questions">
+                        <div class="section-intro">
+                            <h2>Question Formation</h2>
+                            <p>Learn how to form yes/no questions and wh-questions in Vietnamese.</p>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-check-circle"></i> Yes/No Questions</h3>
+                            <p class="subsection-desc">Add "không" at the end to turn a statement into a yes/no question.</p>
+
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Anh ăn cơm không', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">1</span>
+                                        <button class="phrase-audio-btn">
+                                            <i class="fas fa-volume-up"></i>
+                                        </button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Anh ăn cơm không?</div>
+                                    <div class="phrase-pronunciation">[ang an gum khome]</div>
+                                    <div class="phrase-english">Do you eat rice?</div>
+                                    <div class="phrase-note">Statement + không = question</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chị thích cà phê không', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">2</span>
+                                        <button class="phrase-audio-btn">
+                                            <i class="fas fa-volume-up"></i>
+                                        </button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chị thích cà phê không?</div>
+                                    <div class="phrase-pronunciation">[chee tick gah feh khome]</div>
+                                    <div class="phrase-english">Do you like coffee?</div>
+                                    <div class="phrase-note">Add không at the end</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-question"></i> Wh-Questions</h3>
+                            <div class="question-words-grid">
+                                <div class="question-word-card">
+                                    <div class="qw-vietnamese">Gì?</div>
+                                    <div class="qw-english">What?</div>
+                                </div>
+                                <div class="question-word-card">
+                                    <div class="qw-vietnamese">Đâu?</div>
+                                    <div class="qw-english">Where?</div>
+                                </div>
+                                <div class="question-word-card">
+                                    <div class="qw-vietnamese">Ai?</div>
+                                    <div class="qw-english">Who?</div>
+                                </div>
+                                <div class="question-word-card">
+                                    <div class="qw-vietnamese">Tại sao?</div>
+                                    <div class="qw-english">Why?</div>
+                                </div>
+                                <div class="question-word-card">
+                                    <div class="qw-vietnamese">Khi nào?</div>
+                                    <div class="qw-english">When?</div>
+                                </div>
+                                <div class="question-word-card">
+                                    <div class="qw-vietnamese">Như thế nào?</div>
+                                    <div class="qw-english">How?</div>
+                                </div>
+                            </div>
+
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Anh tên là gì', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">1</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Anh tên là gì?</div>
+                                    <div class="phrase-pronunciation">[ang ten lah zee]</div>
+                                    <div class="phrase-english">What is your name?</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Anh ở đâu', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">2</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Anh ở đâu?</div>
+                                    <div class="phrase-pronunciation">[ang uh doh]</div>
+                                    <div class="phrase-english">Where are you?</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tại sao anh học tiếng Việt', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">3</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Tại sao anh học tiếng Việt?</div>
+                                    <div class="phrase-pronunciation">[tie sow ang hock tee-eng vee-et]</div>
+                                    <div class="phrase-english">Why do you study Vietnamese?</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Negation -->
+                    <div class="tab-pane" id="negation">
+                        <div class="section-intro">
+                            <h2>Negation with "không"</h2>
+                            <p>Place "không" before the verb to make negative statements.</p>
+                        </div>
+
+                        <div class="comparison-box">
+                            <div class="comparison-side positive">
+                                <h4><i class="fas fa-check"></i> Positive</h4>
+                                <div class="comparison-phrase">Tôi ăn thịt</div>
+                                <div class="comparison-meaning">I eat meat</div>
+                            </div>
+                            <div class="comparison-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="comparison-side negative">
+                                <h4><i class="fas fa-times"></i> Negative</h4>
+                                <div class="comparison-phrase">Tôi <strong>không</strong> ăn thịt</div>
+                                <div class="comparison-meaning">I <strong>don't</strong> eat meat</div>
+                            </div>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tôi không ăn thịt', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">1</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tôi không ăn thịt</div>
+                                <div class="phrase-pronunciation">[toy khome an tit]</div>
+                                <div class="phrase-english">I don't eat meat</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Anh không thích cà phê', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">2</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Anh không thích cà phê</div>
+                                <div class="phrase-pronunciation">[ang khome tick gah feh]</div>
+                                <div class="phrase-english">You don't like coffee</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Tôi không hiểu', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">3</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Tôi không hiểu</div>
+                                <div class="phrase-pronunciation">[toy khome hee-ew]</div>
+                                <div class="phrase-english">I don't understand</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: Adjectives -->
+                    <div class="tab-pane" id="adjectives">
+                        <div class="section-intro">
+                            <h2>Adjectives Come After Nouns</h2>
+                            <p>Unlike English, Vietnamese adjectives follow the noun they describe.</p>
+                        </div>
+
+                        <div class="comparison-box">
+                            <div class="comparison-side">
+                                <h4><i class="fas fa-flag-usa"></i> English</h4>
+                                <div class="comparison-phrase"><strong class="highlight-adj">Beautiful</strong> shirt</div>
+                                <div class="comparison-note">Adjective + Noun</div>
+                            </div>
+                            <div class="comparison-arrow"><i class="fas fa-exchange-alt"></i></div>
+                            <div class="comparison-side">
+                                <h4><i class="fas fa-flag"></i> Vietnamese</h4>
+                                <div class="comparison-phrase">Áo <strong class="highlight-adj">đẹp</strong></div>
+                                <div class="comparison-note">Noun + Adjective</div>
+                            </div>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một cái áo đẹp', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">1</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Một cái áo đẹp</div>
+                                <div class="phrase-pronunciation">[moat kai ao dep]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part">Một cái</span>
+                                    <span class="word-part noun">áo</span>
+                                    <span class="word-part adjective">đẹp</span>
+                                </div>
+                                <div class="phrase-english">A beautiful shirt</div>
+                                <div class="phrase-note">Literally: "one shirt beautiful"</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Quả táo đỏ', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">2</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Quả táo đỏ</div>
+                                <div class="phrase-pronunciation">[gwah tow daw]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part">Quả</span>
+                                    <span class="word-part noun">táo</span>
+                                    <span class="word-part adjective">đỏ</span>
+                                </div>
+                                <div class="phrase-english">Red apple</div>
+                                <div class="phrase-note">Literally: "apple red"</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Người phụ nữ cao', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">3</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Người phụ nữ cao</div>
+                                <div class="phrase-pronunciation">[nguh-oy foo noo gow]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part noun">Người phụ nữ</span>
+                                    <span class="word-part adjective">cao</span>
+                                </div>
+                                <div class="phrase-english">Tall woman</div>
+                                <div class="phrase-note">Literally: "woman tall"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5: Classifiers -->
+                    <div class="tab-pane" id="classifiers">
+                        <div class="section-intro">
+                            <h2>Noun Classifiers</h2>
+                            <p>Classifiers are words used between numbers and nouns. Different classifiers are used for different types of objects.</p>
+                        </div>
+
+                        <div class="classifiers-grid">
+                            <div class="classifier-card">
+                                <div class="classifier-icon"><i class="fas fa-dog"></i></div>
+                                <div class="classifier-word">con</div>
+                                <div class="classifier-use">Animals</div>
+                                <div class="classifier-example">một con chó (one dog)</div>
+                            </div>
+                            <div class="classifier-card">
+                                <div class="classifier-icon"><i class="fas fa-cube"></i></div>
+                                <div class="classifier-word">cái</div>
+                                <div class="classifier-use">Objects</div>
+                                <div class="classifier-example">hai cái bàn (two tables)</div>
+                            </div>
+                            <div class="classifier-card">
+                                <div class="classifier-icon"><i class="fas fa-user"></i></div>
+                                <div class="classifier-word">người</div>
+                                <div class="classifier-use">People</div>
+                                <div class="classifier-example">ba người bạn (three friends)</div>
+                            </div>
+                            <div class="classifier-card">
+                                <div class="classifier-icon"><i class="fas fa-circle"></i></div>
+                                <div class="classifier-word">quả</div>
+                                <div class="classifier-use">Round objects</div>
+                                <div class="classifier-example">bốn quả cam (four oranges)</div>
+                            </div>
+                            <div class="classifier-card">
+                                <div class="classifier-icon"><i class="fas fa-book"></i></div>
+                                <div class="classifier-word">cuốn</div>
+                                <div class="classifier-use">Books</div>
+                                <div class="classifier-example">năm cuốn sách (five books)</div>
+                            </div>
+                            <div class="classifier-card">
+                                <div class="classifier-icon"><i class="fas fa-home"></i></div>
+                                <div class="classifier-word">ngôi</div>
+                                <div class="classifier-use">Buildings</div>
+                                <div class="classifier-example">sáu ngôi nhà (six houses)</div>
+                            </div>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một con chó', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">1</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Một con chó</div>
+                                <div class="phrase-pronunciation">[moat gon chaw]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part">Một</span>
+                                    <span class="word-part classifier">con</span>
+                                    <span class="word-part">chó</span>
+                                </div>
+                                <div class="phrase-english">One dog</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Hai cái bàn', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">2</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Hai cái bàn</div>
+                                <div class="phrase-pronunciation">[hai kai ban]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part">Hai</span>
+                                    <span class="word-part classifier">cái</span>
+                                    <span class="word-part">bàn</span>
+                                </div>
+                                <div class="phrase-english">Two tables</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Ba người bạn', this)">
+                                <div class="phrase-header">
+                                    <span class="phrase-number">3</span>
+                                    <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="phrase-vietnamese">Ba người bạn</div>
+                                <div class="phrase-pronunciation">[bah nguh-oy ban]</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part">Ba</span>
+                                    <span class="word-part classifier">người</span>
+                                    <span class="word-part">bạn</span>
+                                </div>
+                                <div class="phrase-english">Three friends</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 6: Practice -->
+                    <div class="tab-pane" id="practice">
+                        <div class="section-intro">
+                            <h2>Interactive Practice</h2>
+                            <p>Test your knowledge with these interactive exercises!</p>
+                        </div>
+
+                        <!-- Sentence Builder Exercise -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-puzzle-piece"></i> Sentence Builder</h3>
+                            <p>Drag and drop words to build the correct sentence.</p>
+                            
+                            <div class="sentence-builder">
+                                <div class="target-sentence">
+                                    <div class="target-english">I eat rice</div>
+                                    <div class="drop-zone" id="dropZone">
+                                        <div class="drop-slot"></div>
+                                        <div class="drop-slot"></div>
+                                        <div class="drop-slot"></div>
+                                    </div>
+                                    <button class="btn-check" onclick="checkSentence()">Check Answer</button>
+                                </div>
+                                <div class="word-bank" id="wordBank">
+                                    <div class="word-tile" draggable="true" data-word="Tôi">Tôi</div>
+                                    <div class="word-tile" draggable="true" data-word="ăn">ăn</div>
+                                    <div class="word-tile" draggable="true" data-word="cơm">cơm</div>
+                                    <div class="word-tile" draggable="true" data-word="không">không</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fill in the Blank -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-pencil-alt"></i> Fill in the Blank</h3>
+                            <div class="fill-blank-exercise">
+                                <div class="fb-question">
+                                    <p>Complete the sentence: "Anh <input type="text" class="fb-input" id="fb1" placeholder="___"> cà phê không?"</p>
+                                    <p class="fb-hint">Hint: The verb means "to like"</p>
+                                    <button class="btn-check-small" onclick="checkFillBlank('fb1', 'thích')">Check</button>
+                                    <div class="fb-feedback" id="fb1-feedback"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Matching Game -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-link"></i> Match the Pairs</h3>
+                            <p>Click two cards to match Vietnamese phrases with their English translations.</p>
+                            <div class="matching-game" id="matchingGame">
+                                <div class="match-card" data-pair="1" data-lang="vi">Tôi ăn cơm</div>
+                                <div class="match-card" data-pair="2" data-lang="vi">Anh học tiếng Việt</div>
+                                <div class="match-card" data-pair="3" data-lang="vi">Chị đọc sách</div>
+                                <div class="match-card" data-pair="1" data-lang="en">I eat rice</div>
+                                <div class="match-card" data-pair="2" data-lang="en">You study Vietnamese</div>
+                                <div class="match-card" data-pair="3" data-lang="en">She reads books</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="enhanced-sidebar">
+                <div class="sidebar-card progress-card">
+                    <h3><i class="fas fa-chart-line"></i> Your Progress</h3>
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" class="progress-bg"></circle>
+                            <circle cx="50" cy="50" r="45" class="progress-bar-circle" id="progressCircle" style="stroke-dashoffset: 282.7;"></circle>
+                        </svg>
+                        <div class="progress-text"><span id="progressPercent">0</span>%</div>
+                    </div>
+                    <button class="btn-complete" onclick="markComplete()">
+                        <i class="fas fa-check-circle"></i> Mark as Complete
+                    </button>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-bookmark"></i> Quick Reference</h3>
+                    <div class="quick-ref-list">
+                        <div class="quick-ref-item">
+                            <strong>SVO Pattern:</strong> Subject + Verb + Object
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Questions:</strong> Add "không" at end
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Negation:</strong> "không" before verb
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Adjectives:</strong> Come after noun
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-book"></i> Related Lessons</h3>
+                    <div class="related-lessons">
+                        <a href="vietnamese-tones.html" class="related-lesson-link">
+                            <i class="fas fa-music"></i> Vietnamese Tones
+                        </a>
+                        <a href="numbers-time.html" class="related-lesson-link">
+                            <i class="fas fa-clock"></i> Numbers & Time
+                        </a>
+                        <a href="daily-conversations.html" class="related-lesson-link">
+                            <i class="fas fa-comments"></i> Daily Conversations
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Viet Le. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/lecture-enhanced.js"></script>
+</body>
+</html>

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Numbers & Time - Interactive Lesson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lecture-enhanced.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../course.html" class="active">Course</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="lecture-hero">
+        <div class="container">
+            <span class="lecture-badge beginner">Beginner - Week 4</span>
+            <h1>Numbers, Time & Calendar</h1>
+            <p class="lecture-subtitle">Learn to count, tell time, and discuss dates in Vietnamese</p>
+            <div class="lecture-meta">
+                <span><i class="fas fa-clock"></i> 30 minutes</span>
+                <span><i class="fas fa-book"></i> 50+ words</span>
+                <span><i class="fas fa-calculator"></i> Practical skills</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Mode Toggle -->
+    <div class="study-mode-toggle">
+        <div class="container">
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="learn">
+                    <i class="fas fa-book-open"></i> Learn Mode
+                </button>
+                <button class="mode-btn" data-mode="practice">
+                    <i class="fas fa-brain"></i> Practice Mode
+                </button>
+                <button class="mode-btn" data-mode="quiz">
+                    <i class="fas fa-graduation-cap"></i> Quiz Mode
+                </button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="lecture-content-enhanced">
+        <div class="container">
+            <!-- Tabs Navigation -->
+            <div class="tabs-container">
+                <nav class="tabs-nav">
+                    <button class="tab-btn active" data-tab="basic-numbers">
+                        <i class="fas fa-sort-numeric-up"></i> 0-20
+                    </button>
+                    <button class="tab-btn" data-tab="large-numbers">
+                        <i class="fas fa-calculator"></i> Large Numbers
+                    </button>
+                    <button class="tab-btn" data-tab="time">
+                        <i class="fas fa-clock"></i> Telling Time
+                    </button>
+                    <button class="tab-btn" data-tab="calendar">
+                        <i class="fas fa-calendar"></i> Days & Dates
+                    </button>
+                    <button class="tab-btn" data-tab="money">
+                        <i class="fas fa-coins"></i> Money
+                    </button>
+                    <button class="tab-btn" data-tab="practice">
+                        <i class="fas fa-gamepad"></i> Practice
+                    </button>
+                </nav>
+
+                <div class="tabs-content">
+                    <!-- Tab 1: Basic Numbers 0-20 -->
+                    <div class="tab-pane active" id="basic-numbers">
+                        <div class="section-intro">
+                            <h2>Numbers 0-20</h2>
+                            <p>Master the foundation - Vietnamese numbers follow a logical pattern once you learn the basics!</p>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-list-ol"></i> Numbers 0-10</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Không', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">0</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Không</div>
+                                    <div class="phrase-pronunciation">[khome]</div>
+                                    <div class="phrase-english">Zero</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Một', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">1</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Một</div>
+                                    <div class="phrase-pronunciation">[moat]</div>
+                                    <div class="phrase-english">One</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Hai', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">2</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Hai</div>
+                                    <div class="phrase-pronunciation">[hai]</div>
+                                    <div class="phrase-english">Two</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Ba', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">3</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Ba</div>
+                                    <div class="phrase-pronunciation">[bah]</div>
+                                    <div class="phrase-english">Three</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Bốn', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">4</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Bốn</div>
+                                    <div class="phrase-pronunciation">[bone]</div>
+                                    <div class="phrase-english">Four</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Năm', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">5</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Năm</div>
+                                    <div class="phrase-pronunciation">[nahm]</div>
+                                    <div class="phrase-english">Five</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Sáu', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">6</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Sáu</div>
+                                    <div class="phrase-pronunciation">[sow]</div>
+                                    <div class="phrase-english">Six</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Bảy', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">7</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Bảy</div>
+                                    <div class="phrase-pronunciation">[buy]</div>
+                                    <div class="phrase-english">Seven</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tám', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">8</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Tám</div>
+                                    <div class="phrase-pronunciation">[tahm]</div>
+                                    <div class="phrase-english">Eight</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chín', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">9</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Chín</div>
+                                    <div class="phrase-pronunciation">[cheen]</div>
+                                    <div class="phrase-english">Nine</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Mười', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">10</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Mười</div>
+                                    <div class="phrase-pronunciation">[moy]</div>
+                                    <div class="phrase-english">Ten</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-arrow-up"></i> Numbers 11-20</h3>
+                            <p class="subsection-desc">Pattern: 10 (mười) + number. Example: 11 = mười một (ten-one)</p>
+                            
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Mười một', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">11</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Mười một</div>
+                                    <div class="phrase-pronunciation">[moy moat]</div>
+                                    <div class="phrase-english">Eleven</div>
+                                    <div class="phrase-breakdown">
+                                        <span class="word-part">Mười</span>
+                                        <span class="word-part">một</span>
+                                    </div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Mười hai', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">12</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Mười hai</div>
+                                    <div class="phrase-pronunciation">[moy hai]</div>
+                                    <div class="phrase-english">Twelve</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Mười lăm', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">15</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Mười lăm</div>
+                                    <div class="phrase-pronunciation">[moy lahm]</div>
+                                    <div class="phrase-english">Fifteen</div>
+                                    <div class="phrase-note">Special: "lăm" instead of "năm" for 15</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Hai mươi', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">20</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Hai mươi</div>
+                                    <div class="phrase-pronunciation">[hai muy]</div>
+                                    <div class="phrase-english">Twenty</div>
+                                    <div class="phrase-note">"mươi" (not "mười") for tens</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Pattern Tip:</strong> 11-19 = mười + number. For 20+, use "hai mươi" (two tens), "ba mươi" (three tens), etc.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Large Numbers -->
+                    <div class="tab-pane" id="large-numbers">
+                        <div class="section-intro">
+                            <h2>Large Numbers</h2>
+                            <p>Build bigger numbers using the Vietnamese number system.</p>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Ba mươi', this)">
+                                <div class="phrase-vietnamese">Ba mươi (30)</div>
+                                <div class="phrase-pronunciation">[bah muy]</div>
+                                <div class="phrase-english">Thirty</div>
+                                <div class="phrase-breakdown">
+                                    <span class="word-part">Ba</span>
+                                    <span class="word-part">mươi</span>
+                                </div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Năm mươi lăm', this)">
+                                <div class="phrase-vietnamese">Năm mươi lăm (55)</div>
+                                <div class="phrase-pronunciation">[nahm muy lahm]</div>
+                                <div class="phrase-english">Fifty-five</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một trăm', this)">
+                                <div class="phrase-vietnamese">Một trăm (100)</div>
+                                <div class="phrase-pronunciation">[moat tram]</div>
+                                <div class="phrase-english">One hundred</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Hai trăm', this)">
+                                <div class="phrase-vietnamese">Hai trăm (200)</div>
+                                <div class="phrase-pronunciation">[hai tram]</div>
+                                <div class="phrase-english">Two hundred</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một nghìn', this)">
+                                <div class="phrase-vietnamese">Một nghìn (1,000)</div>
+                                <div class="phrase-pronunciation">[moat ngin]</div>
+                                <div class="phrase-english">One thousand</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một vạn', this)">
+                                <div class="phrase-vietnamese">Một vạn (10,000)</div>
+                                <div class="phrase-pronunciation">[moat van]</div>
+                                <div class="phrase-english">Ten thousand</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một triệu', this)">
+                                <div class="phrase-vietnamese">Một triệu (1,000,000)</div>
+                                <div class="phrase-pronunciation">[moat chew]</div>
+                                <div class="phrase-english">One million</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một tỷ', this)">
+                                <div class="phrase-vietnamese">Một tỷ (1,000,000,000)</div>
+                                <div class="phrase-pronunciation">[moat tee]</div>
+                                <div class="phrase-english">One billion</div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-chart-line"></i> Building Complex Numbers</h3>
+                            <div class="comparison-box">
+                                <div class="comparison-side">
+                                    <h4>Example: 325</h4>
+                                    <div class="comparison-phrase">Ba trăm hai mươi lăm</div>
+                                    <div class="comparison-note">3 hundreds + 2 tens + 5</div>
+                                </div>
+                                <div class="comparison-arrow">→</div>
+                                <div class="comparison-side">
+                                    <h4>Example: 1,528</h4>
+                                    <div class="comparison-phrase">Một nghìn năm trăm hai mươi tám</div>
+                                    <div class="comparison-note">1 thousand + 5 hundreds + 2 tens + 8</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Telling Time -->
+                    <div class="tab-pane" id="time">
+                        <div class="section-intro">
+                            <h2>Telling Time</h2>
+                            <p>Learn to ask and tell time in Vietnamese.</p>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-clock"></i> Time Expressions</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Mấy giờ rồi?', this)">
+                                    <div class="phrase-header">
+                                        <span class="phrase-number">?</span>
+                                        <button class="phrase-audio-btn"><i class="fas fa-volume-up"></i></button>
+                                    </div>
+                                    <div class="phrase-vietnamese">Mấy giờ rồi?</div>
+                                    <div class="phrase-pronunciation">[may zuh zoy]</div>
+                                    <div class="phrase-english">What time is it?</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Một giờ', this)">
+                                    <div class="phrase-vietnamese">Một giờ</div>
+                                    <div class="phrase-pronunciation">[moat zuh]</div>
+                                    <div class="phrase-english">1 o'clock</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Hai giờ mười lăm', this)">
+                                    <div class="phrase-vietnamese">Hai giờ mười lăm</div>
+                                    <div class="phrase-pronunciation">[hai zuh moy lahm]</div>
+                                    <div class="phrase-english">2:15</div>
+                                    <div class="phrase-note">Literally: 2 hour 15 (minutes)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Ba giờ rưỡi', this)">
+                                    <div class="phrase-vietnamese">Ba giờ rưỡi</div>
+                                    <div class="phrase-pronunciation">[bah zuh roo-ee]</div>
+                                    <div class="phrase-english">3:30</div>
+                                    <div class="phrase-note">"rưỡi" = half (30 minutes)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Bốn giờ kém mười lăm', this)">
+                                    <div class="phrase-vietnamese">Bốn giờ kém mười lăm</div>
+                                    <div class="phrase-pronunciation">[bone zuh kem moy lahm]</div>
+                                    <div class="phrase-english">3:45 (4 o'clock minus 15)</div>
+                                    <div class="phrase-note">"kém" = minus/less</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Mười hai giờ', this)">
+                                    <div class="phrase-vietnamese">Mười hai giờ</div>
+                                    <div class="phrase-pronunciation">[moy hai zuh]</div>
+                                    <div class="phrase-english">12 o'clock (noon/midnight)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-sun"></i> Time of Day</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Buổi sáng', this)">
+                                    <div class="phrase-vietnamese">Buổi sáng</div>
+                                    <div class="phrase-pronunciation">[boo-oy sahng]</div>
+                                    <div class="phrase-english">Morning</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Buổi trưa', this)">
+                                    <div class="phrase-vietnamese">Buổi trưa</div>
+                                    <div class="phrase-pronunciation">[boo-oy troo-uh]</div>
+                                    <div class="phrase-english">Noon/Midday</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Buổi chiều', this)">
+                                    <div class="phrase-vietnamese">Buổi chiều</div>
+                                    <div class="phrase-pronunciation">[boo-oy chew]</div>
+                                    <div class="phrase-english">Afternoon</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Buổi tối', this)">
+                                    <div class="phrase-vietnamese">Buổi tối</div>
+                                    <div class="phrase-pronunciation">[boo-oy toy]</div>
+                                    <div class="phrase-english">Evening</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: Calendar -->
+                    <div class="tab-pane" id="calendar">
+                        <div class="section-intro">
+                            <h2>Days, Months & Dates</h2>
+                            <p>Talk about days of the week, months, and dates.</p>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-calendar-week"></i> Days of the Week</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Thứ hai', this)">
+                                    <div class="phrase-vietnamese">Thứ hai</div>
+                                    <div class="phrase-pronunciation">[thoo hai]</div>
+                                    <div class="phrase-english">Monday (day 2)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Thứ ba', this)">
+                                    <div class="phrase-vietnamese">Thứ ba</div>
+                                    <div class="phrase-pronunciation">[thoo bah]</div>
+                                    <div class="phrase-english">Tuesday (day 3)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Thứ tư', this)">
+                                    <div class="phrase-vietnamese">Thứ tư</div>
+                                    <div class="phrase-pronunciation">[thoo too]</div>
+                                    <div class="phrase-english">Wednesday (day 4)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Thứ năm', this)">
+                                    <div class="phrase-vietnamese">Thứ năm</div>
+                                    <div class="phrase-pronunciation">[thoo nahm]</div>
+                                    <div class="phrase-english">Thursday (day 5)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Thứ sáu', this)">
+                                    <div class="phrase-vietnamese">Thứ sáu</div>
+                                    <div class="phrase-pronunciation">[thoo sow]</div>
+                                    <div class="phrase-english">Friday (day 6)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Thứ bảy', this)">
+                                    <div class="phrase-vietnamese">Thứ bảy</div>
+                                    <div class="phrase-pronunciation">[thoo buy]</div>
+                                    <div class="phrase-english">Saturday (day 7)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Chủ nhật', this)">
+                                    <div class="phrase-vietnamese">Chủ nhật</div>
+                                    <div class="phrase-pronunciation">[choo nyat]</div>
+                                    <div class="phrase-english">Sunday</div>
+                                    <div class="phrase-note">Special name (not "thứ tám")</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-calendar-alt"></i> Months</h3>
+                            <p class="subsection-desc">Pattern: "tháng" (month) + number</p>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tháng một', this)">
+                                    <div class="phrase-vietnamese">Tháng một</div>
+                                    <div class="phrase-english">January (month 1)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tháng hai', this)">
+                                    <div class="phrase-vietnamese">Tháng hai</div>
+                                    <div class="phrase-english">February (month 2)</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Tháng mười hai', this)">
+                                    <div class="phrase-vietnamese">Tháng mười hai</div>
+                                    <div class="phrase-english">December (month 12)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3><i class="fas fa-calendar-day"></i> Dates</h3>
+                            <div class="phrase-grid">
+                                <div class="phrase-card interactive" onclick="speakPhrase('Hôm nay', this)">
+                                    <div class="phrase-vietnamese">Hôm nay</div>
+                                    <div class="phrase-pronunciation">[home nai]</div>
+                                    <div class="phrase-english">Today</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Hôm qua', this)">
+                                    <div class="phrase-vietnamese">Hôm qua</div>
+                                    <div class="phrase-pronunciation">[home kwa]</div>
+                                    <div class="phrase-english">Yesterday</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Ngày mai', this)">
+                                    <div class="phrase-vietnamese">Ngày mai</div>
+                                    <div class="phrase-pronunciation">[ngai mai]</div>
+                                    <div class="phrase-english">Tomorrow</div>
+                                </div>
+
+                                <div class="phrase-card interactive" onclick="speakPhrase('Ngày mười lăm tháng ba', this)">
+                                    <div class="phrase-vietnamese">Ngày mười lăm tháng ba</div>
+                                    <div class="phrase-pronunciation">[ngai moy lahm thahng bah]</div>
+                                    <div class="phrase-english">March 15th</div>
+                                    <div class="phrase-note">Format: day + month</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5: Money -->
+                    <div class="tab-pane" id="money">
+                        <div class="section-intro">
+                            <h2>Money & Prices</h2>
+                            <p>Essential phrases for shopping and discussing prices.</p>
+                        </div>
+
+                        <div class="phrase-grid">
+                            <div class="phrase-card interactive" onclick="speakPhrase('Bao nhiêu tiền?', this)">
+                                <div class="phrase-vietnamese">Bao nhiêu tiền?</div>
+                                <div class="phrase-pronunciation">[bow nyew tyen]</div>
+                                <div class="phrase-english">How much money?</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Cái này bao nhiêu?', this)">
+                                <div class="phrase-vietnamese">Cái này bao nhiêu?</div>
+                                <div class="phrase-pronunciation">[kai nai bow nyew]</div>
+                                <div class="phrase-english">How much is this?</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Đồng', this)">
+                                <div class="phrase-vietnamese">Đồng (VND)</div>
+                                <div class="phrase-pronunciation">[dohng]</div>
+                                <div class="phrase-english">Vietnamese Dong (currency)</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Hai mươi nghìn đồng', this)">
+                                <div class="phrase-vietnamese">Hai mươi nghìn đồng</div>
+                                <div class="phrase-pronunciation">[hai muy ngin dohng]</div>
+                                <div class="phrase-english">20,000 VND</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Một trăm nghìn đồng', this)">
+                                <div class="phrase-vietnamese">Một trăm nghìn đồng</div>
+                                <div class="phrase-pronunciation">[moat tram ngin dohng]</div>
+                                <div class="phrase-english">100,000 VND</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Đắt quá', this)">
+                                <div class="phrase-vietnamese">Đắt quá</div>
+                                <div class="phrase-pronunciation">[dat kwa]</div>
+                                <div class="phrase-english">Too expensive</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Rẻ', this)">
+                                <div class="phrase-vietnamese">Rẻ</div>
+                                <div class="phrase-pronunciation">[zeh]</div>
+                                <div class="phrase-english">Cheap</div>
+                            </div>
+
+                            <div class="phrase-card interactive" onclick="speakPhrase('Giảm giá được không?', this)">
+                                <div class="phrase-vietnamese">Giảm giá được không?</div>
+                                <div class="phrase-pronunciation">[zam zah dook khome]</div>
+                                <div class="phrase-english">Can you give a discount?</div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <strong>Currency Tip:</strong> Vietnamese often drop "nghìn đồng" in speech and just say the number. 20,000 VND = "hai mươi"
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 6: Practice -->
+                    <div class="tab-pane" id="practice">
+                        <div class="section-intro">
+                            <h2>Test Your Knowledge</h2>
+                            <p>Practice numbers, time, and dates!</p>
+                        </div>
+
+                        <!-- Exercise 1: Number Matching -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-calculator"></i> Match Numbers</h3>
+                            <div class="matching-game" id="matching-game">
+                                <div class="match-card" data-pair="1">Một</div>
+                                <div class="match-card" data-pair="1">1</div>
+                                <div class="match-card" data-pair="2">Năm</div>
+                                <div class="match-card" data-pair="2">5</div>
+                                <div class="match-card" data-pair="3">Mười</div>
+                                <div class="match-card" data-pair="3">10</div>
+                                <div class="match-card" data-pair="4">Hai mươi</div>
+                                <div class="match-card" data-pair="4">20</div>
+                                <div class="match-card" data-pair="5">Một trăm</div>
+                                <div class="match-card" data-pair="5">100</div>
+                                <div class="match-card" data-pair="6">Một nghìn</div>
+                                <div class="match-card" data-pair="6">1,000</div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 2: Fill in the Blank -->
+                        <div class="exercise-section">
+                            <h3><i class="fas fa-pen"></i> Complete the Phrases</h3>
+                            <div class="fill-blank-exercise">
+                                <div class="fb-question">
+                                    1. What time is it? = Mấy <input type="text" class="fb-input" id="fb1" data-answer="giờ"> rồi?
+                                    <div class="fb-hint">Hint: means "hour"</div>
+                                </div>
+                                <button class="btn-check-small" onclick="checkFillBlank('fb1', 'giờ')">Check</button>
+                                <div class="fb-feedback"></div>
+
+                                <div class="fb-question">
+                                    2. Monday in Vietnamese: Thứ <input type="text" class="fb-input" id="fb2" data-answer="hai">
+                                    <div class="fb-hint">Hint: number 2</div>
+                                </div>
+                                <button class="btn-check-small" onclick="checkFillBlank('fb2', 'hai')">Check</button>
+                                <div class="fb-feedback"></div>
+
+                                <div class="fb-question">
+                                    3. 3:30 = Ba giờ <input type="text" class="fb-input" id="fb3" data-answer="rưỡi">
+                                    <div class="fb-hint">Hint: means "half"</div>
+                                </div>
+                                <button class="btn-check-small" onclick="checkFillBlank('fb3', 'rưỡi')">Check</button>
+                                <div class="fb-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="enhanced-sidebar">
+                <div class="sidebar-card progress-card">
+                    <h3><i class="fas fa-chart-line"></i> Your Progress</h3>
+                    <div class="progress-circle">
+                        <svg width="120" height="120">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="progress-bg" cx="60" cy="60" r="45"></circle>
+                            <circle class="progress-bar-circle" cx="60" cy="60" r="45" id="progress-circle"></circle>
+                        </svg>
+                        <div class="progress-text">0%</div>
+                    </div>
+                    <button class="btn-complete" onclick="markComplete()">
+                        <i class="fas fa-check-circle"></i> Mark as Complete
+                    </button>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-lightbulb"></i> Quick Reference</h3>
+                    <div class="quick-ref-list">
+                        <div class="quick-ref-item">
+                            <strong>Ten = mười</strong>
+                            After 20, use "mươi" for tens
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>15 = lăm</strong>
+                            Special word for 15, 25, 35, etc.
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Days start at 2</strong>
+                            Monday = thứ hai (day 2)
+                        </div>
+                        <div class="quick-ref-item">
+                            <strong>Time format</strong>
+                            Hour + giờ + minutes
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-list"></i> Related Lessons</h3>
+                    <div class="related-lessons">
+                        <a href="greetings-basics-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-hand-wave"></i> Greetings & Basics
+                        </a>
+                        <a href="sentence-structure-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-puzzle-piece"></i> Sentence Structure
+                        </a>
+                        <a href="daily-conversations-enhanced.html" class="related-lesson-link">
+                            <i class="fas fa-comments"></i> Daily Conversations
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <div class="feedback-toast" id="feedback-toast"></div>
+
+    <script src="../js/lecture-enhanced.js"></script>
+</body>
+</html>
