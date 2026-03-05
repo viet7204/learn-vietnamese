@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Vietnamese Phrases | Cụm Từ Thông Dụng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teaching.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .phrases-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .phrases-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .phrases-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+        
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+        
+        .category-tab {
+            padding: 12px 24px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .category-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .category-tab i {
+            margin-right: 8px;
+        }
+        
+        .phrases-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .phrases-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .phrase-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .phrase-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+        
+        .phrase-vietnamese {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .phrase-pronunciation {
+            font-size: 1.1rem;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .phrase-english {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .phrase-note {
+            font-size: 0.9rem;
+            color: #666;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        .audio-btn {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .audio-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(132, 250, 176, 0.4);
+        }
+        
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            animation: pulse 0.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .search-icon {
+            position: relative;
+            margin-top: -48px;
+            margin-right: 20px;
+            text-align: right;
+            color: #999;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .difficulty-beginner {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .difficulty-intermediate {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .difficulty-advanced {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        @media (max-width: 768px) {
+            .phrases-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .category-tabs {
+                gap: 8px;
+            }
+            
+            .category-tab {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .phrase-vietnamese {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+        <button id="lang-vi" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html" data-en="Learn Vietnamese" data-vi="Học Tiếng Việt">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-vi="Trang Chủ">Home</a></li>
+                <li><a href="courses.html" data-en="Courses" data-vi="Khóa Học">Courses</a></li>
+                <li><a href="lectures.html" data-en="Lectures" data-vi="Bài Giảng">Lectures</a></li>
+                <li><a href="common-phrases.html" class="active" data-en="Common Phrases" data-vi="Cụm Từ Thông Dụng">Common Phrases</a></li>
+                <li><a href="games.html" data-en="Games" data-vi="Trò Chơi">Games</a></li>
+                <li><a href="practice.html" data-en="Practice" data-vi="Luyện Tập">Practice</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="phrases-hero">
+        <div class="container">
+            <h1>Common Vietnamese Phrases</h1>
+            <p>Essential words and sentences for everyday communication</p>
+            <p style="font-size: 1rem; margin-top: 15px; opacity: 0.9;">
+                <i class="fas fa-volume-up"></i> Click any phrase to hear pronunciation
+            </p>
+        </div>
+    </section>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" id="phraseSearch" placeholder="Search phrases... (e.g., hello, thank you, how much)">
+        <div class="search-icon"><i class="fas fa-search"></i></div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+        <button class="category-tab active" data-category="greetings">
+            <i class="fas fa-hand-wave"></i> Greetings
+        </button>
+        <button class="category-tab" data-category="courtesy">
+            <i class="fas fa-heart"></i> Courtesy
+        </button>
+        <button class="category-tab" data-category="numbers">
+            <i class="fas fa-calculator"></i> Numbers
+        </button>
+        <button class="category-tab" data-category="shopping">
+            <i class="fas fa-shopping-cart"></i> Shopping
+        </button>
+        <button class="category-tab" data-category="food">
+            <i class="fas fa-utensils"></i> Food & Drink
+        </button>
+        <button class="category-tab" data-category="directions">
+            <i class="fas fa-map-signs"></i> Directions
+        </button>
+        <button class="category-tab" data-category="emergency">
+            <i class="fas fa-exclamation-triangle"></i> Emergency
+        </button>
+        <button class="category-tab" data-category="time">
+            <i class="fas fa-clock"></i> Time & Date
+        </button>
+    </div>
+
+    <!-- Phrases Container -->
+    <div class="container" style="padding: 40px 20px;">
+        
+        <!-- Greetings Section -->
+        <div class="phrases-section active" data-category="greetings">
+            <h2 style="margin-bottom: 30px; color: #333;">👋 Greetings & Introductions</h2>
+            
+            <div class="phrase-card" data-text="Xin chào">
+                <div class="phrase-vietnamese">
+                    <span>Xin chào <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Xin chào')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[sin chow]</div>
+                <div class="phrase-english">Hello / Hi</div>
+                <div class="phrase-note"><i class="fas fa-lightbulb"></i> Most common greeting, formal and informal</div>
+            </div>
+
+            <div class="phrase-card" data-text="Chào buổi sáng">
+                <div class="phrase-vietnamese">
+                    <span>Chào buổi sáng <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Chào buổi sáng')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[chow boo-oy sahng]</div>
+                <div class="phrase-english">Good morning</div>
+            </div>
+
+            <div class="phrase-card" data-text="Bạn khỏe không?">
+                <div class="phrase-vietnamese">
+                    <span>Bạn khỏe không? <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Bạn khỏe không?')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[ban kweh khohm]</div>
+                <div class="phrase-english">How are you?</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi khỏe, cảm ơn">
+                <div class="phrase-vietnamese">
+                    <span>Tôi khỏe, cảm ơn <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi khỏe, cảm ơn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy kweh, gahm uhn]</div>
+                <div class="phrase-english">I'm fine, thank you</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tên tôi là...">
+                <div class="phrase-vietnamese">
+                    <span>Tên tôi là... <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tên tôi là')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[ten toy lah]</div>
+                <div class="phrase-english">My name is...</div>
+            </div>
+
+            <div class="phrase-card" data-text="Rất vui được gặp bạn">
+                <div class="phrase-vietnamese">
+                    <span>Rất vui được gặp bạn <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Rất vui được gặp bạn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[zuht voo-ee doo-erk gahp ban]</div>
+                <div class="phrase-english">Nice to meet you</div>
+            </div>
+
+            <div class="phrase-card" data-text="Hẹn gặp lại">
+                <div class="phrase-vietnamese">
+                    <span>Hẹn gặp lại <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Hẹn gặp lại')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[hen gahp lie]</div>
+                <div class="phrase-english">See you later / Goodbye</div>
+            </div>
+
+            <div class="phrase-card" data-text="Chúc ngủ ngon">
+                <div class="phrase-vietnamese">
+                    <span>Chúc ngủ ngon <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Chúc ngủ ngon')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[chook ngoo ngon]</div>
+                <div class="phrase-english">Good night</div>
+            </div>
+        </div>
+
+        <!-- Courtesy Section -->
+        <div class="phrases-section" data-category="courtesy">
+            <h2 style="margin-bottom: 30px; color: #333;">❤️ Courtesy & Manners</h2>
+            
+            <div class="phrase-card" data-text="Cảm ơn">
+                <div class="phrase-vietnamese">
+                    <span>Cảm ơn <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Cảm ơn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[gahm uhn]</div>
+                <div class="phrase-english">Thank you</div>
+                <div class="phrase-note"><i class="fas fa-lightbulb"></i> Can add "nhiều" (nee-ew) for "thank you very much"</div>
+            </div>
+
+            <div class="phrase-card" data-text="Cảm ơn nhiều">
+                <div class="phrase-vietnamese">
+                    <span>Cảm ơn nhiều <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Cảm ơn nhiều')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[gahm uhn nee-ew]</div>
+                <div class="phrase-english">Thank you very much</div>
+            </div>
+
+            <div class="phrase-card" data-text="Không có gì">
+                <div class="phrase-vietnamese">
+                    <span>Không có gì <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Không có gì')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[khohm gaw zee]</div>
+                <div class="phrase-english">You're welcome / No problem</div>
+            </div>
+
+            <div class="phrase-card" data-text="Xin lỗi">
+                <div class="phrase-vietnamese">
+                    <span>Xin lỗi <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Xin lỗi')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[sin loy]</div>
+                <div class="phrase-english">Sorry / Excuse me</div>
+            </div>
+
+            <div class="phrase-card" data-text="Xin phép">
+                <div class="phrase-vietnamese">
+                    <span>Xin phép <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Xin phép')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[sin fehp]</div>
+                <div class="phrase-english">Excuse me (asking permission)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Làm ơn">
+                <div class="phrase-vietnamese">
+                    <span>Làm ơn <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Làm ơn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[lahm uhn]</div>
+                <div class="phrase-english">Please</div>
+            </div>
+
+            <div class="phrase-card" data-text="Chúc mừng">
+                <div class="phrase-vietnamese">
+                    <span>Chúc mừng <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Chúc mừng')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[chook mung]</div>
+                <div class="phrase-english">Congratulations</div>
+            </div>
+
+            <div class="phrase-card" data-text="Chúc may mắn">
+                <div class="phrase-vietnamese">
+                    <span>Chúc may mắn <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Chúc may mắn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[chook my mahn]</div>
+                <div class="phrase-english">Good luck</div>
+            </div>
+        </div>
+
+        <!-- Numbers Section -->
+        <div class="phrases-section" data-category="numbers">
+            <h2 style="margin-bottom: 30px; color: #333;">🔢 Numbers</h2>
+            
+            <div class="phrase-card" data-text="Một">
+                <div class="phrase-vietnamese">
+                    <span>Một <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Một')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[moht]</div>
+                <div class="phrase-english">One (1)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Hai">
+                <div class="phrase-vietnamese">
+                    <span>Hai <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Hai')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[hi]</div>
+                <div class="phrase-english">Two (2)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Ba">
+                <div class="phrase-vietnamese">
+                    <span>Ba <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Ba')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[bah]</div>
+                <div class="phrase-english">Three (3)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Bốn">
+                <div class="phrase-vietnamese">
+                    <span>Bốn <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Bốn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[bone]</div>
+                <div class="phrase-english">Four (4)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Năm">
+                <div class="phrase-vietnamese">
+                    <span>Năm <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Năm')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[nahm]</div>
+                <div class="phrase-english">Five (5)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Mười">
+                <div class="phrase-vietnamese">
+                    <span>Mười <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Mười')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[moo-oy]</div>
+                <div class="phrase-english">Ten (10)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Một trăm">
+                <div class="phrase-vietnamese">
+                    <span>Một trăm <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Một trăm')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[moht chahm]</div>
+                <div class="phrase-english">One hundred (100)</div>
+            </div>
+
+            <div class="phrase-card" data-text="Một nghìn">
+                <div class="phrase-vietnamese">
+                    <span>Một nghìn <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Một nghìn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[moht ngin]</div>
+                <div class="phrase-english">One thousand (1,000)</div>
+            </div>
+        </div>
+
+        <!-- Shopping Section -->
+        <div class="phrases-section" data-category="shopping">
+            <h2 style="margin-bottom: 30px; color: #333;">🛒 Shopping & Money</h2>
+            
+            <div class="phrase-card" data-text="Bao nhiêu tiền?">
+                <div class="phrase-vietnamese">
+                    <span>Bao nhiêu tiền? <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Bao nhiêu tiền?')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[bow nee-ew tee-en]</div>
+                <div class="phrase-english">How much is it?</div>
+                <div class="phrase-note"><i class="fas fa-lightbulb"></i> Essential phrase for markets and shops</div>
+            </div>
+
+            <div class="phrase-card" data-text="Đắt quá!">
+                <div class="phrase-vietnamese">
+                    <span>Đắt quá! <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Đắt quá!')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[daht gwah]</div>
+                <div class="phrase-english">Too expensive!</div>
+            </div>
+
+            <div class="phrase-card" data-text="Giảm giá được không?">
+                <div class="phrase-vietnamese">
+                    <span>Giảm giá được không? <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Giảm giá được không?')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[zahm zah doo-erk khohm]</div>
+                <div class="phrase-english">Can you give a discount?</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi muốn mua cái này">
+                <div class="phrase-vietnamese">
+                    <span>Tôi muốn mua cái này <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi muốn mua cái này')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy moo-on moo-ah guy nay]</div>
+                <div class="phrase-english">I want to buy this</div>
+            </div>
+
+            <div class="phrase-card" data-text="Cho tôi xem">
+                <div class="phrase-vietnamese">
+                    <span>Cho tôi xem <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Cho tôi xem')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[cho toy sem]</div>
+                <div class="phrase-english">Let me see / Show me</div>
+            </div>
+
+            <div class="phrase-card" data-text="Có cái khác không?">
+                <div class="phrase-vietnamese">
+                    <span>Có cái khác không? <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Có cái khác không?')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[gaw guy khak khohm]</div>
+                <div class="phrase-english">Do you have another one?</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi chỉ xem thôi">
+                <div class="phrase-vietnamese">
+                    <span>Tôi chỉ xem thôi <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi chỉ xem thôi')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy chee sem thoy]</div>
+                <div class="phrase-english">I'm just looking</div>
+            </div>
+        </div>
+
+        <!-- Food Section -->
+        <div class="phrases-section" data-category="food">
+            <h2 style="margin-bottom: 30px; color: #333;">🍜 Food & Drink</h2>
+            
+            <div class="phrase-card" data-text="Tôi đói">
+                <div class="phrase-vietnamese">
+                    <span>Tôi đói <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi đói')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy doy]</div>
+                <div class="phrase-english">I'm hungry</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi khát nước">
+                <div class="phrase-vietnamese">
+                    <span>Tôi khát nước <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi khát nước')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy khat noo-erk]</div>
+                <div class="phrase-english">I'm thirsty</div>
+            </div>
+
+            <div class="phrase-card" data-text="Ngon quá!">
+                <div class="phrase-vietnamese">
+                    <span>Ngon quá! <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Ngon quá!')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[ngon gwah]</div>
+                <div class="phrase-english">Delicious! / So tasty!</div>
+            </div>
+
+            <div class="phrase-card" data-text="Cho tôi thực đơn">
+                <div class="phrase-vietnamese">
+                    <span>Cho tôi thực đơn <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Cho tôi thực đơn')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[cho toy thook duhn]</div>
+                <div class="phrase-english">Give me the menu, please</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi muốn gọi món">
+                <div class="phrase-vietnamese">
+                    <span>Tôi muốn gọi món <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi muốn gọi món')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy moo-on goy mon]</div>
+                <div class="phrase-english">I want to order</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tính tiền">
+                <div class="phrase-vietnamese">
+                    <span>Tính tiền <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tính tiền')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[ting tee-en]</div>
+                <div class="phrase-english">Check, please / Bill, please</div>
+            </div>
+
+            <div class="phrase-card" data-text="Không cay">
+                <div class="phrase-vietnamese">
+                    <span>Không cay <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Không cay')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[khohm kai]</div>
+                <div class="phrase-english">Not spicy</div>
+            </div>
+
+            <div class="phrase-card" data-text="Chúc ngon miệng">
+                <div class="phrase-vietnamese">
+                    <span>Chúc ngon miệng <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Chúc ngon miệng')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[chook ngon mee-eng]</div>
+                <div class="phrase-english">Bon appétit / Enjoy your meal</div>
+            </div>
+        </div>
+
+        <!-- Directions Section -->
+        <div class="phrases-section" data-category="directions">
+            <h2 style="margin-bottom: 30px; color: #333;">🗺️ Directions & Travel</h2>
+            
+            <div class="phrase-card" data-text="... ở đâu?">
+                <div class="phrase-vietnamese">
+                    <span>... ở đâu? <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'ở đâu?')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[uh dow]</div>
+                <div class="phrase-english">Where is...?</div>
+                <div class="phrase-note"><i class="fas fa-lightbulb"></i> Example: "Nhà vệ sinh ở đâu?" = Where is the bathroom?</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi bị lạc đường">
+                <div class="phrase-vietnamese">
+                    <span>Tôi bị lạc đường <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi bị lạc đường')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy bee lak doo-uhng]</div>
+                <div class="phrase-english">I'm lost</div>
+            </div>
+
+            <div class="phrase-card" data-text="Thẳng">
+                <div class="phrase-vietnamese">
+                    <span>Thẳng <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Thẳng')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[thahng]</div>
+                <div class="phrase-english">Straight / Straight ahead</div>
+            </div>
+
+            <div class="phrase-card" data-text="Rẽ trái">
+                <div class="phrase-vietnamese">
+                    <span>Rẽ trái <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Rẽ trái')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[zeh chai]</div>
+                <div class="phrase-english">Turn left</div>
+            </div>
+
+            <div class="phrase-card" data-text="Rẽ phải">
+                <div class="phrase-vietnamese">
+                    <span>Rẽ phải <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Rẽ phải')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[zeh fai]</div>
+                <div class="phrase-english">Turn right</div>
+            </div>
+
+            <div class="phrase-card" data-text="Gần đây">
+                <div class="phrase-vietnamese">
+                    <span>Gần đây <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Gần đây')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[guhn day]</div>
+                <div class="phrase-english">Near here / Nearby</div>
+            </div>
+
+            <div class="phrase-card" data-text="Xa quá">
+                <div class="phrase-vietnamese">
+                    <span>Xa quá <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Xa quá')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[sah gwah]</div>
+                <div class="phrase-english">Too far</div>
+            </div>
+        </div>
+
+        <!-- Emergency Section -->
+        <div class="phrases-section" data-category="emergency">
+            <h2 style="margin-bottom: 30px; color: #333;">🚨 Emergency</h2>
+            
+            <div class="phrase-card" data-text="Cứu tôi!">
+                <div class="phrase-vietnamese">
+                    <span>Cứu tôi! <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Cứu tôi!')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[goo-oo toy]</div>
+                <div class="phrase-english">Help me!</div>
+            </div>
+
+            <div class="phrase-card" data-text="Gọi cảnh sát">
+                <div class="phrase-vietnamese">
+                    <span>Gọi cảnh sát <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Gọi cảnh sát')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[goy gang saht]</div>
+                <div class="phrase-english">Call the police</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi cần bác sĩ">
+                <div class="phrase-vietnamese">
+                    <span>Tôi cần bác sĩ <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi cần bác sĩ')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy guhn bahk see]</div>
+                <div class="phrase-english">I need a doctor</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tôi bị đau">
+                <div class="phrase-vietnamese">
+                    <span>Tôi bị đau <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tôi bị đau')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[toy bee dow]</div>
+                <div class="phrase-english">I'm hurt / I'm in pain</div>
+            </div>
+
+            <div class="phrase-card" data-text="Khẩn cấp!">
+                <div class="phrase-vietnamese">
+                    <span>Khẩn cấp! <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Khẩn cấp!')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[khuhn guhp]</div>
+                <div class="phrase-english">Emergency!</div>
+            </div>
+
+            <div class="phrase-card" data-text="Đừng động vào tôi!">
+                <div class="phrase-vietnamese">
+                    <span>Đừng động vào tôi! <span class="difficulty-badge difficulty-intermediate">Intermediate</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Đừng động vào tôi!')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[dung dohng vow toy]</div>
+                <div class="phrase-english">Don't touch me!</div>
+            </div>
+        </div>
+
+        <!-- Time Section -->
+        <div class="phrases-section" data-category="time">
+            <h2 style="margin-bottom: 30px; color: #333;">🕐 Time & Date</h2>
+            
+            <div class="phrase-card" data-text="Mấy giờ rồi?">
+                <div class="phrase-vietnamese">
+                    <span>Mấy giờ rồi? <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Mấy giờ rồi?')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[may zuh zoy]</div>
+                <div class="phrase-english">What time is it?</div>
+            </div>
+
+            <div class="phrase-card" data-text="Hôm nay">
+                <div class="phrase-vietnamese">
+                    <span>Hôm nay <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Hôm nay')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[hohm nay]</div>
+                <div class="phrase-english">Today</div>
+            </div>
+
+            <div class="phrase-card" data-text="Ngày mai">
+                <div class="phrase-vietnamese">
+                    <span>Ngày mai <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Ngày mai')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[ngay my]</div>
+                <div class="phrase-english">Tomorrow</div>
+            </div>
+
+            <div class="phrase-card" data-text="Hôm qua">
+                <div class="phrase-vietnamese">
+                    <span>Hôm qua <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Hôm qua')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[hohm gwah]</div>
+                <div class="phrase-english">Yesterday</div>
+            </div>
+
+            <div class="phrase-card" data-text="Bây giờ">
+                <div class="phrase-vietnamese">
+                    <span>Bây giờ <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Bây giờ')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[bay zuh]</div>
+                <div class="phrase-english">Now</div>
+            </div>
+
+            <div class="phrase-card" data-text="Tuần này">
+                <div class="phrase-vietnamese">
+                    <span>Tuần này <span class="difficulty-badge difficulty-beginner">Beginner</span></span>
+                    <button class="audio-btn" onclick="speak(this, 'Tuần này')">
+                        <i class="fas fa-volume-up"></i> Listen
+                    </button>
+                </div>
+                <div class="phrase-pronunciation">[too-uhn nay]</div>
+                <div class="phrase-english">This week</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Learn Vietnamese</h3>
+                    <p>Your journey to Vietnamese language mastery starts here.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="lectures.html">Lectures</a></li>
+                        <li><a href="common-phrases.html">Common Phrases</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="practice.html">Practice Exercises</a></li>
+                        <li><a href="visual.html">Visual Learning</a></li>
+                        <li><a href="games.html">Learning Games</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Learn Vietnamese. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Text-to-Speech function
+        function speak(button, text) {
+            // Stop any current speech
+            window.speechSynthesis.cancel();
+            
+            // Add playing class
+            button.classList.add('playing');
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.8; // Slower for learning
+            
+            utterance.onend = function() {
+                button.classList.remove('playing');
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // Category switching
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const phraseSections = document.querySelectorAll('.phrases-section');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const category = this.dataset.category;
+                
+                // Update active tab
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding section
+                phraseSections.forEach(section => {
+                    if (section.dataset.category === category) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                
+                // Scroll to top of phrases
+                document.querySelector('.phrases-section.active').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('phraseSearch');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const allPhraseCards = document.querySelectorAll('.phrase-card');
+            
+            if (searchTerm === '') {
+                // Show all cards
+                allPhraseCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                return;
+            }
+            
+            allPhraseCards.forEach(card => {
+                const vietnamese = card.querySelector('.phrase-vietnamese').textContent.toLowerCase();
+                const english = card.querySelector('.phrase-english').textContent.toLowerCase();
+                const pronunciation = card.querySelector('.phrase-pronunciation').textContent.toLowerCase();
+                
+                if (vietnamese.includes(searchTerm) || 
+                    english.includes(searchTerm) || 
+                    pronunciation.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

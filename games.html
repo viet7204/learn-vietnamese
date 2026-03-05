@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Learning Games | Trò Chơi Học Tiếng Việt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teaching.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .games-hero {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .games-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .games-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .game-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .game-card.vocabulary .game-header {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+        
+        .game-card.matching .game-header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .game-card.monopoly .game-header {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .game-card.quiz .game-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .game-card.memory .game-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        
+        .game-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .game-difficulty {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .game-body {
+            padding: 30px;
+        }
+        
+        .game-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .game-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .game-features li {
+            padding: 8px 0;
+            color: #555;
+        }
+        
+        .game-features i {
+            color: #667eea;
+            margin-right: 10px;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .play-btn.coming-soon {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .play-btn.coming-soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Game Modal */
+        .game-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .game-modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-btn {
+            background: rgba(255,255,255,0.3);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255,255,255,0.5);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .games-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+                padding: 30px 15px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+        <button id="lang-vi" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html" data-en="Learn Vietnamese" data-vi="Học Tiếng Việt">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-vi="Trang Chủ">Home</a></li>
+                <li><a href="courses.html" data-en="Courses" data-vi="Khóa Học">Courses</a></li>
+                <li><a href="lectures.html" data-en="Lectures" data-vi="Bài Giảng">Lectures</a></li>
+                <li><a href="common-phrases.html" data-en="Common Phrases" data-vi="Cụm Từ Thông Dụng">Common Phrases</a></li>
+                <li><a href="games.html" class="active" data-en="Games" data-vi="Trò Chơi">Games</a></li>
+                <li><a href="practice.html" data-en="Practice" data-vi="Luyện Tập">Practice</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="games-hero">
+        <div class="container">
+            <h1>🎮 Vietnamese Learning Games</h1>
+            <p>Learn Vietnamese while having fun!</p>
+            <p style="font-size: 1rem; margin-top: 15px; opacity: 0.9;">
+                Interactive games to practice vocabulary, grammar, and pronunciation
+            </p>
+        </div>
+    </section>
+
+    <!-- Games Grid -->
+    <div class="games-grid">
+        
+        <!-- Vocabulary Flashcards -->
+        <div class="game-card vocabulary">
+            <div class="game-header">
+                <div class="game-icon">🎴</div>
+                <h3>Flashcard Master</h3>
+                <span class="game-difficulty">Beginner</span>
+            </div>
+            <div class="game-body">
+                <p class="game-description">
+                    Practice Vietnamese vocabulary with interactive digital flashcards. Flip cards to reveal meanings, test yourself, and track your progress.
+                </p>
+                <ul class="game-features">
+                    <li><i class="fas fa-check-circle"></i> 500+ vocabulary cards</li>
+                    <li><i class="fas fa-check-circle"></i> Audio pronunciation</li>
+                    <li><i class="fas fa-check-circle"></i> Spaced repetition system</li>
+                    <li><i class="fas fa-check-circle"></i> Progress tracking</li>
+                </ul>
+                <button class="play-btn" onclick="openGame('flashcards')">
+                    <i class="fas fa-play"></i> Play Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Matching Game -->
+        <div class="game-card matching">
+            <div class="game-header">
+                <div class="game-icon">🎯</div>
+                <h3>Match & Learn</h3>
+                <span class="game-difficulty">Beginner</span>
+            </div>
+            <div class="game-body">
+                <p class="game-description">
+                    Match Vietnamese words with their English translations. Race against the clock and improve your vocabulary recognition speed!
+                </p>
+                <ul class="game-features">
+                    <li><i class="fas fa-check-circle"></i> Timed challenges</li>
+                    <li><i class="fas fa-check-circle"></i> Multiple difficulty levels</li>
+                    <li><i class="fas fa-check-circle"></i> Leaderboard system</li>
+                    <li><i class="fas fa-check-circle"></i> Category selection</li>
+                </ul>
+                <button class="play-btn" onclick="openGame('matching')">
+                    <i class="fas fa-play"></i> Play Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Vietnamese Monopoly -->
+        <div class="game-card monopoly">
+            <div class="game-header">
+                <div class="game-icon">🎲</div>
+                <h3>Việt Nam Adventure</h3>
+                <span class="game-difficulty">Intermediate</span>
+            </div>
+            <div class="game-body">
+                <p class="game-description">
+                    Travel around Vietnam in this Monopoly-style board game! Answer Vietnamese questions, collect cities, and become the ultimate Vietnamese language champion.
+                </p>
+                <ul class="game-features">
+                    <li><i class="fas fa-check-circle"></i> Virtual board game</li>
+                    <li><i class="fas fa-check-circle"></i> Vietnamese city properties</li>
+                    <li><i class="fas fa-check-circle"></i> Question challenges</li>
+                    <li><i class="fas fa-check-circle"></i> Multiplayer support (coming)</li>
+                </ul>
+                <button class="play-btn coming-soon" onclick="alert('Coming Soon! This game is under development.')">
+                    <i class="fas fa-hourglass-half"></i> Coming Soon
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Challenge -->
+        <div class="game-card quiz">
+            <div class="game-header">
+                <div class="game-icon">❓</div>
+                <h3>Quiz Challenge</h3>
+                <span class="game-difficulty">All Levels</span>
+            </div>
+            <div class="game-body">
+                <p class="game-description">
+                    Test your Vietnamese knowledge with multiple-choice quizzes. Choose your difficulty level and compete for high scores!
+                </p>
+                <ul class="game-features">
+                    <li><i class="fas fa-check-circle"></i> 200+ quiz questions</li>
+                    <li><i class="fas fa-check-circle"></i> Grammar, vocab & culture</li>
+                    <li><i class="fas fa-check-circle"></i> Difficulty selection</li>
+                    <li><i class="fas fa-check-circle"></i> Instant feedback</li>
+                </ul>
+                <button class="play-btn" onclick="openGame('quiz')">
+                    <i class="fas fa-play"></i> Play Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Memory Game -->
+        <div class="game-card memory">
+            <div class="game-header">
+                <div class="game-icon">🧠</div>
+                <h3>Memory Match</h3>
+                <span class="game-difficulty">Beginner</span>
+            </div>
+            <div class="game-body">
+                <p class="game-description">
+                    Classic memory card game with Vietnamese twist! Flip cards to find matching pairs of Vietnamese words and their meanings.
+                </p>
+                <ul class="game-features">
+                    <li><i class="fas fa-check-circle"></i> 3 difficulty levels</li>
+                    <li><i class="fas fa-check-circle"></i> Themed card sets</li>
+                    <li><i class="fas fa-check-circle"></i> Move counter</li>
+                    <li><i class="fas fa-check-circle"></i> Best time tracking</li>
+                </ul>
+                <button class="play-btn" onclick="openGame('memory')">
+                    <i class="fas fa-play"></i> Play Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Word Builder -->
+        <div class="game-card vocabulary">
+            <div class="game-header">
+                <div class="game-icon">🔤</div>
+                <h3>Word Builder</h3>
+                <span class="game-difficulty">Intermediate</span>
+            </div>
+            <div class="game-body">
+                <p class="game-description">
+                    Build Vietnamese sentences by arranging words in correct order. Practice grammar and sentence structure in a fun, interactive way!
+                </p>
+                <ul class="game-features">
+                    <li><i class="fas fa-check-circle"></i> Sentence construction</li>
+                    <li><i class="fas fa-check-circle"></i> Grammar practice</li>
+                    <li><i class="fas fa-check-circle"></i> 100+ exercises</li>
+                    <li><i class="fas fa-check-circle"></i> Hints available</li>
+                </ul>
+                <button class="play-btn coming-soon" onclick="alert('Coming Soon! This game is under development.')">
+                    <i class="fas fa-hourglass-half"></i> Coming Soon
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Game Modals -->
+    
+    <!-- Flashcards Modal -->
+    <div class="game-modal" id="flashcards-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎴 Flashcard Master</h2>
+                <button class="close-btn" onclick="closeGame('flashcards')">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; padding: 40px;">
+                    <div class="flashcard" id="flashcard" onclick="flipCard()" style="width: 400px; height: 250px; max-width: 100%; margin: 0 auto; perspective: 1000px; cursor: pointer;">
+                        <div class="flashcard-inner" style="position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d;">
+                            <div class="flashcard-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                                <p style="font-size: 3rem; font-weight: bold; margin-bottom: 20px;">Xin chào</p>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speak('Xin chào')" style="background: rgba(255,255,255,0.3); border: none; padding: 10px 20px; border-radius: 20px; color: white; cursor: pointer; font-size: 1rem;">
+                                    <i class="fas fa-volume-up"></i> Pronounce
+                                </button>
+                            </div>
+                            <div class="flashcard-back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; transform: rotateY(180deg); padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                                <p style="font-size: 2.5rem; font-weight: bold;">Hello / Hi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 40px;">
+                        <button onclick="prevCard()" style="padding: 15px 30px; margin: 0 10px; background: #667eea; color: white; border: none; border-radius: 10px; font-size: 1.1rem; cursor: pointer;">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button onclick="nextCard()" style="padding: 15px 30px; margin: 0 10px; background: #667eea; color: white; border: none; border-radius: 10px; font-size: 1.1rem; cursor: pointer;">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <p style="margin-top: 20px; color: #666; font-size: 1.1rem;">Click card to flip • Card <span id="cardNumber">1</span> of <span id="totalCards">10</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matching Game Modal -->
+    <div class="game-modal" id="matching-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎯 Match & Learn</h2>
+                <button class="close-btn" onclick="closeGame('matching')">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
+                        <div style="font-size: 1.2rem; font-weight: bold;">Time: <span id="timer">00:00</span></div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">Score: <span id="score">0</span></div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">Matches: <span id="matches">0</span>/5</div>
+                    </div>
+                    <div id="matchingGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; max-width: 800px; margin: 0 auto;">
+                        <!-- Grid will be populated by JavaScript -->
+                    </div>
+                    <button onclick="resetMatching()" style="margin-top: 30px; padding: 15px 40px; background: #667eea; color: white; border: none; border-radius: 10px; font-size: 1.1rem; cursor: pointer;">
+                        <i class="fas fa-redo"></i> New Game
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="game-modal" id="quiz-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>❓ Quiz Challenge</h2>
+                <button class="close-btn" onclick="closeGame('quiz')">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <p style="font-size: 1.2rem; color: #666;">Question <span id="quizNumber">1</span> of <span id="quizTotal">10</span></p>
+                        <div style="margin-top: 10px; height: 20px; background: #e0e0e0; border-radius: 10px; overflow: hidden;">
+                            <div id="progressBar" style="height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 10%; transition: width 0.3s;"></div>
+                        </div>
+                    </div>
+                    <div id="quizQuestion" style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+                        <h3 style="font-size: 1.8rem; color: #333; margin-bottom: 20px;">What does "Cảm ơn" mean?</h3>
+                        <div id="quizOptions" style="display: grid; gap: 15px;">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.3rem; font-weight: bold; color: #667eea;">Score: <span id="quizScore">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memory Game Modal -->
+    <div class="game-modal" id="memory-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🧠 Memory Match</h2>
+                <button class="close-btn" onclick="closeGame('memory')">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="display: flex; justify-content: space-around; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
+                        <div style="font-size: 1.2rem; font-weight: bold;">Moves: <span id="moves">0</span></div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">Pairs Found: <span id="pairs">0</span>/6</div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">Time: <span id="memoryTimer">00:00</span></div>
+                    </div>
+                    <div id="memoryGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 600px; margin: 0 auto;">
+                        <!-- Grid will be populated by JavaScript -->
+                    </div>
+                    <button onclick="resetMemory()" style="margin-top: 30px; padding: 15px 40px; background: #667eea; color: white; border: none; border-radius: 10px; font-size: 1.1rem; cursor: pointer;">
+                        <i class="fas fa-redo"></i> New Game
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Learn Vietnamese</h3>
+                    <p>Your journey to Vietnamese language mastery starts here.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="common-phrases.html">Common Phrases</a></li>
+                        <li><a href="games.html">Learning Games</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="lectures.html">Lectures</a></li>
+                        <li><a href="practice.html">Practice Exercises</a></li>
+                        <li><a href="visual.html">Visual Learning</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Learn Vietnamese. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Game management
+        function openGame(gameId) {
+            document.getElementById(gameId + '-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Initialize game based on type
+            if (gameId === 'matching') {
+                initMatching();
+            } else if (gameId === 'quiz') {
+                initQuiz();
+            } else if (gameId === 'memory') {
+                initMemory();
+            }
+        }
+        
+        function closeGame(gameId) {
+            document.getElementById(gameId + '-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Text-to-Speech
+        function speak(text) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // Flashcard game
+        let currentCard = 0;
+        const flashcards = [
+            { vi: 'Xin chào', en: 'Hello / Hi' },
+            { vi: 'Cảm ơn', en: 'Thank you' },
+            { vi: 'Xin lỗi', en: 'Sorry / Excuse me' },
+            { vi: 'Tạm biệt', en: 'Goodbye' },
+            { vi: 'Có', en: 'Yes' },
+            { vi: 'Không', en: 'No' },
+            { vi: 'Bao nhiêu tiền?', en: 'How much?' },
+            { vi: 'Tôi không hiểu', en: 'I don\'t understand' },
+            { vi: 'Bạn khỏe không?', en: 'How are you?' },
+            { vi: 'Tôi yêu Việt Nam', en: 'I love Vietnam' }
+        ];
+        
+        function flipCard() {
+            const inner = document.querySelector('.flashcard-inner');
+            if (inner.style.transform === 'rotateY(180deg)') {
+                inner.style.transform = 'rotateY(0deg)';
+            } else {
+                inner.style.transform = 'rotateY(180deg)';
+            }
+        }
+        
+        function updateCard() {
+            const card = flashcards[currentCard];
+            document.querySelector('.flashcard-front p').textContent = card.vi;
+            document.querySelector('.flashcard-back p').textContent = card.en;
+            document.querySelector('.flashcard-front button').setAttribute('onclick', `event.stopPropagation(); speak('${card.vi}')`);
+            document.getElementById('cardNumber').textContent = currentCard + 1;
+            document.getElementById('totalCards').textContent = flashcards.length;
+            document.querySelector('.flashcard-inner').style.transform = 'rotateY(0deg)';
+        }
+        
+        function nextCard() {
+            currentCard = (currentCard + 1) % flashcards.length;
+            updateCard();
+        }
+        
+        function prevCard() {
+            currentCard = (currentCard - 1 + flashcards.length) % flashcards.length;
+            updateCard();
+        }
+        
+        // Matching game
+        let matchingPairs = [
+            { vi: 'Một', en: 'One' },
+            { vi: 'Hai', en: 'Two' },
+            { vi: 'Ba', en: 'Three' },
+            { vi: 'Bốn', en: 'Four' },
+            { vi: 'Năm', en: 'Five' }
+        ];
+        let selectedCards = [];
+        let matchedPairs = 0;
+        let matchingTimer;
+        let matchingSeconds = 0;
+        
+        function initMatching() {
+            matchedPairs = 0;
+            matchingSeconds = 0;
+            document.getElementById('matches').textContent = '0';
+            document.getElementById('score').textContent = '0';
+            resetMatching();
+            startMatchingTimer();
+        }
+        
+        function startMatchingTimer() {
+            clearInterval(matchingTimer);
+            matchingTimer = setInterval(() => {
+                matchingSeconds++;
+                const mins = Math.floor(matchingSeconds / 60).toString().padStart(2, '0');
+                const secs = (matchingSeconds % 60).toString().padStart(2, '0');
+                document.getElementById('timer').textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+        
+        function resetMatching() {
+            selectedCards = [];
+            const grid = document.getElementById('matchingGrid');
+            const allCards = [];
+            
+            matchingPairs.forEach(pair => {
+                allCards.push({ text: pair.vi, type: 'vi', pair: pair.en });
+                allCards.push({ text: pair.en, type: 'en', pair: pair.vi });
+            });
+            
+            // Shuffle
+            allCards.sort(() => Math.random() - 0.5);
+            
+            grid.innerHTML = '';
+            allCards.forEach((card, index) => {
+                const cardEl = document.createElement('div');
+                cardEl.style.cssText = 'padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: all 0.3s; min-height: 80px; display: flex; align-items: center; justify-content: center; text-align: center;';
+                cardEl.textContent = card.text;
+                cardEl.dataset.text = card.text;
+                cardEl.dataset.pair = card.pair;
+                cardEl.dataset.type = card.type;
+                cardEl.onclick = function() { selectMatchCard(this); };
+                grid.appendChild(cardEl);
+            });
+        }
+        
+        function selectMatchCard(card) {
+            if (card.style.opacity === '0.3' || selectedCards.includes(card)) return;
+            
+            card.style.background = 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)';
+            selectedCards.push(card);
+            
+            if (selectedCards.length === 2) {
+                const [card1, card2] = selectedCards;
+                if ((card1.dataset.text === card2.dataset.pair) || (card2.dataset.text === card1.dataset.pair)) {
+                    // Match!
+                    setTimeout(() => {
+                        card1.style.opacity = '0.3';
+                        card2.style.opacity = '0.3';
+                        card1.style.background = 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)';
+                        card2.style.background = 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)';
+                        matchedPairs++;
+                        document.getElementById('matches').textContent = matchedPairs;
+                        document.getElementById('score').textContent = matchedPairs * 100;
+                        
+                        if (matchedPairs === matchingPairs.length) {
+                            clearInterval(matchingTimer);
+                            setTimeout(() => alert(`Congratulations! You completed in ${document.getElementById('timer').textContent}!`), 500);
+                        }
+                        selectedCards = [];
+                    }, 500);
+                } else {
+                    // No match
+                    setTimeout(() => {
+                        card1.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        card2.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        selectedCards = [];
+                    }, 1000);
+                }
+            }
+        }
+        
+        // Quiz game
+        const quizQuestions = [
+            {
+                question: 'What does "Cảm ơn" mean?',
+                options: ['Hello', 'Thank you', 'Goodbye', 'Sorry'],
+                correct: 1
+            },
+            {
+                question: 'How do you say "Hello" in Vietnamese?',
+                options: ['Tạm biệt', 'Xin chào', 'Cảm ơn', 'Xin lỗi'],
+                correct: 1
+            },
+            {
+                question: 'What is "Một" in English?',
+                options: ['One', 'Two', 'Three', 'Four'],
+                correct: 0
+            },
+            {
+                question: 'How do you say "Goodbye"?',
+                options: ['Xin chào', 'Cảm ơn', 'Tạm biệt', 'Xin lỗi'],
+                correct: 2
+            },
+            {
+                question: 'What does "Bao nhiêu tiền?" mean?',
+                options: ['What time?', 'How much?', 'Where is?', 'Who are you?'],
+                correct: 1
+            }
+        ];
+        let currentQuiz = 0;
+        let quizScore = 0;
+        
+        function initQuiz() {
+            currentQuiz = 0;
+            quizScore = 0;
+            document.getElementById('quizScore').textContent = '0';
+            showQuizQuestion();
+        }
+        
+        function showQuizQuestion() {
+            if (currentQuiz >= quizQuestions.length) {
+                alert(`Quiz Complete! Your score: ${quizScore}/${quizQuestions.length}`);
+                return;
+            }
+            
+            const q = quizQuestions[currentQuiz];
+            document.getElementById('quizNumber').textContent = currentQuiz + 1;
+            document.getElementById('quizTotal').textContent = quizQuestions.length;
+            document.querySelector('#quizQuestion h3').textContent = q.question;
+            document.getElementById('progressBar').style.width = ((currentQuiz + 1) / quizQuestions.length * 100) + '%';
+            
+            const optionsDiv = document.getElementById('quizOptions');
+            optionsDiv.innerHTML = '';
+            
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.textContent = option;
+                btn.style.cssText = 'padding: 20px; background: white; border: 2px solid #ddd; border-radius: 10px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; text-align: left;';
+                btn.onmouseover = function() { this.style.background = '#f0f0f0'; };
+                btn.onmouseout = function() { if (!this.classList.contains('selected')) this.style.background = 'white'; };
+                btn.onclick = function() { answerQuiz(index, this); };
+                optionsDiv.appendChild(btn);
+            });
+        }
+        
+        function answerQuiz(selected, button) {
+            const q = quizQuestions[currentQuiz];
+            const buttons = document.getElementById('quizOptions').querySelectorAll('button');
+            
+            buttons.forEach(btn => btn.style.pointerEvents = 'none');
+            
+            if (selected === q.correct) {
+                button.style.background = 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)';
+                button.style.color = 'white';
+                button.style.borderColor = '#84fab0';
+                quizScore++;
+                document.getElementById('quizScore').textContent = quizScore;
+            } else {
+                button.style.background = 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)';
+                button.style.color = 'white';
+                button.style.borderColor = '#fa709a';
+                buttons[q.correct].style.background = 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)';
+                buttons[q.correct].style.color = 'white';
+            }
+            
+            setTimeout(() => {
+                currentQuiz++;
+                showQuizQuestion();
+            }, 2000);
+        }
+        
+        // Memory game
+        const memoryPairs = [
+            { vi: 'Chào', en: 'Hello' },
+            { vi: 'Cảm ơn', en: 'Thanks' },
+            { vi: 'Xin lỗi', en: 'Sorry' },
+            { vi: 'Có', en: 'Yes' },
+            { vi: 'Không', en: 'No' },
+            { vi: 'Một', en: 'One' }
+        ];
+        let memoryCards = [];
+        let flippedCards = [];
+        let memoryMoves = 0;
+        let memoryPairsFound = 0;
+        let memoryTimerInterval;
+        let memorySeconds = 0;
+        
+        function initMemory() {
+            memoryMoves = 0;
+            memoryPairsFound = 0;
+            memorySeconds = 0;
+            document.getElementById('moves').textContent = '0';
+            document.getElementById('pairs').textContent = '0';
+            resetMemory();
+            startMemoryTimer();
+        }
+        
+        function startMemoryTimer() {
+            clearInterval(memoryTimerInterval);
+            memoryTimerInterval = setInterval(() => {
+                memorySeconds++;
+                const mins = Math.floor(memorySeconds / 60).toString().padStart(2, '0');
+                const secs = (memorySeconds % 60).toString().padStart(2, '0');
+                document.getElementById('memoryTimer').textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+        
+        function resetMemory() {
+            flippedCards = [];
+            memoryCards = [];
+            
+            memoryPairs.forEach(pair => {
+                memoryCards.push({ text: pair.vi, pair: pair.en });
+                memoryCards.push({ text: pair.en, pair: pair.vi });
+            });
+            
+            memoryCards.sort(() => Math.random() - 0.5);
+            
+            const grid = document.getElementById('memoryGrid');
+            grid.innerHTML = '';
+            
+            memoryCards.forEach((card, index) => {
+                const cardEl = document.createElement('div');
+                cardEl.style.cssText = 'aspect-ratio: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; font-weight: bold; transition: all 0.3s;';
+                cardEl.textContent = '?';
+                cardEl.dataset.text = card.text;
+                cardEl.dataset.pair = card.pair;
+                cardEl.dataset.index = index;
+                cardEl.onclick = function() { flipMemoryCard(this); };
+                grid.appendChild(cardEl);
+            });
+        }
+        
+        function flipMemoryCard(card) {
+            if (flippedCards.length >= 2 || card.classList.contains('found') || flippedCards.includes(card)) return;
+            
+            card.textContent = card.dataset.text;
+            card.style.background = 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)';
+            flippedCards.push(card);
+            
+            if (flippedCards.length === 2) {
+                memoryMoves++;
+                document.getElementById('moves').textContent = memoryMoves;
+                
+                const [card1, card2] = flippedCards;
+                if ((card1.dataset.text === card2.dataset.pair) || (card2.dataset.text === card1.dataset.pair)) {
+                    // Match!
+                    setTimeout(() => {
+                        card1.style.background = 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)';
+                        card2.style.background = 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)';
+                        card1.classList.add('found');
+                        card2.classList.add('found');
+                        memoryPairsFound++;
+                        document.getElementById('pairs').textContent = memoryPairsFound;
+                        
+                        if (memoryPairsFound === memoryPairs.length) {
+                            clearInterval(memoryTimerInterval);
+                            setTimeout(() => alert(`Congratulations! Completed in ${memoryMoves} moves and ${document.getElementById('memoryTimer').textContent}!`), 500);
+                        }
+                        flippedCards = [];
+                    }, 500);
+                } else {
+                    // No match
+                    setTimeout(() => {
+                        card1.textContent = '?';
+                        card2.textContent = '?';
+                        card1.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        card2.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        flippedCards = [];
+                    }, 1000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
