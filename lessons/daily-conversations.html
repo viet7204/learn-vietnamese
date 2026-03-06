@@ -1,49 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Conversations in Vietnamese - Viet Le</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Daily Conversations in Vietnamese | Bài Giảng</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/teaching.css">
     <link rel="stylesheet" href="../css/lecture.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn" data-lang="en">EN</button>
+        <button id="lang-vi" class="lang-btn active" data-lang="vi">VI</button>
+    </div>
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>                <li><a href="../lectures.html" class="active">Lectures</a></li>                <li><a href="../practice.html">Practice</a></li>                <li><a href="../visual.html">Visual Learning</a></li>
+            <div class="logo">
+                <h1><a href="../index.html">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../lectures.html" class="active">Lectures</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+                <li><a href="../visual.html">Visual Learning</a></li>
+                <li><a href="../course.html">Course</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
-            <a href="../index.html">Home</a> / 
-            <a href="../lectures.html">Lectures</a> / 
-            <span>Daily Conversations</span>
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <a href="../lectures.html">Lectures</a>
+            <span class="separator">/</span>
+            <span>Daily Conversations in Vietnamese</span>
         </div>
     </div>
 
-    <section class="lecture-content">
+    <!-- Lecture Header -->
+    <section class="lecture-header">
+        <div class="container">
+            <div class="lecture-header-content">
+                <span class="lecture-badge intermediate-badge">Intermediate</span>
+                <h1>Daily Conversations in Vietnamese</h1>
+                <p class="lecture-subtitle">Practice real-life dialogues for shopping, dining, asking directions and social situations</p>
+                
+                <div class="lecture-info">
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <span>By <strong>Viet Le</strong></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-calendar"></i>
+                        <span>Feb 12, 2026</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-clock"></i>
+                        <span>35 minutes</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <span>289 learners</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-star"></i>
+                        <span>4.9 rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lecture Content -->
+    <section class="lecture-content-section">
         <div class="container">
             <div class="lecture-layout">
-                <main class="lecture-main">
-                    <div class="lecture-header">
-                        <span class="lecture-level intermediate">Intermediate</span>
-                        <h1>Daily Conversations in Vietnamese</h1>
-                        <div class="lecture-meta">
-                            <span><i class="fas fa-clock"></i> 30 minutes</span>
-                            <span><i class="fas fa-user"></i> Intermediate Level</span>
-                            <span><i class="fas fa-calendar"></i> Updated Feb 2026</span>
-                        </div>
-                    </div>
-
-                    <div class="lecture-body">
+                <!-- Main Content -->
+                <article class="lecture-main">
+                    <!-- Introduction -->
+                    <div class="content-block">
                         <h2>Introduction</h2>
                         <p>This lesson covers practical Vietnamese phrases for everyday situations: shopping, ordering food, asking for directions, and more. These conversations will help you navigate daily life in Vietnam!</p>
+                    </div>
 
+                    <!-- At a Restaurant -->
+                    <div class="content-block">
                         <h2>At a Restaurant</h2>
                         
                         <div class="example-box">
@@ -97,7 +149,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Shopping -->
+                    <div class="content-block">
                         <h2>Shopping at the Market</h2>
                         
                         <div class="example-box">
@@ -135,7 +190,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Asking for Directions -->
+                    <div class="content-block">
                         <h2>Asking for Directions</h2>
                         
                         <div class="example-box">
@@ -181,7 +239,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Taking Transportation -->
+                    <div class="content-block">
                         <h2>Taking Transportation</h2>
                         
                         <div class="example-box">
@@ -211,7 +272,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Common Useful Phrases -->
+                    <div class="content-block">
                         <h2>Common Useful Phrases</h2>
                         
                         <div class="example-box">
@@ -249,7 +313,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Practice Tips -->
+                    <div class="content-block">
                         <h2>Practice Tips</h2>
                         <div class="tips-box">
                             <p><strong>Cultural Tip:</strong> Use "xin lỗi" (excuse me) before asking strangers for help - it's considered polite.</p>
@@ -262,13 +329,14 @@
                             <a href="sentence-structure.html" class="btn-secondary">
                                 <i class="fas fa-arrow-left"></i> Previous Lecture
                             </a>
-                            <a href="../vietnamese-lectures.html" class="btn-primary">
+                            <a href="../lectures.html" class="btn-primary">
                                 Back to All Lectures <i class="fas fa-list"></i>
                             </a>
                         </div>
                     </div>
-                </main>
+                </article>
 
+                <!-- Sidebar -->
                 <aside class="lecture-sidebar">
                     <div class="sidebar-section">
                         <h3>Progress</h3>
@@ -289,8 +357,8 @@
                     <div class="sidebar-section">
                         <h3>Quick Links</h3>
                         <ul class="quick-links">
-                            <li><a href="../vietnamese-practice.html"><i class="fas fa-microphone"></i> Practice Tool</a></li>
-                            <li><a href="../teaching.html"><i class="fas fa-home"></i> Teaching Home</a></li>
+                            <li><a href="../practice.html"><i class="fas fa-microphone"></i> Practice Tool</a></li>
+                            <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
                         </ul>
                     </div>
                 </aside>
@@ -298,6 +366,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Viet Le. All rights reserved.</p>

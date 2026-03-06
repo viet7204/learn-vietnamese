@@ -1,49 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vietnamese Numbers & Time - Viet Le</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Numbers, Time and Dates | Bài Giảng</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/teaching.css">
     <link rel="stylesheet" href="../css/lecture.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn" data-lang="en">EN</button>
+        <button id="lang-vi" class="lang-btn active" data-lang="vi">VI</button>
+    </div>
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="../index.html" class="nav-brand">Learn Vietnamese</a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>                <li><a href="../lectures.html" class="active">Lectures</a></li>                <li><a href="../practice.html">Practice</a></li>                <li><a href="../visual.html">Visual Learning</a></li>
+            <div class="logo">
+                <h1><a href="../index.html">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../lectures.html" class="active">Lectures</a></li>
+                <li><a href="../practice.html">Practice</a></li>
+                <li><a href="../visual.html">Visual Learning</a></li>
+                <li><a href="../course.html">Course</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
-            <a href="../index.html">Home</a> / 
-            <a href="../lectures.html">Lectures</a> / 
-            <span>Numbers & Time</span>
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <a href="../lectures.html">Lectures</a>
+            <span class="separator">/</span>
+            <span>Numbers, Time and Dates</span>
         </div>
     </div>
 
-    <section class="lecture-content">
+    <!-- Lecture Header -->
+    <section class="lecture-header">
+        <div class="container">
+            <div class="lecture-header-content">
+                <span class="lecture-badge beginner-badge">Beginner</span>
+                <h1>Numbers, Time and Dates</h1>
+                <p class="lecture-subtitle">Master Vietnamese numbers, telling time, days of the week and expressing dates correctly</p>
+                
+                <div class="lecture-info">
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <span>By <strong>Viet Le</strong></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-calendar"></i>
+                        <span>Feb 8, 2026</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-clock"></i>
+                        <span>22 minutes</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <span>498 learners</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-star"></i>
+                        <span>4.8 rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lecture Content -->
+    <section class="lecture-content-section">
         <div class="container">
             <div class="lecture-layout">
-                <main class="lecture-main">
-                    <div class="lecture-header">
-                        <span class="lecture-level beginner">Beginner</span>
-                        <h1>Vietnamese Numbers & Time</h1>
-                        <div class="lecture-meta">
-                            <span><i class="fas fa-clock"></i> 20 minutes</span>
-                            <span><i class="fas fa-user"></i> Beginner Level</span>
-                            <span><i class="fas fa-calendar"></i> Updated Feb 2026</span>
-                        </div>
-                    </div>
-
-                    <div class="lecture-body">
+                <!-- Main Content -->
+                <article class="lecture-main">
+                    <!-- Introduction -->
+                    <div class="content-block">
                         <h2>Introduction</h2>
                         <p>Numbers are essential for shopping, telling time, and daily conversations in Vietnamese. The number system is logical and easy to learn once you master the basics!</p>
+                    </div>
 
+                    <!-- Numbers 0-10 -->
+                    <div class="content-block">
                         <h2>Numbers 0-10</h2>
                         
                         <div class="example-box">
@@ -137,7 +189,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Numbers 11-99 -->
+                    <div class="content-block">
                         <h2>Numbers 11-99</h2>
                         
                         <div class="example-box">
@@ -184,7 +239,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Telling Time -->
+                    <div class="content-block">
                         <h2>Telling Time</h2>
                         
                         <div class="example-box">
@@ -222,7 +280,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Days and Dates -->
+                    <div class="content-block">
                         <h2>Days and Dates</h2>
                         
                         <div class="example-box">
@@ -268,7 +329,10 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Practice Tips -->
+                    <div class="content-block">
                         <h2>Practice Tips</h2>
                         <div class="tips-box">
                             <p><strong>Number Pattern:</strong> After 10, use "mươi" (tens). For example: 23 = hai mươi ba (two tens three).</p>
@@ -286,8 +350,9 @@
                             </a>
                         </div>
                     </div>
-                </main>
+                </article>
 
+                <!-- Sidebar -->
                 <aside class="lecture-sidebar">
                     <div class="sidebar-section">
                         <h3>Progress</h3>
@@ -308,8 +373,8 @@
                     <div class="sidebar-section">
                         <h3>Quick Links</h3>
                         <ul class="quick-links">
-                            <li><a href="../vietnamese-practice.html"><i class="fas fa-microphone"></i> Practice Tool</a></li>
-                            <li><a href="../teaching.html"><i class="fas fa-home"></i> Teaching Home</a></li>
+                            <li><a href="../practice.html"><i class="fas fa-microphone"></i> Practice Tool</a></li>
+                            <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
                         </ul>
                     </div>
                 </aside>
@@ -317,6 +382,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Viet Le. All rights reserved.</p>
