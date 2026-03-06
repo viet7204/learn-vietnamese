@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Curriculum - Learn Vietnamese</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .grade-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .grade-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .grade-info {
+            background: white;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        
+        .lesson-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .lesson-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .lesson-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .lesson-topics {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .lesson-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .lesson-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-study {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-study:hover {
+            background: #45a049;
+        }
+        
+        .btn-practice {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-practice:hover {
+            background: #0b7dda;
+        }
+        
+        .btn-flashcards {
+            background: #FF9800;
+            color: white;
+        }
+        
+        .btn-flashcards:hover {
+            background: #e68900;
+        }
+        
+        .section-header {
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            padding: 0 20px;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .back-btn {
+            background: #666;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 20px;
+        }
+        
+        .back-btn:hover {
+            background: #555;
+        }
+        
+        .progress-overview {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .progress-bar-container {
+            background: #ddd;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <a href="curriculum.html" class="back-btn">← Back to Curriculum</a>
+    
+    <div class="grade-header">
+        <h1 id="gradeTitle">Loading...</h1>
+        <p id="gradeDescription"></p>
+    </div>
+    
+    <div class="grade-info">
+        <h2>Course Overview</h2>
+        <p id="courseOverview"></p>
+        
+        <div class="progress-overview">
+            <h3>Your Progress</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="overallProgress" style="width: 0%;">0%</div>
+            </div>
+            <p id="progressText">Get started with your first lesson!</p>
+        </div>
+    </div>
+    
+    <div class="section-header">
+        <h2>Lessons</h2>
+    </div>
+    
+    <div class="lesson-grid" id="lessonGrid"></div>
+    
+    <script src="js/auth.js"></script>
+    <script>
+        // Protect this page
+        protectPage();
+        
+        // Grade data structure
+        const gradeData = {
+            prek: {
+                title: "Pre-Kindergarten",
+                description: "Fun introduction to Vietnamese language through songs, games, and basic vocabulary",
+                overview: "Perfect for young learners! This course introduces children to Vietnamese through interactive activities, colorful flashcards, and simple songs. Focus on listening, recognition, and basic pronunciation.",
+                lessons: [
+                    {
+                        number: 1,
+                        title: "Colors & Shapes",
+                        topics: "Learn basic colors (màu) and simple shapes",
+                        flashcards: "colors"
+                    },
+                    {
+                        number: 2,
+                        title: "Farm Animals",
+                        topics: "Discover Vietnamese words for common farm animals",
+                        flashcards: "animals"
+                    },
+                    {
+                        number: 3,
+                        title: "Numbers 1-10",
+                        topics: "Count from một to mười with fun activities",
+                        flashcards: "numbers"
+                    },
+                    {
+                        number: 4,
+                        title: "Family Members",
+                        topics: "Learn to say bố, mẹ, and other family words",
+                        flashcards: "family"
+                    },
+                    {
+                        number: 5,
+                        title: "Fruits & Foods",
+                        topics: "Yummy Vietnamese words for fruits and simple foods",
+                        flashcards: "food"
+                    }
+                ]
+            },
+            kindergarten: {
+                title: "Kindergarten",
+                description: "Building vocabulary and simple phrases through interactive learning",
+                overview: "Expand vocabulary with themed lessons covering everyday topics. Introduction to simple sentence patterns and basic conversation. Includes games, songs, and writing practice.",
+                lessons: [
+                    {
+                        number: 1,
+                        title: "Greetings & Introductions",
+                        topics: "Xin chào! Learn how to introduce yourself",
+                        flashcards: "family"
+                    },
+                    {
+                        number: 2,
+                        title: "In the Classroom",
+                        topics: "School vocabulary: bút, sách, bảng",
+                        flashcards: "classroom"
+                    },
+                    {
+                        number: 3,
+                        title: "Body Parts",
+                        topics: "Learn đầu, tay, chân and other body words",
+                        flashcards: "animals"
+                    },
+                    {
+                        number: 4,
+                        title: "Weather & Seasons",
+                        topics: "Talk about the weather: nắng, mưa, gió",
+                        flashcards: "colors"
+                    },
+                    {
+                        number: 5,
+                        title: "Transportation",
+                        topics: "How do you travel? Xe ô tô, xe đạp, máy bay",
+                        flashcards: "numbers"
+                    },
+                    {
+                        number: 6,
+                        title: "Daily Activities",
+                        topics: "ăn cơm, ngủ, chơi - everyday actions",
+                        flashcards: "food"
+                    }
+                ]
+            },
+            grade1: {
+                title: "Grade 1",
+                description: "Reading, writing, and basic conversation skills",
+                overview: "Introduction to Vietnamese alphabet and tone marks. Learn to read and write simple words and sentences. Build conversational skills through role-play and interactive exercises.",
+                lessons: [
+                    {
+                        number: 1,
+                        title: "Vietnamese Alphabet",
+                        topics: "Learn all 29 letters: A, Ă, Â, B, C, D...",
+                        flashcards: "classroom"
+                    },
+                    {
+                        number: 2,
+                        title: "Tone Marks",
+                        topics: "Master 6 tones: ngang, huyền, sắc, hỏi, ngã, nặng",
+                        flashcards: "colors"
+                    },
+                    {
+                        number: 3,
+                        title: "Simple Sentences",
+                        topics: "Create sentences: Tôi là..., Tôi có...",
+                        flashcards: "family"
+                    },
+                    {
+                        number: 4,
+                        title: "At Home",
+                        topics: "Rooms, furniture, and household items",
+                        flashcards: "food"
+                    },
+                    {
+                        number: 5,
+                        title: "My Day",
+                        topics: "Talk about your daily routine",
+                        flashcards: "numbers"
+                    },
+                    {
+                        number: 6,
+                        title: "Shopping & Money",
+                        topics: "Basic numbers and shopping vocabulary",
+                        flashcards: "food"
+                    },
+                    {
+                        number: 7,
+                        title: "Animals Around Us",
+                        topics: "Zoo animals, pets, and wildlife",
+                        flashcards: "animals"
+                    },
+                    {
+                        number: 8,
+                        title: "Review & Practice",
+                        topics: "Comprehensive review of Grade 1",
+                        flashcards: "classroom"
+                    }
+                ]
+            },
+            grade2: {
+                title: "Grade 2",
+                description: "Expanding vocabulary and improving reading comprehension",
+                overview: "Build upon Grade 1 foundations with more complex vocabulary and sentence structures. Introduction to reading short stories and writing paragraphs.",
+                lessons: [
+                    {
+                        number: 1,
+                        title: "Advanced Vocabulary",
+                        topics: "Expand your word bank with themed vocabulary",
+                        flashcards: "classroom"
+                    },
+                    {
+                        number: 2,
+                        title: "Question Words",
+                        topics: "Ai? Gì? Ở đâu? Khi nào? Tại sao?",
+                        flashcards: "family"
+                    },
+                    {
+                        number: 3,
+                        title: "Past & Future Tense",
+                        topics: "Đã, sẽ - talking about time",
+                        flashcards: "numbers"
+                    },
+                    {
+                        number: 4,
+                        title: "Describing Things",
+                        topics: "Adjectives: đẹp, xấu, lớn, nhỏ",
+                        flashcards: "colors"
+                    },
+                    {
+                        number: 5,
+                        title: "Vietnamese Culture",
+                        topics: "Tết, traditions, and festivals",
+                        flashcards: "food"
+                    },
+                    {
+                        number: 6,
+                        title: "Story Time",
+                        topics: "Read and understand simple stories",
+                        flashcards: "animals"
+                    }
+                ]
+            },
+            grade3: {
+                title: "Grade 3",
+                description: "Developing fluency in speaking and writing",
+                overview: "Focus on conversational Vietnamese and creative writing. Learn to express opinions, tell stories, and engage in longer conversations.",
+                lessons: [
+                    {
+                        number: 1,
+                        title: "Advanced Conversations",
+                        topics: "Expressing opinions and preferences",
+                        flashcards: "family"
+                    },
+                    {
+                        number: 2,
+                        title: "Writing Stories",
+                        topics: "Create your own Vietnamese stories",
+                        flashcards: "classroom"
+                    },
+                    {
+                        number: 3,
+                        title: "Vietnamese Geography",
+                        topics: "Provinces, cities, and landmarks",
+                        flashcards: "numbers"
+                    },
+                    {
+                        number: 4,
+                        title: "Food & Cooking",
+                        topics: "Vietnamese cuisine and recipes",
+                        flashcards: "food"
+                    },
+                    {
+                        number: 5,
+                        title: "Sports & Hobbies",
+                        topics: "Talk about activities you enjoy",
+                        flashcards: "animals"
+                    }
+                ]
+            },
+            advanced: {
+                title: "Advanced (Grades 4-6)",
+                description: "Master Vietnamese language with complex grammar and literature",
+                overview: "Advanced grammar structures, Vietnamese literature, essay writing, and formal communication. Preparation for Vietnamese language proficiency.",
+                lessons: [
+                    {
+                        number: 1,
+                        title: "Complex Grammar",
+                        topics: "Advanced sentence structures and grammar rules",
+                        flashcards: "classroom"
+                    },
+                    {
+                        number: 2,
+                        title: "Vietnamese Literature",
+                        topics: "Read poems and short stories by Vietnamese authors",
+                        flashcards: "family"
+                    },
+                    {
+                        number: 3,
+                        title: "Formal Writing",
+                        topics: "Essays, letters, and formal communication",
+                        flashcards: "numbers"
+                    },
+                    {
+                        number: 4,
+                        title: "Vietnamese History",
+                        topics: "Important events and historical figures",
+                        flashcards: "colors"
+                    },
+                    {
+                        number: 5,
+                        title: "Idioms & Proverbs",
+                        topics: "Thành ngữ và tục ngữ Việt Nam",
+                        flashcards: "food"
+                    },
+                    {
+                        number: 6,
+                        title: "News & Current Events",
+                        topics: "Read and discuss Vietnamese news articles",
+                        flashcards: "animals"
+                    }
+                ]
+            }
+        };
+        
+        // Get grade level from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const gradeLevel = urlParams.get('level') || 'prek';
+        const grade = gradeData[gradeLevel];
+        
+        // Populate page content
+        document.getElementById('gradeTitle').textContent = grade.title;
+        document.getElementById('gradeDescription').textContent = grade.description;
+        document.getElementById('courseOverview').textContent = grade.overview;
+        
+        // Generate lesson cards
+        const lessonGrid = document.getElementById('lessonGrid');
+        grade.lessons.forEach(lesson => {
+            const card = document.createElement('div');
+            card.className = 'lesson-card';
+            card.innerHTML = `
+                <div class="lesson-number">${lesson.number}</div>
+                <h3>${lesson.title}</h3>
+                <p class="lesson-topics">${lesson.topics}</p>
+                <div class="lesson-actions">
+                    <a href="lesson.html?grade=${gradeLevel}&lesson=${lesson.number}" class="lesson-btn btn-study">📖 Study</a>
+                    <a href="practice.html?grade=${gradeLevel}&lesson=${lesson.number}" class="lesson-btn btn-practice">✍️ Practice</a>
+                    <a href="flashcards-interactive.html?category=${lesson.flashcards}" class="lesson-btn btn-flashcards">🗂️ Flashcards</a>
+                </div>
+            `;
+            lessonGrid.appendChild(card);
+        });
+        
+        // Load progress from localStorage
+        function loadProgress() {
+            const progressKey = `progress_${gradeLevel}`;
+            const saved = localStorage.getItem(progressKey);
+            
+            if (saved) {
+                const progress = JSON.parse(saved);
+                const completed = progress.completed || [];
+                const percentage = Math.round((completed.length / grade.lessons.length) * 100);
+                
+                document.getElementById('overallProgress').style.width = percentage + '%';
+                document.getElementById('overallProgress').textContent = percentage + '%';
+                document.getElementById('progressText').textContent = 
+                    `You've completed ${completed.length} of ${grade.lessons.length} lessons!`;
+            }
+        }
+        
+        loadProgress();
+    </script>
+</body>
+</html>
