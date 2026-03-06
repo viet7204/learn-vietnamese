@@ -19,6 +19,21 @@
             padding: 0;
         }
         
+        .back-btn {
+            background: #666;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 20px;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #555;
+        }
+        
         .lesson-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -376,6 +391,8 @@
     </style>
 </head>
 <body>
+    <a href="#" id="backBtn" class="back-btn">← Back to Grade</a>
+    
     <div class="lesson-container">
         <div class="lesson-header">
             <h1 id="lessonTitle">Loading Lesson...</h1>
@@ -466,6 +483,9 @@
         const urlParams = new URLSearchParams(window.location.search);
         const gradeLevel = urlParams.get('grade') || 'prek';
         const lessonNum = parseInt(urlParams.get('lesson')) || 1;
+        
+        // Set back button link
+        document.getElementById('backBtn').href = `grade.html?level=${gradeLevel}`;
         
         // Lesson content database
         const lessonContent = {
