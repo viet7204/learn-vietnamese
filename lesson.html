@@ -1204,11 +1204,53 @@
             },
             grade2: {
                 1: {
-                    title: "Question Words",
-                    description: "Master Vietnamese question words to ask about anything",
+                    title: "Advanced Vocabulary",
+                    description: "Expand your word bank with themed vocabulary sets",
                     duration: "30 minutes",
                     pdfPath: "books/vanlang/VanLang02_v7.pdf",
-                    pdfPages: [1, 12],
+                    pdfPages: [1, 10],
+                    reading: [
+                        { vi: "Chúng ta học từ vựng mới mỗi ngày.", en: "We learn new vocabulary every day." },
+                        { vi: "Từ điển giúp tôi tra nghĩa các từ.", en: "The dictionary helps me look up word meanings." },
+                        { vi: "Ghi chép từ mới giúp nhớ lâu hơn.", en: "Writing down new words helps remember them longer." },
+                        { vi: "Thực hành là chìa khóa thành công.", en: "Practice is the key to success." }
+                    ],
+                    vocabulary: [
+                        { word: "từ vựng", pronunciation: "từ vựng", translation: "vocabulary" },
+                        { word: "từ điển", pronunciation: "từ ziển", translation: "dictionary" },
+                        { word: "nghĩa", pronunciation: "nghĩa", translation: "meaning" },
+                        { word: "ghi chép", pronunciation: "gi chép", translation: "to write down, take notes" },
+                        { word: "tra cứu", pronunciation: "tra cứu", translation: "to look up" },
+                        { word: "nhớ", pronunciation: "nhớ", translation: "to remember" },
+                        { word: "thực hành", pronunciation: "thực hành", translation: "to practice" },
+                        { word: "chìa khóa", pronunciation: "chìa kóa", translation: "key" },
+                        { word: "thành công", pronunciation: "tành công", translation: "success" },
+                        { word: "tiến bộ", pronunciation: "tiến bộ", translation: "progress, improvement" }
+                    ],
+                    grammar: [
+                        "Pattern: [verb] + giúp + [person] + [verb phrase]",
+                        "Example: Từ điển giúp tôi tra nghĩa (Dictionary helps me look up meanings)",
+                        "Use 'mới' after noun for 'new': từ mới (new word)"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'từ điển' mean?",
+                            options: ["Vocabulary", "Dictionary", "Meaning", "Practice"],
+                            correct: 1
+                        },
+                        {
+                            question: "How do you say 'to remember' in Vietnamese?",
+                            options: ["ghi chép", "nhớ", "tra cứu", "học"],
+                            correct: 1
+                        }
+                    ]
+                },
+                2: {
+                    title: "Question Words",
+                    description: "Master Vietnamese question words: Ai? Gì? Ở đâu? Khi nào? Tại sao?",
+                    duration: "30 minutes",
+                    pdfPath: "books/vanlang/VanLang02_v7.pdf",
+                    pdfPages: [11, 20],
                     reading: [
                         { vi: "Ai là giáo viên của bạn?", en: "Who is your teacher?" },
                         { vi: "Bạn làm gì vào cuối tuần?", en: "What do you do on weekends?" },
@@ -1221,15 +1263,202 @@
                         { word: "Ở đâu?", pronunciation: "ở đâu", translation: "Where?" },
                         { word: "Khi nào?", pronunciation: "ki nào", translation: "When?" },
                         { word: "Tại sao?", pronunciation: "tại sao", translation: "Why?" },
-                        { word: "Như thế nào?", pronunciation: "như thế nào", translation: "How?" }
+                        { word: "Như thế nào?", pronunciation: "như thế nào", translation: "How?" },
+                        { word: "Bao nhiêu?", pronunciation: "bao nhiêu", translation: "How much/many?" },
+                        { word: "Bao lâu?", pronunciation: "bao lâu", translation: "How long?" },
+                        { word: "Cái nào?", pronunciation: "kái nào", translation: "Which one?" },
+                        { word: "của ai?", pronunciation: "của ai", translation: "Whose?" }
                     ],
                     grammar: [
                         "Question structure: [Question word] + statement",
                         "Ai? for people, Gì? for things",
-                        "Ở đâu? specifically for location"
+                        "Ở đâu? specifically for location",
+                        "Khi nào? for time questions",
+                        "Tại sao? for asking reasons (answer with 'vì' = because)"
                     ],
                     exercises: [
-                        { question: "Which word means 'When?'", options: ["Ai", "Khi nào", "Ở đâu", "Gì"], correct: 1 }
+                        {
+                            question: "Which word means 'When?'",
+                            options: ["Ai", "Khi nào", "Ở đâu", "Gì"],
+                            correct: 1
+                        },
+                        {
+                            question: "What question word asks 'Why?'",
+                            options: ["Như thế nào", "Tại sao", "Bao nhiêu", "Cái nào"],
+                            correct: 1
+                        }
+                    ]
+                },
+                3: {
+                    title: "Past & Future Tense",
+                    description: "Learn to talk about time using đã and sẽ",
+                    duration: "30 minutes",
+                    pdfPath: "books/vanlang/VanLang02_v7.pdf",
+                    pdfPages: [21, 30],
+                    reading: [
+                        { vi: "Tôi đã ăn sáng rồi.", en: "I already ate breakfast." },
+                        { vi: "Ngày mai tôi sẽ đi chơi.", en: "Tomorrow I will go out." },
+                        { vi: "Tuần trước chúng tôi đã học bài mới.", en: "Last week we learned a new lesson." },
+                        { vi: "Năm sau em sẽ đi du lịch.", en: "Next year I will travel." }
+                    ],
+                    vocabulary: [
+                        { word: "đã", pronunciation: "đã", translation: "already, past tense marker" },
+                        { word: "sẽ", pronunciation: "sẽ", translation: "will, future tense marker" },
+                        { word: "rồi", pronunciation: "rồi", translation: "already, completed" },
+                        { word: "hôm qua", pronunciation: "hôm kwa", translation: "yesterday" },
+                        { word: "hôm nay", pronunciation: "hôm nay", translation: "today" },
+                        { word: "ngày mai", pronunciation: "ngày mai", translation: "tomorrow" },
+                        { word: "tuần trước", pronunciation: "tuần trước", translation: "last week" },
+                        { word: "tuần sau", pronunciation: "tuần sau", translation: "next week" },
+                        { word: "năm ngoái", pronunciation: "năm ngoái", translation: "last year" },
+                        { word: "năm sau", pronunciation: "năm sau", translation: "next year" }
+                    ],
+                    grammar: [
+                        "Past tense: đã + verb (+ rồi for emphasis)",
+                        "Future tense: sẽ + verb",
+                        "Time words help indicate tense: hôm qua (past), ngày mai (future)",
+                        "Example: Tôi đã ăn rồi (I already ate)"
+                    ],
+                    exercises: [
+                        {
+                            question: "Which word indicates past tense?",
+                            options: ["sẽ", "đã", "đang", "vẫn"],
+                            correct: 1
+                        },
+                        {
+                            question: "How do you say 'tomorrow' in Vietnamese?",
+                            options: ["hôm qua", "hôm nay", "ngày mai", "tuần sau"],
+                            correct: 2
+                        }
+                    ]
+                },
+                4: {
+                    title: "Describing Things",
+                    description: "Use adjectives to describe: đẹp, xấu, lớn, nhỏ, cao, thấp",
+                    duration: "30 minutes",
+                    pdfPath: "books/vanlang/VanLang02_v7.pdf",
+                    pdfPages: [31, 40],
+                    reading: [
+                        { vi: "Ngôi nhà này rất đẹp.", en: "This house is very beautiful." },
+                        { vi: "Con chó to và mạnh.", en: "The dog is big and strong." },
+                        { vi: "Bạn tôi cao hơn tôi.", en: "My friend is taller than me." },
+                        { vi: "Quả táo này ngon nhất.", en: "This apple is the most delicious." }
+                    ],
+                    vocabulary: [
+                        { word: "đẹp", pronunciation: "đẹp", translation: "beautiful, pretty" },
+                        { word: "xấu", pronunciation: "xấu", translation: "ugly" },
+                        { word: "lớn/to", pronunciation: "lớn/to", translation: "big, large" },
+                        { word: "nhỏ/bé", pronunciation: "nhỏ/bé", translation: "small, little" },
+                        { word: "cao", pronunciation: "kao", translation: "tall, high" },
+                        { word: "thấp", pronunciation: "thấp", translation: "short, low" },
+                        { word: "mạnh", pronunciation: "mạnh", translation: "strong" },
+                        { word: "yếu", pronunciation: "yếu", translation: "weak" },
+                        { word: "nóng", pronunciation: "nóng", translation: "hot" },
+                        { word: "lạnh", pronunciation: "lạnh", translation: "cold" }
+                    ],
+                    grammar: [
+                        "Adjectives come after nouns: nhà đẹp (beautiful house)",
+                        "Use 'rất' before adjective for 'very': rất đẹp (very beautiful)",
+                        "Comparative: adjective + hơn (more than): cao hơn (taller)",
+                        "Superlative: adjective + nhất (most): đẹp nhất (most beautiful)"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'cao' mean?",
+                            options: ["Short", "Tall", "Strong", "Weak"],
+                            correct: 1
+                        },
+                        {
+                            question: "How do you say 'most beautiful' in Vietnamese?",
+                            options: ["rất đẹp", "đẹp hơn", "đẹp nhất", "đẹp lắm"],
+                            correct: 2
+                        }
+                    ]
+                },
+                5: {
+                    title: "Vietnamese Culture",
+                    description: "Learn about Tết, traditions, and Vietnamese festivals",
+                    duration: "35 minutes",
+                    pdfPath: "books/vanlang/VanLang02_v7.pdf",
+                    pdfPages: [41, 50],
+                    reading: [
+                        { vi: "Tết Nguyên Đán là lễ hội lớn nhất Việt Nam.", en: "Lunar New Year is Vietnam's biggest festival." },
+                        { vi: "Gia đình sum họp và ăn bánh chưng.", en: "Families gather together and eat square glutinous rice cakes." },
+                        { vi: "Trẻ em nhận lì xì từ người lớn.", en: "Children receive lucky money from adults." },
+                        { vi: "Mọi người chúc nhau năm mới vui vẻ.", en: "Everyone wishes each other a happy new year." }
+                    ],
+                    vocabulary: [
+                        { word: "Tết", pronunciation: "tết", translation: "Lunar New Year" },
+                        { word: "lễ hội", pronunciation: "lễ hội", translation: "festival" },
+                        { word: "truyền thống", pronunciation: "truyền thống", translation: "tradition" },
+                        { word: "sum họp", pronunciation: "sum họp", translation: "to gather, reunion" },
+                        { word: "bánh chưng", pronunciation: "bánh chưng", translation: "square rice cake" },
+                        { word: "lì xì", pronunciation: "lì xì", translation: "lucky money" },
+                        { word: "chúc", pronunciation: "chúk", translation: "to wish" },
+                        { word: "đền", pronunciation: "đền", translation: "temple" },
+                        { word: "đèn lồng", pronunciation: "đèn lồng", translation: "lantern" },
+                        { word: "pháo hoa", pronunciation: "fáo hoa", translation: "fireworks" }
+                    ],
+                    grammar: [
+                        "Pattern: lễ hội + [name] (festival of...)",
+                        "Use 'chúc' + [person] + [wish] to express wishes",
+                        "Example: Chúc mừng năm mới (Happy New Year)",
+                        "Cultural note: Tết is the most important Vietnamese holiday"
+                    ],
+                    exercises: [
+                        {
+                            question: "What is 'Tết'?",
+                            options: ["Birthday", "Lunar New Year", "Mid-Autumn Festival", "Independence Day"],
+                            correct: 1
+                        },
+                        {
+                            question: "What does 'lì xì' mean?",
+                            options: ["Rice cake", "Lucky money", "Fireworks", "Lantern"],
+                            correct: 1
+                        }
+                    ]
+                },
+                6: {
+                    title: "Story Time",
+                    description: "Read and understand simple Vietnamese stories",
+                    duration: "35 minutes",
+                    pdfPath: "books/vanlang/VanLang02_v7.pdf",
+                    pdfPages: [51, 60],
+                    reading: [
+                        { vi: "Ngày xửa ngày xưa, có một cô bé tên là Tấm.", en: "Once upon a time, there was a girl named Tam." },
+                        { vi: "Cô sống với mẹ kế và em gái cùng mẹ.", en: "She lived with her stepmother and stepsister." },
+                        { vi: "Tấm rất chăm chỉ và hiền lành.", en: "Tam was very hardworking and kind." },
+                        { vi: "Cuối cùng, cô được hạnh phúc.", en: "In the end, she found happiness." }
+                    ],
+                    vocabulary: [
+                        { word: "truyện", pronunciation: "truyện", translation: "story" },
+                        { word: "ngày xưa", pronunciation: "ngày xưa", translation: "long ago, once upon a time" },
+                        { word: "nhân vật", pronunciation: "nhân vật", translation: "character" },
+                        { word: "chăm chỉ", pronunciation: "chăm chỉ", translation: "hardworking, diligent" },
+                        { word: "hiền lành", pronunciation: "hiền lành", translation: "kind, gentle" },
+                        { word: "hạnh phúc", pronunciation: "hạnh fúk", translation: "happiness, happy" },
+                        { word: "cuối cùng", pronunciation: "cuối cùng", translation: "finally, in the end" },
+                        { word: "đọc", pronunciation: "đok", translation: "to read" },
+                        { word: "kể", pronunciation: "kể", translation: "to tell (a story)" },
+                        { word: "sự kiện", pronunciation: "sự kiện", translation: "event" }
+                    ],
+                    grammar: [
+                        "Story opening: Ngày xửa ngày xưa (Once upon a time)",
+                        "Past narrative uses 'đã' or simple past tense",
+                        "Sequence words: đầu tiên (first), sau đó (then), cuối cùng (finally)",
+                        "Character descriptions use adjectives after nouns"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'ngày xưa' mean?",
+                            options: ["Yesterday", "Today", "Long ago", "Tomorrow"],
+                            correct: 2
+                        },
+                        {
+                            question: "Which word means 'hardworking'?",
+                            options: ["hiền lành", "chăm chỉ", "hạnh phúc", "nhân vật"],
+                            correct: 1
+                        }
                     ]
                 }
             },
@@ -1243,22 +1472,210 @@
                     reading: [
                         { vi: "Tôi nghĩ rằng học tiếng Việt rất thú vị.", en: "I think learning Vietnamese is very interesting." },
                         { vi: "Theo tôi, chúng ta nên luyện tập mỗi ngày.", en: "In my opinion, we should practice every day." },
-                        { vi: "Tôi thích đọc sách và xem phim.", en: "I like reading books and watching movies." }
+                        { vi: "Tôi thích đọc sách và xem phim.", en: "I like reading books and watching movies." },
+                        { vi: "Bạn nghĩ sao về bài học này?", en: "What do you think about this lesson?" }
                     ],
                     vocabulary: [
                         { word: "Tôi nghĩ", pronunciation: "tôi nghĩ", translation: "I think" },
                         { word: "Theo tôi", pronunciation: "teo tôi", translation: "In my opinion" },
-                        { word: "Tôi thích", pronunciation: "tôi tích", translation: "I like" },
+                        { word: "Tôi thích", pronunciation: "tôi tík", translation: "I like" },
                         { word: "thú vị", pronunciation: "thú vị", translation: "interesting" },
-                        { word: "luyện tập", pronunciation: "luyện tập", translation: "practice" }
+                        { word: "luyện tập", pronunciation: "luyện tập", translation: "to practice" },
+                        { word: "nên", pronunciation: "nên", translation: "should" },
+                        { word: "ý kiến", pronunciation: "ý kiến", translation: "opinion" },
+                        { word: "đồng ý", pronunciation: "đồng ý", translation: "to agree" },
+                        { word: "không đồng ý", pronunciation: "không đồng ý", translation: "to disagree" },
+                        { word: "bàn luận", pronunciation: "bàn luận", translation: "to discuss" }
                     ],
                     grammar: [
                         "Express opinions: Tôi nghĩ/Theo tôi + statement",
                         "Express likes: Tôi thích + noun/verb",
-                        "Use 'rằng' after 'nghĩ' for formal statements"
+                        "Use 'rằng' after 'nghĩ' for formal statements",
+                        "Ask for opinion: Bạn nghĩ sao về...? (What do you think about...?)"
                     ],
                     exercises: [
-                        { question: "How do you say 'I think' in Vietnamese?", options: ["Tôi thích", "Tôi nghĩ", "Theo tôi", "Tôi muốn"], correct: 1 }
+                        {
+                            question: "How do you say 'I think' in Vietnamese?",
+                            options: ["Tôi thích", "Tôi nghĩ", "Theo tôi", "Tôi muốn"],
+                            correct: 1
+                        },
+                        {
+                            question: "What does 'nên' mean?",
+                            options: ["Must", "Should", "Can", "Want"],
+                            correct: 1
+                        }
+                    ]
+                },
+                2: {
+                    title: "Writing Stories",
+                    description: "Create your own Vietnamese stories with proper structure",
+                    duration: "40 minutes",
+                    pdfPath: "books/vanlang/VanLang03_v7.pdf",
+                    pdfPages: [16, 30],
+                    reading: [
+                        { vi: "Viết truyện giúp em phát triển trí tưởng tượng.", en: "Writing stories helps you develop imagination." },
+                        { vi: "Một câu chuyện tốt cần có mở đầu, phần giữa và kết thúc.", en: "A good story needs a beginning, middle, and ending." },
+                        { vi: "Nhân vật chính là người quan trọng nhất trong truyện.", en: "The main character is the most important person in the story." },
+                        { vi: "Hãy viết về những điều em yêu thích.", en: "Write about things you love." }
+                    ],
+                    vocabulary: [
+                        { word: "viết", pronunciation: "viết", translation: "to write" },
+                        { word: "câu chuyện", pronunciation: "câu chuyện", translation: "story, tale" },
+                        { word: "mở đầu", pronunciation: "mở đầu", translation: "beginning, introduction" },
+                        { word: "kết thúc", pronunciation: "kết túk", translation: "ending, conclusion" },
+                        { word: "nhân vật chính", pronunciation: "nhân vật chính", translation: "main character" },
+                        { word: "trí tưởng tượng", pronunciation: "trí tưởng tượng", translation: "imagination" },
+                        { word: "sáng tạo", pronunciation: "sáng tạo", translation: "creative, creativity" },
+                        { word: "tác phẩm", pronunciation: "tác fẩm", translation: "work, composition" },
+                        { word: "đoạn văn", pronunciation: "đoạn văn", translation: "paragraph" },
+                        { word: "câu", pronunciation: "câu", translation: "sentence" }
+                    ],
+                    grammar: [
+                        "Story structure: mở đầu → phát triển → kết thúc",
+                        "Use transition words: đầu tiên (first), sau đó (then), cuối cùng (finally)",
+                        "Descriptive writing: add adjectives and details",
+                        "Dialogue uses quotes: \"Xin chào,\" cô ấy nói"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'mở đầu' mean?",
+                            options: ["Ending", "Beginning", "Middle", "Character"],
+                            correct: 1
+                        },
+                        {
+                            question: "Which word means 'creative'?",
+                            options: ["viết", "sáng tạo", "câu chuyện", "đoạn văn"],
+                            correct: 1
+                        }
+                    ]
+                },
+                3: {
+                    title: "Vietnamese Geography",
+                    description: "Learn about provinces, cities, and landmarks of Vietnam",
+                    duration: "35 minutes",
+                    pdfPath: "books/vanlang/VanLang03_v7.pdf",
+                    pdfPages: [31, 45],
+                    reading: [
+                        { vi: "Việt Nam có 63 tỉnh thành.", en: "Vietnam has 63 provinces and cities." },
+                        { vi: "Hà Nội là thủ đô của Việt Nam.", en: "Hanoi is the capital of Vietnam." },
+                        { vi: "Thành phố Hồ Chí Minh là thành phố lớn nhất.", en: "Ho Chi Minh City is the largest city." },
+                        { vi: "Vịnh Hạ Long là di sản thế giới.", en: "Ha Long Bay is a world heritage site." }
+                    ],
+                    vocabulary: [
+                        { word: "tỉnh", pronunciation: "tỉnh", translation: "province" },
+                        { word: "thành phố", pronunciation: "tành fố", translation: "city" },
+                        { word: "thủ đô", pronunciation: "thủ đô", translation: "capital" },
+                        { word: "miền", pronunciation: "miền", translation: "region" },
+                        { word: "miền Bắc", pronunciation: "miền Bắk", translation: "Northern region" },
+                        { word: "miền Trung", pronunciation: "miền Trung", translation: "Central region" },
+                        { word: "miền Nam", pronunciation: "miền Nam", translation: "Southern region" },
+                        { word: "sông", pronunciation: "sông", translation: "river" },
+                        { word: "núi", pronunciation: "núi", translation: "mountain" },
+                        { word: "biển", pronunciation: "biển", translation: "sea, beach" }
+                    ],
+                    grammar: [
+                        "Pattern: [place] là [description]",
+                        "Example: Hà Nội là thủ đô (Hanoi is the capital)",
+                        "Use 'ở' for location: ở miền Bắc (in the North)",
+                        "Geographical terms: miền (region), tỉnh (province), thành phố (city)"
+                    ],
+                    exercises: [
+                        {
+                            question: "What is the capital of Vietnam?",
+                            options: ["Ho Chi Minh City", "Da Nang", "Hanoi", "Hue"],
+                            correct: 2
+                        },
+                        {
+                            question: "What does 'miền' mean?",
+                            options: ["Province", "City", "Region", "Capital"],
+                            correct: 2
+                        }
+                    ]
+                },
+                4: {
+                    title: "Food & Cooking",
+                    description: "Explore Vietnamese cuisine and cooking vocabulary",
+                    duration: "35 minutes",
+                    pdfPath: "books/vanlang/VanLang03_v7.pdf",
+                    pdfPages: [46, 60],
+                    reading: [
+                        { vi: "Phở là món ăn nổi tiếng của Việt Nam.", en: "Pho is Vietnam's famous dish." },
+                        { vi: "Bánh mì Việt Nam rất ngon.", en: "Vietnamese banh mi is very delicious." },
+                        { vi: "Mẹ tôi nấu cơm rất giỏi.", en: "My mother cooks rice very well." },
+                        { vi: "Tôi thích ăn bún chả và nem rán.", en: "I like to eat bun cha and fried spring rolls." }
+                    ],
+                    vocabulary: [
+                        { word: "món ăn", pronunciation: "món ăn", translation: "dish, food" },
+                        { word: "phở", pronunciation: "fở", translation: "pho (Vietnamese noodle soup)" },
+                        { word: "bánh mì", pronunciation: "bánh mì", translation: "bread, Vietnamese sandwich" },
+                        { word: "bún", pronunciation: "bún", translation: "rice vermicelli" },
+                        { word: "nem/chả giò", pronunciation: "nem/chả zò", translation: "spring roll" },
+                        { word: "nấu", pronunciation: "nấu", translation: "to cook" },
+                        { word: "nấu ăn", pronunciation: "nấu ăn", translation: "to cook (food)" },
+                        { word: "nướng", pronunciation: "nướng", translation: "to grill, roast" },
+                        { word: "rán", pronunciation: "rán", translation: "to fry" },
+                        { word: "ngon", pronunciation: "ngon", translation: "delicious, tasty" }
+                    ],
+                    grammar: [
+                        "Food classifier: món (dish): món phở (a dish of pho)",
+                        "Cooking verbs: nấu (cook), nướng (grill), rán (fry), luộc (boil)",
+                        "Pattern: [food] + [cooking method]: nem rán (fried spring roll)",
+                        "Taste adjectives: ngon (delicious), cay (spicy), ngọt (sweet)"
+                    ],
+                    exercises: [
+                        {
+                            question: "What is 'phở'?",
+                            options: ["Bread", "Spring roll", "Noodle soup", "Rice"],
+                            correct: 2
+                        },
+                        {
+                            question: "Which word means 'to grill'?",
+                            options: ["nấu", "rán", "nướng", "luộc"],
+                            correct: 2
+                        }
+                    ]
+                },
+                5: {
+                    title: "Sports & Hobbies",
+                    description: "Talk about activities and hobbies you enjoy",
+                    duration: "35 minutes",
+                    pdfPath: "books/vanlang/VanLang03_v7.pdf",
+                    pdfPages: [61, 75],
+                    reading: [
+                        { vi: "Tôi chơi bóng đá mỗi cuối tuần.", en: "I play soccer every weekend." },
+                        { vi: "Em gái tôi thích bơi lội.", en: "My younger sister likes swimming." },
+                        { vi: "Sở thích của tôi là đọc sách và vẽ.", en: "My hobbies are reading books and drawing." },
+                        { vi: "Thể thao giúp chúng ta khỏe mạnh.", en: "Sports help us stay healthy." }
+                    ],
+                    vocabulary: [
+                        { word: "thể thao", pronunciation: "thể tao", translation: "sports" },
+                        { word: "sở thích", pronunciation: "sở tík", translation: "hobby, interest" },
+                        { word: "bóng đá", pronunciation: "bóng đá", translation: "soccer, football" },
+                        { word: "bóng rổ", pronunciation: "bóng rổ", translation: "basketball" },
+                        { word: "bơi lội", pronunciation: "bơi lội", translation: "swimming" },
+                        { word: "chạy", pronunciation: "chạy", translation: "to run, running" },
+                        { word: "vẽ", pronunciation: "vẽ", translation: "to draw, paint" },
+                        { word: "hát", pronunciation: "hát", translation: "to sing" },
+                        { word: "khỏe mạnh", pronunciation: "kỏe mạnh", translation: "healthy" },
+                        { word: "vui chơi", pronunciation: "vui chơi", translation: "to play, have fun" }
+                    ],
+                    grammar: [
+                        "Pattern: chơi + [sport] for playing sports",
+                        "Example: chơi bóng đá (play soccer), chơi bóng rổ (play basketball)",
+                        "Express hobby: Sở thích của tôi là... (My hobby is...)",
+                        "Use 'thích' + verb for likes: thích bơi (like swimming)"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'bóng đá' mean?",
+                            options: ["Basketball", "Soccer", "Swimming", "Running"],
+                            correct: 1
+                        },
+                        {
+                            question: "How do you say 'hobby' in Vietnamese?",
+                            options: ["thể thao", "sở thích", "vui chơi", "khỏe mạnh"],
+                            correct: 1
+                        }
                     ]
                 }
             },
@@ -1272,22 +1689,39 @@
                     reading: [
                         { vi: "Mặc dù trời mưa, tôi vẫn đi học.", en: "Although it's raining, I still go to school." },
                         { vi: "Tôi không đi vì tôi bận.", en: "I'm not going because I'm busy." },
-                        { vi: "Nếu bạn học chăm chỉ, bạn sẽ thành công.", en: "If you study hard, you will succeed." }
+                        { vi: "Nếu bạn học chăm chỉ, bạn sẽ thành công.", en: "If you study hard, you will succeed." },
+                        { vi: "Bất kể khó khăn thế nào, em cũng không từ bỏ.", en: "No matter how difficult it is, I won't give up." }
                     ],
                     vocabulary: [
-                        { word: "Mặc dù", pronunciation: "mặk zù", translation: "Although" },
-                        { word: "Bởi vì", pronunciation: "bởi vì", translation: "Because" },
+                        { word: "Mặc dù", pronunciation: "mặk zù", translation: "Although, even though" },
+                        { word: "Bởi vì/Vì", pronunciation: "bởi vì/vì", translation: "Because" },
                         { word: "Nếu", pronunciation: "nếu", translation: "If" },
                         { word: "Do đó", pronunciation: "zo đó", translation: "Therefore" },
-                        { word: "Tuy nhiên", pronunciation: "tuy niên", translation: "However" }
+                        { word: "Tuy nhiên", pronunciation: "tuy niên", translation: "However" },
+                        { word: "Bất kể", pronunciation: "bất kể", translation: "No matter, regardless" },
+                        { word: "Cho dù", pronunciation: "cho dù", translation: "Even if, whether" },
+                        { word: "Để", pronunciation: "để", translation: "In order to, so that" },
+                        { word: "Bởi", pronunciation: "bởi", translation: "By, because of" },
+                        { word: "Nhờ", pronunciation: "nhờ", translation: "Thanks to" }
                     ],
                     grammar: [
                         "Conditional: Nếu + condition, result",
                         "Contrast: Mặc dù + clause, main clause",
-                        "Reason: Bởi vì/Vì + reason"
+                        "Reason: Bởi vì/Vì + reason",
+                        "Purpose: Để + purpose clause",
+                        "Concession: Cho dù/Bất kể + clause, main clause"
                     ],
                     exercises: [
-                        { question: "Which word means 'Although'?", options: ["Bởi vì", "Mặc dù", "Nếu", "Do đó"], correct: 1 }
+                        {
+                            question: "Which word means 'Although'?",
+                            options: ["Bởi vì", "Mặc dù", "Nếu", "Do đó"],
+                            correct: 1
+                        },
+                        {
+                            question: "What does 'Để' indicate?",
+                            options: ["Condition", "Purpose", "Contrast", "Result"],
+                            correct: 1
+                        }
                     ]
                 },
                 2: {
@@ -1298,21 +1732,215 @@
                     pdfPages: [1, 25],
                     reading: [
                         { vi: "Văn học Việt Nam có lịch sử lâu đời.", en: "Vietnamese literature has a long history." },
-                        { vi: "Thơ Nôm và văn xuôi rất phong phú.", en: "Nôm poetry and prose are very rich." }
+                        { vi: "Thơ Nôm và văn xuôi rất phong phú.", en: "Nôm poetry and prose are very rich." },
+                        { vi: "Truyện Kiều là tác phẩm nổi tiếng nhất.", en: "The Tale of Kieu is the most famous work." },
+                        { vi: "Nguyễn Du là nhà thơ vĩ đại của Việt Nam.", en: "Nguyen Du is Vietnam's great poet." }
                     ],
                     vocabulary: [
                         { word: "văn học", pronunciation: "văn hok", translation: "literature" },
                         { word: "thơ", pronunciation: "thơ", translation: "poetry" },
-                        { word: "truyện", pronunciation: "truyện", translation: "story" },
-                        { word: "tác giả", pronunciation: "tác zả", translation: "author" }
+                        { word: "truyện", pronunciation: "truyện", translation: "story, tale" },
+                        { word: "tác giả", pronunciation: "tác zả", translation: "author" },
+                        { word: "tác phẩm", pronunciation: "tác fẩm", translation: "work, masterpiece" },
+                        { word: "nhà thơ", pronunciation: "nhà thơ", translation: "poet" },
+                        { word: "văn xuôi", pronunciation: "văn xuôi", translation: "prose" },
+                        { word: "chữ Nôm", pronunciation: "chữ Nôm", translation: "Nom script" },
+                        { word: "vần điệu", pronunciation: "vần ziệu", translation: "rhyme, rhythm" },
+                        { word: "nổi tiếng", pronunciation: "nổi tiếng", translation: "famous" }
                     ],
                     grammar: [
                         "Literary Vietnamese uses more formal structures",
                         "Historical context is important for understanding",
-                        "Classical poetry follows specific rhyme schemes"
+                        "Classical poetry follows specific rhyme schemes (lục bát: 6-8 syllable pattern)",
+                        "Use of metaphors and symbolic language is common"
                     ],
                     exercises: [
-                        { question: "What does 'văn học' mean?", options: ["Poetry", "Literature", "Story", "Author"], correct: 1 }
+                        {
+                            question: "What does 'văn học' mean?",
+                            options: ["Poetry", "Literature", "Story", "Author"],
+                            correct: 1
+                        },
+                        {
+                            question: "Who wrote 'Truyện Kiều'?",
+                            options: ["Hồ Chí Minh", "Nguyễn Du", "Nguyễn Trãi", "Hồ Xuân Hương"],
+                            correct: 1
+                        }
+                    ]
+                },
+                3: {
+                    title: "Formal Writing",
+                    description: "Learn to write essays, letters, and formal communications",
+                    duration: "45 minutes",
+                    pdfPath: "books/vanlang/VanLang05_v7.pdf",
+                    pdfPages: [26, 45],
+                    reading: [
+                        { vi: "Kính gửi Thầy/Cô giáo,", en: "Dear Teacher," },
+                        { vi: "Tôi viết thư này để báo cáo về...", en: "I am writing this letter to report about..." },
+                        { vi: "Theo nghiên cứu gần đây, chúng ta thấy rằng...", en: "According to recent research, we see that..." },
+                        { vi: "Tôi xin chân thành cảm ơn.", en: "I sincerely thank you." }
+                    ],
+                    vocabulary: [
+                        { word: "Kính gửi", pronunciation: "kính gửi", translation: "Dear (formal salutation)" },
+                        { word: "thư", pronunciation: "thư", translation: "letter" },
+                        { word: "báo cáo", pronunciation: "báo káo", translation: "report" },
+                        { word: "nghiên cứu", pronunciation: "nghiên cứu", translation: "research, study" },
+                        { word: "chân thành", pronunciation: "chân tành", translation: "sincere, sincerely" },
+                        { word: "trân trọng", pronunciation: "trân trọng", translation: "respectfully" },
+                        { word: "đơn xin", pronunciation: "đơn sin", translation: "application letter" },
+                        { word: "bài luận", pronunciation: "bài luận", translation: "essay" },
+                        { word: "văn bản", pronunciation: "văn bản", translation: "document, text" },
+                        { word: "chữ ký", pronunciation: "chữ ký", translation: "signature" }
+                    ],
+                    grammar: [
+                        "Formal letter opening: Kính gửi + [title/name]",
+                        "Formal letter closing: Trân trọng/Kính chào/Chân thành cảm ơn",
+                        "Use formal pronouns: tôi (I), quý vị (you-formal), ngài (sir/madam)",
+                        "Essay structure: mở bài (introduction), thân bài (body), kết bài (conclusion)",
+                        "Avoid contractions and informal language"
+                    ],
+                    exercises: [
+                        {
+                            question: "What is the formal way to start a letter?",
+                            options: ["Xin chào", "Kính gửi", "Chào bạn", "Hi"],
+                            correct: 1
+                        },
+                        {
+                            question: "What does 'bài luận' mean?",
+                            options: ["Letter", "Report", "Essay", "Story"],
+                            correct: 2
+                        }
+                    ]
+                },
+                4: {
+                    title: "Vietnamese History",
+                    description: "Learn about important events and historical figures",
+                    duration: "45 minutes",
+                    pdfPath: "books/vanlang/VanLang06_v7.pdf",
+                    pdfPages: [1, 20],
+                    reading: [
+                        { vi: "Việt Nam có lịch sử hàng nghìn năm.", en: "Vietnam has thousands of years of history." },
+                        { vi: "Các vua Hùng là tổ tiên của người Việt.", en: "The Hung Kings are the ancestors of Vietnamese people." },
+                        { vi: "Ngày 2 tháng 9, 1945, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập.", en: "On September 2, 1945, President Ho Chi Minh read the Declaration of Independence." },
+                        { vi: "Việt Nam thống nhất vào năm 1975.", en: "Vietnam was reunified in 1975." }
+                    ],
+                    vocabulary: [
+                        { word: "lịch sử", pronunciation: "lịch sử", translation: "history" },
+                        { word: "tổ tiên", pronunciation: "tổ tiên", translation: "ancestor" },
+                        { word: "độc lập", pronunciation: "dộk lập", translation: "independence" },
+                        { word: "thống nhất", pronunciation: "thống nhất", translation: "unification, reunification" },
+                        { word: "chiến tranh", pronunciation: "chiến tranh", translation: "war" },
+                        { word: "hòa bình", pronunciation: "hòa bình", translation: "peace" },
+                        { word: "anh hùng", pronunciation: "anh hùng", translation: "hero" },
+                        { word: "triều đại", pronunciation: "triều đại", translation: "dynasty" },
+                        { word: "sự kiện", pronunciation: "sự kiện", translation: "event" },
+                        { word: "thế kỷ", pronunciation: "thế kỷ", translation: "century" }
+                    ],
+                    grammar: [
+                        "Historical dates: ngày + [date] + tháng + [month] + năm + [year]",
+                        "Example: ngày 2 tháng 9 năm 1945 (September 2, 1945)",
+                        "Time periods: thế kỷ + [number] (century)",
+                        "Historical passive: được/bị + verb",
+                        "Sequence of events: trước đó (before), sau đó (after), kể từ đó (since then)"
+                    ],
+                    exercises: [
+                        {
+                            question: "When did Vietnam declare independence?",
+                            options: ["1945", "1954", "1975", "1976"],
+                            correct: 0
+                        },
+                        {
+                            question: "What does 'tổ tiên' mean?",
+                            options: ["Hero", "Ancestor", "King", "Dynasty"],
+                            correct: 1
+                        }
+                    ]
+                },
+                5: {
+                    title: "Idioms & Proverbs",
+                    description: "Learn Vietnamese thành ngữ và tục ngữ (idioms and proverbs)",
+                    duration: "45 minutes",
+                    pdfPath: "books/vanlang/VanLang06_v7.pdf",
+                    pdfPages: [21, 40],
+                    reading: [
+                        { vi: "Có công mài sắt có ngày nên kim.", en: "With effort, even iron can be ground into a needle. (persistence pays off)" },
+                        { vi: "Học thầy không tày học bạn.", en: "Learning from friends is as important as learning from teachers." },
+                        { vi: "Ăn quả nhớ kẻ trồng cây.", en: "When eating fruit, remember who planted the tree. (be grateful)" },
+                        { vi: "Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.", en: "One tree cannot make a forest; three trees together make a high mountain. (unity is strength)" }
+                    ],
+                    vocabulary: [
+                        { word: "thành ngữ", pronunciation: "tành ngữ", translation: "idiom" },
+                        { word: "tục ngữ", pronunciation: "túk ngữ", translation: "proverb" },
+                        { word: "ca ngợi", pronunciation: "ka ngợi", translation: "to praise" },
+                        { word: "khuyên răn", pronunciation: "kuyên răn", translation: "to advise, counsel" },
+                        { word: "bài học", pronunciation: "bài hok", translation: "lesson" },
+                        { word: "trí tuệ", pronunciation: "trí tuệ", translation: "wisdom" },
+                        { word: "ý nghĩa", pronunciation: "ý nghĩa", translation: "meaning, significance" },
+                        { word: "ẩn dụ", pronunciation: "ẩn dụ", translation: "metaphor" },
+                        { word: "tri thức", pronunciation: "tri thức", translation: "knowledge" },
+                        { word: "cách ngôn", pronunciation: "kák ngôn", translation: "saying, proverb" }
+                    ],
+                    grammar: [
+                        "Idioms use figurative language, not literal translations",
+                        "Proverbs teach moral lessons and life wisdom",
+                        "Structure often uses rhyme and rhythm",
+                        "Many use metaphors from nature and daily life",
+                        "Context determines which idiom/proverb to use"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'Có công mài sắt có ngày nên kim' teach?",
+                            options: ["Be grateful", "Persistence pays off", "Unity is strength", "Learn from others"],
+                            correct: 1
+                        },
+                        {
+                            question: "What is 'thành ngữ'?",
+                            options: ["Proverb", "Idiom", "Story", "Poem"],
+                            correct: 1
+                        }
+                    ]
+                },
+                6: {
+                    title: "News & Current Events",
+                    description: "Read and discuss Vietnamese news articles",
+                    duration: "50 minutes",
+                    pdfPath: "books/vanlang/VanLang06_v7.pdf",
+                    pdfPages: [41, 60],
+                    reading: [
+                        { vi: "Theo tin tức hôm nay, kinh tế Việt Nam đang phát triển mạnh.", en: "According to today's news, Vietnam's economy is developing strongly." },
+                        { vi: "Chính phủ công bố kế hoạch mới về giáo dục.", en: "The government announced a new education plan." },
+                        { vi: "Công nghệ thông tin là lĩnh vực quan trọng.", en: "Information technology is an important field." },
+                        { vi: "Người dân quan tâm đến vấn đề môi trường.", en: "People are concerned about environmental issues." }
+                    ],
+                    vocabulary: [
+                        { word: "tin tức", pronunciation: "tin tức", translation: "news" },
+                        { word: "báo chí", pronunciation: "báo chí", translation: "press, journalism" },
+                        { word: "kinh tế", pronunciation: "kinh tế", translation: "economy, economics" },
+                        { word: "chính trị", pronunciation: "chính trị", translation: "politics" },
+                        { word: "xã hội", pronunciation: "xã hội", translation: "society, social" },
+                        { word: "môi trường", pronunciation: "môi trường", translation: "environment" },
+                        { word: "công nghệ", pronunciation: "công nghệ", translation: "technology" },
+                        { word: "giáo dục", pronunciation: "záo dụk", translation: "education" },
+                        { word: "y tế", pronunciation: "y tế", translation: "healthcare, medicine" },
+                        { word: "phát triển", pronunciation: "fát triển", translation: "to develop, development" }
+                    ],
+                    grammar: [
+                        "News language is formal and concise",
+                        "Common pattern: Theo + [source], [statement]",
+                        "Example: Theo báo cáo, ... (According to the report, ...)",
+                        "Use passive voice: được/bị + verb",
+                        "Time references: hôm nay (today), hôm qua (yesterday), gần đây (recently)"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'tin tức' mean?",
+                            options: ["Newspaper", "News", "Report", "Article"],
+                            correct: 1
+                        },
+                        {
+                            question: "Which word means 'environment'?",
+                            options: ["kinh tế", "xã hội", "môi trường", "công nghệ"],
+                            correct: 2
+                        }
                     ]
                 }
             }
