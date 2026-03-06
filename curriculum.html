@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Curriculum | Chương Trình Học</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .grade-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grade-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .grade-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .grade-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .grade-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .grade-subtitle {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .grade-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .stat {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        .topics-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        .topics-list li {
+            padding: 8px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .topics-list li i {
+            color: #667eea;
+            margin-right: 8px;
+        }
+        
+        .btn-start {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+            margin-top: 15px;
+        }
+        
+        .btn-start:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="lang-en" class="lang-btn active" data-lang="en">English</button>
+        <button id="lang-vi" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Learn Vietnamese</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="curriculum.html" class="active">Curriculum</a></li>
+                <li><a href="flashcards-interactive.html">Flashcards</a></li>
+                <li><a href="practice.html">Practice</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-en="Vietnamese Curriculum" data-vi="Chương Trình Học Tiếng Việt">Vietnamese Curriculum</h1>
+            <p data-en="Choose your grade level to start learning" 
+               data-vi="Chọn cấp lớp để bắt đầu học">
+               Choose your grade level to start learning
+            </p>
+        </div>
+    </section>
+
+    <!-- Curriculum Grid -->
+    <section class="curriculum-section">
+        <div class="container">
+            <div class="curriculum-grid">
+                <!-- PreK -->
+                <div class="grade-card" onclick="window.location.href='grade.html?level=prek'">
+                    <div class="grade-icon">🎨</div>
+                    <h2 class="grade-title" data-en="Pre-Kindergarten" data-vi="Mầm Non">Pre-Kindergarten</h2>
+                    <p class="grade-subtitle" data-en="Ages 3-4 | Introduction" data-vi="3-4 tuổi | Làm quen">Ages 3-4 | Introduction</p>
+                    
+                    <ul class="topics-list">
+                        <li><i class="fas fa-check-circle"></i> Colors & Shapes</li>
+                        <li><i class="fas fa-check-circle"></i> Animals & Sounds</li>
+                        <li><i class="fas fa-check-circle"></i> Simple Greetings</li>
+                        <li><i class="fas fa-check-circle"></i> Numbers 1-10</li>
+                    </ul>
+                    
+                    <div class="grade-stats">
+                        <div class="stat">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">150</div>
+                            <div class="stat-label">Flashcards</div>
+                        </div>
+                    </div>
+                    
+                    <a href="grade.html?level=prek" class="btn-start">Start Learning</a>
+                    <a href="practice-grade.html?grade=prek" class="btn-start" style="background: #2196F3; margin-top: 10px;">Practice Exercises</a>
+                </div>
+
+                <!-- Kindergarten -->
+                <div class="grade-card" onclick="window.location.href='grade.html?level=kindergarten'">
+                    <div class="grade-icon">🎯</div>
+                    <h2 class="grade-title" data-en="Kindergarten" data-vi="Mẫu Giáo">Kindergarten</h2>
+                    <p class="grade-subtitle" data-en="Ages 5-6 | Foundation" data-vi="5-6 tuổi | Nền tảng">Ages 5-6 | Foundation</p>
+                    
+                    <ul class="topics-list">
+                        <li><i class="fas fa-check-circle"></i> Alphabet & Tones</li>
+                        <li><i class="fas fa-check-circle"></i> Family Members</li>
+                        <li><i class="fas fa-check-circle"></i> Daily Activities</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Vocabulary</li>
+                    </ul>
+                    
+                    <div class="grade-stats">
+                        <div class="stat">
+                            <div class="stat-number">35</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">300</div>
+                            <div class="stat-label">Flashcards</div>
+                        </div>
+                    </div>
+                    
+                    <a href="grade.html?level=kindergarten" class="btn-start">Start Learning</a>
+                    <a href="practice-grade.html?grade=kindergarten" class="btn-start" style="background: #2196F3; margin-top: 10px;">Practice Exercises</a>
+                </div>
+
+                <!-- Grade 1 -->
+                <div class="grade-card" onclick="window.location.href='grade.html?level=grade1'">
+                    <div class="grade-icon">📚</div>
+                    <h2 class="grade-title" data-en="Grade 1" data-vi="Lớp 1">Grade 1</h2>
+                    <p class="grade-subtitle" data-en="Ages 6-7 | Reading & Writing" data-vi="6-7 tuổi | Đọc viết">Ages 6-7 | Reading & Writing</p>
+                    
+                    <ul class="topics-list">
+                        <li><i class="fas fa-check-circle"></i> Reading Simple Words</li>
+                        <li><i class="fas fa-check-circle"></i> Writing Practice</li>
+                        <li><i class="fas fa-check-circle"></i> Foods & Drinks</li>
+                        <li><i class="fas fa-check-circle"></i> School Items</li>
+                    </ul>
+                    
+                    <div class="grade-stats">
+                        <div class="stat">
+                            <div class="stat-number">45</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">400</div>
+                            <div class="stat-label">Flashcards</div>
+                        </div>
+                    </div>
+                    
+                    <a href="grade.html?level=grade1" class="btn-start">Start Learning</a>
+                    <a href="practice-grade.html?grade=grade1" class="btn-start" style="background: #2196F3; margin-top: 10px;">Practice Exercises</a>
+                </div>
+
+                <!-- Grade 2 -->
+                <div class="grade-card" onclick="window.location.href='grade.html?level=grade2'">
+                    <div class="grade-icon">✏️</div>
+                    <h2 class="grade-title" data-en="Grade 2" data-vi="Lớp 2">Grade 2</h2>
+                    <p class="grade-subtitle" data-en="Ages 7-8 | Sentences" data-vi="7-8 tuổi | Câu đơn giản">Ages 7-8 | Sentences</p>
+                    
+                    <ul class="topics-list">
+                        <li><i class="fas fa-check-circle"></i> Simple Sentences</li>
+                        <li><i class="fas fa-check-circle"></i> Sports & Hobbies</li>
+                        <li><i class="fas fa-check-circle"></i> Places & Locations</li>
+                        <li><i class="fas fa-check-circle"></i> Telling Time</li>
+                    </ul>
+                    
+                    <div class="grade-stats">
+                        <div class="stat">
+                            <div class="stat-number">50</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">450</div>
+                            <div class="stat-label">Flashcards</div>
+                        </div>
+                    </div>
+                    
+                    <a href="grade.html?level=grade2" class="btn-start">Start Learning</a>
+                    <a href="practice-grade.html?grade=grade2" class="btn-start" style="background: #2196F3; margin-top: 10px;">Practice Exercises</a>
+                </div>
+
+                <!-- Grade 3 -->
+                <div class="grade-card" onclick="window.location.href='grade.html?level=grade3'">
+                    <div class="grade-icon">📖</div>
+                    <h2 class="grade-title" data-en="Grade 3" data-vi="Lớp 3">Grade 3</h2>
+                    <p class="grade-subtitle" data-en="Ages 8-9 | Stories" data-vi="8-9 tuổi | Truyện ngắn">Ages 8-9 | Stories</p>
+                    
+                    <ul class="topics-list">
+                        <li><i class="fas fa-check-circle"></i> Short Stories</li>
+                        <li><i class="fas fa-check-circle"></i> Conversations</li>
+                        <li><i class="fas fa-check-circle"></i> Vietnamese Culture</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced Grammar</li>
+                    </ul>
+                    
+                    <div class="grade-stats">
+                        <div class="stat">
+                            <div class="stat-number">60</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500</div>
+                            <div class="stat-label">Flashcards</div>
+                        </div>
+                    </div>
+                    
+                    <a href="grade.html?level=grade3" class="btn-start">Start Learning</a>
+                    <a href="practice-grade.html?grade=grade3" class="btn-start" style="background: #2196F3; margin-top: 10px;">Practice Exercises</a>
+                </div>
+
+                <!-- Advanced Levels -->
+                <div class="grade-card" onclick="window.location.href='grade.html?level=advanced'">
+                    <div class="grade-icon">🎓</div>
+                    <h2 class="grade-title" data-en="Advanced (Grades 4-6)" data-vi="Nâng Cao (Lớp 4-6)">Advanced (Grades 4-6)</h2>
+                    <p class="grade-subtitle" data-en="Ages 9+ | Fluency" data-vi="9+ tuổi | Thành thạo">Ages 9+ | Fluency</p>
+                    
+                    <ul class="topics-list">
+                        <li><i class="fas fa-check-circle"></i> Essay Writing</li>
+                        <li><i class="fas fa-check-circle"></i> Literature & Poetry</li>
+                        <li><i class="fas fa-check-circle"></i> Complex Grammar</li>
+                        <li><i class="fas fa-check-circle"></i> Cultural Studies</li>
+                    </ul>
+                    
+                    <div class="grade-stats">
+                        <div class="stat">
+                            <div class="stat-number">180</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">600</div>
+                            <div class="stat-label">Flashcards</div>
+                        </div>
+                    </div>
+                    
+                    <a href="grade.html?level=advanced" class="btn-start">Start Learning</a>
+                    <a href="practice-grade.html?grade=advanced" class="btn-start" style="background: #2196F3; margin-top: 10px;">Practice Exercises</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Learn Vietnamese. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

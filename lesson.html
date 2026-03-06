@@ -431,7 +431,7 @@
                     <h3>Quick Actions</h3>
                     <div style="display: grid; gap: 10px;">
                         <a href="flashcards-interactive.html" class="nav-btn" style="text-align: center;">🗂️ Flashcards</a>
-                        <a href="practice.html" class="nav-btn" style="text-align: center;">✍️ Exercises</a>
+                        <a href="#" id="practiceLink" class="nav-btn" style="text-align: center; background: #2196F3;">✍️ Exercises</a>
                         <button id="audioPlayAll" class="nav-btn" style="background: #FF9800;">🔊 Play Audio</button>
                     </div>
                 </div>
@@ -731,6 +731,7 @@
         
         // Navigation
         document.getElementById('backToGrade').href = `grade.html?level=${gradeLevel}`;
+        document.getElementById('practiceLink').href = `practice-grade.html?grade=${gradeLevel}&lesson=${lessonNum}`;
         
         // Check if there are prev/next lessons
         if (lessonNum > 1) {

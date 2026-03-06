@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Exercises - Learn Vietnamese</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .practice-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .practice-header {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .practice-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+        }
+        
+        .game-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-color: #2196F3;
+        }
+        
+        .game-card.active {
+            border-color: #2196F3;
+            background: #e3f2fd;
+        }
+        
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        
+        .game-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .game-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .game-area {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            min-height: 500px;
+            display: none;
+        }
+        
+        .game-area.active {
+            display: block;
+        }
+        
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .score-display {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2196F3;
+        }
+        
+        .timer {
+            font-size: 1.5rem;
+            color: #f44336;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: #4CAF50;
+        }
+        
+        .btn-success:hover {
+            background: #45a049;
+        }
+        
+        /* Matching Game */
+        .matching-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .matching-column h3 {
+            text-align: center;
+            color: #2196F3;
+            margin-bottom: 20px;
+        }
+        
+        .matching-item {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .matching-item:hover {
+            background: #e0e0e0;
+        }
+        
+        .matching-item.selected {
+            border-color: #2196F3;
+            background: #e3f2fd;
+        }
+        
+        .matching-item.matched {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+            cursor: default;
+        }
+        
+        /* Fill in the Blank */
+        .fill-blank-question {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+        
+        .blank-input {
+            padding: 10px 15px;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            min-width: 150px;
+            margin: 0 10px;
+        }
+        
+        .blank-input.correct {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        
+        .blank-input.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+        
+        /* Multiple Choice */
+        .quiz-question {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .quiz-question h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-options {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .quiz-option {
+            padding: 20px;
+            background: white;
+            border: 3px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .quiz-option:hover {
+            background: #f5f5f5;
+            border-color: #2196F3;
+        }
+        
+        .quiz-option.selected {
+            border-color: #2196F3;
+            background: #e3f2fd;
+        }
+        
+        .quiz-option.correct {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        
+        .quiz-option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+        
+        /* Memory Game */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .memory-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .memory-card.flipped {
+            background: white;
+            border: 3px solid #667eea;
+            color: #333;
+        }
+        
+        .memory-card.matched {
+            background: #4CAF50;
+            cursor: default;
+        }
+        
+        /* Listening Practice */
+        .listening-exercise {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .audio-button {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            font-size: 4rem;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            transition: all 0.3s;
+        }
+        
+        .audio-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .answer-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* Typing Challenge */
+        .typing-area {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .typing-word {
+            font-size: 3rem;
+            color: #2196F3;
+            margin: 30px 0;
+        }
+        
+        /* Results */
+        .results-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .results-modal.active {
+            display: flex;
+        }
+        
+        .results-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            animation: slideDown 0.3s;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .results-content h2 {
+            color: #2196F3;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2196F3;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .matching-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .memory-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .results-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="practice-container">
+        <div class="practice-header">
+            <a href="#" id="backLink" class="back-link">← Back to Grade</a>
+            <h1 id="practiceTitle">Practice Exercises</h1>
+            <p id="practiceDescription">Choose a game to practice your skills!</p>
+        </div>
+        
+        <!-- Game Selection -->
+        <div class="game-selection" id="gameSelection">
+            <div class="game-card" data-game="matching">
+                <div class="game-icon">🎯</div>
+                <h3>Matching Game</h3>
+                <p>Match Vietnamese words with English translations</p>
+            </div>
+            
+            <div class="game-card" data-game="fillblank">
+                <div class="game-icon">✏️</div>
+                <h3>Fill in the Blank</h3>
+                <p>Complete sentences with the correct words</p>
+            </div>
+            
+            <div class="game-card" data-game="quiz">
+                <div class="game-icon">❓</div>
+                <h3>Multiple Choice</h3>
+                <p>Answer questions about vocabulary and grammar</p>
+            </div>
+            
+            <div class="game-card" data-game="memory">
+                <div class="game-icon">🧠</div>
+                <h3>Memory Game</h3>
+                <p>Match pairs of Vietnamese and English words</p>
+            </div>
+            
+            <div class="game-card" data-game="listening">
+                <div class="game-icon">👂</div>
+                <h3>Listening Practice</h3>
+                <p>Listen and identify the correct word</p>
+            </div>
+            
+            <div class="game-card" data-game="typing">
+                <div class="game-icon">⌨️</div>
+                <h3>Typing Challenge</h3>
+                <p>Type Vietnamese words as fast as you can</p>
+            </div>
+        </div>
+        
+        <!-- Matching Game -->
+        <div id="game-matching" class="game-area">
+            <div class="game-controls">
+                <button class="btn" onclick="backToSelection()">← Back</button>
+                <div class="score-display">Score: <span id="matchScore">0</span></div>
+                <button class="btn btn-success" onclick="startMatching()">New Game</button>
+            </div>
+            <div class="matching-grid">
+                <div class="matching-column">
+                    <h3>Vietnamese (Tiếng Việt)</h3>
+                    <div id="vietnameseColumn"></div>
+                </div>
+                <div class="matching-column">
+                    <h3>English</h3>
+                    <div id="englishColumn"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fill in the Blank -->
+        <div id="game-fillblank" class="game-area">
+            <div class="game-controls">
+                <button class="btn" onclick="backToSelection()">← Back</button>
+                <div class="score-display">Score: <span id="fillScore">0</span> / <span id="fillTotal">0</span></div>
+                <button class="btn" onclick="checkFillBlanks()">Check Answers</button>
+            </div>
+            <div id="fillBlankQuestions"></div>
+            <button class="btn btn-success" onclick="newFillBlanks()" style="margin-top: 20px;">New Questions</button>
+        </div>
+        
+        <!-- Quiz -->
+        <div id="game-quiz" class="game-area">
+            <div class="game-controls">
+                <button class="btn" onclick="backToSelection()">← Back</button>
+                <div class="score-display">Question <span id="quizCurrent">1</span> / <span id="quizTotal">10</span></div>
+                <div class="score-display">Score: <span id="quizScore">0</span></div>
+            </div>
+            <div id="quizQuestion"></div>
+            <button class="btn btn-success" onclick="nextQuizQuestion()" id="quizNextBtn">Next Question →</button>
+        </div>
+        
+        <!-- Memory Game -->
+        <div id="game-memory" class="game-area">
+            <div class="game-controls">
+                <button class="btn" onclick="backToSelection()">← Back</button>
+                <div class="score-display">Moves: <span id="memoryMoves">0</span></div>
+                <div class="score-display">Matches: <span id="memoryMatches">0</span> / 8</div>
+                <button class="btn btn-success" onclick="startMemory()">New Game</button>
+            </div>
+            <div class="memory-grid" id="memoryGrid"></div>
+        </div>
+        
+        <!-- Listening Practice -->
+        <div id="game-listening" class="game-area">
+            <div class="game-controls">
+                <button class="btn" onclick="backToSelection()">← Back</button>
+                <div class="score-display">Score: <span id="listenScore">0</span> / <span id="listenTotal">0</span></div>
+                <button class="btn btn-success" onclick="newListening()">New Question</button>
+            </div>
+            <div class="listening-exercise">
+                <p style="font-size: 1.3rem; color: #666;">Listen to the word and select the correct meaning:</p>
+                <button class="audio-button" id="playAudioBtn" onclick="playListeningWord()">🔊</button>
+                <div class="answer-options" id="listeningOptions"></div>
+            </div>
+        </div>
+        
+        <!-- Typing Challenge -->
+        <div id="game-typing" class="game-area">
+            <div class="game-controls">
+                <button class="btn" onclick="backToSelection()">← Back</button>
+                <div class="score-display">Time: <span id="typingTime">60</span>s</div>
+                <div class="score-display">Score: <span id="typingScore">0</span></div>
+                <button class="btn btn-success" onclick="startTyping()">Start</button>
+            </div>
+            <div class="typing-area">
+                <p style="font-size: 1.3rem; color: #666; margin-bottom: 20px;">Type the English translation:</p>
+                <div class="typing-word" id="typingWord">-</div>
+                <input type="text" id="typingInput" class="blank-input" style="font-size: 1.5rem; padding: 15px; width: 400px; max-width: 90%;" placeholder="Type here..." disabled>
+                <p id="typingFeedback" style="margin-top: 20px; font-size: 1.2rem;"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Results Modal -->
+    <div class="results-modal" id="resultsModal">
+        <div class="results-content">
+            <h2>🎉 Great Job!</h2>
+            <div class="results-stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="finalScore">0</div>
+                    <div class="stat-label">Score</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="finalAccuracy">0%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="finalTime">0s</div>
+                    <div class="stat-label">Time</div>
+                </div>
+            </div>
+            <button class="btn btn-success" onclick="closeResults()">Continue</button>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/practice-grade.js"></script>
+</body>
+</html>
