@@ -37,7 +37,9 @@ const AUTH = {
     // Protect page - redirect to login if not authenticated
     protectPage() {
         if (!this.isLoggedIn()) {
-            window.location.href = 'login.html?redirect=' + encodeURIComponent(window.location.pathname);
+            // Include query parameters in redirect
+            const fullPath = window.location.pathname + window.location.search;
+            window.location.href = 'login.html?redirect=' + encodeURIComponent(fullPath);
         } else {
             // Add logout button to page
             this.addLogoutButton();

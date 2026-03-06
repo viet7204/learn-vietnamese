@@ -1,5 +1,5 @@
 // Grade-specific Practice JavaScript
-protectPage();
+// Note: protectPage() is called automatically by auth.js
 
 // Get grade and lesson parameters
 const urlParams = new URLSearchParams(window.location.search);

@@ -215,8 +215,7 @@
     
     <script src="js/auth.js"></script>
     <script>
-        // Protect this page
-        protectPage();
+        // Note: protectPage() is called automatically by auth.js on DOMContentLoaded
         
         // Grade data structure
         const gradeData = {
@@ -483,16 +482,24 @@
         // Get grade level from URL
         const urlParams = new URLSearchParams(window.location.search);
         const gradeLevel = urlParams.get('level') || 'prek';
+        console.log('Grade level:', gradeLevel);
         const grade = gradeData[gradeLevel];
         
-        // Populate page content
-        document.getElementById('gradeTitle').textContent = grade.title;
-        document.getElementById('gradeDescription').textContent = grade.description;
-        document.getElementById('courseOverview').textContent = grade.overview;
-        
-        // Generate lesson cards
-        const lessonGrid = document.getElementById('lessonGrid');
-        grade.lessons.forEach(lesson => {
+        if (!grade) {
+            console.error('Grade data not found for:', gradeLevel);
+            document.getElementById('gradeTitle').textContent = 'Grade Not Found';
+            document.getElementById('gradeDescription').textContent = 'Please select a valid grade level.';
+        } else {
+            console.log('Loading grade:', grade.title);
+            
+            // Populate page content
+            document.getElementById('gradeTitle').textContent = grade.title;
+            document.getElementById('gradeDescription').textContent = grade.description;
+            document.getElementById('courseOverview').textContent = grade.overview;
+            
+            // Generate lesson cards
+            const lessonGrid = document.getElementById('lessonGrid');
+            grade.lessons.forEach(lesson => {
             const card = document.createElement('div');
             card.className = 'lesson-card';
             card.innerHTML = `
@@ -526,6 +533,7 @@
         }
         
         loadProgress();
+        } // End of else block
     </script>
 </body>
 </html>
