@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson - Learn Vietnamese</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .lesson-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .lesson-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .lesson-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+        }
+        
+        .lesson-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .lesson-meta span {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .lesson-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 1024px) {
+            .lesson-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .lesson-main {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .lesson-sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-section h3 {
+            margin-top: 0;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .tab-navigation {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .tab-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 800px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: #f5f5f5;
+        }
+        
+        .vocab-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .vocab-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .vocab-item:last-child {
+            border-bottom: none;
+        }
+        
+        .vocab-vietnamese {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .vocab-pronunciation {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .vocab-english {
+            font-size: 1rem;
+            color: #444;
+            text-align: right;
+        }
+        
+        .vocab-audio {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .vocab-audio:hover {
+            background: #45a049;
+        }
+        
+        .reading-content {
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+        
+        .reading-content p {
+            margin-bottom: 20px;
+        }
+        
+        .reading-content .vietnamese-text {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .reading-content .english-text {
+            color: #666;
+            font-style: italic;
+            margin-left: 20px;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .exercise-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .exercise-section h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        .exercise-question {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .exercise-options {
+            display: grid;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .exercise-option {
+            padding: 10px;
+            background: #f0f0f0;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .exercise-option:hover {
+            background: #e0e0e0;
+        }
+        
+        .exercise-option.selected {
+            border-color: #667eea;
+            background: #e8ebf7;
+        }
+        
+        .exercise-option.correct {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        
+        .exercise-option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+        
+        .check-answer-btn {
+            background: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .check-answer-btn:hover {
+            background: #0b7dda;
+        }
+        
+        .lesson-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .nav-btn {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .complete-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .complete-btn:hover {
+            background: #45a049;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .progress-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .progress-dot.completed {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .progress-dot.current {
+            background: #667eea;
+            color: white;
+        }
+        
+        .pdf-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .pdf-controls button {
+            padding: 8px 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .pdf-controls button:hover {
+            background: #5568d3;
+        }
+        
+        .pdf-controls input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <div class="lesson-header">
+            <h1 id="lessonTitle">Loading Lesson...</h1>
+            <p id="lessonDescription"></p>
+            <div class="lesson-meta">
+                <span id="gradeBadge"></span>
+                <span id="lessonNumber"></span>
+                <span id="duration"></span>
+            </div>
+        </div>
+        
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="read">📖 Reading</button>
+            <button class="tab-btn" data-tab="vocab">📝 Vocabulary</button>
+            <button class="tab-btn" data-tab="book">📚 Textbook</button>
+            <button class="tab-btn" data-tab="practice">✍️ Practice</button>
+        </div>
+        
+        <div class="lesson-layout">
+            <div class="lesson-main">
+                <!-- Reading Tab -->
+                <div id="tab-read" class="tab-content active">
+                    <div id="readingContent" class="reading-content"></div>
+                </div>
+                
+                <!-- Vocabulary Tab -->
+                <div id="tab-vocab" class="tab-content">
+                    <ul id="vocabList" class="vocab-list"></ul>
+                </div>
+                
+                <!-- Textbook Tab -->
+                <div id="tab-book" class="tab-content">
+                    <div class="pdf-controls">
+                        <button id="prevPage">← Previous</button>
+                        <span>Page <input type="number" id="pageNum" value="1" min="1"> of <span id="pageCount">?</span></span>
+                        <button id="nextPage">Next →</button>
+                        <button id="zoomIn">🔍 +</button>
+                        <button id="zoomOut">🔍 -</button>
+                        <a id="downloadPdf" download style="margin-left: auto;">⬇️ Download PDF</a>
+                    </div>
+                    <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+                </div>
+                
+                <!-- Practice Tab -->
+                <div id="tab-practice" class="tab-content">
+                    <div id="practiceExercises"></div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="lesson-navigation">
+                    <a href="#" id="prevLesson" class="nav-btn">← Previous Lesson</a>
+                    <a href="grade.html" id="backToGrade" class="nav-btn">Back to Grade</a>
+                    <a href="#" id="nextLesson" class="nav-btn">Next Lesson →</a>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="lesson-sidebar">
+                <div class="sidebar-section">
+                    <h3>Learning Progress</h3>
+                    <div id="progressSteps"></div>
+                    <button class="complete-btn" id="completeBtn">✓ Mark as Complete</button>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Quick Actions</h3>
+                    <div style="display: grid; gap: 10px;">
+                        <a href="flashcards-interactive.html" class="nav-btn" style="text-align: center;">🗂️ Flashcards</a>
+                        <a href="practice.html" class="nav-btn" style="text-align: center;">✍️ Exercises</a>
+                        <button id="audioPlayAll" class="nav-btn" style="background: #FF9800;">🔊 Play Audio</button>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Key Grammar</h3>
+                    <div id="grammarPoints"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        protectPage();
+        
+        // Get lesson parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const gradeLevel = urlParams.get('grade') || 'prek';
+        const lessonNum = parseInt(urlParams.get('lesson')) || 1;
+        
+        // Lesson content database
+        const lessonContent = {
+            prek: {
+                1: {
+                    title: "Colors & Shapes",
+                    description: "Learn to identify and name colors in Vietnamese",
+                    duration: "15 minutes",
+                    pdfPath: "books/vanlang/Lop_MamNon.pdf",
+                    pdfPages: [1, 5],
+                    reading: [
+                        { vi: "Màu đỏ là màu của quả táo.", en: "Red is the color of an apple." },
+                        { vi: "Màu xanh là màu của bầu trời.", en: "Blue is the color of the sky." },
+                        { vi: "Màu vàng là màu của mặt trời.", en: "Yellow is the color of the sun." },
+                        { vi: "Màu trắng là màu của mây.", en: "White is the color of clouds." }
+                    ],
+                    vocabulary: [
+                        { word: "màu đỏ", pronunciation: "màu đỏ", translation: "red" },
+                        { word: "màu xanh", pronunciation: "màu xanh", translation: "blue" },
+                        { word: "màu vàng", pronunciation: "màu vàng", translation: "yellow" },
+                        { word: "màu trắng", pronunciation: "màu trắng", translation: "white" },
+                        { word: "màu đen", pronunciation: "màu đen", translation: "black" },
+                        { word: "hình tròn", pronunciation: "hình tròn", translation: "circle" },
+                        { word: "hình vuông", pronunciation: "hình vuông", translation: "square" }
+                    ],
+                    grammar: [
+                        "Pattern: màu + [color name]",
+                        "Example: màu đỏ (red color)",
+                        "hình + [shape] for shapes"
+                    ],
+                    exercises: [
+                        {
+                            question: "What is 'màu đỏ' in English?",
+                            options: ["Red", "Blue", "Yellow", "Green"],
+                            correct: 0
+                        },
+                        {
+                            question: "How do you say 'blue' in Vietnamese?",
+                            options: ["màu đen", "màu xanh", "màu vàng", "màu trắng"],
+                            correct: 1
+                        }
+                    ]
+                },
+                2: {
+                    title: "Farm Animals",
+                    description: "Discover Vietnamese words for common farm animals",
+                    duration: "20 minutes",
+                    pdfPath: "books/vanlang/Lop_MamNon.pdf",
+                    pdfPages: [6, 12],
+                    reading: [
+                        { vi: "Con gà sống ở nông trại.", en: "The chicken lives on the farm." },
+                        { vi: "Con bò cho sữa.", en: "The cow gives milk." },
+                        { vi: "Con lợn ăn rất nhiều.", en: "The pig eats a lot." },
+                        { vi: "Con ngựa chạy rất nhanh.", en: "The horse runs very fast." }
+                    ],
+                    vocabulary: [
+                        { word: "con gà", pronunciation: "kon gà", translation: "chicken" },
+                        { word: "con bò", pronunciation: "kon bò", translation: "cow" },
+                        { word: "con lợn", pronunciation: "kon lợn", translation: "pig" },
+                        { word: "con ngựa", pronunciation: "kon ngựa", translation: "horse" },
+                        { word: "con vịt", pronunciation: "kon vịt", translation: "duck" },
+                        { word: "nông trại", pronunciation: "nông trại", translation: "farm" }
+                    ],
+                    grammar: [
+                        "Pattern: con + [animal name]",
+                        "con is a classifier for animals",
+                        "Example: con chó (dog)"
+                    ],
+                    exercises: [
+                        {
+                            question: "What does 'con gà' mean?",
+                            options: ["Duck", "Chicken", "Horse", "Pig"],
+                            correct: 1
+                        }
+                    ]
+                }
+            },
+            grade1: {
+                1: {
+                    title: "Vietnamese Alphabet",
+                    description: "Learn all 29 letters of the Vietnamese alphabet",
+                    duration: "30 minutes",
+                    pdfPath: "books/vanlang/VanLang01_v7.pdf",
+                    pdfPages: [1, 10],
+                    reading: [
+                        { vi: "Bảng chữ cái Tiếng Việt có 29 chữ cái.", en: "The Vietnamese alphabet has 29 letters." },
+                        { vi: "A, Ă, Â, B, C, D, Đ, E, Ê, G, H, I, K, L, M, N, O, Ô, Ơ, P, Q, R, S, T, U, Ư, V, X, Y", en: "A, Ă, Â, B, C, D, Đ, E, Ê, G, H, I, K, L, M, N, O, Ô, Ơ, P, Q, R, S, T, U, Ư, V, X, Y" }
+                    ],
+                    vocabulary: [
+                        { word: "chữ cái", pronunciation: "chữ kái", translation: "letter" },
+                        { word: "bảng chữ cái", pronunciation: "bảng chữ kái", translation: "alphabet" },
+                        { word: "nguyên âm", pronunciation: "nguyên âm", translation: "vowel" },
+                        { word: "phụ âm", pronunciation: "fụ âm", translation: "consonant" }
+                    ],
+                    grammar: [
+                        "Vietnamese has 11 vowels (including ă, â, ê, ô, ơ, ư)",
+                        "Special letter Đ (d-bar) not in English",
+                        "No F, J, W, Z in Vietnamese alphabet"
+                    ],
+                    exercises: [
+                        {
+                            question: "How many letters are in the Vietnamese alphabet?",
+                            options: ["26", "27", "29", "30"],
+                            correct: 2
+                        }
+                    ]
+                }
+            }
+        };
+        
+        // Load lesson
+        const lesson = lessonContent[gradeLevel]?.[lessonNum] || lessonContent.prek[1];
+        
+        // Populate header
+        document.getElementById('lessonTitle').textContent = `Lesson ${lessonNum}: ${lesson.title}`;
+        document.getElementById('lessonDescription').textContent = lesson.description;
+        document.getElementById('gradeBadge').textContent = `Grade: ${gradeLevel.toUpperCase()}`;
+        document.getElementById('lessonNumber').textContent = `Lesson ${lessonNum}`;
+        document.getElementById('duration').textContent = `⏱️ ${lesson.duration}`;
+        
+        // Load reading content
+        const readingDiv = document.getElementById('readingContent');
+        lesson.reading.forEach(para => {
+            const p = document.createElement('p');
+            p.innerHTML = `
+                <span class="vietnamese-text">${para.vi}</span>
+                <span class="english-text">${para.en}</span>
+            `;
+            readingDiv.appendChild(p);
+        });
+        
+        // Load vocabulary
+        const vocabList = document.getElementById('vocabList');
+        lesson.vocabulary.forEach(vocab => {
+            const li = document.createElement('li');
+            li.className = 'vocab-item';
+            li.innerHTML = `
+                <div>
+                    <div class="vocab-vietnamese">${vocab.word}</div>
+                    <div class="vocab-pronunciation">${vocab.pronunciation}</div>
+                    <button class="vocab-audio" onclick="pronounce('${vocab.word}')">🔊 Listen</button>
+                </div>
+                <div class="vocab-english">${vocab.translation}</div>
+            `;
+            vocabList.appendChild(li);
+        });
+        
+        // Load grammar points
+        const grammarDiv = document.getElementById('grammarPoints');
+        lesson.grammar.forEach(point => {
+            const p = document.createElement('p');
+            p.style.fontSize = '0.9rem';
+            p.style.marginBottom = '10px';
+            p.textContent = '• ' + point;
+            grammarDiv.appendChild(p);
+        });
+        
+        // Load exercises
+        const practiceDiv = document.getElementById('practiceExercises');
+        lesson.exercises.forEach((exercise, index) => {
+            const section = document.createElement('div');
+            section.className = 'exercise-section';
+            section.innerHTML = `
+                <h4>Question ${index + 1}</h4>
+                <div class="exercise-question">
+                    <p><strong>${exercise.question}</strong></p>
+                    <div class="exercise-options" id="options-${index}">
+                        ${exercise.options.map((opt, i) => `
+                            <div class="exercise-option" onclick="selectOption(${index}, ${i})" data-index="${i}">
+                                ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button class="check-answer-btn" onclick="checkAnswer(${index}, ${exercise.correct})">
+                        Check Answer
+                    </button>
+                </div>
+            `;
+            practiceDiv.appendChild(section);
+        });
+        
+        // Progress steps
+        const progressDiv = document.getElementById('progressSteps');
+        const steps = ['Read', 'Vocab', 'Textbook', 'Practice'];
+        steps.forEach((step, i) => {
+            const indicator = document.createElement('div');
+            indicator.className = 'progress-indicator';
+            indicator.innerHTML = `
+                <div class="progress-dot ${i === 0 ? 'current' : ''}" id="step-${i}">${i + 1}</div>
+                <span>${step}</span>
+            `;
+            progressDiv.appendChild(indicator);
+        });
+        
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabName = this.dataset.tab;
+                
+                // Update buttons
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update content
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById('tab-' + tabName).classList.add('active');
+                
+                // Update progress dots
+                const stepIndex = ['read', 'vocab', 'book', 'practice'].indexOf(tabName);
+                document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+                    dot.classList.remove('current', 'completed');
+                    if (i < stepIndex) dot.classList.add('completed');
+                    if (i === stepIndex) dot.classList.add('current');
+                });
+            });
+        });
+        
+        // PDF viewer
+        const pdfViewer = document.getElementById('pdfViewer');
+        pdfViewer.src = lesson.pdfPath;
+        document.getElementById('downloadPdf').href = lesson.pdfPath;
+        
+        // Pronunciation function
+        function pronounce(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'vi-VN';
+                utterance.rate = 0.8;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        
+        // Exercise functions
+        function selectOption(questionIndex, optionIndex) {
+            const container = document.getElementById(`options-${questionIndex}`);
+            container.querySelectorAll('.exercise-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            container.children[optionIndex].classList.add('selected');
+        }
+        
+        function checkAnswer(questionIndex, correctIndex) {
+            const container = document.getElementById(`options-${questionIndex}`);
+            const selected = container.querySelector('.selected');
+            
+            if (!selected) {
+                alert('Please select an answer first!');
+                return;
+            }
+            
+            const selectedIndex = parseInt(selected.dataset.index);
+            
+            if (selectedIndex === correctIndex) {
+                selected.classList.add('correct');
+                alert('Correct! Well done! 🎉');
+            } else {
+                selected.classList.add('incorrect');
+                container.children[correctIndex].classList.add('correct');
+                alert('Not quite. The correct answer is highlighted.');
+            }
+        }
+        
+        // Mark complete
+        document.getElementById('completeBtn').addEventListener('click', function() {
+            const progressKey = `progress_${gradeLevel}`;
+            let progress = JSON.parse(localStorage.getItem(progressKey) || '{"completed": []}');
+            
+            if (!progress.completed.includes(lessonNum)) {
+                progress.completed.push(lessonNum);
+                localStorage.setItem(progressKey, JSON.stringify(progress));
+                alert('Lesson marked as complete! 🎉');
+                this.textContent = '✓ Completed';
+                this.style.background = '#4CAF50';
+            }
+        });
+        
+        // Navigation
+        document.getElementById('backToGrade').href = `grade.html?level=${gradeLevel}`;
+        
+        // Check if there are prev/next lessons
+        if (lessonNum > 1) {
+            document.getElementById('prevLesson').href = `lesson.html?grade=${gradeLevel}&lesson=${lessonNum - 1}`;
+        } else {
+            document.getElementById('prevLesson').classList.add('disabled');
+        }
+        
+        const totalLessons = Object.keys(lessonContent[gradeLevel] || {}).length;
+        if (lessonNum < totalLessons) {
+            document.getElementById('nextLesson').href = `lesson.html?grade=${gradeLevel}&lesson=${lessonNum + 1}`;
+        } else {
+            document.getElementById('nextLesson').classList.add('disabled');
+        }
+    </script>
+</body>
+</html>
